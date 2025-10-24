@@ -1,7 +1,7 @@
 import streamlit as st
-import google.generativeai as genai
+import requests
+import json
 from datetime import datetime
-import os
 
 # Configuración de la página
 st.set_page_config(
@@ -57,38 +57,49 @@ if "messages" not in st.session_state:
         "content": "¡Hola! 👋 Soy el asistente virtual de CAMACOL. Estoy aquí para ayudarte con información sobre la Cámara Colombiana de la Construcción, servicios del sector constructor, normatividad, eventos y más. ¿En qué puedo ayudarte?"
     })
 
-if "model" not in st.session_state:
-    st.session_state.model = None
-
-# Configurar Google AI
-def setup_google_ai():
-    """Configura el modelo de Google AI"""
+# Configurar Google AI usando API REST
+def llamar_gemini_api(prompt):
+    """Llama a la API de Gemini usando REST"""
     api_key = st.secrets.get("GOOGLE_API_KEY")
     
     if not api_key:
-        st.error("⚠️ No se encontró la clave de API de Google AI. Por favor configura GOOGLE_API_KEY en los secrets de Streamlit Cloud.")
-        st.info("Para configurar los secrets en Streamlit Cloud:\n1. Ve a tu aplicación en share.streamlit.io\n2. Click en 'Settings' → 'Secrets'\n3. Agrega: GOOGLE_API_KEY = 'tu_clave_aqui'")
-        return None
+        return None, "No se encontró la clave de API"
+    
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
+    
+    headers = {
+        'Content-Type': 'application/json',
+    }
+    
+    payload = {
+        "contents": [{
+            "parts": [{
+                "text": prompt
+            }]
+        }]
+    }
     
     try:
-        genai.configure(api_key=api_key)
+        response = requests.post(url, headers=headers, json=payload, timeout=30)
         
-        # Usar gemini-1.5-flash que es el modelo más reciente y rápido
-        # Si falla, se mostrará un mensaje de error con el modelo alternativo
-        model = genai.GenerativeModel('gemini-1.5-flash')
-        return model
-        
-    except Exception as e:
-        error_msg = str(e)
-        st.error(f"Error al configurar Google AI: {error_msg}")
-        
-        # Sugerencia específica según el error
-        if "404" in error_msg:
-            st.warning("⚠️ El modelo no está disponible. Verifica tu API key en [Google AI Studio](https://makersuite.google.com/app/apikey)")
+        if response.status_code == 200:
+            data = response.json()
+            if 'candidates' in data and len(data['candidates']) > 0:
+                contenido = data['candidates'][0]['content']['parts'][0]['text']
+                return contenido, None
+            else:
+                return None, "No se recibió respuesta del modelo"
         else:
-            st.info("💡 Verifica que tu API key sea válida y tenga acceso a los modelos de Gemini")
-        
-        return None
+            error_data = response.json() if response.text else {}
+            error_msg = error_data.get('error', {}).get('message', f"Error {response.status_code}")
+            return None, error_msg
+            
+    except requests.exceptions.Timeout:
+        return None, "Timeout: El servidor tardó demasiado en responder"
+    except requests.exceptions.RequestException as e:
+        return None, f"Error de conexión: {str(e)}"
+    except Exception as e:
+        return None, f"Error inesperado: {str(e)}"
 
 # Título principal
 st.title("🏗️ Chatbot CAMACOL")
@@ -140,10 +151,6 @@ with col3:
 
 st.markdown("---")
 
-# Configurar modelo si no está configurado
-if st.session_state.model is None:
-    st.session_state.model = setup_google_ai()
-
 # Mostrar historial de mensajes
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -158,41 +165,41 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
         st.markdown(prompt)
     
     # Generar respuesta con Google AI
-    if st.session_state.model:
-        with st.chat_message("assistant"):
-            with st.spinner("Pensando..."):
-                try:
-                    # Crear prompt con contexto de CAMACOL
-                    full_prompt = f"""Eres un asistente virtual experto de CAMACOL (Cámara Colombiana de la Construcción). 
-                    Tu objetivo es ayudar a los usuarios con información precisa y útil sobre CAMACOL y el sector constructor en Colombia.
-                    
-                    CONTEXTO DE CAMACOL:
-                    {CAMACOL_CONTEXT}
-                    
-                    INSTRUCCIONES:
-                    - Responde de manera amigable y profesional
-                    - Si te preguntan sobre información específica de CAMACOL que no tienes en el contexto, dirígeles al sitio web oficial: www.camacol.co
-                    - Proporciona información clara y concisa
-                    - Responde en español colombiano
-                    - Mantén un tono profesional pero cercano
-                    
-                    PREGUNTA DEL USUARIO: {prompt}
-                    
-                    RESPUESTA:"""
-                    
-                    response = st.session_state.model.generate_content(full_prompt)
-                    respuesta = response.text
-                    
+    with st.chat_message("assistant"):
+        with st.spinner("Pensando..."):
+            try:
+                # Crear prompt con contexto de CAMACOL
+                full_prompt = f"""Eres un asistente virtual experto de CAMACOL (Cámara Colombiana de la Construcción). 
+Tu objetivo es ayudar a los usuarios con información precisa y útil sobre CAMACOL y el sector constructor en Colombia.
+
+CONTEXTO DE CAMACOL:
+{CAMACOL_CONTEXT}
+
+INSTRUCCIONES:
+- Responde de manera amigable y profesional
+- Si te preguntan sobre información específica de CAMACOL que no tienes en el contexto, dirígeles al sitio web oficial: www.camacol.co
+- Proporciona información clara y concisa
+- Responde en español colombiano
+- Mantén un tono profesional pero cercano
+
+PREGUNTA DEL USUARIO: {prompt}
+
+RESPUESTA:"""
+                
+                respuesta, error = llamar_gemini_api(full_prompt)
+                
+                if respuesta:
                     st.markdown(respuesta)
                     st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                    
-                except Exception as e:
-                    error_msg = f"Lo siento, ocurrió un error al procesar tu solicitud: {str(e)}"
+                else:
+                    error_msg = f"Lo siento, ocurrió un error: {error}"
                     st.error(error_msg)
                     st.session_state.messages.append({"role": "assistant", "content": error_msg})
-    else:
-        with st.chat_message("assistant"):
-            st.warning("Por favor configura la clave de API de Google AI en los secrets de Streamlit Cloud para usar el chatbot.")
+                    
+            except Exception as e:
+                error_msg = f"Lo siento, ocurrió un error al procesar tu solicitud: {str(e)}"
+                st.error(error_msg)
+                st.session_state.messages.append({"role": "assistant", "content": error_msg})
 
 # Footer
 st.markdown("---")
@@ -202,5 +209,3 @@ st.markdown("""
     <p>Powered by Google AI (Gemini) & Streamlit</p>
 </div>
 """, unsafe_allow_html=True)
-
-
