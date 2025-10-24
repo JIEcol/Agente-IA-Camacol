@@ -7,8 +7,8 @@ import os
 st.set_page_config(
     page_title="CAMACOL Chatbot",
     page_icon="🏗️",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="centered",
+    initial_sidebar_state="collapsed"
 )
 
 # Información de contexto sobre CAMACOL
@@ -72,50 +72,61 @@ def setup_google_ai():
     
     try:
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-pro')
+        # Usar el modelo más reciente disponible
+        model = genai.GenerativeModel('gemini-1.5-flash')
         return model
     except Exception as e:
         st.error(f"Error al configurar Google AI: {str(e)}")
         return None
 
-# Sidebar con información
-with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Colombia.svg/800px-Flag_of_Colombia.svg.png", width=150)
-    st.title("🏗️ CAMACOL")
-    st.markdown("**Cámara Colombiana de la Construcción**")
-    st.markdown("---")
-    
-    st.markdown("### 📚 Información del Chatbot")
-    st.info("Este chatbot utiliza Google AI (Gemini) para proporcionar información sobre CAMACOL y el sector constructor en Colombia.")
-    
-    st.markdown("### 💡 Preguntas sugeridas")
-    sugestiones = [
-        "¿Qué es CAMACOL?",
-        "¿Cuáles son los servicios de CAMACOL?",
-        "Información sobre el sector constructor",
-        "¿Cómo puedo afiliarme?",
-        "Eventos próximos de CAMACOL"
-    ]
-    
-    for sugerencia in sugestiones:
-        if st.button(sugerencia, key=sugerencia, use_container_width=True):
-            st.session_state.messages.append({"role": "user", "content": sugerencia})
-            st.rerun()
-    
-    st.markdown("---")
-    st.markdown("### 🔗 Enlaces útiles")
-    st.markdown("- [Sitio web oficial](https://camacol.co)")
-    st.markdown("- [Eventos](https://camacol.co/eventos)")
-    st.markdown("- [Capacitación](https://camacol.co/capacitacion)")
-    
-    # Botón para limpiar chat
-    if st.button("🗑️ Limpiar Chat", use_container_width=True):
-        st.session_state.messages = [st.session_state.messages[0]]  # Mantener solo el mensaje de bienvenida
-        st.rerun()
-
 # Título principal
 st.title("🏗️ Chatbot CAMACOL")
 st.markdown("**Tu asistente virtual para información sobre construcción en Colombia**")
+st.markdown("---")
+
+# Información del chatbot centrada
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.info("💡 Este chatbot utiliza Google AI (Gemini) para proporcionar información sobre CAMACOL y el sector constructor en Colombia.")
+
+# Preguntas sugeridas en columnas
+st.markdown("### 💡 Preguntas sugeridas")
+col1, col2 = st.columns(2)
+
+sugestiones = [
+    "¿Qué es CAMACOL?",
+    "¿Cuáles son los servicios de CAMACOL?",
+    "Información sobre el sector constructor",
+    "¿Cómo puedo afiliarme?",
+    "Eventos próximos de CAMACOL",
+    "Estadísticas del sector"
+]
+
+with col1:
+    for i in range(0, len(sugestiones), 2):
+        if st.button(sugestiones[i], key=f"sug{i}", use_container_width=True):
+            st.session_state.messages.append({"role": "user", "content": sugestiones[i]})
+            st.rerun()
+
+with col2:
+    for i in range(1, len(sugestiones), 2):
+        if st.button(sugestiones[i], key=f"sug{i}", use_container_width=True):
+            st.session_state.messages.append({"role": "user", "content": sugestiones[i]})
+            st.rerun()
+
+# Enlaces útiles y botón limpiar
+st.markdown("---")
+col1, col2, col3 = st.columns([2, 1, 1])
+
+with col1:
+    st.markdown("### 🔗 Enlaces útiles")
+    st.markdown("- [Sitio web oficial](https://camacol.co) | [Eventos](https://camacol.co/eventos) | [Capacitación](https://camacol.co/capacitacion)")
+
+with col3:
+    if st.button("🗑️ Limpiar Chat", use_container_width=True):
+        st.session_state.messages = [st.session_state.messages[0]]
+        st.rerun()
+
 st.markdown("---")
 
 # Configurar modelo si no está configurado
