@@ -26,8 +26,8 @@ Este proyecto es un chatbot inteligente diseñado para proporcionar información
 
 1. **Clonar el repositorio**
    ```bash
-   git clone <tu-repositorio>
-   cd <directorio-del-proyecto>
+   git clone https://github.com/JulianTorrest/Chatbot-Camacol.git
+   cd Chatbot-Camacol
    ```
 
 2. **Instalar dependencias**
@@ -54,17 +54,14 @@ Este proyecto es un chatbot inteligente diseñado para proporcionar información
 
 ## 🌐 Despliegue en Streamlit Cloud
 
+### Repositorio en GitHub
+- **URL**: [https://github.com/JulianTorrest/Chatbot-Camacol](https://github.com/JulianTorrest/Chatbot-Camacol)
+
 ### Pasos para desplegar
 
-1. **Subir el código a GitHub**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Chatbot CAMACOL"
-   git branch -M main
-   git remote add origin <tu-repositorio-github>
-   git push -u origin main
-   ```
+1. **El código ya está en GitHub** ✅
+   - Repositorio: https://github.com/JulianTorrest/Chatbot-Camacol
+   - Branch: main
 
 2. **Conectar con Streamlit Cloud**
    - Ve a [share.streamlit.io](https://share.streamlit.io)
