@@ -164,14 +164,23 @@ RECURSOS DIGITALES:
 - Informes económicos
 - Reglamentación técnica
 
-REDES SOCIALES:
+REDES SOCIALES DE CAMACOL:
 
 - Instagram
 - Facebook
-- Twitter (X)
+- Twitter (X): @CamacolColombia, @CAMACOLBOGOTA
 - YouTube: @CamacolColombia
 - LinkedIn
 - TikTok
+
+REDES SOCIALES GUBERNAMENTALES RELACIONADAS:
+
+- Ministerio de Vivienda: @Minvivienda
+- Ministerio de Ambiente: @MinAmbienteCo
+- Presidencia de Colombia: @infopresidencia
+- DANE Colombia: @DANE_Colombia
+- DIAN Colombia: @DIANColombia
+- Superintendencia de Sociedades: @SSociedades
 
 NOTICIAS RECIENTES DEL SECTOR:
 
@@ -180,7 +189,7 @@ NOTICIAS RECIENTES DEL SECTOR:
 - El envejecimiento poblacional redefine el futuro de las ciudades y la vivienda en Colombia (23 Oct 2025)
 - Propuestas de CAMACOL fueron analizadas por líderes del sector financiero en el congreso de la construcción (23 Oct 2025)
 
-SERVICIOS DIGITALES:
+SERVICIOS DIGITALES DE CAMACOL:
 
 - Coordenada Urbana: Sistema de información georreferenciada (requiere registro)
 - Portal de formación: Capacitaciones en línea
@@ -189,16 +198,59 @@ SERVICIOS DIGITALES:
 - Boletines jurídicos: Actualización legal del sector
 - Investigaciones sectoriales: Documentos especializados
 
+ORGANISMOS GUBERNAMENTALES CLAVE PARA EL SECTOR CONSTRUCTOR:
+
+1. MINISTERIO DE AMBIENTE Y DESARROLLO SOSTENIBLE (Minambiente):
+   - Sitio Web: https://www.minambiente.gov.co/
+   - Contacto: info@minambiente.gov.co
+   - Funciones: Normatividad ambiental, construcción sostenible, gestión de RCD (Residuos de Construcción y Demolición)
+   - Temas relevantes: Certificaciones ambientales, impacto ambiental de proyectos, normatividad de RCD (Resolución 1257 de 2021)
+   - Dirección: Calle 37 Nº 8-40, Bogotá DC
+   - Tel: +57 6013323821
+
+2. MINISTERIO DE VIVIENDA, CIUDAD Y TERRITORIO (Minvivienda):
+   - Sitio Web: https://www.minvivienda.gov.co/
+   - Contacto: correspondencia@minvivienda.gov.co
+   - Funciones: Políticas de vivienda, programas de vivienda social, subsidios de vivienda, urbanismo
+   - Programas: Mi Casa Ya, subsidios de vivienda, mejoramiento de vivienda
+   - Dirección: Carrera 6 # 8-77, Bogotá DC
+   - Tel: +57 601 9142174
+
+3. DANE (Departamento Administrativo Nacional de Estadística):
+   - Sitio Web: https://www.dane.gov.co/
+   - Twitter: @DANE_Colombia
+   - Funciones: Estadísticas del sector constructor, actividad edificadora, índices de construcción
+   - Información disponible: Estadísticas de vivienda, actividad económica del sector constructor, índices de precios
+
+4. DIAN (Dirección de Impuestos y Aduanas Nacionales):
+   - Sitio Web: https://www.dian.gov.co/
+   - Twitter: @DIANColombia
+   - Funciones: Aspectos tributarios del sector constructor, registro de empresas, obligaciones fiscales
+   - Temas relevantes: Retención en la fuente, IVA en construcción, tributación sectorial
+
+5. SUPERINTENDENCIA DE SOCIEDADES:
+   - Twitter: @SSociedades
+   - Sitio Web: https://supersociedades.gov.co/
+   - Funciones: Supervisión y control de sociedades comerciales, regulación empresarial
+   - Temas relevantes: Constitución de empresas constructoras, registro mercantil
+
 INFORMACIÓN ADICIONAL PARA EL CHATBOT:
 
-Cuando respondas preguntas sobre CAMACOL:
-- Usa la información actualizada del contexto
+Cuando respondas preguntas sobre CAMACOL y el sector constructor:
+- Usa la información actualizada del contexto proporcionado
 - Si preguntan sobre Coordenada Urbana, dirige al sitio web: ww2.coordenadaurbana.com
-- Para videos y contenido audiovisual, menciona los canales de YouTube
+- Para videos y contenido audiovisual, menciona los canales de YouTube oficiales
 - Para información regional específica, incluye el portal web correspondiente
+- Para normatividad ambiental, menciona el Ministerio de Ambiente
+- Para programas de vivienda y subsidios, menciona el Ministerio de Vivienda
+- Para estadísticas del sector, menciona el DANE
+- Para aspectos tributarios, menciona la DIAN
+- Para constitución de empresas, menciona la Superintendencia de Sociedades
+- Puedes mencionar las redes sociales oficiales cuando sea relevante
 - Si no tienes información específica, dirige al sitio web oficial: camacol.co
 - Mantén un tono profesional pero amigable
 - Responde en español colombiano
+- Proporciona información precisa basada en los datos del contexto
 """
 
 # Configuraciones
