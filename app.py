@@ -80,15 +80,49 @@ PROGRAMAS ESPECIALES:
 
 - Camacol Verde: Promoción de construcción sostenible con certificaciones ambientales
 - Certificación EDGE: Sistema de certificación para edificios eficientes energéticamente
-- Construimos a la Par: Programa de equidad de género para mujeres en el sector constructor
+- Construimos a la Par: Programa de equidad de género para mujeres en el sector constructor (iniciado 2022)
 - Coordenada Urbana: Sistema de información georreferenciada de Camacol
+  URL: https://ww2.coordenadaurbana.com/
+  Descripción: Sistema diseñado para atender las necesidades de todos los actores de la cadena de valor de la construcción
+  Funcionalidades: Información georreferenciada, análisis espacial, datos de construcción
 
-REGIONALES PRINCIPALES:
+CANALES DE YOUTUBE:
 
-1. CAMACOL ANTIOQUIA: Carrera 43 A # 1 – 50, Medellín - Tel: (604) 4488030
-2. CAMACOL ATLÁNTICO: Cra 53 # 106 - 280, Barranquilla - Tel: (605) 3851050
-3. CAMACOL BOGOTÁ Y CUNDINAMARCA: Carrera 19 # 90 – 10 - Tel: (601) 7430265
-4. CAMACOL BOLÍVAR: Cra. 3 #10 - 59, Cartagena
+- CAMACOL Colombia: https://www.youtube.com/@CamacolColombia
+  Contenido: Conferencias, congresos, eventos sectoriales, capacitaciones, análisis del sector
+  
+- Coordenada Urbana: https://www.youtube.com/@Coordenada-Urbana
+  Contenido: Tutoriales del sistema, presentaciones técnicas, webinars, capacitaciones tecnológicas
+
+REGIONALES Y PORTALES WEB:
+
+1. CAMACOL ANTIOQUIA: 
+   Dirección: Carrera 43 A # 1 – 50, Medellín
+   Tel: (604) 4488030
+   Web: https://www.camacolantioquia.org.co
+
+2. CAMACOL ATLÁNTICO: 
+   Dirección: Cra 53 # 106 - 280, Barranquilla
+   Tel: (605) 3851050
+   Web: https://camacolatlantico.org
+
+3. CAMACOL BOGOTÁ Y CUNDINAMARCA: 
+   Dirección: Carrera 19 # 90 – 10
+   Tel: (601) 7430265
+   Web: https://www.camacolbyc.co
+
+4. CAMACOL BOLÍVAR: 
+   Dirección: Cra. 3 #10 - 59, Cartagena
+
+5. CAMACOL RISARALDA: https://camacolrisaralda.co
+
+6. CAMACOL TOLIMA: https://camacoltolima.org.co
+
+7. CAMACOL BOYACÁ Y CASANARE: https://camacolboyaca.com
+
+8. CAMACOL QUINDÍO: https://camacolquindio.com.co
+
+9. CAMACOL CALDAS: https://camacolcaldas.com
 
 FORMACIÓN Y CAPACITACIÓN:
 
@@ -132,7 +166,39 @@ RECURSOS DIGITALES:
 
 REDES SOCIALES:
 
-Instagram, Facebook, Twitter (X), YouTube, LinkedIn, TikTok
+- Instagram
+- Facebook
+- Twitter (X)
+- YouTube: @CamacolColombia
+- LinkedIn
+- TikTok
+
+NOTICIAS RECIENTES DEL SECTOR:
+
+- Precandidatos presidenciales expusieron sus propuestas para el sector constructor en el Congreso de CAMACOL (23 Oct 2025)
+- Subsidios a la demanda, claves para impulsar la compra de vivienda: Fedesarrollo (23 Oct 2025)
+- El envejecimiento poblacional redefine el futuro de las ciudades y la vivienda en Colombia (23 Oct 2025)
+- Propuestas de CAMACOL fueron analizadas por líderes del sector financiero en el congreso de la construcción (23 Oct 2025)
+
+SERVICIOS DIGITALES:
+
+- Coordenada Urbana: Sistema de información georreferenciada (requiere registro)
+- Portal de formación: Capacitaciones en línea
+- Portal de pagos: Pagos en línea de servicios
+- Informes económicos: Acceso a datos sectoriales
+- Boletines jurídicos: Actualización legal del sector
+- Investigaciones sectoriales: Documentos especializados
+
+INFORMACIÓN ADICIONAL PARA EL CHATBOT:
+
+Cuando respondas preguntas sobre CAMACOL:
+- Usa la información actualizada del contexto
+- Si preguntan sobre Coordenada Urbana, dirige al sitio web: ww2.coordenadaurbana.com
+- Para videos y contenido audiovisual, menciona los canales de YouTube
+- Para información regional específica, incluye el portal web correspondiente
+- Si no tienes información específica, dirige al sitio web oficial: camacol.co
+- Mantén un tono profesional pero amigable
+- Responde en español colombiano
 """
 
 # Configuraciones
