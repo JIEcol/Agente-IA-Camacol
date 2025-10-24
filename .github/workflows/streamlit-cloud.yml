@@ -1,0 +1,24 @@
+name: Streamlit Cloud - Despliegue Automático
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Verificar cambios
+      run: |
+        echo "🚀 Cambios detectados en la rama main"
+        echo "📦 Streamlit Cloud se actualizará automáticamente"
+        echo "🔗 Repositorio: https://github.com/JulianTorrest/Chatbot-Camacol"
+        
+    - name: Información del commit
+      run: |
+        echo "📝 Último commit: ${{ github.sha }}"
+        echo "👤 Autor: ${{ github.actor }}"
+        echo "📅 Fecha: $(date)"
+
