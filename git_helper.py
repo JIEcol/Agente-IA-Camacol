@@ -9,24 +9,24 @@ from datetime import datetime
 
 def run_command(command, description):
     """Ejecuta un comando y muestra el resultado"""
-    print(f"\n🔄 {description}...")
+    print(f"\n-> {description}...")
     try:
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         if result.returncode == 0:
-            print(f"✅ {description} completado")
+            print(f"[OK] {description} completado")
             if result.stdout:
                 print(result.stdout)
             return True
         else:
-            print(f"❌ Error: {result.stderr}")
+            print(f"[ERROR] {result.stderr}")
             return False
     except Exception as e:
-        print(f"❌ Error ejecutando comando: {e}")
+        print(f"[ERROR] ejecutando comando: {e}")
         return False
 
 def check_status():
     """Verifica el estado del repositorio"""
-    print("\n📊 Estado del Repositorio")
+    print("\n=== Estado del Repositorio ===")
     print("=" * 50)
     run_command("git status", "Verificando estado")
 
@@ -38,7 +38,7 @@ def add_all():
 def commit(message=None):
     """Hace commit de los cambios"""
     if not message:
-        message = f"Actualización automática - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        message = f"Actualizacion automatica - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     
     run_command(f'git commit -m "{message}"', "Haciendo commit")
     return True
@@ -56,7 +56,7 @@ def pull():
 def show_menu():
     """Muestra el menú principal"""
     print("\n" + "=" * 50)
-    print("🚀 Chatbot CAMACOL - Git Helper")
+    print(">> Chatbot CAMACOL - Git Helper")
     print("=" * 50)
     print("\nOpciones:")
     print("1. Ver estado del repositorio")
@@ -111,14 +111,14 @@ def main():
                 pull()
             elif choice == "6":
                 if add_all() and commit() and push():
-                    print("\n✅ ¡Todo listo! Streamlit Cloud se actualizará automáticamente.")
+                    print("\n[OK] Todo listo! Streamlit Cloud se actualizara automaticamente.")
             elif choice == "7":
                 run_command("git log --oneline -10", "Historial reciente")
             elif choice == "0":
-                print("\n👋 ¡Hasta luego!")
+                print("\n>> Hasta luego!")
                 break
             else:
-                print("\n❌ Opción inválida")
+                print("\n[ERROR] Opcion invalida")
 
 if __name__ == "__main__":
     main()
