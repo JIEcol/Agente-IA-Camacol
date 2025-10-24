@@ -72,11 +72,22 @@ def setup_google_ai():
     
     try:
         genai.configure(api_key=api_key)
-        # Usar el modelo más reciente disponible
+        
+        # Usar gemini-1.5-flash que es el modelo más reciente y rápido
+        # Si falla, se mostrará un mensaje de error con el modelo alternativo
         model = genai.GenerativeModel('gemini-1.5-flash')
         return model
+        
     except Exception as e:
-        st.error(f"Error al configurar Google AI: {str(e)}")
+        error_msg = str(e)
+        st.error(f"Error al configurar Google AI: {error_msg}")
+        
+        # Sugerencia específica según el error
+        if "404" in error_msg:
+            st.warning("⚠️ El modelo no está disponible. Verifica tu API key en [Google AI Studio](https://makersuite.google.com/app/apikey)")
+        else:
+            st.info("💡 Verifica que tu API key sea válida y tenga acceso a los modelos de Gemini")
+        
         return None
 
 # Título principal
