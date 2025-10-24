@@ -65,7 +65,8 @@ def llamar_gemini_api(prompt):
     if not api_key:
         return None, "No se encontró la clave de API"
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
+    # Usar gemini-2.0-flash que está disponible en la versión gratuita
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
     
     headers = {
         'Content-Type': 'application/json',
