@@ -13,41 +13,126 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Información de contexto sobre CAMACOL
+# Información REAL de contexto sobre CAMACOL (desde camacol.co)
 CAMACOL_CONTEXT = """
 CAMACOL (Cámara Colombiana de la Construcción) es el gremio líder del sector constructor en Colombia.
 
-INFORMACIÓN DE LA EMPRESA:
-- Fundada en 1957
-- Representa a más de 40,000 empresas constructoras afiliadas en Colombia
-- Sede principal en Bogotá y presencia en más de 20 ciudades del país
-- Contacto: www.camacol.co
+CONTACTO Y UBICACIÓN:
+- Sede Principal: Carrera 19 No. 90-10, Piso 2-3, Bogotá - Colombia
+- PBX: (601) 743 0265
+- FAX: (601) 217 2813
+- Email: contactenos@camacol.org.co
+- Sitio Web: www.camacol.co
+- Sitio Web Bogotá: www.camacolbyc.co
+
+ESTRUCTURA ORGANIZACIONAL:
+- 18 Regionales en Colombia + 1 Seccional
+- Sistema confederado integrado
+- Más de 40,000 empresas constructoras afiliadas
+- Representa más del 70% de las empresas constructoras formales del país
 
 SERVICIOS PRINCIPALES:
-1. Gestión Documental: Certificados, licencias, avalúos y documentación técnica
-2. Información Técnica: Estudios de mercado, estadísticas del sector constructor
-3. Capacitación: Cursos, seminarios y certificaciones para profesionales del sector
-4. Representación Gremial: Fortalecimiento del sector constructor ante entidades públicas y privadas
-5. Desarrollo Sectorial: Promoción de buenas prácticas en construcción sostenible
 
-ESTADÍSTICAS DEL SECTOR:
+1. INFORMACIÓN ECONÓMICA:
+- Informes económicos sectoriales
+- Datos que construyen
+- Actividad edificadora
+- Tendencias de la construcción
+- Análisis de mercado inmobiliario
+
+2. INFORMACIÓN JURÍDICA Y TÉCNICA:
+- Información jurídica actualizada
+- Reglamentación Técnica sectorial
+- Investigaciones sectoriales especializadas
+- Boletines legislativos
+- Informes jurídicos
+
+3. PRODUCTIVIDAD SECTORIAL:
+- Camacol Verde: Promoción de construcción sostenible
+- Certificación EDGE: Certificación de eficiencia energética
+- Equidad de género: Programa "Construimos a la par" (iniciado 2022)
+- Formación: Capacitación y cursos especializados
+- Inversión: Promoción de inversión en construcción
+- Modernización empresarial
+- Responsabilidad social
+- Transformación Digital
+
+4. PORTAFOLIO DE SERVICIOS:
+- Gestión documental
+- Certificados técnicos
+- Avalúos inmobiliarios
+- Licencias de construcción
+- Estudios de mercado
+
+EVENTOS PRINCIPALES:
+
+- Congreso Colombiano de la Construcción 2025: 22-24 Octubre en Barranquilla
+  Tema: Urbanismo regenerativo, economía circular e inteligencia artificial
+
+- Primera Cumbre de IA Sector Constructor: 21-22 Agosto
+  Lugar: Hotel Estelar Cartagena de Indias
+
+- Expo Camacol: 24-27 Agosto (Feria de construcción)
+
+- BIM Forum Colombia: 13-16 Noviembre (Tecnología BIM)
+
+PROGRAMAS ESPECIALES:
+
+- Camacol Verde: Promoción de construcción sostenible con certificaciones ambientales
+- Certificación EDGE: Sistema de certificación para edificios eficientes energéticamente
+- Construimos a la Par: Programa de equidad de género para mujeres en el sector constructor
+- Coordenada Urbana: Sistema de información georreferenciada de Camacol
+
+REGIONALES PRINCIPALES:
+
+1. CAMACOL ANTIOQUIA: Carrera 43 A # 1 – 50, Medellín - Tel: (604) 4488030
+2. CAMACOL ATLÁNTICO: Cra 53 # 106 - 280, Barranquilla - Tel: (605) 3851050
+3. CAMACOL BOGOTÁ Y CUNDINAMARCA: Carrera 19 # 90 – 10 - Tel: (601) 7430265
+4. CAMACOL BOLÍVAR: Cra. 3 #10 - 59, Cartagena
+
+FORMACIÓN Y CAPACITACIÓN:
+
+Cursos disponibles:
+- AF10 - Optimización Constructiva: innovando en la eficiencia de proyectos
+- AF 7 - Mejores prácticas constructivas en la gestión del agua para el sector rural
+- AF 2 - Competitividad 4.0 en la industria de la construcción: estructuración de proyectos aplicando la inteligencia artificial
+
+PUBLICACIONES:
+
+- Revista Urbana (Última edición: No. 106)
+- Publicaciones sobre construcción y urbanismo
+
+AFILIACIÓN:
+
+Los afiliados nacionales reciben beneficios otorgados por la Presidencia nacional, manteniendo la oferta de servicios de las regionales.
+
+PROPUESTAS SECTORIALES 2025:
+
+Camacol plantea cinco propuestas para reactivar la construcción y vivienda:
+1. Subsidios a la demanda para impulsar la compra de vivienda
+2. Financiamiento de vivienda
+3. Modernización del sector
+4. Equidad de género
+5. Transformación digital
+
+DATOS DEL SECTOR:
+
 - El sector constructor aporta aproximadamente el 10% del PIB colombiano
 - Genera más de 2 millones de empleos directos e indirectos
-- CAMACOL agrupa más del 70% de las empresas constructoras formales del país
+- Representa más del 70% de las empresas constructoras formales del país
 
-EVENTOS Y ACTIVIDADES:
-- Ferias de construcción
-- Seminarios técnicos
-- Certificaciones profesionales
-- Ruedas de negocio
+RECURSOS DIGITALES:
 
-TEMAS FRECUENTES:
-- Licencias de construcción
-- Normatividad del sector
-- Certificaciones profesionales
-- Estudios de mercado inmobiliario
-- Sustentabilidad en construcción
-- Seguridad industrial en obra
+- Portal de formación
+- Portal de pagos en línea
+- Preguntas frecuentes
+- Construcción en cifras
+- Informes económicos
+- Reglamentación técnica
+
+REDES SOCIALES:
+
+Instagram, Facebook, Twitter (X), YouTube, LinkedIn, TikTok
 """
 
 # Configuraciones
