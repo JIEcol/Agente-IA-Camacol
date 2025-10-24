@@ -43,3 +43,6 @@ Thumbs.db
 # Python scripts temporales
 *.pyc
 *.pyo
+
+# Historial de chats
+historial_chats/
