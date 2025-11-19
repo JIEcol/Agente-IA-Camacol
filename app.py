@@ -434,13 +434,17 @@ def obtener_respuesta_ia(prompt):
     # Ordenar proveedores por prioridad
     providers_sorted = sorted(AI_PROVIDERS, key=lambda x: x["priority"])
     
+    errores = []
     for provider in providers_sorted:
         respuesta, error = llamar_api_ia(prompt, provider)
         if respuesta:
             return respuesta, provider["name"]
-        st.warning(f"Error con {provider['name']}: {error}. Intentando con el siguiente proveedor...")
+        error_msg = f"{provider['name']}: {error}"
+        errores.append(error_msg)
+        st.warning(f"⚠️ {error_msg}")
     
-    return None, "Todos los proveedores de IA han fallado. Por favor, inténtalo de nuevo más tarde."
+    error_completo = "\n".join(errores)
+    return None, f"Todos los proveedores fallaron:\n{error_completo}"
 def llamar_gemini_api(prompt):
     """Llama a la API de Gemini usando REST"""
     api_key = st.secrets.get("GOOGLE_API_KEY")
