@@ -1,0 +1,47 @@
+name: CI - Verificación del Chatbot CAMACOL
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v3
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+        
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Verificar sintaxis de Python
+      run: |
+        python -m py_compile app.py config.py
+        
+    - name: Verificar estructura de archivos
+      run: |
+        echo "Verificando archivos esenciales..."
+        test -f app.py && echo "✓ app.py existe"
+        test -f requirements.txt && echo "✓ requirements.txt existe"
+        test -f README.md && echo "✓ README.md existe"
+        test -f .gitignore && echo "✓ .gitignore existe"
+        
+    - name: Validar API Key no está en código
+      run: |
+        if grep -r "AIzaSy" app.py config.py 2>/dev/null; then
+          echo "⚠️ ADVERTENCIA: Posible API key expuesta en el código"
+          exit 1
+        else
+          echo "✓ No se encontraron API keys en el código"
+        fi
+
