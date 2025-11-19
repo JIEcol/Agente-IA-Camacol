@@ -353,6 +353,7 @@ def exportar_json():
     }, ensure_ascii=False, indent=2)
 
 # Configurar Google AI usando API REST
+<<<<<<< HEAD
 def llamar_api_ia(prompt, provider_config):
     """Llama a la API del proveedor de IA especificado"""
     api_key = st.secrets.get(provider_config["api_key_env"])
@@ -417,6 +418,46 @@ def obtener_respuesta_ia(prompt):
         st.warning(f"Error con {provider['name']}: {error}. Intentando con el siguiente proveedor...")
     
     return None, "Todos los proveedores de IA han fallado. Por favor, inténtalo de nuevo más tarde."
+=======
+def llamar_gemini_api(prompt):
+    """Llama a la API de Gemini usando REST"""
+    api_key = st.secrets.get("GOOGLE_API_KEY")
+    
+    if not api_key:
+        return None, "No se encontró la clave de API"
+    
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+    
+    headers = {'Content-Type': 'application/json'}
+    
+    payload = {
+        "contents": [{
+            "parts": [{"text": prompt}]
+        }]
+    }
+    
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=30)
+        
+        if response.status_code == 200:
+            data = response.json()
+            if 'candidates' in data and len(data['candidates']) > 0:
+                contenido = data['candidates'][0]['content']['parts'][0]['text']
+                return contenido, None
+            else:
+                return None, "No se recibió respuesta del modelo"
+        else:
+            error_data = response.json() if response.text else {}
+            error_msg = error_data.get('error', {}).get('message', f"Error {response.status_code}")
+            return None, error_msg
+            
+    except requests.exceptions.Timeout:
+        return None, "Timeout: El servidor tardó demasiado en responder"
+    except requests.exceptions.RequestException as e:
+        return None, f"Error de conexión: {str(e)}"
+    except Exception as e:
+        return None, f"Error inesperado: {str(e)}"
+>>>>>>> 2130c120d594813d11c7f49069009dff7770eeeb
 
 # Verificar autenticación
 verificar_autenticacion()

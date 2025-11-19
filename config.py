@@ -1,6 +1,7 @@
 """
 Configuración del chatbot CAMACOL
 """
+<<<<<<< HEAD
 from enum import Enum
 
 class AIModel(Enum):
@@ -10,12 +11,18 @@ class AIModel(Enum):
 
 # Versión de la aplicación
 APP_VERSION = "1.1.0"
+=======
+
+# Versión de la aplicación
+APP_VERSION = "1.0.0"
+>>>>>>> 2130c120d594813d11c7f49069009dff7770eeeb
 APP_NAME = "Chatbot CAMACOL"
 
 # Configuración del chatbot
 CHATBOT_NAME = "Asistente Virtual CAMACOL"
 WELCOME_MESSAGE = "¡Hola! 👋 Soy el asistente virtual de CAMACOL. Estoy aquí para ayudarte con información sobre la Cámara Colombiana de la Construcción, servicios del sector constructor, normatividad, eventos y más. ¿En qué puedo ayudarte?"
 
+<<<<<<< HEAD
 # Configuración de proveedores de IA
 AI_PROVIDERS = [
     {
@@ -35,6 +42,10 @@ AI_PROVIDERS = [
         "priority": 2
     }
 ]
+=======
+# Modelo de Google AI
+GOOGLE_AI_MODEL = "gemini-pro"
+>>>>>>> 2130c120d594813d11c7f49069009dff7770eeeb
 
 # Enlaces útiles
 LINKS = {
