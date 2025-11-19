@@ -4,6 +4,7 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+from config import AI_PROVIDERS, AIModel
 
 # Configuración de la página
 st.set_page_config(
@@ -353,7 +354,6 @@ def exportar_json():
     }, ensure_ascii=False, indent=2)
 
 # Configurar Google AI usando API REST
-<<<<<<< HEAD
 def llamar_api_ia(prompt, provider_config):
     """Llama a la API del proveedor de IA especificado"""
     api_key = st.secrets.get(provider_config["api_key_env"])
@@ -366,6 +366,8 @@ def llamar_api_ia(prompt, provider_config):
             return llamar_gemini(prompt, api_key, provider_config)
         elif provider_config["type"] == AIModel.DEEPSEEK:
             return llamar_deepseek(prompt, api_key, provider_config)
+        elif provider_config["type"] == AIModel.OPENAI:
+            return llamar_openai(prompt, api_key, provider_config)
         else:
             return None, f"Proveedor no soportado: {provider_config['name']}"
             
@@ -406,6 +408,27 @@ def llamar_deepseek(prompt, api_key, config):
         return data['choices'][0]['message']['content'], None
     return None, f"Error {response.status_code}: {response.text}"
 
+def llamar_openai(prompt, api_key, config):
+    """Implementación específica para OpenAI"""
+    url = f"{config['base_url']}/chat/completions"
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f"Bearer {api_key}"
+    }
+    payload = {
+        "model": config["model"],
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.7,
+        "max_tokens": 1000
+    }
+    
+    response = requests.post(url, headers=headers, json=payload, timeout=30)
+    
+    if response.status_code == 200:
+        data = response.json()
+        return data['choices'][0]['message']['content'], None
+    return None, f"Error {response.status_code}: {response.text}"
+
 def obtener_respuesta_ia(prompt):
     """Intenta obtener una respuesta de los proveedores de IA en orden de prioridad"""
     # Ordenar proveedores por prioridad
@@ -418,7 +441,6 @@ def obtener_respuesta_ia(prompt):
         st.warning(f"Error con {provider['name']}: {error}. Intentando con el siguiente proveedor...")
     
     return None, "Todos los proveedores de IA han fallado. Por favor, inténtalo de nuevo más tarde."
-=======
 def llamar_gemini_api(prompt):
     """Llama a la API de Gemini usando REST"""
     api_key = st.secrets.get("GOOGLE_API_KEY")
@@ -457,7 +479,6 @@ def llamar_gemini_api(prompt):
         return None, f"Error de conexión: {str(e)}"
     except Exception as e:
         return None, f"Error inesperado: {str(e)}"
->>>>>>> 2130c120d594813d11c7f49069009dff7770eeeb
 
 # Verificar autenticación
 verificar_autenticacion()
