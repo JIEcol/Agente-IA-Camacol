@@ -1078,6 +1078,216 @@ with col2:
 
 st.markdown("---")
 
+# Sección de Información y Tablas
+# Sección de Información y Tablas
+with st.expander("📊 Información del Sistema", expanded=False):
+    tab1, tab2, tab3, tab4 = st.tabs(["📋 Diccionario LIVO", "🤖 Modelos LLM", "❓ Niveles de Consultas", "📊 Consultas LIVO por Nivel"])
+    
+    with tab1:
+        st.markdown("### 📋 Diccionario de Datos LIVO")
+        st.markdown("**LIVO (Licencias de Construcción)** - Base de datos de octubre 2025")
+        
+        if PANDAS_AVAILABLE:
+            livo_dict = pd.DataFrame({
+                "Campo": ["ciudad", "departamento", "municipio", "tipo_vivienda", "estrato", "unidades", "area", "compania_constructora", "fecha_licencia", "estado", "valor_proyecto"],
+                "Descripción": ["Ciudad donde se otorgó la licencia", "Departamento de Colombia", "Municipio específico", "Tipo: VIS, NO VIS, VIP", "Estrato socioeconómico (1-6)", "Número de unidades de vivienda", "Área total en m²", "Empresa constructora", "Fecha de expedición de la licencia", "Estado: Aprobada, En trámite, Rechazada", "Valor estimado del proyecto en COP"],
+                "Tipo": ["Texto", "Texto", "Texto", "Categórico", "Numérico", "Numérico", "Numérico", "Texto", "Fecha", "Categórico", "Numérico"]
+            })
+            st.dataframe(livo_dict, use_container_width=True, hide_index=True)
+        else:
+            st.info("Pandas no disponible para mostrar tabla")
+        
+        st.markdown("""\n**Operaciones disponibles:**
+- Suma, promedio, conteo
+- Filtros por ciudad, departamento, tipo de vivienda
+- Agrupaciones y agregaciones
+- Análisis temporal
+        """)
+    
+    with tab2:
+        st.markdown("### 🤖 Comparativa de Modelos LLM")
+        
+        if PANDAS_AVAILABLE:
+            llm_comparison = pd.DataFrame({
+                "Modelo": ["Groq (Llama 3.3 70B)", "Google Gemini 2.0", "DeepSeek Chat", "OpenAI GPT-4o-mini", "Ollama Llama 3.1 (Local)", "Kimi (Moonshot)", "Cerebras", "Mistral AI", "Cohere", "AI21", "Hugging Face"],
+                "Velocidad": ["⚡⚡⚡ Ultra rápido", "⚡⚡ Rápido", "⚡⚡ Rápido", "⚡⚡ Rápido", "⚡ Lento (Local)", "⚡⚡ Rápido", "⚡⚡⚡ Ultra rápido", "⚡⚡ Rápido", "⚡⚡ Rápido", "⚡⚡ Rápido", "⚡ Variable"],
+                "Calidad": ["⭐⭐⭐⭐⭐", "⭐⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐", "⭐⭐⭐"],
+                "Costo": ["Gratis", "Gratis", "Gratis", "Pago", "Gratis (Local)", "Gratis", "Gratis", "Gratis", "Gratis", "Gratis", "Gratis"],
+                "Prioridad": [1, 2, 3, 4, 5, 8, 9, 10, 6, 7, 11]
+            })
+            st.dataframe(llm_comparison, use_container_width=True, hide_index=True)
+        else:
+            st.info("Pandas no disponible para mostrar tabla")
+        
+        st.markdown("""\n**Sistema de Failover Automático:**
+- Intenta modelos en orden de prioridad
+- Si uno falla, pasa automáticamente al siguiente
+- Garantiza respuesta incluso si algunos proveedores están caídos
+        """)
+    
+    with tab3:
+        st.markdown("### ❓ Niveles de Complejidad de Consultas")
+        
+        if PANDAS_AVAILABLE:
+            query_levels = pd.DataFrame({
+                "Nivel": ["1️⃣ Básico", "2️⃣ Intermedio", "3️⃣ Avanzado", "4️⃣ Experto"],
+                "Descripción": ["Información general sobre CAMACOL", "Búsqueda en documentos RAG", "Análisis de datos LIVO con SQL", "Análisis híbrido: RAG + Datos + LLM"],
+                "Ejemplos": ["¿Qué es CAMACOL? ¿Cuáles son los servicios?", "¿Qué dice el informe de Coordenada Urbana?", "¿Cuántas licencias se aprobaron en Bogotá?", "Evolución mensual de licencias VIS vs NO VIS en 2025"],
+                "Tiempo Respuesta": ["< 2 seg", "2-5 seg", "1-3 seg (SQL)", "5-10 seg"],
+                "Fuentes": ["Conocimiento general", "Documentos PDF/Excel", "Base de datos LIVO", "Múltiples fuentes"]
+            })
+            st.dataframe(query_levels, use_container_width=True, hide_index=True)
+        else:
+            st.info("Pandas no disponible para mostrar tabla")
+        
+        st.markdown("""\n**Sistema Inteligente de Detección:**
+- Detecta automáticamente el tipo de consulta
+- Prioriza LIVO SQL para consultas de datos (100x más rápido)
+- Usa RAG para documentos
+- Combina múltiples fuentes cuando es necesario
+        """)
+    
+    with tab4:
+        st.markdown("### 📊 Consultas LIVO por Nivel de Complejidad")
+        st.markdown("**Ejemplos de consultas SQL sobre la base de datos LIVO**")
+        
+        if PANDAS_AVAILABLE:
+            livo_queries = pd.DataFrame({
+                "Nivel": [
+                    "1️⃣", "1️⃣", "1️⃣", "1️⃣",
+                    "2️⃣", "2️⃣", "2️⃣",
+                    "3️⃣", "3️⃣", "3️⃣", "3️⃣", "3️⃣",
+                    "4️⃣", "4️⃣", "4️⃣", "4️⃣", "4️⃣", "4️⃣", "4️⃣"
+                ],
+                "Pregunta Recomendada": [
+                    # Nivel 1
+                    "¿Cuántas licencias se aprobaron en Bogotá?",
+                    "¿Cuál es el total de unidades de vivienda VIS?",
+                    "¿Cuál es el área promedio por licencia?",
+                    "¿Cuántas licencias hay por departamento?",
+                    
+                    # Nivel 2
+                    "¿Cuál es el promedio de unidades por ciudad para VIS?",
+                    "¿Qué porcentaje representan las VIS del total?",
+                    "¿Cuál es la distribución de licencias por estrato y ciudad?",
+                    
+                    # Nivel 3
+                    "¿Cómo evolucionó mensualmente la relación VIS/NO VIS en 2025?",
+                    "¿Cuál es el ranking de constructoras por área total y número de proyectos?",
+                    "¿Cuál es la tendencia trimestral de licencias VIS por departamento?",
+                    "¿Qué ciudades tienen mayor crecimiento en área construida vs trimestre anterior?",
+                    "Comparativa de estratos 1-3 vs 4-6 por ciudad en unidades y área",
+                    
+                    # Nivel 4
+                    "Análisis comparativo trimestral VIS vs NO VIS por región con tendencias y proyecciones",
+                    "Simulación: Si las VIS aumentan 20%, ¿cómo impacta por ciudad, estrato y constructora?",
+                    "What-if: ¿Qué pasa si se redistribuyen licencias de estratos altos a VIS por departamento?",
+                    "Tendencia de participación de mercado de top 10 constructoras con proyección a 6 meses",
+                    "Análisis de correlación entre área promedio, tipo de vivienda, estrato y ciudad con clustering",
+                    "Optimización: ¿Qué combinación ciudad-estrato-tipo maximiza unidades con área mínima?",
+                    "Escenario: Impacto de reducir 30% licencias NO VIS y aumentar VIS en empleo y valor total"
+                ],
+                "Fórmula SQL": [
+                    # Nivel 1
+                    "COUNT(*) WHERE ciudad='Bogotá'",
+                    "SUM(unidades) WHERE tipo='VIS'",
+                    "AVG(area)",
+                    "COUNT(*) GROUP BY departamento",
+                    
+                    # Nivel 2
+                    "AVG(unidades) WHERE tipo='VIS' GROUP BY ciudad",
+                    "(COUNT VIS / COUNT total) * 100",
+                    "COUNT(*) GROUP BY estrato, ciudad",
+                    
+                    # Nivel 3
+                    "COUNT(*), ratio GROUP BY MONTH(fecha), tipo + LAG/LEAD",
+                    "SUM(area), COUNT(*) GROUP BY constructora + RANK() OVER",
+                    "SUM(unidades) GROUP BY QUARTER, departamento + growth rate",
+                    "SUM(area) - LAG(SUM(area)) GROUP BY ciudad, trimestre",
+                    "SUM(unidades), SUM(area) GROUP BY CASE estrato, ciudad",
+                    
+                    # Nivel 4
+                    "CTE + WINDOW + GROUP BY trimestre, region, tipo + regression",
+                    "UPDATE simulation SET unidades = unidades * 1.2 + impact analysis",
+                    "CASE WHEN + SUM redistribution + GROUP BY multiple dimensions",
+                    "RANK() OVER + LAG + moving average + forecast extrapolation",
+                    "CORR(), STDDEV + GROUP BY + CLUSTER analysis + ML integration",
+                    "MAX(unidades/area) + PARTITION BY + constraint optimization",
+                    "Subquery + UNION + aggregation + employment/value calculations"
+                ],
+                "Variables": [
+                    # Nivel 1
+                    "1", "2", "1", "1",
+                    # Nivel 2
+                    "3", "2", "2",
+                    # Nivel 3
+                    "4", "3", "4", "5", "5",
+                    # Nivel 4
+                    "6+", "7+", "6+", "7+", "8+", "6+", "8+"
+                ],
+                "Nombres Variables": [
+                    # Nivel 1
+                    "ciudad",
+                    "unidades, tipo_vivienda",
+                    "area",
+                    "departamento",
+                    
+                    # Nivel 2
+                    "unidades, tipo_vivienda, ciudad",
+                    "tipo_vivienda (VIS/total)",
+                    "estrato, ciudad",
+                    
+                    # Nivel 3
+                    "fecha, tipo_vivienda, ratio, mes_anterior",
+                    "area, constructora, ranking",
+                    "unidades, trimestre, departamento, crecimiento",
+                    "area, ciudad, trimestre, trimestre_anterior, delta",
+                    "unidades, area, estrato, ciudad, categoria_estrato",
+                    
+                    # Nivel 4
+                    "fecha, region, tipo, trimestre, tendencia, proyeccion",
+                    "unidades, tipo, ciudad, estrato, constructora, impacto, delta",
+                    "licencias, estrato, departamento, origen, destino, balance",
+                    "constructora, area, ranking, mes, promedio_movil, forecast",
+                    "area, tipo, estrato, ciudad, correlacion, cluster, desviacion",
+                    "unidades, area, ciudad, estrato, tipo, ratio, optimo",
+                    "licencias, tipo, valor, empleo, ciudad, estrato, escenario, impacto"
+                ]
+            })
+            st.dataframe(livo_queries, use_container_width=True, hide_index=True)
+        else:
+            st.info("Pandas no disponible para mostrar tabla")
+        
+        st.markdown("""\n**Descripción de Niveles:**
+
+**Nivel 1 - Cálculos Básicos:**
+- Operaciones simples: COUNT, SUM, AVG
+- Una sola tabla, sin joins
+- Filtros básicos con WHERE
+- 1-2 variables
+
+**Nivel 2 - Agregaciones Intermedias:**
+- Usa resultados de Nivel 1 como input
+- GROUP BY con múltiples dimensiones
+- Cálculos porcentuales
+- 2-3 variables
+
+**Nivel 3 - Análisis Avanzado:**
+- Usa resultados de Nivel 2
+- Análisis temporal (mensual, trimestral)
+- Rankings y ordenamientos complejos
+- 3-5 variables
+
+**Nivel 4 - Análisis Experto:**
+- Usa resultados de Nivel 3
+- Múltiples agregaciones combinadas
+- Subqueries y CTEs
+- Simulaciones y what-if
+- Cálculos de tendencias y proyecciones
+- 6+ variables
+        """)
+st.markdown("---")
+
 # Mostrar historial de mensajes
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
