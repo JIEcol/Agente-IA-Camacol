@@ -1,0 +1,24 @@
+python web_scraper.py
+python inicializar_rag.py    
+
+git add .
+git commit -m "Actualizar web scraper: agregar 41 páginas de CAMACOL y fuentes externas"
+git push origin main
+
+streamlit run app.py
+python bot_telegram.py               
+                                                     
+# 1. Descargar contenido web
+python web_scraper.py
+
+# 2. Organizar automáticamente por año (SIMULACIÓN)
+python organizar_por_anio.py --dry-run
+
+# 3. Si todo se ve bien, organizar REALMENTE
+python organizar_por_anio.py
+
+# 4. Reindexar RAG con los documentos organizados
+python inicializar_rag.py
+
+# 5. Ejecutar chatbot
+streamlit run app.py

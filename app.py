@@ -5,6 +5,42 @@ import os
 from datetime import datetime
 from pathlib import Path
 from config import AI_PROVIDERS, AIModel
+from llm_providers import llamar_api_ia
+
+# Importar analizador de datos
+try:
+    from data_analyzer import DataAnalyzer
+    EXCEL_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\LIVO_total_oct25_.xlsx"
+    DATA_ANALYZER_AVAILABLE = True
+except Exception as e:
+    DATA_ANALYZER_AVAILABLE = False
+    print(f"⚠️ Analizador de datos no disponible: {e}")
+
+# Importar sistema RAG
+try:
+    from rag_system import RAGSystem
+    RAG_FOLDER = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG"
+    RAG_AVAILABLE = True
+except Exception as e:
+    RAG_AVAILABLE = False
+    print(f"⚠️ Sistema RAG no disponible: {e}")
+
+# Importar sistema LIVO SQL (DuckDB)
+try:
+    from livo_sql import LIVOSQLSystem
+    LIVO_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_oct25_.xlsx"
+    LIVO_SQL_AVAILABLE = True
+except Exception as e:
+    LIVO_SQL_AVAILABLE = False
+    print(f"⚠️ Sistema LIVO SQL no disponible: {e}")
+
+# Importar pandas para procesamiento de datos
+try:
+    import pandas as pd
+    PANDAS_AVAILABLE = True
+except:
+    PANDAS_AVAILABLE = False
+    print("⚠️ Pandas no disponible")
 
 # Configuración de la página
 st.set_page_config(
@@ -275,6 +311,407 @@ if "authenticated" not in st.session_state:
 if "tema" not in st.session_state:
     st.session_state.tema = "Claro"
 
+# Inicializar sistema RAG
+if "rag_system" not in st.session_state and RAG_AVAILABLE:
+    try:
+        st.session_state.rag_system = RAGSystem(RAG_FOLDER)
+        exito, mensaje = st.session_state.rag_system.inicializar()
+        if exito:
+            print(f"✅ RAG: {mensaje}")
+            st.session_state.rag_initialized = True
+        else:
+            print(f"⚠️ RAG: {mensaje}")
+            st.session_state.rag_system = None
+            st.session_state.rag_initialized = False
+    except Exception as e:
+        print(f"❌ Error RAG: {e}")
+        st.session_state.rag_system = None
+        st.session_state.rag_initialized = False
+
+# Inicializar sistema LIVO SQL (DuckDB) con cache
+@st.cache_resource
+def inicializar_livo_sql():
+    """Inicializa LIVO SQL una sola vez usando cache de Streamlit"""
+    if not LIVO_SQL_AVAILABLE:
+        print("❌ LIVO_SQL_AVAILABLE es False")
+        return None, False
+    
+    try:
+        print(f"\n� Inicializando LIVO SQL...")
+        print(f"LIVO_PATH: {LIVO_PATH}")
+        
+        livo_system = LIVOSQLSystem(LIVO_PATH)
+        exito, mensaje = livo_system.inicializar()
+        
+        if exito:
+            print(f"✅ LIVO SQL: {mensaje}")
+            return livo_system, True
+        else:
+            print(f"⚠️ LIVO SQL: {mensaje}")
+            return None, False
+            
+    except Exception as e:
+        import traceback
+        print(f"❌ Error LIVO SQL: {e}")
+        print(f"Traceback completo:\n{traceback.format_exc()}")
+        return None, False
+
+# Inicializar LIVO SQL
+if "livo_sql" not in st.session_state:
+    livo_system, livo_ok = inicializar_livo_sql()
+    st.session_state.livo_sql = livo_system
+    st.session_state.livo_sql_initialized = livo_ok
+
+# Función para detectar consultas de datos
+# Funciones para detectar tipo de consulta
+def es_consulta_livo(pregunta: str) -> bool:
+    """Detecta si la pregunta es específicamente sobre análisis de datos LIVO"""
+    palabras_livo = ['livo', 'licencia', 'licencias']
+    operaciones = ['suma', 'sumar', 'promedio', 'total', 'cantidad', 'cuántos', 'cuántas',
+                   'filtrar', 'agrupar', 'contar', 'calcular']
+    
+    pregunta_lower = pregunta.lower()
+    
+    # Si menciona LIVO explícitamente
+    if any(palabra in pregunta_lower for palabra in palabras_livo):
+        return True
+    
+    # Si menciona operaciones + ciudad/municipio/proyecto (típico de LIVO)
+    tiene_operacion = any(op in pregunta_lower for op in operaciones)
+    tiene_geo = any(geo in pregunta_lower for geo in ['ciudad', 'municipio', 'departamento', 'bogotá', 'medellín', 'cali'])
+    
+    if tiene_operacion and tiene_geo:
+        return True
+    
+    return False
+
+def es_consulta_rag(pregunta: str) -> bool:
+    """Detecta si la pregunta es sobre documentos del RAG"""
+    palabras_rag = [
+        'documento', 'documentos', 'informe', 'informes', 'reporte', 'reportes',
+        'camacol informa', 'datos que construyen', 'coordenada urbana',
+        'tendencias', 'coyuntura', 'metodología', 'diccionario',
+        'pdf', 'dice el documento', 'según el documento',
+        'en el informe', 'en el reporte', 'ficha', 'herramientas',
+        'costos de construcción', 'financiación de vivienda',
+        'pobreza multidimensional', 'marco fiscal'
+    ]
+    
+    pregunta_lower = pregunta.lower()
+    return any(palabra in pregunta_lower for palabra in palabras_rag)
+def procesar_consulta_datos(pregunta: str) -> tuple:
+    """Procesa una consulta sobre datos usando el analizador"""
+    if not DATA_ANALYZER_AVAILABLE or not hasattr(st.session_state, 'data_analyzer') or st.session_state.data_analyzer is None:
+        return False, "❌ El analizador de datos no está disponible en este momento."
+    
+    try:
+        # Obtener API key de OpenAI
+        openai_key = st.secrets.get("OPENAI_API_KEY")
+        if not openai_key:
+            return False, "❌ No se encontró la clave de API de OpenAI para análisis de datos."
+        
+        # Ejecutar consulta con failover automático
+        exito, resultado, estrategia = st.session_state.data_analyzer.consultar(
+            pregunta=pregunta,
+            api_key=openai_key,
+            estrategia="auto"  # Failover automático: LangChain -> PandasAI
+        )
+        
+        if exito:
+            # Agregar badge de estrategia usada
+            if estrategia == "langchain":
+                badge = "🔗 LangChain"
+            elif estrategia == "pandasai":
+                badge = "🐼 PandasAI (Fallback)"
+            else:
+                badge = "📊"
+            
+            return True, f"{badge}\n\n{resultado}"
+        else:
+            return False, resultado
+            
+    except Exception as e:
+        return False, f"❌ Error al procesar consulta de datos: {str(e)}"
+
+def procesar_con_prioridad_livo(pregunta: str) -> tuple:
+    """Procesa consulta con prioridad LIVO: Intenta LIVO primero, si falla usa sistema híbrido"""
+    print(f"\n🔍 === INICIANDO PRIORIDAD LIVO ===")
+    print(f"Pregunta: {pregunta}")
+    
+    if not RAG_AVAILABLE or not hasattr(st.session_state, 'rag_system') or st.session_state.rag_system is None:
+        print("❌ RAG no disponible")
+        return False, "❌ El sistema RAG no está disponible en este momento."
+    
+    try:
+        # Detectar si necesita análisis de datos
+        print("📊 Llamando a buscar_con_analisis...")
+        exito, resultado = st.session_state.rag_system.buscar_con_analisis(pregunta, k=5)
+        
+        print(f"Resultado buscar_con_analisis: exito={exito}")
+        if not exito:
+            print("❌ buscar_con_analisis falló")
+            return False, "❌ No se pudo procesar la consulta."
+        
+        print(f"\n=== RESULTADO ANÁLISIS ===")
+        print(f"Needs analysis: {resultado['needs_analysis']}")
+        print(f"Data files encontrados: {len(resultado['data_files'])}")
+        if resultado['data_files']:
+            print(f"Archivos: {[f.name for f in resultado['data_files']]}")
+        
+        # PASO 1: Si necesita análisis Y hay archivos de datos, intentar LIVO PRIMERO
+        if resultado["needs_analysis"] and resultado["data_files"]:
+            livo_path = Path(r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_oct25_.xlsx")
+            
+            # Verificar si LIVO está en la lista de archivos
+            if livo_path.exists() and livo_path in resultado["data_files"]:
+                print("✅ LIVO encontrado en archivos de datos")
+                
+                # PRIORIDAD 1: Usar DuckDB SQL (100x más rápido)
+                if LIVO_SQL_AVAILABLE and hasattr(st.session_state, 'livo_sql') and st.session_state.livo_sql:
+                    print("🚀 Usando DuckDB + Text-to-SQL (ULTRA RÁPIDO)...")
+                    try:
+                        exito_sql, respuesta_sql = st.session_state.livo_sql.consultar(pregunta, obtener_respuesta_ia)
+                        
+                        if exito_sql:
+                            print("✅ DuckDB respondió exitosamente!")
+                            resultado_final = f"🚀 **FUENTE: LIVO SQL (DuckDB) - Ultra Rápido**\n\n"
+                            resultado_final += respuesta_sql
+                            return True, resultado_final
+                        else:
+                            print(f"⚠️ DuckDB falló: {respuesta_sql}")
+                    except Exception as e:
+                        print(f"⚠️ Error con DuckDB: {e}")
+                
+                # FALLBACK: Usar Pandas (más lento pero funcional)
+                print("🐌 Fallback a Pandas...")
+                if PANDAS_AVAILABLE:
+                    try:
+                        # Cargar LIVO
+                        df_livo = pd.read_excel(livo_path)
+                        
+                        # Crear prompt específico para LIVO
+                        prompt_livo = f"""Usando el archivo LIVO (Licencias de Construcción) de octubre 2025:
+
+Datos disponibles:
+- Filas: {len(df_livo)}
+- Columnas: {', '.join(df_livo.columns[:10])}
+
+Primeras filas:
+{df_livo.head(3).to_string()}
+
+PREGUNTA: {pregunta}
+
+Analiza los datos y responde de forma precisa. Si no puedes responder con estos datos, indica claramente que necesitas información adicional."""
+                        
+                        # Intentar responder con LLM usando datos de LIVO
+                        respuesta_livo, proveedor = obtener_respuesta_ia(prompt_livo)
+                        
+                        if respuesta_livo:
+                            # Verificar si la respuesta es válida (no dice que no puede responder)
+                            palabras_fallo = ['no puedo', 'no tengo', 'no dispongo', 'necesito más', 'información adicional', 'no está disponible']
+                            respuesta_lower = respuesta_livo.lower()
+                            
+                            if not any(palabra in respuesta_lower for palabra in palabras_fallo):
+                                print("✅ LIVO (Pandas) respondió exitosamente!")
+                                resultado_final = f"📊 **FUENTE: LIVO (Licencias de Construcción - Octubre 2025)**\n\n"
+                                resultado_final += f"**Archivo:** LIVO_total_oct25_.xlsx\n"
+                                resultado_final += f"**Registros:** {len(df_livo)} licencias\n\n"
+                                resultado_final += f"**Respuesta:**\n{respuesta_livo}\n\n"
+                                resultado_final += f"_Generado por: {proveedor}_"
+                                return True, resultado_final
+                            else:
+                                print("⚠️ LIVO no pudo responder, pasando a sistema híbrido...")
+                    except Exception as e:
+                        print(f"⚠️ Error con LIVO Pandas: {e}, pasando a sistema híbrido...")
+        
+        # PASO 2: Si LIVO no respondió, usar sistema híbrido completo
+        print("🔄 Usando sistema híbrido (RAG + Múltiples archivos)...")
+        return procesar_consulta_hibrida(pregunta)
+        
+    except Exception as e:
+        return False, f"❌ Error: {str(e)}"
+
+def procesar_consulta_hibrida(pregunta: str) -> tuple:
+    """Procesa consulta híbrida: RAG + Data Analyzer con múltiples archivos"""
+    if not RAG_AVAILABLE or not hasattr(st.session_state, 'rag_system') or st.session_state.rag_system is None:
+        return False, "❌ El sistema RAG no está disponible en este momento."
+    
+    try:
+        # Usar búsqueda híbrida del RAG
+        exito, resultado = st.session_state.rag_system.buscar_con_analisis(pregunta, k=5)
+        
+        if not exito:
+            return False, "❌ No se pudo procesar la consulta."
+        
+        # DEBUG: Mostrar qué detectó
+        print(f"\n=== DEBUG CONSULTA HÍBRIDA ===")
+        print(f"Pregunta: {pregunta}")
+        print(f"Needs analysis: {resultado['needs_analysis']}")
+        print(f"Year detected: {resultado['year_detected']}")
+        print(f"Data files found: {len(resultado['data_files'])}")
+        print(f"RAG results found: {len(resultado['rag_results'])}")
+        
+        respuesta_final = ""
+        contexto_rag = ""  # Inicializar aquí
+        
+        # 1. Agregar contexto RAG si existe
+        if resultado["rag_results"]:
+            respuesta_final += "📚 **FUENTE: Documentos CAMACOL (Sistema RAG)**\n\n"
+            
+            # Mostrar documentos encontrados
+            docs_unicos = set()
+            for res in resultado["rag_results"]:
+                docs_unicos.add(res['metadata']['filename'])
+            
+            respuesta_final += "**Documentos consultados:**\n"
+            for doc in list(docs_unicos)[:5]:
+                respuesta_final += f"- {doc}\n"
+            respuesta_final += "\n"
+            
+            # Construir contexto para el LLM
+            contexto_rag = ""
+            for i, res in enumerate(resultado["rag_results"][:5], 1):
+                meta = res['metadata']
+                contexto_rag += f"**Documento {i}: {meta['filename']}**\n"
+                contexto_rag += f"{res['content']}\n\n"
+        
+        # 2. Si necesita análisis de datos, procesar con Data Analyzer
+        analisis_datos = ""
+        if resultado["needs_analysis"] and resultado["data_files"]:
+            if DATA_ANALYZER_AVAILABLE and hasattr(st.session_state, 'data_analyzer') and st.session_state.data_analyzer:
+                respuesta_final += "\n📊 **ANÁLISIS DE DATOS:**\n\n"
+                
+                # Procesar cada archivo de datos
+                for archivo in resultado["data_files"][:2]:  # Limitar a 2 archivos
+                    try:
+                        respuesta_final += f"**Archivo: {archivo.name}**\n"
+                        
+                        # Cargar datos
+                        if archivo.suffix.lower() in ['.xlsx', '.xls']:
+                            df = pd.read_excel(archivo)
+                        elif archivo.suffix.lower() == '.csv':
+                            df = pd.read_csv(archivo)
+                        else:
+                            continue
+                        
+                        # Análisis básico
+                        respuesta_final += f"- Filas: {len(df)}, Columnas: {len(df.columns)}\n"
+                        respuesta_final += f"- Columnas: {', '.join(df.columns[:5])}{'...' if len(df.columns) > 5 else ''}\n"
+                        
+                        analisis_datos += f"\nDatos de {archivo.name}:\n"
+                        analisis_datos += df.head(5).to_string() + "\n"
+                        
+                    except Exception as e:
+                        respuesta_final += f"- Error al procesar: {str(e)}\n"
+                
+                respuesta_final += "\n"
+        
+        # 3. Generar respuesta con LLM combinando RAG + Análisis
+        if contexto_rag or analisis_datos:
+            prompt_llm = f"""Eres un asistente experto de CAMACOL. Responde la pregunta usando la información proporcionada.
+
+CONTEXTO DE CAMACOL:
+{CAMACOL_CONTEXT}
+
+"""
+            
+            if contexto_rag:
+                prompt_llm += f"INFORMACIÓN DE DOCUMENTOS:\n{contexto_rag}\n"
+            
+            if analisis_datos:
+                prompt_llm += f"DATOS ANALIZADOS:\n{analisis_datos}\n"
+            
+            prompt_llm += f"""\nPREGUNTA: {pregunta}
+
+INSTRUCCIONES:
+- Responde de forma clara y precisa
+- Usa la información de los documentos y datos proporcionados
+- Si hay datos numéricos, inclúyelos en tu respuesta
+- Mantén un tono profesional
+
+RESPUESTA:"""
+            
+            respuesta_llm, proveedor = obtener_respuesta_ia(prompt_llm)
+            
+            if respuesta_llm:
+                respuesta_final += f"**Respuesta:**\n{respuesta_llm}\n"
+                respuesta_final += f"\n_Generado por: {proveedor}_"
+                return True, respuesta_final
+        
+        # Si no hay contexto, respuesta genérica
+        return False, "❌ No se encontró información relevante."
+        
+    except Exception as e:
+        return False, f"❌ Error al procesar consulta híbrida: {str(e)}"
+
+def procesar_consulta_rag(pregunta: str) -> tuple:
+    """Procesa una consulta sobre documentos RAG"""
+    if not RAG_AVAILABLE or not hasattr(st.session_state, 'rag_system') or st.session_state.rag_system is None:
+        return False, "❌ El sistema RAG no está disponible en este momento."
+    
+    try:
+        # Buscar en documentos RAG
+        exito, resultados = st.session_state.rag_system.buscar(pregunta, k=5)
+        
+        if not exito or not resultados:
+            return False, "❌ No se encontró información relevante en los documentos."
+        
+        # Construir contexto con los documentos encontrados
+        contexto = "📚 **FUENTE: Documentos CAMACOL (Sistema RAG)**\n\n"
+        contexto += "### Documentos relevantes encontrados:\n\n"
+        
+        documentos_unicos = {}
+        for res in resultados:
+            filename = res['metadata']['filename']
+            if filename not in documentos_unicos:
+                documentos_unicos[filename] = {
+                    'tipo': res['metadata']['type'],
+                    'folder': res['metadata']['folder'],
+                    'contenidos': []
+                }
+            documentos_unicos[filename]['contenidos'].append(res['content'])
+        
+        # Listar documentos encontrados
+        for i, (filename, info) in enumerate(documentos_unicos.items(), 1):
+            contexto += f"{i}. **{filename}** ({info['tipo']}) - Carpeta: {info['folder']}\n"
+        
+        contexto += "\n---\n\n"
+        
+        # Crear prompt para el LLM con el contexto de los documentos
+        prompt_rag = f"""Eres un asistente experto de CAMACOL. Tienes acceso a los siguientes documentos relevantes:
+
+"""
+        
+        for filename, info in documentos_unicos.items():
+            prompt_rag += f"\n**Documento: {filename}**\n"
+            for contenido in info['contenidos'][:2]:  # Máximo 2 chunks por documento
+                prompt_rag += f"{contenido}\n\n"
+        
+        prompt_rag += f"""\nINSTRUCCIONES:
+- Responde la pregunta usando EXCLUSIVAMENTE la información de los documentos proporcionados
+- Cita el nombre del documento cuando uses información específica
+- Si la información no está en los documentos, dilo claramente
+- Sé preciso y conciso
+- Responde en español colombiano
+
+PREGUNTA: {pregunta}
+
+RESPUESTA:"""
+        
+        # Obtener respuesta del LLM
+       
+        respuesta, proveedor = obtener_respuesta_ia(prompt_rag)
+        
+        if respuesta:
+            resultado_final = contexto
+            resultado_final += f"### Respuesta basada en los documentos:\n\n{respuesta}\n\n"
+            resultado_final += f"*Generado por: {proveedor}*"
+            return True, resultado_final
+        else:
+            return False, f"❌ Error al generar respuesta: {proveedor}"
+            
+    except Exception as e:
+        return False, f"❌ Error al procesar consulta RAG: {str(e)}"
 # Autenticación básica
 def verificar_autenticacion():
     """Verifica si el usuario está autenticado"""
@@ -354,7 +791,7 @@ def exportar_json():
     }, ensure_ascii=False, indent=2)
 
 # Configurar Google AI usando API REST
-def llamar_api_ia(prompt, provider_config):
+#def llamar_api_ia(prompt, provider_config):
     """Llama a la API del proveedor de IA especificado"""
     api_key = st.secrets.get(provider_config["api_key_env"])
     
@@ -374,7 +811,7 @@ def llamar_api_ia(prompt, provider_config):
     except Exception as e:
         return None, f"Error con {provider_config['name']}: {str(e)}"
 
-def llamar_gemini(prompt, api_key, config):
+#def llamar_gemini(prompt, api_key, config):
     """Implementación específica para Google Gemini"""
     url = f"{config['base_url']}/{config['model']}:generateContent?key={api_key}"
     headers = {'Content-Type': 'application/json'}
@@ -388,7 +825,7 @@ def llamar_gemini(prompt, api_key, config):
             return data['candidates'][0]['content']['parts'][0]['text'], None
     return None, f"Error {response.status_code}: {response.text}"
 
-def llamar_deepseek(prompt, api_key, config):
+#def llamar_deepseek(prompt, api_key, config):
     """Implementación específica para DeepSeek"""
     url = f"{config['base_url']}/chat/completions"
     headers = {
@@ -441,7 +878,7 @@ def obtener_respuesta_ia(prompt):
             return respuesta, provider["name"]
         error_msg = f"{provider['name']}: {error}"
         errores.append(error_msg)
-        st.warning(f"⚠️ {error_msg}")
+        print(f"⚠️ {error_msg}")
     
     error_completo = "\n".join(errores)
     return None, f"Todos los proveedores fallaron:\n{error_completo}"
@@ -571,15 +1008,34 @@ with st.sidebar:
     # Info
     st.markdown("---")
     st.markdown("### ℹ️ Información")
-    st.info("Este chatbot utiliza Google AI (Gemini 2.0 Flash) para proporcionar información sobre CAMACOL.")
+    st.info("Chatbot inteligente con acceso a documentos CAMACOL y análisis de datos del sector constructor.")
+    
+    # Gestión RAG
+    if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
+        st.markdown("---")
+        st.markdown("### 📚 Sistema RAG")
+        
+        if st.button("📚 Ver Documentos", use_container_width=True):
+            with st.expander("📄 Documentos Indexados", expanded=True):
+                docs_info = st.session_state.rag_system.listar_documentos()
+                st.markdown(docs_info)
+        
+        if st.button("🔄 Recargar RAG", use_container_width=True):
+            with st.spinner("🔄 Recargando documentos..."):
+                exito, mensaje = st.session_state.rag_system.inicializar(force_reload=True)
+                if exito:
+                    st.success(mensaje)
+                else:
+                    st.error(mensaje)
     
     # Cerrar sesión
+    st.markdown("---")
     if st.button("🚪 Cerrar Sesión", use_container_width=True):
         st.session_state.authenticated = False
         st.rerun()
 
 # Área principal
-st.title("🏗️ Chatbot CAMACOL")
+st.title("🏭 Chatbot CAMACOL")
 st.markdown("**Tu asistente virtual para información sobre construcción en Colombia**")
 
 # Selector de tema en acción
@@ -594,11 +1050,6 @@ if st.session_state.tema == "Oscuro":
     """, unsafe_allow_html=True)
 
 st.markdown("---")
-
-# Información del chatbot
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    st.info("💡 Este chatbot utiliza Google AI (Gemini) para proporcionar información sobre CAMACOL y el sector constructor en Colombia.")
 
 # Preguntas sugeridas
 st.markdown("### 💡 Preguntas sugeridas")
@@ -642,48 +1093,146 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
     
     # Generar respuesta
     with st.chat_message("assistant"):
-        with st.spinner("Pensando..."):
+        with st.spinner("🤔 Analizando tu pregunta..."):
             try:
-                full_prompt = f"""Eres un asistente virtual experto de CAMACOL (Cámara Colombiana de la Construcción). 
+                # PASO 1: Procesamiento con PRIORIDAD LIVO (PRIORIDAD MÁXIMA)
+                if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
+                    with st.spinner("🔍 Analizando (Prioridad: LIVO → Sistema Híbrido)..."):
+                        exito, respuesta = procesar_con_prioridad_livo(prompt)
+                        
+                        if exito:
+                            st.markdown(respuesta)
+                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                            guardar_historial()
+                        else:
+                            # Si falla híbrido, usar contexto general con RAG
+                            st.info("ℹ️ No se encontró información específica. Usando conocimiento general...")
+                            
+                            # Intentar obtener contexto RAG
+                            contexto_rag = ""
+                            try:
+                                contexto_rag = st.session_state.rag_system.obtener_contexto(prompt, k=2)
+                            except:
+                                pass
+                            
+                            full_prompt = f"""Eres un asistente virtual experto de CAMACOL.
+
+CONTEXTO: {CAMACOL_CONTEXT}
+"""
+                            if contexto_rag and contexto_rag != "No se encontró información relevante.":
+                                full_prompt += f"\n{contexto_rag}\n"
+                            
+                            full_prompt += f"""\nPREGUNTA: {prompt}
+
+RESPUESTA:"""
+                            
+                            respuesta, proveedor = obtener_respuesta_ia(full_prompt)
+                            
+                            if respuesta:
+                                st.markdown(f"🤖 **FUENTE: Conocimiento General + Contexto CAMACOL**\n\n{respuesta}")
+                                st.caption(f"Generado por: {proveedor}")
+                                st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                                guardar_historial()
+                            else:
+                                error_msg = f"Lo siento, ocurrió un error: {proveedor}"
+                                st.error(error_msg)
+                                st.session_state.messages.append({"role": "assistant", "content": error_msg})
+                
+                # PASO 2: Fallback a LIVO si RAG no está disponible
+                elif es_consulta_livo(prompt):
+                    with st.spinner("📊 Analizando base de datos LIVO..."):
+                        exito, respuesta = procesar_consulta_datos(prompt)
+                        
+                        if exito:
+                            st.markdown(f"📊 **FUENTE: Base de Datos LIVO**\n\n{respuesta}")
+                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                            guardar_historial()
+                        else:
+                            st.warning("⚠️ No pude analizar los datos LIVO. Usando respuesta general...")
+                            full_prompt = f"""Eres un asistente virtual experto de CAMACOL.
+
+CONTEXTO: {CAMACOL_CONTEXT}
+
+PREGUNTA: {prompt}
+
+RESPUESTA:"""
+                            respuesta, proveedor = obtener_respuesta_ia(full_prompt)
+                            
+                            if respuesta:
+                                st.markdown(f"🤖 **FUENTE: Conocimiento General**\n\n{respuesta}")
+                                st.caption(f"Generado por: {proveedor}")
+                                st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                                guardar_historial()
+                            else:
+                                error_msg = f"Lo siento, ocurrió un error: {proveedor}"
+                                st.error(error_msg)
+                                st.session_state.messages.append({"role": "assistant", "content": error_msg})
+                
+                # PASO 3: Consulta general sobre CAMACOL
+                else:
+                    # Obtener contexto del RAG si está disponible
+                    contexto_rag = ""
+                    if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
+                        try:
+                            contexto_rag = st.session_state.rag_system.obtener_contexto(prompt, k=3)
+                            if contexto_rag and contexto_rag != "No se encontró información relevante.":
+                                st.caption("📚 Usando información de documentos CAMACOL")
+                        except Exception as e:
+                            print(f"⚠️ Error al obtener contexto RAG: {e}")
+                    
+                    # Construir prompt con contexto RAG si existe
+                    full_prompt = f"""Eres un asistente virtual experto de CAMACOL (Cámara Colombiana de la Construcción). 
 Tu objetivo es ayudar a los usuarios con información precisa y útil sobre CAMACOL y el sector constructor en Colombia.
 
 CONTEXTO DE CAMACOL:
 {CAMACOL_CONTEXT}
-
-INSTRUCCIONES:
+"""
+                    
+                    # Agregar contexto RAG si existe
+                    if contexto_rag and contexto_rag != "No se encontró información relevante.":
+                        full_prompt += f"\n{contexto_rag}\n"
+                    
+                    full_prompt += f"""\nINSTRUCCIONES:
 - Responde de manera amigable y profesional
-- Si te preguntan sobre información específica de CAMACOL que no tienes en el contexto, dirígeles al sitio web oficial: www.camacol.co
+- Si tienes información de los documentos CAMACOL, úsala para dar respuestas más precisas
+- Si te preguntan sobre información específica que no tienes, dirígeles al sitio web oficial: www.camacol.co
 - Proporciona información clara y concisa
 - Responde en español colombiano
 - Mantén un tono profesional pero cercano
-- Si el usuario pregunta sobre código o fórmulas, responde con formato apropiado
 
 PREGUNTA DEL USUARIO: {prompt}
 
 RESPUESTA:"""
-                
-                respuesta, error = llamar_gemini_api(full_prompt)
-                
-                if respuesta:
-                    st.markdown(respuesta)
-                    st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                    # Guardar automáticamente después de cada respuesta
-                    guardar_historial()
-                else:
-                    error_msg = f"Lo siento, ocurrió un error: {error}"
-                    st.error(error_msg)
-                    st.session_state.messages.append({"role": "assistant", "content": error_msg})
+                    
+                    respuesta, proveedor = obtener_respuesta_ia(full_prompt)
+                    
+                    if respuesta:
+                        # Indicar fuente según si usó RAG o no
+                        if contexto_rag and contexto_rag != "No se encontró información relevante.":
+                            fuente_msg = f"📚 **FUENTE: Conocimiento General + Documentos CAMACOL (RAG)**\n\n{respuesta}"
+                        else:
+                            fuente_msg = f"🤖 **FUENTE: Conocimiento General CAMACOL**\n\n{respuesta}"
+                        
+                        st.markdown(fuente_msg)
+                        st.caption(f"Generado por: {proveedor}")
+                        st.session_state.messages.append({"role": "assistant", "content": fuente_msg})
+                        guardar_historial()
+                    else:
+                        error_msg = f"Lo siento, ocurrió un error: {proveedor}"
+                        st.error(error_msg)
+                        st.session_state.messages.append({"role": "assistant", "content": error_msg})
                     
             except Exception as e:
                 error_msg = f"Lo siento, ocurrió un error al procesar tu solicitud: {str(e)}"
                 st.error(error_msg)
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
 
+
 # Footer
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: gray;'>
     <p>Chatbot desarrollado para CAMACOL - Cámara Colombiana de la Construcción</p>
-    <p>Powered by Google AI (Gemini 2.0 Flash) & Streamlit</p>
+    <p>Powered by Multi-LLM (Gemini + DeepSeek + OpenAI) & Hybrid RAG + Data Analyzer System</p>
 </div>
 """, unsafe_allow_html=True)

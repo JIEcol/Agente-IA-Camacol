@@ -16,6 +16,23 @@ from dotenv import load_dotenv
 # Cargar variables de entorno desde .env
 load_dotenv()
 
+# Importar sistema RAG
+try:
+    from rag_system import RAGSystem
+    RAG_FOLDER = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG"
+    RAG_AVAILABLE = True
+    # Inicializar RAG globalmente
+    rag_system = RAGSystem(RAG_FOLDER)
+    exito, mensaje = rag_system.inicializar()
+    if exito:
+        logger.info(f"✅ RAG: {mensaje}")
+    else:
+        logger.warning(f"⚠️ RAG: {mensaje}")
+        RAG_AVAILABLE = False
+except Exception as e:
+    RAG_AVAILABLE = False
+    logger.warning(f"⚠️ Sistema RAG no disponible: {e}")
+
 # Configurar logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -51,12 +68,18 @@ def llamar_api_ia(prompt, provider_config):
         return None, f"No se encontró la clave de API para {provider_config['name']}"
     
     try:
-        if provider_config["type"] == AIModel.GEMINI:
+        if provider_config["type"] == AIModel.GROQ:
+            return llamar_groq(prompt, api_key, provider_config)
+        elif provider_config["type"] == AIModel.GEMINI:
             return llamar_gemini(prompt, api_key, provider_config)
         elif provider_config["type"] == AIModel.DEEPSEEK:
             return llamar_deepseek(prompt, api_key, provider_config)
         elif provider_config["type"] == AIModel.OPENAI:
             return llamar_openai(prompt, api_key, provider_config)
+        elif provider_config["type"] == AIModel.OLLAMA:
+            return llamar_ollama(prompt, provider_config)
+        elif provider_config["type"] == AIModel.KIMI:
+            return llamar_kimi(prompt, api_key, provider_config)
         else:
             return None, f"Proveedor no soportado: {provider_config['name']}"
     except Exception as e:
