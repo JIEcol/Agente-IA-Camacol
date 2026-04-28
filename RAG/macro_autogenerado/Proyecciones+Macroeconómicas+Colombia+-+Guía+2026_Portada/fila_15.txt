@@ -1,0 +1,22 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+P: ¿Cuál es la fuente de las proyecciones macroeconómicas?
+R: La fuente de las proyecciones macroeconómicas es el DANE.
+
+P: ¿Qué tipo de datos se encuentran en la hoja de proyecciones macroeconómicas?
+R: Se encuentran datos relacionados con la Producción, Empleo y Cuentas Fiscales.
+
+P: ¿Qué año se utiliza como base para los precios constantes del PIB?
+R: El año utilizado como base para los precios constantes del PIB es 2015.
+
+P: ¿Qué Columnsas están presentes en la hoja de proyecciones macroeconómicas?
+R: Las columnas presentes en la hoja son: PIB (precios constantes 2015 SA), Producción, Empleo y Cuentas Fiscales, y otras columnas sin nombre.
+
+P: ¿Cuál es el nombre de la hoja de proyecciones macroeconómicas?
+R: La hoja de proyecciones macroeconómicas se llama "Portada".
+
+P: ¿Qué información se encuentra en la columna "Unnamed: 1"?
+R: En la columna "Unnamed: 1" se encuentra el PIB (precios constantes 2015 SA).
+
+P: ¿Qué organización es responsable de las proyecciones macroeconómicas?
+R: La organización responsable de las proyecciones macroeconómicas es el DANE.

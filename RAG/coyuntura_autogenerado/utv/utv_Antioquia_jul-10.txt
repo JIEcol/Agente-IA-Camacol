@@ -1,0 +1,16 @@
+# Datos de Utv para Antioquia en jul-10
+
+P: ¿Cuál es el sistema utilizado en el contexto de datos proporcionado?
+R: El sistema utilizado es Utv.
+
+P: ¿En qué departamento se encuentran los datos de unidades?
+R: Los datos son del departamento de Antioquia.
+
+P: ¿Cuántas unidades VIP hay en total?
+R: Hay 4 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS?
+R: La distribución es de 96 unidades VIS y 418 unidades No VIS.
+
+P: ¿Cuál es el total de unidades registradas en julio de 2010?
+R: El total de unidades registradas es de 514.

@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Santander en feb-10
+
+P: ¿Cuál es la fecha de lanzamiento del sistema en cuestión?
+R: La fecha de lanzamiento es febrero 10.
+
+P: ¿En qué departamento se llevó a cabo el lanzamiento del sistema?
+R: El lanzamiento se llevó a cabo en el departamento de Santander.
+
+P: ¿Cuántas unidades VIP se lanzaron en el sistema?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuántas unidades No VIS se lanzaron en total?
+R: Se lanzaron 77 unidades No VIS.
+
+P: ¿Cuál es el total de unidades lanzadas en el sistema?
+R: El total de unidades lanzadas es de 77 unidades.

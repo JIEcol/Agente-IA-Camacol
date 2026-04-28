@@ -1,0 +1,22 @@
+# Construcción en Cifras: Empleo 1 - N/A
+
+P: ¿Cuál fue el valor de la variable en la fila 3 del contexto de 'Colombia Construcción en Cifras'?
+R: El valor fue de 20475.589666666667.
+
+P: ¿Cuál es el valor del dato en la fila 5 del contexto?
+R: El valor es 61.047528323597575.
+
+P: ¿Cuánto empleo se registró en la fila 7 del contexto?
+R: El empleo fue de 15927.167.
+
+P: ¿Cuál es el valor del dato en la fila 9 del contexto de 'Colombia Construcción en Cifras'?
+R: El valor es 61.433150521237735.
+
+P: ¿Cuál es el valor del dato en la fila 11 del contexto?
+R: El valor es 4548.423.
+
+P: ¿Cuál es el valor del dato en la fila 13 del contexto de 'Colombia Construcción en Cifras'?
+R: El valor es 59.73453959849112.
+
+P: ¿Cuál es el valor del dato en la fila 14 del contexto?
+R: El valor es 6.244991128319458.

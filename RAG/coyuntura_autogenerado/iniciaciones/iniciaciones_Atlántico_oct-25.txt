@@ -1,0 +1,18 @@
+# Datos de Iniciaciones para Atlántico en oct-25
+
+A continuación, se presentan 5 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿Cuál es el total de unidades iniciadas en el departamento del Atlántico?
+R: El total de unidades iniciadas es de 1154.
+
+P: ¿Cuántas unidades VIP se iniciaron en el Atlántico?
+R: Se iniciaron 834 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS en el departamento del Atlántico?
+R: La cantidad de unidades VIS es de 1122.
+
+P: ¿Cuántas unidades no son VIS en el Atlántico?
+R: Hay 32 unidades que no son VIS.
+
+P: ¿Cuál es la fecha en la que se registraron estos datos de unidades iniciadas en el Atlántico?
+R: La fecha registrada es oct-25.

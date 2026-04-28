@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Tolima en mar-10
+
+P: ¿Cuál es el sistema utilizado para el lanzamiento de unidades en el contexto proporcionado?
+R: El sistema utilizado es Lanzamientos.
+
+P: ¿En qué fecha se llevó a cabo el lanzamiento de unidades en el departamento del Tolima?
+R: El lanzamiento se llevó a cabo el 10 de marzo.
+
+P: ¿Cuántas unidades VIP se lanzaron en el departamento del Tolima?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS lanzadas en el departamento del Tolima?
+R: El total de unidades VIS lanzadas es de 60.
+
+P: ¿Cuántas unidades No VIS se lanzaron en el departamento del Tolima?
+R: Se lanzaron 0 unidades No VIS.

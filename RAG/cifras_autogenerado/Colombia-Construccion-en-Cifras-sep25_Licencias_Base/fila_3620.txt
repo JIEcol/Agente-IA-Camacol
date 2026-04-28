@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué departamento se encuentra el proyecto de construcción mencionado en el informe 'Colombia Construcción en Cifras'?
+R: El proyecto de construcción se encuentra en Antioquia.
+
+P: ¿Cuál es el tipo de proyecto de construcción mencionado en el informe?
+R: El tipo de proyecto de construcción es Vivienda, específicamente Casas.
+
+P: ¿Cuál es el código de la licencia de construcción mencionada en el informe?
+R: El código de la licencia de construcción es Cob. 77.
+
+P: ¿En qué municipio se encuentra el proyecto de construcción mencionado en el informe?
+R: El proyecto de construcción se encuentra en Medellín.
+
+P: ¿Cuál es el estrato socioeconómico del proyecto de construcción mencionado en el informe?
+R: El estrato socioeconómico del proyecto de construcción es Bajo.
+
+P: ¿Cuál es el número de unidades del proyecto de construcción mencionado en el informe?
+R: El número de unidades del proyecto de construcción es 142.
+
+P: ¿Cuál es el código de la zona del proyecto de construcción mencionado en el informe?
+R: El código de la zona del proyecto de construcción es 001.

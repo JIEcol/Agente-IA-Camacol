@@ -1,0 +1,16 @@
+# Datos de Oferta para Valle en ene-24
+
+P: ¿Cuál es el total de unidades ofertadas en el Valle en enero de 2024?
+R: El total de unidades ofertadas es de 14479.
+
+P: ¿Cuántas unidades VIP se ofertaron en el Valle en enero de 2024?
+R: Se ofertaron 1276 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS ofertadas en el Valle en enero de 2024?
+R: La cantidad de unidades VIS ofertadas es de 10539.
+
+P: ¿Cuántas unidades no son VIS en la oferta del Valle en enero de 2024?
+R: Hay 3940 unidades que no son VIS.
+
+P: ¿Cuál es la proporción aproximada de unidades VIP con respecto al total de unidades ofertadas en el Valle en enero de 2024?
+R: La proporción aproximada de unidades VIP es del 8.8% con respecto al total de unidades ofertadas.

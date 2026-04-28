@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+"El Decreto 1467 del 13 de agosto de 2019 aplica en aglomeraciones específicas, sin información adicional sobre departamento o región."

@@ -1,0 +1,35 @@
+# Coyuntura: Oferta - N/A - N/A
+
+Lo siento, pero debido a que el contexto proporcionado contiene solo valores "nan" (no disponibles) para todas las variables, no es posible generar respuestas precisas y basadas en datos reales. Sin embargo, puedo intentar crear preguntas y respuestas genéricas que se ajusten a un formato esperado, aunque las respuestas tendrán que ser indicativas de la falta de datos.
+
+P: ¿Cuál fue el total de metros cuadrados de vivienda ofrecidos según CAMACOL?
+R: Desafortunadamente, no hay datos disponibles sobre el total de metros cuadrados de vivienda ofrecidos.
+
+P: ¿Cómo se distribuyeron los metros cuadrados de vivienda por diferentes regiones?
+R: No hay información disponible sobre la distribución de metros cuadrados de vivienda por regiones.
+
+P: ¿Dame el total de unidades ofrecidas en la región de Bogotá?
+R: No hay datos disponibles sobre el total de unidades ofrecidas en Bogotá.
+
+P: ¿Cuál fue la tendencia en la oferta de viviendas en el último año?
+R: Sin datos disponibles, no se puede determinar la tendencia en la oferta de viviendas.
+
+P: ¿Qué porcentaje de la oferta de viviendas corresponde a viviendas VIS?
+R: No hay información disponible para calcular el porcentaje de viviendas VIS en la oferta total.
+
+P: ¿Cómo ha cambiado la oferta de viviendas en el Valle del Cauca en los últimos meses?
+R: Debido a la falta de datos, no se puede analizar el cambio en la oferta de viviendas en el Valle del Cauca.
+
+P: ¿Cuál es el promedio de metros cuadrados por vivienda ofrecida en el país?
+R: Sin datos, no se puede calcular el promedio de metros cuadrados por vivienda.
+
+P: ¿Qué región del país tiene la mayor oferta de viviendas?
+R: No hay datos suficientes para determinar qué región tiene la mayor oferta de viviendas.
+
+P: ¿Cómo se compara la oferta de viviendas entre las regiones del interior y la costa?
+R: La falta de datos impide realizar comparaciones entre las regiones del interior y la costa.
+
+P: ¿Hay una tendencia hacia el aumento o la disminución en la oferta de viviendas en el sector constructor colombiano?
+R: Sin datos actuales, no se puede identificar una tendencia clara en la oferta de viviendas en el sector constructor colombiano.
+
+Es importante destacar que, para proporcionar respuestas precisas y útiles, se necesitarían datos reales y completos sobre la oferta de viviendas en Colombia.

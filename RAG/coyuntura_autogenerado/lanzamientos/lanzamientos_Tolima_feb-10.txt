@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Tolima en feb-10
+
+P: ¿En qué fecha se registraron los datos de lanzamientos en Tolima?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿Cuál es el total de unidades lanzadas en Tolima según los datos proporcionados?
+R: El total de unidades lanzadas es 0.
+
+P: ¿Cuántas unidades VIP se lanzaron en Tolima?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS y No VIS lanzadas en Tolima?
+R: Tanto las unidades VIS como las No VIS lanzadas son 0.
+
+P: ¿Cuál es el departamento donde se registraron estos datos de lanzamientos?
+R: Los datos se registraron en el departamento de Tolima.

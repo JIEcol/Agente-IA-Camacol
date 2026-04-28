@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se realizó el registro de la licencia de construcción?
+R: El registro de la licencia de construcción se realizó el 2005-06-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se ubica la licencia de construcción?
+R: La licencia de construcción se ubica en Nariño.
+
+P: ¿Cuál es el tipo de proyecto de construcción?
+R: El proyecto de construcción es de vivienda, específicamente apartamentos.
+
+P: ¿Cuál es el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción tiene un nivel de complejidad medio.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 427 metros cuadrados.
+
+P: ¿Cuántos pisos tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 5 pisos.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es 001.

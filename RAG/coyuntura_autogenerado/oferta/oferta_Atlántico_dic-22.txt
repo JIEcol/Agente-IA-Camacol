@@ -1,0 +1,16 @@
+# Datos de Oferta para Atlántico en dic-22
+
+P: ¿En qué sistema se basan los datos proporcionados?
+R: Los datos se basan en el sistema de Oferta.
+
+P: ¿Cuál es el total de unidades en el departamento del Atlántico?
+R: El total de unidades es 15114.
+
+P: ¿Cuántas unidades VIP hay en el departamento del Atlántico?
+R: Hay 2462 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento del Atlántico?
+R: La distribución es de 12120 unidades VIS y 2994 unidades No VIS.
+
+P: ¿En qué fecha se registraron estos datos en el departamento del Atlántico?
+R: Los datos se registraron en diciembre de 2022.

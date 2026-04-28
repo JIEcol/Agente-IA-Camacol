@@ -1,0 +1,16 @@
+# Datos de Oferta para Valle en dic-22
+
+P: ¿Cuál es el sistema de datos que se está utilizando?
+R: El sistema es Oferta.
+
+P: ¿En qué fecha se obtuvieron los datos?
+R: Los datos son de diciembre de 2022.
+
+P: ¿Cuántas unidades VIP se ofrecen en total en el Valle?
+R: Hay 1242 unidades VIP.
+
+P: ¿Cuál es la distribución total de unidades VIS y No VIS en el Valle?
+R: Hay 9831 unidades VIS y 3987 unidades No VIS.
+
+P: ¿Cuántas unidades se ofrecen en total en el departamento del Valle?
+R: Se ofrecen 13818 unidades en total.

@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 7)
+
+¿Cuál es el promedio de precio de venta por metro cuadrado en el segmento de vivienda VIS en los barrios de la comuna 13 en Medellín?
+¿Cuál es el total de proyectos de construcción en el rango de precio entre 200 y 500 millones de pesos en el departamento de Antioquia?
+Dame el ranking de los 3 barrios con mayor número de unidades vendidas en el segmento de vivienda No VIS en Bogotá durante el último año.
+Compara las ventas de vivienda VIS y No VIS en el departamento del Valle del Cauca para el trimestre anterior.
+¿Cómo ha sido la evolución anual del número de proyectos de construcción en el departamento de Cali?
+Quiero saber el promedio de área construida por proyecto en el segmento de vivienda VIS en los barrios de la comuna 10 en Bogotá.
+¿Cuál es el total de unidades vendidas en el rango de precio entre 100 y 200 millones de pesos en el departamento de Risaralda?
+Dame el ranking de las 5 constructoras con mayor número de proyectos en el segmento de vivienda No VIS en Medellín.
+Compara las ventas de vivienda VIS entre los departamentos de Antioquia y Valle del Cauca para el último semestre.
+¿Cuál es el promedio de precio de venta por metro cuadrado en el segmento de vivienda No VIS en los barrios de la comuna 14 en Cali?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el segmento de vivienda VIS en Bogotá?
+Quiero saber el total de proyectos de construcción en el segmento de vivienda VIS en el departamento de Quindío.
+Dame el ranking de los 3 departamentos con mayor número de unidades vendidas en el segmento de vivienda No VIS durante el último año.
+Compara las ventas de vivienda VIS y No VIS en el departamento de Antioquia para el trimestre anterior.
+¿Cuál es el promedio de área construida por proyecto en el segmento de vivienda No VIS en los barrios de la comuna 12 en Medellín?
+¿Cuál es el total de unidades vendidas en el rango de precio entre 500 y 1000 millones de pesos en el departamento de Valle del Cauca?
+Dame el ranking de las 5 constructoras con mayor área construida en el segmento de vivienda VIS en Bogotá.
+Compara las ventas de vivienda VIS entre los barrios de la comuna 10 y la comuna 13 en Medellín para el último semestre.
+¿Cuál es el promedio de precio de venta por metro cuadrado en el segmento de vivienda VIS en los barrios de la comuna 15 en Cali?
+¿Cómo ha sido la evolución anual del número de proyectos de construcción en el departamento de Risaralda?
+Quiero saber el total de proyectos de construcción en el segmento de vivienda No VIS en el departamento de Antioquia.
+Dame el ranking de los 3 barrios con mayor número de unidades vendidas en el segmento de vivienda VIS en Bogotá durante el último año.
+Compara las ventas de vivienda No VIS entre los departamentos de Valle del Cauca y Quindío para el trimestre anterior.
+¿Cuál es el promedio de área construida por proyecto en el segmento de vivienda VIS en los barrios de la comuna 11 en Medellín?
+¿Cuál es el total de unidades vendidas en el rango de precio entre 1000 y 2000 millones de pesos en el departamento de Antioquia?

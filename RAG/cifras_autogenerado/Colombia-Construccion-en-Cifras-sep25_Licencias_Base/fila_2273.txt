@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información en el contexto de 'Colombia Construcción en Cifras'?
+R: La fecha registrada es el 1 de abril de 2005.
+
+P: ¿Cuál es el tipo de proyecto según la clasificación en el contexto?
+R: El proyecto es clasificado como "Nuevo" y se encuentra en una zona "Urbana".
+
+P: ¿Cuál es el número de la licencia en el contexto de 'Colombia Construcción en Cifras'?
+R: El número de la licencia es 001.
+
+P: ¿Cuántos empleos se generaron en el proyecto según el contexto?
+R: No hay información explícita sobre el número de empleos generados, pero se mencionan varios números que podrían estar relacionados con el proyecto, como 468, 0, 2 y 11.
+
+P: ¿Cuál es el código de cobertura del proyecto en el contexto?
+R: El código de cobertura es "Cob. 77".
+
+P: ¿Cuál es el propósito del proyecto según la clasificación en el contexto?
+R: El propósito del proyecto es "Religioso".
+
+P: ¿Cuál es el nombre del lugar donde se lleva a cabo el proyecto según el contexto?
+R: El proyecto se lleva a cabo en "Bogotá, D.C.".

@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 41)
+
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en Bogotá y Medellín durante 2023?
+¿Dame el ranking de las 3 constructoras con mayor número de proyectos en el departamento del Valle del Cauca?
+¿Cuál es el promedio de área construida por proyecto en el estrato 3 en Cali y Cartagena?
+¿Cómo ha evolucionado el número de unidades vendidas en el rango de área de 100 a 200 metros cuadrados en Barranquilla durante los últimos 2 años?
+¿Quiero saber el total de unidades vendidas en el segmento de vivienda No VIS en Antioquia durante el primer semestre de 2024?
+¿Cuál es el ranking de los 5 departamentos con mayor valor de proyectos en el segmento de vivienda VIS durante 2023?
+¿Dame el promedio de unidades por proyecto en el estrato 2 en Sincelejo y Montería?
+¿Cuál es la comparación de las ventas de vivienda VIS y No VIS en Bogotá y Medellín durante el último año?
+¿Cómo ha sido la evolución trimestral del número de unidades vendidas en el departamento de Santander durante los últimos 3 años?
+¿Quiero saber el total de unidades vendidas en el rango de área de 50 a 100 metros cuadrados en Bucaramanga durante 2023?
+¿Cuál es el ranking de las 4 constructoras con mayor área construida en el departamento del Quindío?
+¿Dame el promedio de área construida por proyecto en el segmento de vivienda No VIS en Armenia y Pereira?
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el departamento del Tolima durante el segundo semestre de 2023?
+¿Cómo ha evolucionado el valor de los proyectos en el departamento de Caldas durante los últimos 5 años?
+¿Quiero saber el ranking de los 3 departamentos con mayor número de proyectos en el segmento de vivienda VIS durante 2023?
+¿Cuál es la comparación de las ventas de vivienda VIS y No VIS en Cartagena y Santa Marta durante el último trimestre?
+¿Dame el promedio de unidades por proyecto en el estrato 1 en Cúcuta y Valledupar?
+¿Cuál es el total de unidades vendidas en el rango de área de 200 a 300 metros cuadrados en Medellín durante 2023?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el departamento de Nariño durante los últimos 2 años?
+¿Quiero saber el ranking de las 5 constructoras con mayor valor de proyectos en el departamento del Valle del Cauca?
+¿Cuál es el promedio de área construida por proyecto en el segmento de vivienda VIS en Popayán y Pasto?
+¿Dame el total de unidades vendidas en el segmento de vivienda No VIS en el departamento de Boyacá durante 2023?
+¿Cuál es la comparación de las ventas de vivienda VIS y No VIS en Bogotá y Cali durante el último año?
+¿Cómo ha evolucionado el número de unidades vendidas en el departamento de Huila durante los últimos 3 años?
+¿Quiero saber el ranking de los 4 departamentos con mayor área construida en el segmento de vivienda VIS durante 2023?

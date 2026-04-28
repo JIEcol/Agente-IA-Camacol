@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Huila en mar-10
+
+P: ¿Cuál es el sistema que se está utilizando para registrar las iniciaciones?
+R: El sistema utilizado es Iniciaciones.
+
+P: ¿En qué fecha se llevaron a cabo las iniciaciones en el departamento del Huila?
+R: Las iniciaciones se llevaron a cabo el 10 de marzo.
+
+P: ¿Cuántas unidades VIP se iniciaron en el Huila?
+R: No se iniciaron unidades VIP.
+
+P: ¿Cuál es el total de unidades iniciadas en el departamento del Huila?
+R: El total de unidades iniciadas es de 48.
+
+P: ¿Cuántas unidades No VIS se iniciaron en el Huila?
+R: Se iniciaron 48 unidades No VIS.

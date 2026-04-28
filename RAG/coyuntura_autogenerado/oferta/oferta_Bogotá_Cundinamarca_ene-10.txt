@@ -1,0 +1,16 @@
+# Datos de Oferta para Bogotá & Cundinamarca en ene-10
+
+P: ¿Cuál es el total de unidades ofrecidas en el sistema en enero de 2010 en Bogotá y Cundinamarca?
+R: El total de unidades ofrecidas es de 20289.
+
+P: ¿Cuántas unidades VIP se ofrecieron en enero de 2010 en Bogotá y Cundinamarca?
+R: Se ofrecieron 410 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS en el sistema para enero de 2010 en Bogotá y Cundinamarca?
+R: La cantidad de unidades VIS es de 9117.
+
+P: ¿Cuántas unidades No VIS se ofrecieron en enero de 2010 en Bogotá y Cundinamarca?
+R: Se ofrecieron 11172 unidades No VIS.
+
+P: ¿Cuál es la proporción de unidades VIS con respecto al total de unidades ofrecidas en enero de 2010 en Bogotá y Cundinamarca?
+R: La proporción de unidades VIS es del 45% del total de unidades ofrecidas.

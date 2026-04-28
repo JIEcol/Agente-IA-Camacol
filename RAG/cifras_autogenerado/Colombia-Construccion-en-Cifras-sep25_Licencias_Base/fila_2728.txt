@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2005-04-01 00:00:00.
+
+P: ¿Cuál es el departamento y municipio donde se emitió la licencia de construcción?
+R: La licencia de construcción se emitió en el departamento de Santander, específicamente en el municipio de San Gil.
+
+P: ¿Cuál es el tipo de licencia de construcción emitida?
+R: La licencia de construcción emitida es de tipo "Nuevo" y corresponde a una construcción "Urbana".
+
+P: ¿Cuál es el uso del proyecto de construcción?
+R: El proyecto de construcción es para "Vivienda", específicamente para "Casas".
+
+P: ¿Cuál es el nivel de complejidad de la construcción?
+R: La construcción tiene un nivel de complejidad "Bajo".
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene un área de 262 metros cuadrados.
+
+P: ¿Cuántos pisos y habitaciones tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 3 pisos y 2 habitaciones, con un total de 68 unidades y un costo de 679 unidades monetarias.

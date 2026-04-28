@@ -1,0 +1,18 @@
+# Datos de Iniciaciones para Antioquia en nov-24
+
+Aquí te dejo 5 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿Cuál es el sistema que se está utilizando para registrar las iniciaciones?
+R: El sistema utilizado es Iniciaciones.
+
+P: ¿En qué fecha se registraron los datos de las iniciaciones en Antioquia?
+R: Los datos se registraron el 24 de noviembre.
+
+P: ¿Cuántas unidades VIP se iniciaron en Antioquia?
+R: No se iniciaron unidades VIP, el total es 0.
+
+P: ¿Cuál es el total de unidades No VIS iniciadas en Antioquia?
+R: El total de unidades No VIS es 1063.
+
+P: ¿Cuántas unidades en total se iniciaron en Antioquia según los datos proporcionados?
+R: Se iniciaron un total de 1063 unidades.

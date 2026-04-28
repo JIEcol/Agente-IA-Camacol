@@ -1,0 +1,16 @@
+# Datos de Oferta para Atlántico en dic-20
+
+P: ¿Cuál es el total de unidades ofrecidas en el departamento del Atlántico en diciembre de 2020?
+R: El total de unidades ofrecidas es de 73,693.
+
+P: ¿Cuántas unidades VIP se ofrecieron en el Atlántico durante diciembre de 2020?
+R: Se ofrecieron 1,420 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS en el departamento del Atlántico para diciembre de 2020?
+R: La cantidad de unidades VIS es de 24,056.
+
+P: ¿Cuántas unidades No VIS se ofrecieron en el departamento del Atlántico en diciembre de 2020?
+R: Se ofrecieron 49,637 unidades No VIS.
+
+P: ¿Cuál es la proporción entre unidades VIS y el total de unidades ofrecidas en el Atlántico en diciembre de 2020?
+R: La proporción es de 24,056 unidades VIS sobre un total de 73,693 unidades.

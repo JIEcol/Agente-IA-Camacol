@@ -9,12 +9,9 @@ class AIModel(Enum):
     DEEPSEEK = "deepseek"
     OPENAI = "openai"
     OLLAMA = "ollama"
-    KIMI = "kimi"
-    COHERE = "cohere"
     MISTRAL = "mistral"
     HUGGINGFACE = "huggingface"
     CEREBRAS = "cerebras"
-    AI21 = "ai21"
 
 # Versión de la aplicación
 APP_VERSION = "1.1.0"
@@ -38,7 +35,7 @@ AI_PROVIDERS = [
     {
         "name": "Google Gemini",
         "type": AIModel.GEMINI,
-        "model": "gemini-2.0-flash-exp",
+        "model": "gemini-1.5-flash-latest",
         "api_key_env": "GOOGLE_API_KEY",
         "base_url": "https://generativelanguage.googleapis.com/v1beta/models",
         "priority": 2,
@@ -69,7 +66,8 @@ AI_PROVIDERS = [
         "api_key_env": None,
         "base_url": "http://localhost:11434",
         "priority": 5,
-        "free_tier": True
+        "free_tier": True,
+        "enabled": True
     },
     {
         "name": "Ollama Qwen 2.5 (Local)",
@@ -78,7 +76,8 @@ AI_PROVIDERS = [
         "api_key_env": None,
         "base_url": "http://localhost:11434",
         "priority": 6,
-        "free_tier": True
+        "free_tier": True,
+        "enabled": True
     },
     {
         "name": "Ollama Mistral (Local)",
@@ -87,16 +86,8 @@ AI_PROVIDERS = [
         "api_key_env": None,
         "base_url": "http://localhost:11434",
         "priority": 7,
-        "free_tier": True
-    },
-    {
-        "name": "Kimi (Moonshot AI)",
-        "type": AIModel.KIMI,
-        "model": "moonshot-v1-8k",
-        "api_key_env": "KIMI_API_KEY",
-        "base_url": "https://api.moonshot.cn/v1",
-        "priority": 8,
-        "free_tier": True
+        "free_tier": True,
+        "enabled": True
     },
     {
         "name": "Cerebras (Ultra Fast)",
@@ -117,30 +108,31 @@ AI_PROVIDERS = [
         "free_tier": True
     },
     {
-        "name": "Cohere",
-        "type": AIModel.COHERE,
-        "model": "command-r",
-        "api_key_env": "COHERE_API_KEY",
-        "base_url": "https://api.cohere.ai/v1",
-        "priority": 12,
-        "free_tier": True
-    },
-    {
-        "name": "AI21 Labs (Jamba)",
-        "type": AIModel.AI21,
-        "model": "jamba-1.5-mini",
-        "api_key_env": "AI21_API_KEY",
-        "base_url": "https://api.ai21.com/studio/v1",
-        "priority": 11,
-        "free_tier": True
-    },
-    {
         "name": "Hugging Face",
         "type": AIModel.HUGGINGFACE,
         "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "api_key_env": "HUGGINGFACE_API_KEY",
         "base_url": "https://api-inference.huggingface.co/models",
         "priority": 14,
+        "free_tier": True
+    },
+    # --- Proveedores con menor prioridad (se usarán al final) ---
+    {
+        "name": "Google Gemini",
+        "type": AIModel.GEMINI,
+        "model": "gemini-1.5-flash-latest",
+        "api_key_env": "GOOGLE_API_KEY",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/models",
+        "priority": 15,  # Prioridad baja
+        "free_tier": True
+    },
+    {
+        "name": "DeepSeek",
+        "type": AIModel.DEEPSEEK,
+        "model": "deepseek-chat",
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "base_url": "https://api.deepseek.com/v1",
+        "priority": 16,  # Prioridad baja
         "free_tier": True
     }
 ]
@@ -177,4 +169,3 @@ INSTRUCCIONES:
 - Mantén un tono profesional pero cercano
 - Si no estás seguro de algo, es mejor admitirlo y dirigir al usuario a la fuente oficial
 """
-

@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 4)
+
+¿Cuál es el total de unidades vendidas en el estado de Cundinamarca durante los últimos 12 meses?
+¿Cuál es el promedio de metros cuadrados por unidad en las ciudades de Bogotá y Medellín para el uso de vivienda VIS?
+¿Qué constructora ha vendido más unidades en el departamento de Antioquia en el último año?
+¿Cómo ha evolucionado la cantidad de unidades vendidas en la ciudad de Cali en los últimos 5 años?
+¿Cuál es el ranking de las 3 ciudades con mayor número de unidades vendidas en el estado de Valle del Cauca?
+¿Cuál es el total de unidades vendidas en el estrato 3 en la ciudad de Barranquilla durante 2023?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en la ciudad de Cartagena para el último semestre?
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda No VIS en el departamento de Quindío?
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en la ciudad de Pereira durante los últimos 2 años?
+¿Cuál es el total de metros cuadrados construidos en el estado de Risaralda durante los últimos 6 meses?
+¿Cuál es el ranking de las 5 constructoras con mayor área construida en la ciudad de Bucaramanga?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en las ciudades de Bogotá y Medellín para el último año?
+¿Cuál es el promedio de unidades vendidas por mes en el departamento de Tolima durante 2022?
+¿Cómo ha evolucionado la cantidad de unidades vendidas en la ciudad de Manizales en los últimos 10 años?
+¿Cuál es el total de unidades vendidas en el estrato 2 en la ciudad de Cúcuta durante 2021?
+¿Cuál es el ranking de las 3 ciudades con mayor número de unidades vendidas en el estado de Santander?
+¿Cuál es el promedio de metros cuadrados por unidad en las ciudades de Cali y Medellín para el uso de vivienda No VIS?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en la ciudad de Ibagué para el último trimestre?
+¿Cuál es el total de unidades vendidas en el estado de Huila durante los últimos 9 meses?
+¿Cuál es el ranking de las 5 constructoras con mayor área construida en la ciudad de Villavicencio?
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda VIS en el departamento de Meta?
+¿Cómo ha sido la evolución anual del valor de los proyectos en la ciudad de Armenia durante los últimos 5 años?
+¿Cuál es el total de metros cuadrados construidos en el estado de Norte de Santander durante los últimos 12 meses?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en las ciudades de Cartagena y Barranquilla para el último semestre?
+¿Cuál es el promedio de unidades vendidas por mes en el departamento de Boyacá durante 2020?

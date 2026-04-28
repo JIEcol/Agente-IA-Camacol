@@ -1,0 +1,15 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+Basándome en la información proporcionada, puedo generar la siguiente frase descriptiva:
+
+"En el departamento no especificado, el 5 de un mes no definido, se registraron 5 renuncias."
+
+Es importante destacar que, debido a la falta de información sobre la fecha y el departamento en los datos proporcionados, la frase generada no puede ser tan específica como el ejemplo de salida que se proporcionó. Sin embargo, se ha intentado mantener la estructura y el propósito de incluir todos los detalles disponibles de manera clara y concisa.

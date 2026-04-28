@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Norte de Santander en mar-10
+
+P: ¿Cuál es el sistema utilizado para estos datos?
+R: El sistema utilizado es Lanzamientos.
+
+P: ¿En qué fecha se registraron estos datos?
+R: Los datos se registraron el 10 de marzo.
+
+P: ¿En qué departamento se encuentran los lanzamientos?
+R: Los lanzamientos se encuentran en el departamento de Norte de Santander.
+
+P: ¿Cuántas unidades VIP se lanzaron?
+R: No se lanzaron unidades VIP, ya que el total es 0.
+
+P: ¿Cuál es el total de unidades No VIS lanzadas?
+R: El total de unidades No VIS lanzadas es 183.

@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Risaralda en oct-25
+
+P: ¿Cuál es el sistema utilizado para el lanzamiento de unidades en octubre de 2025?
+R: El sistema utilizado es Lanzamientos.
+
+P: ¿En qué departamento se realizaron los lanzamientos de unidades en octubre de 2025?
+R: Los lanzamientos se realizaron en el departamento de Risaralda.
+
+P: ¿Cuántas unidades VIP se lanzaron en octubre de 2025?
+R: No se lanzaron unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS y No VIS lanzadas en octubre de 2025?
+R: El total de unidades VIS es 416 y el total de unidades No VIS es 299.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento de Risaralda en octubre de 2025?
+R: El total de unidades lanzadas es 715.

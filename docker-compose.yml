@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Servicio principal para ejecutar la aplicación Streamlit
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./RAG:/app/RAG
+      - rag_cache:/app/rag_cache
+      - historial_chats:/app/historial_chats
+      - ./user_profiles.json:/app/user_profiles.json
+      - ./urls_documentos.txt:/app/urls_documentos.txt
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHATBOT_PASSWORD=${CHATBOT_PASSWORD}
+    # El comando por defecto del Dockerfile ya es para correr streamlit
+
+  # Servicio para ejecutar el web scraper
+  scraper:
+    build: .
+    command: python web_scraper.py
+    volumes:
+      - ./RAG/scraped_content:/app/RAG/scraped_content
+      - ./urls_documentos.txt:/app/urls_documentos.txt
+
+  # Servicio para organizar los archivos descargados
+  organizer:
+    build: .
+    command: python organizar_por_anio.py
+    volumes:
+      - ./RAG:/app/RAG
+
+  # Servicio para inicializar/actualizar el RAG
+  rag-initializer:
+    build: .
+    command: python inicializar_rag.py
+    volumes:
+      - ./RAG:/app/RAG
+      - rag_cache:/app/rag_cache
+
+  # Servicio útil para depuración (acceder a la terminal)
+  bash:
+    build: .
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./RAG:/app/RAG
+      - rag_cache:/app/rag_cache
+
+volumes:
+  rag_cache:
+  historial_chats:

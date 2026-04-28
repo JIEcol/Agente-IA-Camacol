@@ -1,0 +1,16 @@
+# Datos de Oferta para Antioquia en ene-24
+
+P: ¿Cuál es el sistema de datos que se está utilizando en enero de 2024?
+R: El sistema de datos es de Oferta.
+
+P: ¿En qué departamento se están analizando los datos de viviendas en enero de 2024?
+R: Los datos se están analizando en el departamento de Antioquia.
+
+P: ¿Cuántas unidades VIP hay en la oferta de viviendas en enero de 2024?
+R: Hay 210 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en la oferta de viviendas en enero de 2024?
+R: La distribución es de 11,049 unidades VIS y 13,228 unidades No VIS.
+
+P: ¿Cuál es el total de unidades de viviendas que se ofrecen en enero de 2024 en Antioquia?
+R: El total de unidades de viviendas es de 24,277.

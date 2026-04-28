@@ -1,0 +1,16 @@
+# Datos de Ventas para Antioquia en oct-25
+
+P: ¿En qué fecha se registraron las ventas en Antioquia?
+R: Las ventas se registraron el 25 de octubre.
+
+P: ¿Cuántas unidades VIP se vendieron en total en Antioquia?
+R: Se vendieron 14 unidades VIP.
+
+P: ¿Cuál es la cantidad total de unidades vendidas en Antioquia?
+R: La cantidad total de unidades vendidas es de 2,083.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS vendidas en Antioquia?
+R: La distribución fue de 923 unidades VIS y 1,160 unidades No VIS.
+
+P: ¿En qué departamento se registraron estas ventas y cuántas unidades se vendieron en total?
+R: Las ventas se registraron en Antioquia, con un total de 2,083 unidades vendidas.

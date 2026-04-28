@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es 2008-02-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en Risaralda.
+
+P: ¿Cuál es el nombre del municipio donde se otorgó la licencia de construcción?
+R: El municipio es Dosquebradas.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia es Cob. 77.
+
+P: ¿Cuántas unidades tiene el proyecto de construcción?
+R: El número de unidades es 136.
+
+P: ¿Cuál es el número de estacionamientos asociados a la licencia de construcción?
+R: El número de estacionamientos es 66.
+
+P: ¿Cuál es el número total de áreas que tiene el proyecto de construcción?
+R: El número total de áreas es 170.

@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 18)
+
+¿Cuál es el total de área construida en Bogotá para viviendas VIS durante el año 2023?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en Medellín para el año 2022?
+¿Cómo ha evolucionado el número de unidades vendidas en Cali entre los años 2020 y 2022?
+¿Cuál es el promedio de área por unidad en proyectos de vivienda No VIS en Antioquia para el año 2021?
+¿Cuáles son las 5 ciudades con mayor área construida en el departamento del Valle durante el año 2024?
+¿Cuál es la comparación entre el número de unidades vendidas en Bogotá y Medellín durante el primer trimestre de 2023?
+¿Cuál es el total de unidades vendidas en Cartagena para viviendas VIS durante el año 2022?
+¿Cómo ha sido la evolución trimestral del área construida en el departamento de Cundinamarca durante los últimos 2 años?
+¿Cuáles son las 3 constructoras con mayor área construida en Bogotá para el año 2021?
+¿Cuál es el promedio de unidades por proyecto en el estrato 3 para el año 2022 en Cali?
+¿Cuál es el ranking de las 5 ciudades con mayor número de unidades vendidas en el departamento del Valle durante el año 2023?
+¿Cuál es la comparación entre el área construida en viviendas VIS y No VIS en Medellín durante el año 2022?
+¿Cuál es el total de unidades vendidas en el departamento de Antioquia para viviendas No VIS durante el año 2021?
+¿Cómo ha evolucionado el número de unidades vendidas en Bogotá entre los años 2019 y 2022?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en Cartagena durante el año 2023?
+¿Cuál es el promedio de área por unidad en proyectos de vivienda VIS en el departamento del Valle para el año 2022?
+¿Cuál es el total de área construida en Medellín para viviendas No VIS durante el año 2023?
+¿Cuáles son las 5 ciudades con mayor número de unidades vendidas en el departamento de Cundinamarca durante el año 2022?
+¿Cuál es la comparación entre el número de unidades vendidas en Cali y Cartagena durante el segundo trimestre de 2022?
+¿Cuál es el ranking de las 3 constructoras con mayor área construida en el departamento de Antioquia durante el año 2021?
+¿Cuál es el promedio de unidades por proyecto en el estrato 2 para el año 2021 en Medellín?
+¿Cuál es el total de unidades vendidas en Bogotá para viviendas No VIS durante el año 2023?
+¿Cómo ha sido la evolución anual del área construida en el departamento del Valle durante los últimos 5 años?
+¿Cuáles son las 3 ciudades con mayor área construida en el departamento de Cundinamarca durante el año 2022?

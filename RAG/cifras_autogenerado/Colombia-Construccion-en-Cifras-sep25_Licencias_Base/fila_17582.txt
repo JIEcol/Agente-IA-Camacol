@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2006-12-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se otorgó la licencia de construcción?
+R: La licencia de construcción se otorgó en Boyacá.
+
+P: ¿Cuál es el tipo de proyecto de construcción?
+R: El tipo de proyecto de construcción es de vivienda, específicamente de casas.
+
+P: ¿Cuál es el código de cobertura de la licencia de construcción?
+R: El código de cobertura de la licencia de construcción es Cob. 77.
+
+P: ¿Cuál es el número de unidades que se van a construir?
+R: El número de unidades que se van a construir es 318.
+
+P: ¿Cuál es el número de viviendas que se van a construir en el proyecto de ampliación?
+R: No hay información sobre el número de viviendas en el proyecto de ampliación, pero el proyecto de construcción es de ampliación y el número total de unidades es 318.
+
+P: ¿Cuál es el valor total de la licencia de construcción?
+R: El valor total de la licencia de construcción es 759.

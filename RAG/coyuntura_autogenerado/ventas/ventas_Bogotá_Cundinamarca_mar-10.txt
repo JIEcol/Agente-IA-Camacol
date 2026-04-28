@@ -1,0 +1,16 @@
+# Datos de Ventas para Bogotá & Cundinamarca en mar-10
+
+P: ¿Cuál es el total de unidades vendidas en el sistema de ventas el 10 de marzo?
+R: El total de unidades vendidas es 5022.
+
+P: ¿Cuántas unidades VIP se vendieron en el Departamento de Bogotá & Cundinamarca?
+R: Se vendieron 73 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el sistema de ventas?
+R: La cantidad de unidades VIS vendidas es 3060.
+
+P: ¿Cuántas unidades no VIS se vendieron en el sistema de ventas el 10 de marzo?
+R: Se vendieron 1962 unidades no VIS.
+
+P: ¿Cuál es la fecha en la que se registraron las ventas en el Departamento de Bogotá & Cundinamarca?
+R: La fecha registrada es el 10 de marzo.

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción?
+R: La fecha de registro es el 1 de agosto de 2005.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en el Valle del Cauca.
+
+P: ¿Cuál es el tipo de licencia de construcción otorgada?
+R: La licencia de construcción es de tipo "Nuevo".
+
+P: ¿Cuál es el uso previsto para la construcción?
+R: El uso previsto es para "Vivienda".
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 1207 metros cuadrados.
+
+P: ¿Cuántos pisos tendrá el proyecto de construcción?
+R: El proyecto de construcción tendrá 15 pisos.
+
+P: ¿Cuántas viviendas se construirán en el proyecto?
+R: Se construirán 892 viviendas en el proyecto.

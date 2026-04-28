@@ -1,0 +1,18 @@
+# Datos de Rotacion para Antioquia en nov-10
+
+Aquí te dejo 5 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿En qué departamento se registraron los datos de ventas?
+R: Los datos de ventas se registraron en Antioquia.
+
+P: ¿Cuál es el total de unidades vendidas en el sistema de rotación?
+R: El total de unidades vendidas es de 7.6.
+
+P: ¿Cuántas unidades VIP se vendieron en noviembre de 2023?
+R: No se vendieron unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el sistema de rotación?
+R: Se vendieron 5.7 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se vendieron en el sistema de rotación?
+R: Se vendieron 8.7 unidades No VIS.

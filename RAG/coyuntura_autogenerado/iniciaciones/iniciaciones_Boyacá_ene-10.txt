@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Boyacá en ene-10
+
+P: ¿Cuál es el sistema que se está analizando en enero de 2010 en Boyacá?
+R: El sistema es Iniciaciones.
+
+P: ¿Cuántas unidades VIP se iniciaron en enero de 2010 en Boyacá?
+R: 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades iniciadas en enero de 2010 en Boyacá?
+R: 185 unidades.
+
+P: ¿Cuántas unidades VIS y No VIS se iniciaron en enero de 2010 en Boyacá?
+R: 132 unidades VIS y 53 unidades No VIS.
+
+P: ¿En qué departamento se llevaron a cabo las iniciaciones en enero de 2010 con un total de 185 unidades?
+R: En el departamento de Boyacá.

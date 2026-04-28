@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+"La información presentada comprende datos de vivienda en Colombia desde enero de 2010 hasta agosto de 2025, desglosados por 19 regiones, incluyendo Antioquia, Bogotá y Cundinamarca, entre otras, y se enfoca en indicadores de mercado como lanzamientos, iniciaciones, ventas, oferta y renuncias, subdivididos por rangos de precio."

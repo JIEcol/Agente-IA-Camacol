@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Caldas en ene-10
+
+P: ¿En qué departamento se realizaron lanzamientos en enero de 2010?
+R: En el departamento de Caldas.
+
+P: ¿Cuántas unidades se lanzaron en el sistema en enero de 2010?
+R: Se lanzaron 117 unidades.
+
+P: ¿Cuántas unidades VIP se lanzaron en enero de 2010?
+R: No se lanzaron unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS lanzadas en enero de 2010?
+R: La distribución fue de 35 unidades VIS y 82 unidades No VIS.
+
+P: ¿Cuál fue el total de unidades VIS lanzadas en enero de 2010 en Caldas?
+R: El total de unidades VIS lanzadas fue de 35.

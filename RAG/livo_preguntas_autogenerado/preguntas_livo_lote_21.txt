@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 21)
+
+¿Cuál es el área total construida en los barrios de Bogotá con usos mixtos durante el año 2023?
+¿Cómo se distribuye el valor de las licencias de construcción en los diferentes estratos socioeconómicos en Medellín?
+¿Cuáles son los 3 barrios con mayor área construida en Cali para el uso de vivienda VIS en 2022?
+¿Cuál es el promedio de unidades vendidas por proyecto en el departamento de Antioquia para el uso de vivienda No VIS?
+¿Cómo ha evolucionado el área construida en el barrio de La Macarena en Bogotá durante los últimos 5 años?
+¿Cuál es el ranking de los 5 usos con mayor valor de construcción en el departamento del Valle del Cauca en 2024?
+¿Cuál es el total de unidades vendidas en el estrato 3 en los barrios de Cali durante el año 2023?
+¿Cómo se compara el área construida en los barrios de Medellín y Bogotá para el uso de vivienda VIS en 2022?
+¿Cuál es el promedio de unidades por proyecto en el departamento de Risaralda para el uso de vivienda No VIS en 2023?
+¿Cuáles son los 3 departamentos con mayor área construida para el uso de vivienda VIS en 2024?
+¿Cómo ha sido la evolución trimestral del valor de las licencias de construcción en el departamento de Quindío durante 2023?
+¿Cuál es el área total construida en los barrios de Bogotá con usos comerciales durante el año 2022?
+¿Cuáles son los 5 barrios con mayor área construida en Medellín para el uso de vivienda No VIS en 2023?
+¿Cuál es el promedio de unidades vendidas por proyecto en el departamento de Caldas para el uso de vivienda VIS en 2022?
+¿Cómo se distribuye el valor de las licencias de construcción en los diferentes usos en el departamento del Valle del Cauca en 2024?
+¿Cuál es el total de unidades vendidas en el estrato 2 en los barrios de Cali durante el año 2022?
+¿Cómo se compara el área construida en los barrios de Bogotá y Cali para el uso de vivienda No VIS en 2023?
+¿Cuál es el ranking de los 3 usos con mayor área construida en el departamento de Antioquia en 2024?
+¿Cuál es el promedio de unidades por proyecto en el departamento de Tolima para el uso de vivienda VIS en 2023?
+¿Cuáles son los 3 departamentos con mayor valor de construcción para el uso de vivienda VIS en 2024?
+¿Cómo ha sido la evolución mensual del área construida en el barrio de El Poblado en Medellín durante 2023?
+¿Cuál es el área total construida en los barrios de Medellín con usos industriales durante el año 2022?
+¿Cuáles son los 5 barrios con mayor área construida en Bogotá para el uso de vivienda VIS en 2023?
+¿Cuál es el promedio de unidades vendidas por proyecto en el departamento de Quindío para el uso de vivienda No VIS en 2022?
+¿Cómo se distribuye el área construida en los diferentes estratos socioeconómicos en el departamento del Valle del Cauca en 2024?

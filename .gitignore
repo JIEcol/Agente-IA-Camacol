@@ -52,3 +52,7 @@ historial_chats/
 # RAG cache
 rag_cache/
 scraped_data/
+
+.env
+.env.*
+

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha inicial del registro de licencias de construcción en el contexto proporcionado?
+R: La fecha inicial del registro es 2006-09-01 00:00:00.
+
+P: ¿En qué municipio se encuentra ubicada la licencia de construcción número Cob. 77?
+R: La licencia de construcción número Cob. 77 se encuentra en Magangué, Bolívar.
+
+P: ¿Cuál es el tipo de proyecto de construcción asociado a la licencia número Cob. 77?
+R: El tipo de proyecto de construcción es Vivienda, específicamente Casas.
+
+P: ¿Cuál es el nivel de complejidad o categorización de la licencia de construcción número Cob. 77?
+R: La licencia de construcción número Cob. 77 es clasificada como Bajo.
+
+P: ¿Cuántas unidades habitacionales se planifican construir en el proyecto asociado a la licencia Cob. 77?
+R: Se planifican construir 113 unidades habitacionales en el proyecto asociado a la licencia Cob. 77.
+
+P: ¿Cuál es el número de la licencia de construcción mencionada en el contexto?
+R: La licencia de construcción mencionada es la número Cob. 77.
+
+P: ¿Cuál es el área o metros cuadrados asociados al proyecto de construcción de la licencia Cob. 77?
+R: El proyecto de construcción de la licencia Cob. 77 tiene un área de 430 metros cuadrados.

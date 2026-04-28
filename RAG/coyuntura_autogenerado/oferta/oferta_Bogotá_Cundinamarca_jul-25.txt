@@ -1,0 +1,16 @@
+# Datos de Oferta para Bogotá & Cundinamarca en jul-25
+
+P: ¿Cuál es el total de unidades en oferta en el departamento de Bogotá y Cundinamarca?
+R: El total de unidades en oferta es de 53936.
+
+P: ¿Cuántas unidades VIP hay en oferta en el departamento de Bogotá y Cundinamarca?
+R: Hay 1756 unidades VIP en oferta.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento de Bogotá y Cundinamarca?
+R: La distribución es de 33206 unidades VIS y 20730 unidades No VIS.
+
+P: ¿Cuál es el porcentaje de unidades No VIS en relación con el total de unidades en oferta en el departamento de Bogotá y Cundinamarca?
+R: El porcentaje de unidades No VIS es del 38.4% (20730/53936).
+
+P: ¿En qué fecha se registraron estos datos de oferta en el departamento de Bogotá y Cundinamarca?
+R: Los datos se registraron el 25 de julio.

@@ -1,0 +1,22 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+P: ¿Cuál es la fuente de las proyecciones macroeconómicas para Colombia?
+R: La fuente de las proyecciones macroeconómicas para Colombia es el DANE.
+
+P: ¿Qué información se encuentra en la columna "Unnamed: 1" de la hoja de proyecciones?
+R: En la columna "Unnamed: 1" se encuentra la información relacionada con el PIB (nominal).
+
+P: ¿Qué tema se aborda en la columna "Unnamed: 2" de las proyecciones?
+R: En la columna "Unnamed: 2" se abordan temas relacionados con la Producción, Empleo y Cuentas Fiscales.
+
+P: ¿Cuál es el nombre de la hoja donde se encuentran las proyecciones macroeconómicas?
+R: El nombre de la hoja donde se encuentran las proyecciones macroeconómicas es "Portada".
+
+P: ¿Hay algún valor numérico asociado a la columna "Unnamed: 0"?
+R: No, en la columna "Unnamed: 0" no hay un valor numérico asociado, se encuentra como "nan".
+
+P: ¿Qué tipo de información se espera encontrar en la columna "Unnamed: 3" o "Unnamed: 4"?
+R: En las columnas "Unnamed: 3" y "Unnamed: 4" se espera encontrar información representada por "x".
+
+P: ¿Cuál es el propósito de la guía de proyecciones macroeconómicas para Colombia 2026?
+R: La guía de proyecciones macroeconómicas para Colombia 2026 sirve como referencia para entender las proyecciones económicas del país para el año 2026.

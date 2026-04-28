@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información en el contexto de 'Colombia Construcción en Cifras'?
+R: La fecha registrada es 2006-06-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se encuentra el proyecto de construcción mencionado?
+R: El departamento es Atlántico.
+
+P: ¿Cuál es el tipo de proyecto de construcción mencionado en el contexto?
+R: El tipo de proyecto es Vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo según el contexto?
+R: Se están construyendo Apartamentos.
+
+P: ¿Cuál es el estrato socioeconómico al que se dirige el proyecto de vivienda?
+R: El proyecto de vivienda es para el estrato Bajo (VIS).
+
+P: ¿Cuántos niveles tiene el proyecto de construcción de apartamentos?
+R: El proyecto tiene 2 niveles.
+
+P: ¿Cuál es el código de la licencia o identificador único del proyecto de construcción?
+R: El código es 001.

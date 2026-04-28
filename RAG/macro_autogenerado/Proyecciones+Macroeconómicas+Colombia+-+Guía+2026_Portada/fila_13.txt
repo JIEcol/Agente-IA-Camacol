@@ -1,0 +1,22 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+P: ¿Cuál es la fuente de las proyecciones macroeconómicas para Colombia?
+R: La fuente de las proyecciones macroeconómicas es el DANE.
+
+P: ¿Qué tipo de datos se presentan en la hoja "Portada" del documento de proyecciones macroeconómicas?
+R: Se presentan datos relacionados con el PIB (precios constantes 2015), Producción, Empleo y Cuentas Fiscales.
+
+P: ¿Cuál es el año base para los precios constantes del PIB?
+R: El año base para los precios constantes del PIB es 2015.
+
+P: ¿Qué información adicional se presenta en la hoja "Portada" del documento de proyecciones macroeconómicas?
+R: Se presentan columnas etiquetadas como "x" sin información adicional.
+
+P: ¿Qué institución es responsable de proporcionar los datos de proyecciones macroeconómicas?
+R: La institución responsable es el DANE.
+
+P: ¿Cuál es el propósito de la hoja "Portada" en el contexto de proyecciones macroeconómicas?
+R: No se especifica claramente el propósito, pero parece ser una introducción o resumen de los datos presentados.
+
+P: ¿Dónde se pueden encontrar más detalles sobre las proyecciones macroeconómicas para Colombia?
+R: No se proporciona información adicional en el contexto dado, pero es probable que se encuentren en otras hojas del documento o en fuentes relacionadas con el DANE.

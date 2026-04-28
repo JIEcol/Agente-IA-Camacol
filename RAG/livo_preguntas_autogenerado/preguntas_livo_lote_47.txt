@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 47)
+
+¿Cuál es el precio promedio de las viviendas VIS en el estado de "En construcción" en Bogotá y Cali?
+¿Cuántas unidades de vivienda No VIS se han vendido en Antioquia en el rango de área entre 100 y 200 metros cuadrados?
+¿Cuál es el estrato promedio de las viviendas en el departamento del Valle con un área mayor a 500 metros cuadrados?
+¿Cómo ha evolucionado el valor de los proyectos de construcción en Medellín durante los últimos 5 años?
+¿Cuál es el ranking de los 3 departamentos con mayor valor total de proyectos de vivienda VIS en el último año?
+¿Cuál es el promedio de unidades por proyecto en el estrato 3 en Bogotá y Cali?
+¿Cuánto es el total de unidades vendidas en el estado de "Entregadas" en el departamento de Antioquia durante 2023?
+¿Cuál es la comparación del precio promedio de las viviendas VIS y No VIS en el departamento del Quindío?
+¿Cuál es el ranking de las 5 constructoras con mayor área construida en el departamento del Valle durante 2022?
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento de Caldas?
+¿Cuál es el total de unidades de vivienda VIS vendidas en el rango de área entre 50 y 100 metros cuadrados en Bogotá?
+¿Cuál es el promedio de precio por metro cuadrado de las viviendas No VIS en el departamento de Risaralda?
+¿Cuál es el ranking de los 3 departamentos con mayor número de proyectos de construcción en el último año?
+¿Cuánto es el valor total de los proyectos de vivienda VIS en el estado de "En construcción" en Medellín y Cali?
+¿Cuál es la comparación del estrato promedio de las viviendas en el departamento del Valle y el departamento de Antioquia?
+¿Cuál es el promedio de unidades por proyecto en el estrato 2 en el departamento de Quindío?
+¿Cuántas unidades de vivienda No VIS se han vendido en el departamento del Chocó en el último año?
+¿Cuál es el total de unidades vendidas en el estado de "Entregadas" en el departamento del Cauca durante 2022?
+¿Cuál es el ranking de las 5 constructoras con mayor valor total de proyectos en el departamento de Nariño durante 2023?
+¿Cuánto es el precio promedio de las viviendas VIS en el rango de área entre 200 y 500 metros cuadrados en Bogotá y Cali?
+¿Cuál es la evolución mensual del valor de los proyectos en el departamento de Santander?
+¿Cuál es el promedio de unidades por proyecto en el estrato 5 en el departamento de Valle del Cauca?
+¿Cuántas unidades de vivienda VIS se han vendido en el departamento de Tolima en el último trimestre?
+¿Cuál es el total de unidades vendidas en el estado de "En construcción" en el departamento de Huila durante 2023?
+¿Cuál es el ranking de los 3 departamentos con mayor área construida en el último año?

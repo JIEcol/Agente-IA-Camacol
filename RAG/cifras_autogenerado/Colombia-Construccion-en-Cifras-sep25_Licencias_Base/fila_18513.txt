@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué año se iniciaron los registros de licencias de construcción en la base de datos proporcionada?
+R: Los registros de licencias de construcción se iniciaron en el año 2007.
+
+P: ¿Cuál es el departamento donde se encuentra ubicada la ciudad de Villavicencio?
+R: La ciudad de Villavicencio se encuentra ubicada en el departamento de Meta.
+
+P: ¿Cuál es el tipo de construcción que se indica en la base de datos como "Vivienda"?
+R: El tipo de construcción indicado como "Vivienda" se refiere a casas.
+
+P: ¿Cuál es el código de cobertura que se asigna a esta licencia de construcción?
+R: El código de cobertura asignado a esta licencia de construcción es "Cob. 77".
+
+P: ¿Cuántos niveles tiene la construcción según los datos proporcionados?
+R: La construcción tiene 1 nivel.
+
+P: ¿Cuál es el tipo de licencia de construcción que se indica en la base de datos?
+R: La licencia de construcción es de tipo "Nuevo".
+
+P: ¿Cuántas viviendas se planean construir según la licencia de construcción proporcionada?
+R: Se planean construir 50 viviendas.

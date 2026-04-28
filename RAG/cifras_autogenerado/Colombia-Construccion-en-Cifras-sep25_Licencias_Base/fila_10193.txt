@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2006-02-01 00:00:00.
+
+P: ¿En qué departamento se ubicó la licencia de construcción?
+R: La licencia de construcción se ubicó en Nariño.
+
+P: ¿Cuál fue el tipo de construcción autorizada por la licencia?
+R: La licencia autorizó una construcción de tipo "Nuevo" y de uso "Vivienda".
+
+P: ¿Cuál fue el número de licencia de construcción?
+R: El número de licencia de construcción fue "Cob. 77".
+
+P: ¿Cuál fue el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción fue clasificada como "Bajo".
+
+P: ¿Cuántos metros cuadrados se autorizaron para la construcción?
+R: La licencia autorizó una construcción de 353 metros cuadrados.
+
+P: ¿Cuál fue el código de la licencia de construcción?
+R: El código de la licencia de construcción fue "001".

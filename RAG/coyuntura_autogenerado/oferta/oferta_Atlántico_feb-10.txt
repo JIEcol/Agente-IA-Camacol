@@ -1,0 +1,18 @@
+# Datos de Oferta para Atlántico en feb-10
+
+A continuación, te proporciono 5 preguntas y respuestas basadas en el contexto de datos de CAMACOL:
+
+P: ¿Cuál es el total de unidades ofertadas en el departamento del Atlántico según los datos de febrero 10?
+R: El total de unidades ofertadas es de 2368.
+
+P: ¿Cuántas unidades VIP se ofertaron en el departamento del Atlántico?
+R: Se ofertó 1 unidad VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en la oferta del departamento del Atlántico?
+R: La distribución es de 1122 unidades VIS y 1246 unidades No VIS.
+
+P: ¿En qué fecha se registraron estos datos de oferta en el departamento del Atlántico?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿Cuál es el porcentaje de unidades VIS con respecto al total de unidades ofertadas en el departamento del Atlántico?
+R: El porcentaje de unidades VIS es del 47.3% (1122/2368).

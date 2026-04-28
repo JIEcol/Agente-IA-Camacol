@@ -1,0 +1,16 @@
+# Datos de Oferta para Bogotá & Cundinamarca en ago-25
+
+P: ¿Cuál es el total de unidades ofertadas en el sistema?
+R: El total de unidades ofertadas es 53360.
+
+P: ¿Cuántas unidades VIP se ofrecen en el departamento de Bogotá y Cundinamarca?
+R: Se ofrecen 1539 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en el sistema?
+R: La distribución es de 32658 unidades VIS y 20702 unidades No VIS.
+
+P: ¿En qué fecha se registraron los datos de oferta en el departamento de Bogotá y Cundinamarca?
+R: Los datos se registraron en agosto de 2025.
+
+P: ¿Cuál es el porcentaje de unidades VIS con respecto al total de unidades ofertadas?
+R: El porcentaje de unidades VIS es del 61% (32658/53360).

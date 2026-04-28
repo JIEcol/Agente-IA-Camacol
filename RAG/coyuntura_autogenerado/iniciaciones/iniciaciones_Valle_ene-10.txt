@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Valle en ene-10
+
+P: ¿Cuál fue el total de unidades iniciadas en enero de 2010 en el Departamento del Valle?
+R: El total de unidades iniciadas fue de 1503.
+
+P: ¿Cuántas unidades VIP se iniciaron en el Valle en enero de 2010?
+R: Se iniciaron 111 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el Valle en enero de 2010?
+R: La distribución fue de 1021 unidades VIS y 482 unidades No VIS.
+
+P: ¿Cuántas unidades VIS se iniciaron en el Valle durante enero de 2010?
+R: Se iniciaron 1021 unidades VIS.
+
+P: ¿En qué departamento y mes se registraron 1503 unidades iniciadas según los datos de CAMACOL?
+R: Fue en el Departamento del Valle en enero de 2010.

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha inicial del registro de la licencia de construcción?
+R: La fecha inicial del registro de la licencia de construcción es el 1 de octubre de 2005.
+
+P: ¿En qué departamento se encuentra la licencia de construcción?
+R: La licencia de construcción se encuentra en Risaralda.
+
+P: ¿Cuál es el tipo de licencia de construcción otorgada?
+R: La licencia de construcción otorgada es de tipo "Nuevo".
+
+P: ¿Cuál es el uso del suelo para la licencia de construcción?
+R: El uso del suelo para la licencia de construcción es "Urbana".
+
+P: ¿Cuál es el tipo de vivienda que se va a construir?
+R: El tipo de vivienda que se va a construir es "Vivienda" y específicamente "Casas" del tipo "VIS" y estrato "Bajo".
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es "Cob. 77" y el número de identificación es "1112" y "22" y también "2" y "66" y finalmente "001".
+
+P: ¿Cuál es el municipio donde se encuentra la licencia de construcción?
+R: El municipio donde se encuentra la licencia de construcción es Pereira.

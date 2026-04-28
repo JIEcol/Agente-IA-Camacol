@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de referencia para los datos de construcción en Colombia?
+R: La fecha de referencia es el 1 de marzo de 2005.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción?
+R: El proyecto de construcción se encuentra ubicado en Nariño.
+
+P: ¿Cuál es el tipo de proyecto de construcción según el dato proporcionado?
+R: El proyecto de construcción es de vivienda, específicamente de apartamentos.
+
+P: ¿Cuál es el nivel de complejidad del proyecto de construcción?
+R: El nivel de complejidad del proyecto de construcción es medio.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 602 metros cuadrados.
+
+P: ¿Cuántas unidades habitacionales tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 4 unidades habitacionales.
+
+P: ¿Cuál es el código de identificación del proyecto de construcción?
+R: El código de identificación del proyecto de construcción es 001.

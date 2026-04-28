@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Bolívar en oct-25
+
+P: ¿En qué fecha se realizaron los lanzamientos en el departamento de Bolívar?
+R: Los lanzamientos se realizaron en oct-25.
+
+P: ¿Cuántas unidades VIP se lanzaron en el departamento de Bolívar?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento de Bolívar?
+R: El total de unidades lanzadas es 40.
+
+P: ¿Cuántas unidades VIS se lanzaron en el departamento de Bolívar?
+R: Se lanzaron 0 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se lanzaron en el departamento de Bolívar?
+R: Se lanzaron 40 unidades No VIS.

@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 6)
+
+¿Cuál es el total de licencias de construcción otorgadas en Bogotá durante el año 2023, filtrando por compañías constructoras que trabajan en el barrio de La Macarena?
+¿Qué constructora ha desarrollado más proyectos en el departamento de Antioquia, considerando solo la modalidad de vivienda VIS?
+¿Cuál es el promedio de área construida por proyecto en el estrato 3, en los barrios de Medellín como El Poblado y La Llanura?
+¿Cómo ha evolucionado el número de unidades vendidas en Cali durante los últimos 5 años, comparando entre las modalidades VIS y No VIS?
+¿Cuál es el ranking de los 3 barrios con mayor cantidad de proyectos de construcción en el área metropolitana de Bogotá, considerando solo la modalidad de vivienda No VIS?
+¿Cuál es el total de proyectos de vivienda VIS desarrollados en el departamento del Valle del Cauca durante el año 2022, agrupados por compañías constructoras?
+¿Qué es el promedio de unidades por proyecto en el estrato 5, en los departamentos de Bogotá y Medellín?
+¿Cuál es la comparación entre el valor total de proyectos desarrollados en Bogotá y Cali durante el año 2023, considerando solo la modalidad de vivienda VIS?
+¿Cómo ha sido la evolución trimestral del número de licencias de construcción otorgadas en el departamento de Antioquia durante el año 2024?
+¿Cuál es el total de unidades No VIS vendidas en el barrio de El Poblado en Medellín durante el año 2023, considerando solo la compañía constructora X?
+¿Cuál es el promedio de área construida por proyecto en el estrato 4, en los departamentos de Bogotá y Cali?
+¿Qué es el ranking de las 5 compañías constructoras con mayor área construida en el departamento de Antioquia, considerando solo la modalidad de vivienda VIS?
+¿Cuál es la comparación entre el número de unidades vendidas en los barrios de La Llanura y El Poblado en Medellín durante el año 2023, considerando solo la modalidad de vivienda No VIS?
+¿Cuál es el total de proyectos de vivienda desarrollados en el departamento del Valle del Cauca durante el año 2022, agrupados por modalidad y compañía constructora?
+¿Cuál es el promedio de unidades por proyecto en el estrato 3, en los barrios de Bogotá como La Macarena y Chicó?
+¿Cómo ha evolucionado el valor total de proyectos desarrollados en el departamento de Antioquia durante los últimos 3 años, considerando solo la modalidad de vivienda VIS?
+¿Cuál es el ranking de los 3 departamentos con mayor cantidad de proyectos de construcción en el país, considerando solo la modalidad de vivienda No VIS?
+¿Cuál es el total de licencias de construcción otorgadas en Medellín durante el año 2023, filtrando por compañías constructoras que trabajan en el barrio de El Centro?
+¿Qué es el promedio de área construida por proyecto en el estrato 5, en los departamentos de Cali y Bogotá?
+¿Cuál es la comparación entre el número de unidades vendidas en los departamentos de Bogotá y Medellín durante el año 2023, considerando solo la modalidad de vivienda VIS?
+¿Cuál es el total de unidades VIS vendidas en el barrio de La Macarena en Bogotá durante el año 2022, considerando solo la compañía constructora Y?
+¿Cuál es el promedio de unidades por proyecto en el estrato 4, en los barrios de Cali como Granada y Santa Monica?
+¿Cómo ha sido la evolución mensual del número de licencias de construcción otorgadas en el departamento del Valle del Cauca durante el año 2024?
+¿Cuál es el ranking de las 5 compañías constructoras con mayor área construida en el departamento de Bogotá, considerando solo la modalidad de vivienda No VIS?
+¿Cuál es la comparación entre el valor total de proyectos desarrollados en los departamentos de Antioquia y Cali durante el año 2023, considerando solo la modalidad de vivienda VIS?

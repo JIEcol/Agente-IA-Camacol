@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, te proporciono 7 preguntas y respuestas basadas en el contexto de datos del informe 'Colombia Construcción en Cifras':
+
+P: ¿Cuál es la fecha de registro de la información proporcionada en el informe?
+R: La fecha de registro es 2007-12-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción mencionado?
+R: El proyecto se encuentra ubicado en el departamento de Norte de Santander.
+
+P: ¿Cuál es el nombre del municipio donde se desarrolla el proyecto de construcción?
+R: El proyecto se desarrolla en el municipio de Ocaña.
+
+P: ¿Cuál es el código de la cobertura del proyecto de construcción?
+R: El código de cobertura es Cob. 77.
+
+P: ¿Cuál es el tipo de proyecto de construcción mencionado en el informe?
+R: El tipo de proyecto es Nuevo.
+
+P: ¿Cuántas unidades se han construido o se planean construir en el proyecto?
+R: El número de unidades construidas o planificadas es 1043.
+
+P: ¿Cuál es el valor del proyecto de construcción en términos de inversión o costo?
+R: El valor del proyecto es 498.

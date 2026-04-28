@@ -1,0 +1,16 @@
+# Datos de Oferta para Atlántico en ene-10
+
+P: ¿En qué fecha se registraron los datos de oferta en el departamento del Atlántico?
+R: Los datos se registraron en enero de 2010.
+
+P: ¿Cuántas unidades VIP se ofrecieron en el departamento del Atlántico?
+R: Se ofrecieron 2 unidades VIP.
+
+P: ¿Cuál es el total de unidades ofrecidas en el departamento del Atlántico?
+R: El total de unidades ofrecidas es de 2819.
+
+P: ¿Cuántas unidades VIS y no VIS se ofrecieron en el departamento del Atlántico?
+R: Se ofrecieron 1488 unidades VIS y 1331 unidades no VIS.
+
+P: ¿En qué sistema se basan los datos registrados en el departamento del Atlántico?
+R: Los datos se basan en el sistema de oferta.

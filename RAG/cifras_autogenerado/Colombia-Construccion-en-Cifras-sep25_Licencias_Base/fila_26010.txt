@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, te proporciono 7 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿Cuál es la fecha de referencia para los datos de construcción en Cifras?
+R: La fecha de referencia es el 1 de noviembre de 2007.
+
+P: ¿En qué departamento se encuentra el municipio de Soacha?
+R: El municipio de Soacha se encuentra en el departamento de Cundinamarca.
+
+P: ¿Cuál es el tipo de cobertura del proyecto de construcción?
+R: El tipo de cobertura es Cob. 77.
+
+P: ¿Qué tipo de proyecto de construcción se está llevando a cabo en Soacha?
+R: El proyecto de construcción es de tipo urbano y nuevo.
+
+P: ¿Qué tipo de vivienda se está construyendo en Soacha?
+R: La vivienda que se está construyendo es de tipo casas.
+
+P: ¿Cuál es el número de unidades habitacionales que se están construyendo en Soacha?
+R: El número de unidades habitacionales es de 376.
+
+P: ¿Cuál es el costo total del proyecto de construcción en Soacha?
+R: El costo total del proyecto de construcción es de 754.

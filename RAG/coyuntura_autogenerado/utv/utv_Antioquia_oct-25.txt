@@ -1,0 +1,16 @@
+# Datos de Utv para Antioquia en oct-25
+
+P: ¿Cuál es el sistema utilizado para registrar los datos de ventas en Antioquia?
+R: El sistema utilizado es Utv.
+
+P: ¿En qué fecha se registraron los datos de ventas en Antioquia?
+R: Los datos se registraron el 25 de octubre.
+
+P: ¿Cuántas unidades VIP se vendieron en total en Antioquia?
+R: Se vendieron 23 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS vendidas en Antioquia?
+R: Se vendieron 328 unidades VIS y 433 unidades No VIS.
+
+P: ¿Cuál es el total de unidades vendidas en Antioquia según los datos registrados?
+R: El total de unidades vendidas es de 761.

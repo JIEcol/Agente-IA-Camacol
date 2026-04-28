@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 1)
+
+¿Cuál es el valor total de las viviendas VIS construidas en los barrios de San Diego y La Candelaria en Cartagena durante 2022 y 2023?
+¿Cuál es el promedio de estrato de las viviendas No VIS vendidas en el barrio de Poblado en Medellín durante el último año?
+¿Qué constructora tiene el mayor número de unidades vendidas en el departamento de Antioquia en el rango de decreto pre 2020-2021?
+¿Cómo ha evolucionado el área construida en el barrio de Chicó en Bogotá durante los últimos 5 años?
+¿Cuál es el ranking de los 3 barrios con mayor valor de proyectos en el departamento del Valle del Cauca?
+¿Cuál es el total de unidades VIS vendidas en el departamento de Caldas durante el segundo semestre de 2023?
+¿Cuál es el promedio de valor por unidad para las viviendas No VIS en el barrio de El Poblado en Medellín?
+¿Qué es el valor total de las viviendas VIS construidas en el barrio de La Macarena en Bogotá durante 2022?
+¿Cuál es el ranking de las 5 constructoras con mayor número de unidades vendidas en el departamento de Risaralda?
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento de Quindío durante los últimos 2 años?
+¿Cuál es el total de unidades No VIS vendidas en el barrio de San Fernando en Cali durante el último año?
+¿Cuál es el promedio de área construida por proyecto para el estrato 3 en el departamento de Antioquia?
+¿Qué constructora tiene el mayor valor de proyectos en el barrio de El Centro en Bogotá?
+¿Cuál es el ranking de los 5 barrios con mayor número de unidades vendidas en el departamento del Valle del Cauca?
+¿Cuál es el total de unidades VIS vendidas en el departamento de Huila durante el primer semestre de 2023?
+¿Cuál es el promedio de unidades por proyecto para el estrato 2 en el departamento de Tolima?
+¿Cómo ha evolucionado el valor de los proyectos en el barrio de La Castellana en Bogotá durante los últimos 3 años?
+¿Cuál es el total de unidades No VIS vendidas en el departamento de Santander durante el último año?
+¿Cuál es el ranking de las 3 constructoras con mayor área construida en el barrio de Poblado en Medellín?
+¿Cuál es el valor total de las viviendas VIS construidas en el departamento de Cali durante 2022 y 2023?
+¿Cuál es el promedio de estrato de las viviendas VIS vendidas en el departamento de Antioquia durante el último año?
+¿Qué es el valor total de las viviendas No VIS construidas en el barrio de Chicó en Bogotá durante 2022?
+¿Cuál es el ranking de los 5 departamentos con mayor valor de proyectos en el país?
+¿Cuál es el total de unidades VIS vendidas en el barrio de La Candelaria en Cartagena durante el último año?

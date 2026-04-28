@@ -1,0 +1,9 @@
+
+# METADATA
+source_type: "structured_data_summary"
+file_name: "Tablas_de_Coyuntura_oct25.xlsx"
+sheet_name: "Portada"
+# END METADATA
+
+## Resumen de la Tabla de Datos: Portada
+El archivo "Tablas_de_Coyuntura_oct25.xlsx" en la hoja "Portada" parece contener una tabla de datos relacionados con la coyuntura de la construcción de vivienda en Colombia. Sin embargo, las primeras 5 filas de la tabla están vacías, lo que sugiere que la tabla aún no ha sido poblada con datos o que los datos están ubicados en una parte diferente de la hoja. En resumen, la tabla parece estar diseñada para almacenar información sobre la construcción de vivienda en Colombia, pero carece de contenido real en las primeras filas.

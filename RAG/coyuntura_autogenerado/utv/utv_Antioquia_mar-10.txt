@@ -1,0 +1,16 @@
+# Datos de Utv para Antioquia en mar-10
+
+P: ¿Cuál es el sistema utilizado en el contexto de datos de CAMACOL?
+R: El sistema utilizado es Utv.
+
+P: ¿En qué fecha se registraron los datos de CAMACOL?
+R: Los datos se registraron el 10 de marzo.
+
+P: ¿En qué departamento se encuentran los datos de CAMACOL?
+R: Los datos se encuentran en el departamento de Antioquia.
+
+P: ¿Cuántas unidades VIP se registraron en Antioquia?
+R: Se registraron 2 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en Antioquia?
+R: La distribución es de 121 unidades VIS y 388 unidades No VIS.

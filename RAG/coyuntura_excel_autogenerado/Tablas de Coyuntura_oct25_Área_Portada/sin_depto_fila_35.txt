@@ -1,0 +1,13 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+En el departamento de Tolima, específicamente en la ciudad de Ibagué, en el año 2006, no se proporcionan detalles adicionales sobre eventos o registros específicos. 
+
+Nota: La salida es una frase descriptiva y concisa, pero como no hay suficiente información en los datos proporcionados (solo el año, el departamento y la ciudad), la frase no puede ser más detallada. Si hubiera más datos, como ventas, temperatura, eventos, etc., la frase podría ser más informativa.

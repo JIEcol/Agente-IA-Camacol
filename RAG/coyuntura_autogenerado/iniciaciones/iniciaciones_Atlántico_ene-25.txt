@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Atlántico en ene-25
+
+P: ¿En qué departamento se realizaron las iniciaciones en enero de 2025?
+R: En el departamento de Atlántico.
+
+P: ¿Cuántas unidades VIP se iniciaron en enero de 2025?
+R: Se iniciaron 60 unidades VIP.
+
+P: ¿Cuál es el total de unidades iniciadas en enero de 2025 en el Atlántico?
+R: El total de unidades iniciadas fue de 1392.
+
+P: ¿Cuántas unidades VIS se iniciaron en total en enero de 2025?
+R: Se iniciaron 1024 unidades VIS.
+
+P: ¿Cuántas unidades no VIS se iniciaron en enero de 2025 en el Atlántico?
+R: Se iniciaron 368 unidades no VIS.

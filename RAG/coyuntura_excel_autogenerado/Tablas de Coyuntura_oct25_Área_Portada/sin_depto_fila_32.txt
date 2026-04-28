@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+En el año 2009, en el departamento de Norte de Santander, específicamente en los municipios de Chinácota, Cúcuta, Los Patios y Villa Del Rosario, se registraron ciertos eventos o actividades sin detalles adicionales sobre el tipo de datos o metricas.

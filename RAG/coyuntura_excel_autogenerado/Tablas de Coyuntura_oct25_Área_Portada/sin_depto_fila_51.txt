@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+En el departamento de Santander, específicamente en las localidades de Piedecuesta, Girón, Floridablanca y la ciudad de Bucaramanga, se encuentran las áreas de interés.

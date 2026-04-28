@@ -1,0 +1,17 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+La información proporcionada no contiene datos suficientes para generar una frase descriptiva detallada como el ejemplo de salida. Sin embargo, basándome en la información disponible, puedo intentar crear una frase que incluya la fecha y cualquier otro dato relevante que se pueda inferir.
+
+Dado que solo hay una fecha mencionada ("Actualización: Noviembre-2025") y no hay detalles específicos sobre ventas, variaciones anuales, o una entidad geográfica (Departamento/Región) mencionada, la frase descriptiva sería muy general. Aquí te dejo una posible interpretación:
+
+"Se realizó una actualización en noviembre de 2025."
+
+Si hubiera más detalles en la fila de datos, podría ofrecer una frase más detallada y específica, incluyendo la entidad geográfica y cualquier otro dato relevante. Sin embargo, con la información proporcionada, esta es la frase más concisa y clara que se puede generar.

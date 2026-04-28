@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué departamento se encuentra la licencia de construcción registrada?
+R: La licencia de construcción se encuentra en el departamento de Antioquia.
+
+P: ¿Cuál es el tipo de licencia de construcción registrada?
+R: La licencia de construcción registrada es de tipo "Nuevo".
+
+P: ¿Cuál es el uso previsto para la construcción?
+R: El uso previsto para la construcción es "Vivienda".
+
+P: ¿Qué tipo de vivienda se va a construir?
+R: Se va a construir vivienda de tipo "Casas".
+
+P: ¿Cuál es el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción tiene un nivel de complejidad "Medio".
+
+P: ¿Cuántos niveles tiene la construcción?
+R: La construcción tiene 2 niveles.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es "Cob. 77".

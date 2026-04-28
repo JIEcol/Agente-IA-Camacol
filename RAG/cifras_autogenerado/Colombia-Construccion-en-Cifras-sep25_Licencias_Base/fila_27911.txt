@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es 2008-02-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en Antioquia.
+
+P: ¿Cuál es el tipo de licencia de construcción otorgada?
+R: La licencia de construcción es de tipo Nuevo.
+
+P: ¿Cuál es el uso del proyecto de construcción?
+R: El uso del proyecto de construcción es Oficina.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es 001.
+
+P: ¿Cuál es el número de la cobertura de la licencia de construcción?
+R: El número de la cobertura de la licencia de construcción es 77.
+
+P: ¿Cuántos empleos se generaron con la licencia de construcción?
+R: No hay información disponible sobre el número de empleos generados, pero se menciona un número "88" sin contexto claro en relación con empleos.

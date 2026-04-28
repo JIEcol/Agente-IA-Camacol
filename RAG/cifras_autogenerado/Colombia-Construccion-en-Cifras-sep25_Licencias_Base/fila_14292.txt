@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, te proporciono 7 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿Cuál es la fecha inicial de los datos en el informe 'Colombia Construcción en Cifras'?
+R: La fecha inicial de los datos es el 1 de agosto de 2006.
+
+P: ¿En qué departamento se encuentra el municipio de Bello según el informe?
+R: El municipio de Bello se encuentra en el departamento de Antioquia.
+
+P: ¿Cuál es el tipo de construcción según la licencia base en el informe?
+R: El tipo de construcción es una modificación en un área urbana.
+
+P: ¿Cuál es el propósito de la construcción según el informe?
+R: El propósito de la construcción es educación.
+
+P: ¿Cuántas unidades se van a ampliar o construir según el informe?
+R: Se van a ampliar o construir 340 unidades.
+
+P: ¿Cuál es el código de la licencia base según el informe?
+R: El código de la licencia base es Cob. 77.
+
+P: ¿Cuál es el número de identificación de la licencia base según el informe?
+R: El número de identificación de la licencia base es 088.

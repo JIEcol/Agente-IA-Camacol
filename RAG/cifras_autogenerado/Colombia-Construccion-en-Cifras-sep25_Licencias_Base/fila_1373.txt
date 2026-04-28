@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha inicial de registro en el contexto de 'Colombia Construcción en Cifras'?
+R: La fecha inicial de registro es 2005-03-01 00:00:00.
+
+P: ¿En qué departamento se encuentra el proyecto de construcción mencionado?
+R: El proyecto de construcción se encuentra en Antioquia.
+
+P: ¿Cuál es el tipo de proyecto de construcción según el contexto?
+R: El tipo de proyecto de construcción es Nuevo.
+
+P: ¿Cuál es el uso previsto para el proyecto de construcción?
+R: El uso previsto para el proyecto de construcción es Vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo según el contexto?
+R: Se están construyendo Casas.
+
+P: ¿Cuál es el nivel de riesgo del proyecto de construcción según la clasificación VIS?
+R: El proyecto de construcción no tiene clasificación VIS (No VIS).
+
+P: ¿Cuál es el código de identificación del proyecto de construcción en el contexto?
+R: El código de identificación del proyecto de construcción es 001.

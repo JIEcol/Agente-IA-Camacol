@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Condiciones de uso"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+La Cámara Colombiana de la Construcción garantiza la calidad de los datos del censo Coordenada Urbana para proporcionar información precisa a nivel nacional.

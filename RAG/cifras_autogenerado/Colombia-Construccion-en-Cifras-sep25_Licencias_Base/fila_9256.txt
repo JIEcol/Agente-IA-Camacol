@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, te proporciono 7 preguntas y respuestas basadas en el contexto de datos del informe 'Colombia Construcción en Cifras':
+
+P: ¿Cuál es la fecha de inicio del registro de datos en el informe 'Colombia Construcción en Cifras'?
+R: El registro de datos comienza el 2006-01-01 00:00:00.
+
+P: ¿En qué departamento se encuentra el municipio de Duitama?
+R: El municipio de Duitama se encuentra en el departamento de Boyacá.
+
+P: ¿Cuál es el tipo de obra según la licencia de construcción?
+R: La licencia de construcción es para una obra nueva.
+
+P: ¿Qué tipo de vivienda se está construyendo según la licencia?
+R: La vivienda que se está construyendo es una casa.
+
+P: ¿Cuántos metros cuadrados tiene la vivienda según la licencia de construcción?
+R: La vivienda tiene un área de 140 metros cuadrados.
+
+P: ¿Cuál es el estrato socioeconómico de la vivienda según la licencia de construcción?
+R: La vivienda se clasifica como bajo-bajo.
+
+P: ¿Cuántas viviendas se están construyendo según la licencia de construcción?
+R: Se están construyendo 15 viviendas.

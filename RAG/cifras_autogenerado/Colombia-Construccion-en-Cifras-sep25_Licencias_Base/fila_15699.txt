@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción en el informe 'Colombia Construcción en Cifras'?
+R: La fecha registrada es el 2006-09-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se encuentra la licencia de construcción mencionada en el informe?
+R: La licencia de construcción se encuentra en el departamento de Valle del Cauca.
+
+P: ¿Cuál es el nombre del municipio donde se encuentra la licencia de construcción?
+R: El municipio donde se encuentra la licencia de construcción es Guadalajara de Buga.
+
+P: ¿Cuál es el tipo de licencia de construcción registrada en el informe?
+R: El tipo de licencia de construcción registrada es "Nuevo".
+
+P: ¿Cuál es el tipo de zona donde se encuentra la licencia de construcción?
+R: La licencia de construcción se encuentra en una zona urbana.
+
+P: ¿Cuántas viviendas se planifican construir según la licencia registrada en el informe?
+R: No se proporciona información directa sobre el número total de viviendas, pero se menciona que el tipo de construcción es "Vivienda" y específicamente "Casas" con un código "VIS" y un estrato bajo, con 53 unidades en total.
+
+P: ¿Cuál es el código de cobertura de la licencia de construcción registrada en el informe?
+R: El código de cobertura de la licencia de construcción es "Cob. 77".

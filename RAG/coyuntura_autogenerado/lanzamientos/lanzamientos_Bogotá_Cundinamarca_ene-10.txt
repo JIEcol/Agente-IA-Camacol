@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Bogotá & Cundinamarca en ene-10
+
+P: ¿Cuál fue el total de unidades lanzadas en el sistema en enero de 2010?
+R: El total de unidades lanzadas fue de 3207.
+
+P: ¿Cuántas unidades VIP se lanzaron en el departamento de Bogotá & Cundinamarca?
+R: Se lanzaron 235 unidades VIP.
+
+P: ¿Cuál es la relación entre unidades VIS y No VIS en el lanzamiento?
+R: La relación es de 1419 unidades VIS y 1788 unidades No VIS.
+
+P: ¿En qué fecha se llevaron a cabo los lanzamientos en el departamento de Bogotá & Cundinamarca?
+R: Los lanzamientos se llevaron a cabo en enero de 2010.
+
+P: ¿Cuál es el porcentaje de unidades VIS en relación con el total de unidades lanzadas?
+R: El porcentaje de unidades VIS es del 44.2% (1419/3207).

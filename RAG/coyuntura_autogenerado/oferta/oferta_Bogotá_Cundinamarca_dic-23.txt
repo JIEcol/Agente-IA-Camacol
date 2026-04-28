@@ -1,0 +1,16 @@
+# Datos de Oferta para Bogotá & Cundinamarca en dic-23
+
+P: ¿Cuál es el total de unidades ofrecidas en el sistema de oferta en Bogotá y Cundinamarca en diciembre de 2023?
+R: El total de unidades ofrecidas es de 67,438.
+
+P: ¿Cuántas unidades VIP se ofrecen en el departamento de Bogotá y Cundinamarca en diciembre de 2023?
+R: Se ofrecen 2,153 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS disponibles en el sistema de oferta en diciembre de 2023?
+R: Hay 45,369 unidades VIS disponibles.
+
+P: ¿Cuántas unidades no VIS se ofrecen en el sistema de oferta en Bogotá y Cundinamarca en diciembre de 2023?
+R: Se ofrecen 22,069 unidades no VIS.
+
+P: ¿Cuál es la relación entre unidades VIS y el total de unidades ofrecidas en el sistema de oferta en diciembre de 2023?
+R: Las unidades VIS representan aproximadamente el 67.4% del total de unidades ofrecidas.

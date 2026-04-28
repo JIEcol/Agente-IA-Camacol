@@ -1,0 +1,23 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+No se puede generar una frase descriptiva con los datos proporcionados, ya que están vacíos (nan). Sin embargo, puedo ofrecerte un ejemplo de cómo se podría estructurar la frase si hubiera datos disponibles.
+
+Por ejemplo, si los datos fueran:
+
+- Unnamed: 0: oct-25
+- Unnamed: 1: Antioquia
+- Unnamed: 2: 2083
+- Unnamed: 3: -15.2
+
+La frase descriptiva podría ser:
+"Para la fecha oct-25 en Antioquia, se registraron ventas de 2,083 unidades, con una variación anual del -15.2%."
+
+Pero con los datos actuales, no hay información suficiente para generar una frase descriptiva. ¿Podrías proporcionar más datos o contexto?

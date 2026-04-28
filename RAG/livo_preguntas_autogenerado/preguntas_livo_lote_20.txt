@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 20)
+
+¿Cuál es el total de unidades vendidas en la ciudad de Medellín para el año 2023, considerando solo viviendas del tipo VIS?
+¿Cómo se comparan las ventas de viviendas No VIS en las ciudades de Cali y Bogotá durante el último semestre?
+¿Cuál es el promedio de precio por metro cuadrado en el segmento de viviendas de lujo en la ciudad de Cartagena?
+¿Cuáles son las 3 ciudades con mayor número de unidades vendidas en el rango de área entre 100 y 200 metros cuadrados durante 2022?
+¿Cómo ha evolucionado el número de unidades vendidas en el departamento de Antioquia entre 2020 y 2023, considerando solo viviendas del tipo VIS?
+¿Cuál es el total de unidades vendidas en la ciudad de Bogotá para el año 2024, considerando solo viviendas del tipo No VIS?
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento del Valle del Cauca durante 2022 y 2023?
+¿Cuál es el promedio de unidades por proyecto para el estrato 3 en la ciudad de Medellín?
+¿Cómo se comparan las ventas de viviendas VIS y No VIS en la ciudad de Cali durante el último trimestre de 2023?
+¿Cuál es el ranking de las ciudades con mayor número de unidades vendidas en el rango de área entre 50 y 100 metros cuadrados durante 2022?
+¿Cuáles son las tendencias en la evolución del precio por metro cuadrado en el segmento de viviendas de lujo en la ciudad de Bogotá entre 2020 y 2023?
+¿Cuál es el total de unidades vendidas en el departamento de Santander para el año 2023, considerando solo viviendas del tipo VIS y No VIS?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en la ciudad de Cartagena durante 2022 y 2023?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en el rango de área entre 200 y 300 metros cuadrados en la ciudad de Medellín durante 2022?
+¿Cuál es el promedio de precio por metro cuadrado en el segmento de viviendas de lujo en la ciudad de Medellín para el año 2023?
+¿Cómo se comparan las ventas de viviendas VIS y No VIS en las ciudades de Bogotá y Cali durante el último semestre de 2023?
+¿Cuál es el total de unidades vendidas en la ciudad de Barranquilla para el año 2024, considerando solo viviendas del tipo No VIS?
+¿Cuáles son las tendencias en la evolución del número de unidades vendidas en el departamento del Quindío entre 2020 y 2023, considerando solo viviendas del tipo VIS?
+¿Cuál es el ranking de las ciudades con mayor área construida en el rango de área entre 100 y 200 metros cuadrados durante 2022 y 2023?
+¿Cuáles son las 5 constructoras con mayor número de unidades vendidas en el segmento de viviendas de lujo en la ciudad de Cartagena durante 2022 y 2023?
+¿Cuál es el promedio de unidades por proyecto para el estrato 2 en la ciudad de Cali?
+¿Cómo ha sido la evolución trimestral del precio por metro cuadrado en el segmento de viviendas de lujo en la ciudad de Bogotá durante 2022 y 2023?
+¿Cuáles son las tendencias en la evolución del número de unidades vendidas en el departamento de Risaralda entre 2020 y 2023, considerando solo viviendas del tipo No VIS?
+¿Cuál es el total de unidades vendidas en la ciudad de Pereira para el año 2023, considerando solo viviendas del tipo VIS y No VIS?

@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Bolívar en feb-10
+
+P: ¿En qué sistema se basan los datos proporcionados?
+R: Los datos se basan en el sistema de Lanzamientos.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento de Bolívar?
+R: El total de unidades lanzadas es 0.
+
+P: ¿Cuántas unidades VIP se lanzaron en febrero de 2023?
+R: No se menciona febrero de 2023, pero el 10 de febrero, se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS lanzadas en el departamento de Bolívar?
+R: La cantidad de unidades VIS lanzadas es 0.
+
+P: ¿En qué fecha se registraron estos lanzamientos en el departamento de Bolívar?
+R: Los lanzamientos se registraron el 10 de febrero.

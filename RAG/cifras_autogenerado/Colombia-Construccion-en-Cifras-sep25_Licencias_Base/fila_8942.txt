@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál fue la fecha de registro de la licencia de construcción en el contexto proporcionado?
+R: La fecha de registro fue el 2005-12-01 00:00:00.
+
+P: ¿En qué departamento se ubicó la licencia de construcción mencionada?
+R: La licencia de construcción se ubicó en el Valle del Cauca.
+
+P: ¿Cuál fue el tipo de licencia de construcción otorgada en Cartago?
+R: La licencia de construcción otorgada fue de tipo "Nuevo".
+
+P: ¿Cuál fue el código de la licencia de construcción mencionada?
+R: El código de la licencia de construcción fue "Cob. 77".
+
+P: ¿Cuántas unidades se planearon construir según la licencia de construcción?
+R: Según la información proporcionada, se planearon construir 402 unidades.
+
+P: ¿Cuál fue el número de viviendas nuevas planificadas en la licencia de construcción?
+R: El número de viviendas nuevas planificadas fue de 147.
+
+P: ¿Cuál fue el número de empleos generados directamente por la licencia de construcción?
+R: No hay información directa sobre el número de empleos generados, pero se menciona que hay 76 empleos relacionados con la licencia.

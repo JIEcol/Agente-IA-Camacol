@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 45)
+
+¿Cuál es el total de unidades vendidas en el área metropolitana de Bucaramanga durante el último semestre?
+¿Qué constructora ha desarrollado más proyectos de vivienda VIS en Cartagena en los últimos dos años?
+¿Cuál es el promedio de precio por metro cuadrado en los proyectos de vivienda No VIS en Barranquilla?
+¿Cómo se comparan las ventas de vivienda VIS y No VIS en el departamento de Antioquia durante el año pasado?
+¿Cuál es el ranking de las 3 ciudades con mayor número de unidades vendidas en el último trimestre?
+¿Cuántos proyectos de construcción hay en etapa de obra en el departamento del Quindío?
+¿Qué ciudad tiene el mayor promedio de unidades por proyecto en el estrato 5?
+¿Cuál es la evolución anual del valor de los proyectos en el departamento de Risaralda durante los últimos 5 años?
+¿Cuál es el total de unidades vendidas en el área urbana de Manizales durante el último año?
+¿Qué constructora ha vendido más unidades de vivienda VIS en el departamento de Caldas en los últimos 3 años?
+¿Cuál es el promedio de área construida por proyecto en el departamento de Tolima?
+¿Cómo se comparan las ventas de vivienda VIS y No VIS en las ciudades de Bogotá y Medellín durante el último semestre?
+¿Cuántos proyectos de vivienda No VIS hay en etapa de planeación en el departamento de Huila?
+¿Qué departamento tiene el mayor número de unidades vendidas en el último trimestre?
+¿Cuál es el ranking de las 5 constructoras con mayor número de proyectos en el departamento de Santander?
+¿Cuál es el promedio de precio por metro cuadrado en los proyectos de vivienda VIS en el departamento de Valle del Cauca?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el departamento de Cundinamarca durante el último año?
+¿Cuántos proyectos de construcción hay en el área metropolitana de Pereira?
+¿Qué ciudad tiene el mayor promedio de unidades vendidas por proyecto en el estrato 3?
+¿Cuál es el total de unidades vendidas en el departamento de Nariño durante el último semestre?
+¿Qué constructora ha desarrollado más proyectos de vivienda No VIS en el departamento de Boyacá en los últimos 2 años?
+¿Cuál es el promedio de área construida por proyecto en el departamento de Norte de Santander?
+¿Cómo se comparan las ventas de vivienda VIS y No VIS en las ciudades de Cartagena y Barranquilla durante el último año?
+¿Cuántos proyectos de vivienda VIS hay en etapa de obra en el departamento de Meta?
+¿Qué departamento tiene el mayor promedio de unidades vendidas por proyecto en el estrato 2?

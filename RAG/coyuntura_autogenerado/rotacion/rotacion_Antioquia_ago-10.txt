@@ -1,0 +1,16 @@
+# Datos de Rotacion para Antioquia en ago-10
+
+P: ¿En qué sistema se basan los datos de CAMACOL para agosto de 2010?
+R: El sistema utilizado es Rotación.
+
+P: ¿Cuál es el total de unidades en el Departamento de Antioquia para agosto de 2010?
+R: El total de unidades es de 7.7.
+
+P: ¿Cuántas unidades VIP hay en el Departamento de Antioquia para agosto de 2010?
+R: Hay 2.0 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS y No VIS en el Departamento de Antioquia para agosto de 2010?
+R: Hay 5.1 unidades VIS y 9.3 unidades No VIS.
+
+P: ¿En qué departamento se encuentran los datos de ventas de CAMACOL para agosto de 2010?
+R: Los datos corresponden al Departamento de Antioquia.

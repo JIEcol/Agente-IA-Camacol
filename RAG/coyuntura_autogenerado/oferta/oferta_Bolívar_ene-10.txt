@@ -1,0 +1,16 @@
+# Datos de Oferta para Bolívar en ene-10
+
+P: ¿Cuál es el sistema de datos que se está utilizando?
+R: El sistema de datos que se está utilizando es Oferta.
+
+P: ¿En qué fecha se registraron los datos de ventas en Bolívar?
+R: Los datos de ventas en Bolívar se registraron en enero de 2010.
+
+P: ¿Cuántas unidades VIP se ofrecieron en Bolívar?
+R: Se ofrecieron 7 unidades VIP en Bolívar.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en Bolívar?
+R: La distribución es de 10 unidades VIS y 706 unidades No VIS.
+
+P: ¿Cuál es el total de unidades ofrecidas en Bolívar?
+R: El total de unidades ofrecidas en Bolívar es de 716.

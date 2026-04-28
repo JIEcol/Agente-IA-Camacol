@@ -1,0 +1,57 @@
+{
+    "731373145": {
+        "preferences": {
+            "account_type": {
+                "ventas": 6,
+                "vendidas": 11,
+                "lanzamiento": 8
+            },
+            "location": {
+                "bogotá": 23
+            },
+            "metric": {
+                "unidades": 20,
+                "cantidad": 1
+            },
+            "time_period": {
+                "2025": 22,
+                "año": 3
+            },
+            "housing_type": {
+                "vis": 2,
+                "vivienda": 7
+            },
+            "operation": {
+                "total": 9
+            }
+        },
+        "last_seen": "2025-12-01T07:12:18.584577"
+    },
+    "8563347542": {
+        "preferences": {
+            "account_type": {
+                "ventas": 1,
+                "vendidas": 1,
+                "oferta": 3
+            },
+            "location": {
+                "bogotá": 1,
+                "nacional": 6
+            },
+            "metric": {
+                "unidades": 11
+            },
+            "time_period": {
+                "2025": 15
+            },
+            "housing_type": {
+                "vis": 1,
+                "vivienda": 14
+            },
+            "operation": {
+                "total": 1,
+                "cuántas": 14
+            }
+        },
+        "last_seen": "2025-12-02T17:20:48.407194"
+    }

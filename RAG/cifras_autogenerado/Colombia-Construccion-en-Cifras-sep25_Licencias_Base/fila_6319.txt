@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se realizó el registro de la licencia de construcción?
+R: El registro se realizó el 2005-09-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se otorgó la licencia de construcción?
+R: La licencia se otorgó en el departamento de Huila.
+
+P: ¿Cuál es el tipo de proyecto para el que se otorgó la licencia de construcción?
+R: La licencia se otorgó para un proyecto de Vivienda.
+
+P: ¿Cuál es el tipo de vivienda que se construirá con la licencia otorgada?
+R: La licencia se otorgó para la construcción de Casas.
+
+P: ¿Cuál es el código de la licencia de construcción otorgada?
+R: El código de la licencia es 001.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: No hay información disponible sobre los metros cuadrados del proyecto.
+
+P: ¿Cuál es el número de la cobertura del proyecto de construcción?
+R: La cobertura del proyecto es Cob. 77.

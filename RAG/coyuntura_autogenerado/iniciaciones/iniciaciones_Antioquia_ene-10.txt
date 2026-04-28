@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Antioquia en ene-10
+
+P: ¿Cuál es el sistema utilizado para registrar las unidades en Antioquia en enero de 2010?
+R: El sistema utilizado es Iniciaciones.
+
+P: ¿Cuántas unidades VIP se registraron en Antioquia en enero de 2010?
+R: Se registraron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades registradas en Antioquia en enero de 2010?
+R: El total de unidades registradas es 916.
+
+P: ¿Cuántas unidades VIS y No VIS se registraron en Antioquia en enero de 2010?
+R: Se registraron 214 unidades VIS y 702 unidades No VIS.
+
+P: ¿En qué departamento se registraron 916 unidades en enero de 2010?
+R: Las unidades se registraron en el departamento de Antioquia.

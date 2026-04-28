@@ -1,0 +1,22 @@
+# Censo de Edificaciones (CEED): N/A - N/A
+
+P: ¿Cuál es el año del censo de edificaciones?
+R: El año del censo de edificaciones es 2020.
+
+P: ¿Cuál es el estado actual de la edificación?
+R: El estado actual de la edificación es 7, lo que corresponde a 'En construcción'.
+
+P: ¿Cuántos metros cuadrados tiene el área total de la edificación?
+R: El área total de la edificación es de 144 m².
+
+P: ¿Cuál es el número de unidades que se van a vender?
+R: El número de unidades que se van a vender es 1.
+
+P: ¿Cuál es el estrato de la edificación?
+R: El estrato de la edificación es 3.
+
+P: ¿Cuántos pisos tiene la edificación?
+R: La edificación tiene 1 piso.
+
+P: ¿Cuál es el destino principal de la edificación?
+R: El destino principal de la edificación es 4, lo que corresponde a 'Apartamento'.

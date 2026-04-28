@@ -1,0 +1,16 @@
+# Datos de Oferta para Antioquia en dic-23
+
+P: ¿En qué sistema se registraron los datos de unidades en Antioquia?
+R: El sistema es Oferta.
+
+P: ¿Cuál es el total de unidades registradas en Antioquia en diciembre de 2023?
+R: El total de unidades es 25444.
+
+P: ¿Cuántas unidades VIP hay en Antioquia según los datos?
+R: Hay 268 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en Antioquia?
+R: Hay 11820 unidades VIS y 13624 unidades No VIS.
+
+P: ¿En qué fecha y departamento se registraron los datos de unidades VIP y unidades VIS?
+R: Los datos se registraron en diciembre de 2023 en el departamento de Antioquia.

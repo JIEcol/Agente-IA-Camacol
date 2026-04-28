@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 24)
+
+¿Cuál es el valor total de las licencias de construcción en Bogotá para el segmento de viviendas VIS en el barrio de La Macarena?
+¿Cómo se comparan los precios promedio del metro cuadrado en los barrios de Poblado y El Centro en Medellín para el año 2023?
+¿Cuáles son las 3 constructoras con mayor número de proyectos en el departamento de Antioquia en el segmento de viviendas No VIS?
+¿Cuál es la evolución trimestral del número de unidades vendidas en el estrato 3 en la ciudad de Cali durante los últimos 2 años?
+¿Cuál es el promedio de unidades por proyecto en el segmento de viviendas VIS en el barrio de Chicó en Bogotá?
+¿Dónde se encuentran las 5 constructoras con mayor valor de proyectos en el departamento del Valle del Cauca para el año 2022?
+¿Cuál es el total de unidades vendidas en el segmento de viviendas No VIS en la ciudad de Cartagena durante el primer semestre de 2024?
+¿Cómo ha sido la evolución anual del precio promedio del metro cuadrado en el estrato 4 en la ciudad de Barranquilla?
+¿Cuáles son las 3 constructoras con mayor área construida en el barrio de Poblado en Medellín para el segmento de viviendas VIS?
+¿Cuál es el valor total de las licencias de construcción en el departamento de Cundinamarca para el segmento de viviendas No VIS en el año 2023?
+¿Cuál es el promedio de unidades por proyecto en el segmento de viviendas VIS en el estrato 2 en la ciudad de Bucaramanga?
+¿Cuáles son las 5 constructoras con mayor número de proyectos en el departamento de Tolima para el segmento de viviendas VIS?
+¿Cuál es la comparación entre los precios promedio del metro cuadrado en los barrios de La Macarena y El Centro en Bogotá para el año 2022?
+¿Cuál es el total de unidades vendidas en el segmento de viviendas VIS en la ciudad de Pereira durante el segundo semestre de 2023?
+¿Cómo se comparan las ventas de vivienda No VIS entre los departamentos de Antioquia y Valle del Cauca para el año 2024?
+¿Cuáles son las 3 constructoras con mayor valor de proyectos en el barrio de Poblado en Medellín para el segmento de viviendas VIS?
+¿Cuál es el promedio de unidades por proyecto en el segmento de viviendas No VIS en el estrato 1 en la ciudad de Santa Marta?
+¿Cuál es la evolución mensual del número de unidades vendidas en el segmento de viviendas VIS en el barrio de Chicó en Bogotá durante el año 2023?
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento de Quindío para el segmento de viviendas No VIS?
+¿Cuál es el valor total de las licencias de construcción en la ciudad de Manizales para el segmento de viviendas VIS en el año 2022?
+¿Cuál es la comparación entre los precios promedio del metro cuadrado en los barrios de Poblado y El Centro en Medellín para el año 2023?
+¿Cuáles son las 3 constructoras con mayor número de proyectos en el departamento de Risaralda para el segmento de viviendas VIS?
+¿Cuál es el total de unidades vendidas en el segmento de viviendas No VIS en la ciudad de Armenia durante el primer semestre de 2024?
+¿Cómo ha sido la evolución anual del valor de los proyectos en el departamento del Quindío durante los últimos 3 años?

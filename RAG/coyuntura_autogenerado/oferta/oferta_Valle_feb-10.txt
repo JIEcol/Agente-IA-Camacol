@@ -1,0 +1,16 @@
+# Datos de Oferta para Valle en feb-10
+
+P: ¿En qué fecha se registraron los datos de oferta en el sistema CAMACOL?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿Cuál es el total de unidades ofrecidas en el departamento del Valle?
+R: El total de unidades ofrecidas es de 7595.
+
+P: ¿Cuántas unidades VIP se ofrecen en el departamento del Valle?
+R: Se ofrecen 1010 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento del Valle?
+R: La distribución es de 4368 unidades VIS y 3227 unidades No VIS.
+
+P: ¿Cuál es el porcentaje de unidades VIP con respecto al total de unidades ofrecidas en el Valle?
+R: El porcentaje de unidades VIP es de aproximadamente 13.3% (1010/7595).

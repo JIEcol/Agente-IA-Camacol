@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2006-10-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra ubicada en el departamento de Huila.
+
+P: ¿Cuál es el tipo de vivienda que se construirá según la licencia?
+R: La licencia de construcción es para la construcción de casas.
+
+P: ¿Cuál es el estrato socioeconómico de la vivienda que se construirá?
+R: La vivienda que se construirá es de estrato bajo.
+
+P: ¿Cuántas viviendas de interés social (VIS) se construirán según la licencia?
+R: Se construirán 41 viviendas de interés social (VIS).
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es 001.
+
+P: ¿Cuántos metros cuadrados tiene el terreno donde se construirá la vivienda?
+R: El terreno donde se construirá la vivienda tiene 592 metros cuadrados.

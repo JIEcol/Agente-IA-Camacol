@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 19)
+
+¿Cuál es el total de área construida en los barrios de La Macarena y Chicó en Bogotá durante el año 2023?
+¿Cuál es el promedio de precio de metro cuadrado en los departamentos de Antioquia y Caldas para proyectos de vivienda VIS?
+¿Qué ranking ocupan los barrios de Poblado y El Poblado en Medellín en cuanto a área construida durante el último semestre?
+¿Cómo ha evolucionado el número de proyectos de construcción en el departamento de Quindío durante los últimos 5 años?
+¿Cuál es el total de unidades vendidas en el estrato 3 en los barrios de Teusaquillo y Santa Fé en Bogotá?
+¿Cuál es el promedio de área por proyecto en los departamentos de Risaralda y Tolima para proyectos de vivienda No VIS?
+¿Qué es el total de área construida en los barrios de Comuna 13 y Comuna 14 en Medellín durante el año 2022?
+¿Cuál es el ranking de los 3 departamentos con mayor área construida en proyectos de vivienda VIS durante el último año?
+¿Cómo ha sido la evolución trimestral del precio de metro cuadrado en los barrios de La Llanura y San Luis en Bogotá?
+¿Cuál es el total de unidades vendidas en los departamentos de Huila y Caquetá durante el año 2023?
+¿Cuál es el promedio de unidades por proyecto en los barrios de El Centro y La Candelaria en Bogotá para proyectos de vivienda No VIS?
+¿Qué es el total de área construida en los departamentos de Cundinamarca y Boyacá durante el último semestre?
+¿Cuál es el ranking de los 5 barrios con mayor área construida en Cali durante el año 2022?
+¿Cómo ha evolucionado el número de proyectos de construcción en el departamento de Nariño durante los últimos 3 años?
+¿Cuál es el total de unidades vendidas en el estrato 2 en los barrios de San Bernardo y La Macarena en Bogotá?
+¿Cuál es el promedio de precio de metro cuadrado en los departamentos de Santander y Norte de Santander para proyectos de vivienda VIS?
+¿Qué es el total de área construida en los barrios de Poblado y El Poblado en Medellín durante el año 2023?
+¿Cuál es el ranking de los 3 departamentos con mayor número de proyectos de construcción durante el último año?
+¿Cómo ha sido la evolución mensual del valor de los proyectos en el departamento de Antioquia durante el último año?
+¿Cuál es el total de unidades vendidas en los departamentos de Meta y Vichada durante el año 2022?
+¿Cuál es el promedio de área por proyecto en los barrios de Teusaquillo y Santa Fé en Bogotá para proyectos de vivienda No VIS?
+¿Qué es el total de área construida en los departamentos de Caldas y Quindío durante el último semestre?
+¿Cuál es el ranking de los 5 barrios con mayor área construida en Medellín durante el año 2023?
+¿Cómo ha evolucionado el número de proyectos de construcción en el departamento de Valle del Cauca durante los últimos 5 años?
+¿Cuál es el total de unidades vendidas en el estrato 1 en los barrios de La Candelaria y San Luis en Bogotá?

@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 14)
+
+¿Cuál es el total de proyectos de construcción en Cartagena para el año 2023, filtrando por compania_constructora y modalidad?
+¿Dame el promedio de área construida por proyecto en el estrato 3 en Barranquilla, comparando con el estrato 2?
+¿Cuál es el ranking de las 3 constructoras con mayor número de unidades vendidas en Bucaramanga durante 2022?
+Compara las ventas de vivienda VIS y No VIS en Medellín y Cali para el primer semestre de 2024.
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento de Antioquia desde 2020?
+Quiero saber el total de unidades construidas en Bogotá durante 2023, filtrando por rangos_decreto_pre y nuevorango_pre.
+¿Cuál es el promedio de unidades por proyecto para el estrato 5 en las ciudades de Cartagena y Santa Marta?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento del Valle del Cauca para 2022.
+Compara las ventas de vivienda No VIS entre las ciudades de Pereira y Manizales para el último año.
+¿Cuál es el total de proyectos de construcción en el departamento de Cundinamarca para el año 2023, filtrando por compania_constructora y modalidad?
+¿Dame el promedio de área construida por proyecto en el estrato 4 en Cali, comparando con el estrato 3?
+¿Cuál es el ranking de las 3 constructoras con mayor número de unidades vendidas en Cartagena durante 2022?
+Compara las ventas de vivienda VIS y No VIS en Bogotá y Medellín para el segundo semestre de 2023.
+¿Cómo ha sido la evolución mensual del valor de los proyectos en el departamento de Risaralda desde 2020?
+Quiero saber el total de unidades construidas en Antioquia durante 2023, filtrando por rangos_decreto_pre y nuevorango_pre.
+¿Cuál es el promedio de unidades por proyecto para el estrato 2 en las ciudades de Barranquilla y Sincelejo?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento de Quindío para 2022.
+Compara las ventas de vivienda No VIS entre las ciudades de Armenia y Popayán para el último año.
+¿Cuál es el total de proyectos de construcción en el departamento de Nariño para el año 2023, filtrando por compania_constructora y modalidad?
+¿Dame el promedio de área construida por proyecto en el estrato 5 en Bogotá, comparando con el estrato 4?
+¿Cuál es el ranking de las 3 constructoras con mayor número de unidades vendidas en Pereira durante 2022?
+Compara las ventas de vivienda VIS y No VIS en Cali y Cartagena para el primer semestre de 2024.
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento de Santander desde 2020?
+Quiero saber el total de unidades construidas en el departamento del Chocó durante 2023, filtrando por rangos_decreto_pre y nuevorango_pre.
+¿Cuál es el promedio de unidades por proyecto para el estrato 3 en las ciudades de Ibagué y Manizales?

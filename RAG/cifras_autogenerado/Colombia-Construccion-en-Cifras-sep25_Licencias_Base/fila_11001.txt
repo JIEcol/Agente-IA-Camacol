@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es 2006-03-01 00:00:00.
+
+P: ¿En qué departamento se otorgó la licencia de construcción?
+R: La licencia de construcción se otorgó en Nariño.
+
+P: ¿Cuál es el tipo de proyecto de construcción según la licencia?
+R: El tipo de proyecto de construcción es Nuevo.
+
+P: ¿Cuál es el sector de la construcción según la licencia?
+R: El sector de la construcción es Rural.
+
+P: ¿Cuál es el propósito de la construcción según la licencia?
+R: El propósito de la construcción es Vivienda.
+
+P: ¿Cuántas viviendas se planifican construir según la licencia?
+R: Se planifican construir Casas.
+
+P: ¿Cuál es el nivel de ingresos de la vivienda según la licencia?
+R: El nivel de ingresos de la vivienda es Bajo-bajo.

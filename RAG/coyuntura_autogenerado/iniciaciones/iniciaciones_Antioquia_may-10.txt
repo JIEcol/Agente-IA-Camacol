@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Antioquia en may-10
+
+P: ¿Cuál es el total de unidades iniciadas en el departamento de Antioquia en mayo de 2010?
+R: El total de unidades iniciadas es 978.
+
+P: ¿Cuántas unidades VIP se iniciaron en Antioquia en mayo de 2010?
+R: No hubo unidades VIP iniciadas.
+
+P: ¿Cuál es la cantidad de unidades VIS iniciadas en Antioquia en mayo de 2010?
+R: Se iniciaron 418 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se iniciaron en el departamento de Antioquia en mayo de 2010?
+R: Se iniciaron 560 unidades No VIS.
+
+P: ¿Cuál es la proporción entre unidades VIS y No VIS en las iniciaciones de Antioquia en mayo de 2010?
+R: La proporción es de 418 unidades VIS y 560 unidades No VIS.

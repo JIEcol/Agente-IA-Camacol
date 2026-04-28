@@ -1,0 +1,16 @@
+# Datos de Ventas para Valle en ene-10
+
+P: ¿Cuántas unidades se vendieron en total en el Valle en enero de 2010?
+R: Se vendieron 1277 unidades en total en el Valle en enero de 2010.
+
+P: ¿Cuántas unidades VIP se vendieron en el Valle durante enero de 2010?
+R: Se vendieron 264 unidades VIP en el Valle durante enero de 2010.
+
+P: ¿Cuál fue la cantidad de unidades VIS vendidas en el Valle en enero de 2010?
+R: Se vendieron 809 unidades VIS en el Valle en enero de 2010.
+
+P: ¿Cuántas unidades no VIP se vendieron en el Valle en enero de 2010?
+R: No se proporciona información sobre unidades no VIP, pero se vendieron 1277 unidades en total y 264 unidades VIP, por lo que se pueden calcular como 1277 - 264 = 1013 unidades no VIP.
+
+P: ¿Cuántas unidades No VIS se vendieron en el Valle durante enero de 2010?
+R: Se vendieron 468 unidades No VIS en el Valle durante enero de 2010.

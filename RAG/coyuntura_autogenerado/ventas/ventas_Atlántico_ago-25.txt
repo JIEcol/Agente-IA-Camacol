@@ -1,0 +1,16 @@
+# Datos de Ventas para Atlántico en ago-25
+
+P: ¿Cuál fue el total de unidades vendidas en el departamento del Atlántico en agosto de 2025?
+R: El total de unidades vendidas fue de 1658.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento del Atlántico en agosto de 2025?
+R: Se vendieron 310 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento del Atlántico en agosto de 2025?
+R: La distribución fue de 1355 unidades VIS y 303 unidades No VIS.
+
+P: ¿Cuál es el porcentaje de unidades VIP con respecto al total de unidades vendidas en el departamento del Atlántico en agosto de 2025?
+R: El porcentaje de unidades VIP es del 18.7% (310/1658).
+
+P: ¿Cuántas unidades VIS se vendieron en el departamento del Atlántico en agosto de 2025?
+R: Se vendieron 1355 unidades VIS.

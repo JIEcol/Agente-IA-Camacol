@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es el 1 de noviembre de 2005.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra ubicada en el Valle del Cauca.
+
+P: ¿Cuál es el tipo de licencia de construcción otorgada?
+R: El tipo de licencia de construcción es Nuevo.
+
+P: ¿Cuál es el uso del suelo para la licencia de construcción?
+R: El uso del suelo es Urbana.
+
+P: ¿Cuál es el número de identificación de la licencia de construcción?
+R: El número de identificación es 001.
+
+P: ¿Cuántas unidades se van a construir según la licencia?
+R: Se van a construir 220 unidades.
+
+P: ¿Cuántos empleos se generaron con la licencia de construcción?
+R: No hay información disponible sobre el número de empleos generados, pero se tiene registro de 76 empleos relacionados con la licencia.

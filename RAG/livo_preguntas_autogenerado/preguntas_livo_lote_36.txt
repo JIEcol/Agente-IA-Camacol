@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 36)
+
+¿Cuál es el total de unidades vendidas en el barrio de La Macarena en Bogotá durante el año 2023?
+¿Qué constructora ha vendido más unidades en el estado de "en construcción" en el departamento de Antioquia?
+¿Cuál es el promedio de unidades por proyecto en el uso de vivienda VIS en el barrio de El Poblado en Medellín?
+¿Cómo ha evolucionado el número de unidades vendidas en Cali durante los últimos 6 meses?
+¿Qué es el total de unidades vendidas en el estado de "entregado" en el barrio de Chicó en Bogotá durante el año 2022?
+¿Cuál es el ranking de los 3 barrios con más unidades vendidas en Bogotá durante el año 2024?
+¿Qué es el promedio de unidades por proyecto en el uso de vivienda No VIS en el departamento de Valle del Cauca?
+¿Cuál es la evolución mensual del número de unidades vendidas en el estado de "en preventa" en Medellín durante el año 2023?
+¿Qué constructora ha vendido más unidades en el barrio de La Llanura en Bogotá durante el año 2022?
+¿Cuál es el total de unidades vendidas en el uso de vivienda VIS en el departamento de Antioquia durante el año 2023?
+¿Cómo ha sido la evolución trimestral del número de unidades vendidas en Cali durante los últimos 2 años?
+¿Qué es el ranking de las 5 constructoras con más unidades vendidas en el estado de "en construcción" en el departamento de Valle del Cauca?
+¿Cuál es el promedio de unidades por proyecto en el barrio de El Centro en Bogotá durante el año 2023?
+¿Qué es el total de unidades vendidas en el uso de vivienda No VIS en el barrio de Belén en Medellín durante el año 2022?
+¿Cuál es la evolución anual del número de unidades vendidas en el departamento de Antioquia durante los últimos 5 años?
+¿Qué constructora ha vendido más unidades en el estado de "entregado" en el barrio de La Castellana en Bogotá durante el año 2023?
+¿Cuál es el total de unidades vendidas en el barrio de Poblado en Medellín durante el año 2024?
+¿Qué es el promedio de unidades por proyecto en el uso de vivienda VIS en el departamento de Cundinamarca?
+¿Cuál es el ranking de los 3 departamentos con más unidades vendidas en el estado de "en preventa" durante el año 2023?
+¿Qué es el total de unidades vendidas en el uso de vivienda No VIS en el barrio de Chicó en Bogotá durante el año 2022?
+¿Cuál es la evolución mensual del número de unidades vendidas en el estado de "en construcción" en el departamento de Valle del Cauca durante el año 2023?
+¿Qué constructora ha vendido más unidades en el barrio de La Macarena en Bogotá durante el año 2024?
+¿Cuál es el promedio de unidades por proyecto en el uso de vivienda VIS en el barrio de El Poblado en Medellín durante el año 2023?
+¿Qué es el total de unidades vendidas en el uso de vivienda No VIS en el departamento de Antioquia durante el año 2022?
+¿Cuál es el ranking de las 5 constructoras con más unidades vendidas en el estado de "entregado" en el departamento de Cundinamarca durante el año 2023?

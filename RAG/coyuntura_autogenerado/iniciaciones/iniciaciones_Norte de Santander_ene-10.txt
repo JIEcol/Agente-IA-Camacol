@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Norte de Santander en ene-10
+
+P: ¿En qué fecha se realizaron las iniciaciones en el sistema de CAMACOL?
+R: Las iniciaciones se realizaron en enero de 2010.
+
+P: ¿Cuántas unidades VIP se iniciaron en el departamento de Norte de Santander?
+R: Se iniciaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades iniciadas en el departamento de Norte de Santander?
+R: El total de unidades iniciadas es de 60.
+
+P: ¿Cuántas unidades VIS se iniciaron en el sistema de CAMACOL en el departamento de Norte de Santander?
+R: Se iniciaron 0 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se iniciaron en el departamento de Norte de Santander?
+R: Se iniciaron 60 unidades No VIS.

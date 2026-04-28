@@ -1,0 +1,31 @@
+# Coyuntura: Condiciones de uso - N/A - N/A
+
+P: ¿Cuál es el título de la hoja en el archivo de datos de CAMACOL?
+R: El título de la hoja es "Condiciones de uso".
+
+P: ¿Cuántas columnas tienen nombres genéricos en la tabla de datos?
+R: Hay 3 columnas con nombres genéricos: "Unnamed: 0", "Unnamed: 1" y "Unnamed: 2".
+
+P: ¿Cuál es el contenido de la cuarta columna en la tabla de datos?
+R: La cuarta columna se llama "Condiciones de Uso".
+
+P: ¿Hay algún dato numérico disponible en la información proporcionada?
+R: No, no hay datos numéricos disponibles en la información proporcionada.
+
+P: ¿Qué tipo de información se puede encontrar en la hoja "Condiciones de uso"?
+R: La hoja "Condiciones de uso" parece contener información relacionada con las condiciones de uso, pero no se proporcionan detalles específicos.
+
+P: ¿Cuántas filas hay en la tabla de datos?
+R: No se puede determinar el número de filas en la tabla de datos con la información proporcionada.
+
+P: ¿Se menciona algún departamento o región específica en la información proporcionada?
+R: No, no se menciona ningún departamento o región específica en la información proporcionada.
+
+P: ¿Qué organización es la fuente de los datos?
+R: La fuente de los datos es CAMACOL.
+
+P: ¿Qué tipo de archivo es el que contiene la información?
+R: El archivo es un archivo Excel (.xlsx) llamado "Coyuntura_oct25_Área.xlsx".
+
+P: ¿Hay alguna fecha específica asociada con los datos?
+R: Sí, la fecha "oct-25" está asociada con los datos, aunque no se proporciona más contexto sobre esta fecha.

@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Tolima en ene-10
+
+P: ¿En qué fecha se llevó a cabo el lanzamiento en el sistema de CAMACOL?
+R: El lanzamiento se llevó a cabo en enero de 2010.
+
+P: ¿Cuántas unidades VIP se lanzaron en el departamento de Tolima?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento de Tolima?
+R: El total de unidades lanzadas es de 60.
+
+P: ¿Cuántas unidades VIS se lanzaron en el departamento de Tolima?
+R: Se lanzaron 0 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se lanzaron en el departamento de Tolima?
+R: Se lanzaron 60 unidades No VIS.

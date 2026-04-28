@@ -1,0 +1,16 @@
+# Datos de Ventas para Bogotá & Cundinamarca en feb-10
+
+P: ¿Cuál fue el total de unidades vendidas en febrero de 2023 en Bogotá & Cundinamarca?
+R: El total de unidades vendidas fue de 4588.
+
+P: ¿Cuántas unidades VIP se vendieron en febrero?
+R: Se vendieron 92 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento de Bogotá & Cundinamarca?
+R: La distribución fue de 2621 unidades VIS y 1967 unidades No VIS.
+
+P: ¿En qué fecha se registraron estas ventas en el sistema?
+R: Estas ventas se registraron el 10 de febrero.
+
+P: ¿Cuál fue el porcentaje de unidades VIS con respecto al total de unidades vendidas?
+R: El porcentaje de unidades VIS fue del 57.1% (2621/4588).

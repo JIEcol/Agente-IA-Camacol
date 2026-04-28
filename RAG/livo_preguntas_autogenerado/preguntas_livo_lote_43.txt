@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 43)
+
+¿Cuál es el total de unidades vendidas en la modalidad VIS por la constructora XY en los últimos 12 meses en Bogotá?
+¿Cuál es el promedio de área construida por proyecto para la constructora Z en el barrio de La Macarena?
+¿Cuáles son las 3 constructoras con mayor número de proyectos en el rango de área entre 1000 y 2000 metros cuadrados en Medellín?
+¿Cómo ha cambiado el número de unidades vendidas en la modalidad No VIS en Cali durante los últimos 5 años?
+¿Cuál es el ranking de los 5 barrios con mayor área construida en la ciudad de Cartagena?
+¿Cuál es el total de unidades vendidas por la constructora ABC en el estrato 3 durante el año 2023 en Bogotá?
+¿Cuál es el promedio de unidades por proyecto para la modalidad VIS en el departamento de Antioquia?
+¿Cuáles son las 2 constructoras con mayor área construida en la modalidad No VIS en el barrio de El Poblado en Medellín?
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento del Quindío durante los últimos 2 años?
+¿Cuál es el total de unidades vendidas en la modalidad VIS por la constructora DEF en el rango de área entre 500 y 1000 metros cuadrados en Cali?
+¿Cuál es el ranking de los 3 barrios con mayor número de proyectos en la modalidad No VIS en Bogotá?
+¿Cuál es el promedio de área construida por proyecto para la constructora GHI en el estrato 4 en Medellín?
+¿Cuáles son las 4 constructoras con mayor número de unidades vendidas en la modalidad VIS en el departamento de Valle del Cauca?
+¿Cómo ha cambiado el número de proyectos en la modalidad No VIS en el barrio de La Llanura en Bogotá durante los últimos 3 años?
+¿Cuál es el total de unidades vendidas por la constructora JKL en el estrato 2 durante el año 2022 en Cali?
+¿Cuál es el promedio de unidades por proyecto para la modalidad No VIS en el departamento de Risaralda?
+¿Cuáles son las 2 constructoras con mayor área construida en la modalidad VIS en el barrio de El Centro en Medellín?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en la modalidad VIS en el departamento de Tolima durante el último año?
+¿Cuál es el total de unidades vendidas en la modalidad No VIS por la constructora MNO en el rango de área entre 2000 y 3000 metros cuadrados en Bogotá?
+¿Cuál es el ranking de los 4 barrios con mayor área construida en la ciudad de Barranquilla?
+¿Cuál es el promedio de área construida por proyecto para la constructora PQR en el estrato 5 en Cartagena?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en la modalidad VIS en el departamento de Antioquia?
+¿Cómo ha cambiado el número de proyectos en la modalidad VIS en el barrio de La Cabrera en Bogotá durante los últimos 2 años?
+¿Cuál es el total de unidades vendidas por la constructora STU en el estrato 1 durante el año 2021 en Cali?
+¿Cuál es el promedio de unidades por proyecto para la modalidad No VIS en el departamento de Cundinamarca?

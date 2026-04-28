@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Atlántico en oct-25
+
+P: ¿En qué fecha se realizaron los lanzamientos en el sistema de CAMACOL?
+R: Los lanzamientos se realizaron en oct-25.
+
+P: ¿Cuál es el departamento donde se llevaron a cabo los lanzamientos del sistema?
+R: Los lanzamientos se llevaron a cabo en el departamento de Atlántico.
+
+P: ¿Cuántas unidades VIP se lanzaron en total?
+R: Se lanzaron 252 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS lanzadas en el sistema?
+R: El total de unidades VIS lanzadas es de 1152.
+
+P: ¿Cuántas unidades No VIS se lanzaron en el sistema de CAMACOL?
+R: No se lanzaron unidades No VIS, el total es de 0.

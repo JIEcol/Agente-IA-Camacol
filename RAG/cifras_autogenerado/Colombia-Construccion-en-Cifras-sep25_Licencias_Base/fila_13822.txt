@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción en el contexto proporcionado?
+R: La fecha registrada es el 1 de julio de 2006.
+
+P: ¿Cuál es el departamento donde se encuentra la licencia de construcción mencionada?
+R: La licencia de construcción se encuentra en Cundinamarca.
+
+P: ¿Cuál es el tipo de proyecto de construcción según la licencia?
+R: El tipo de proyecto es una construcción nueva.
+
+P: ¿Cuál es el uso del suelo para la licencia de construcción?
+R: El uso del suelo es urbano.
+
+P: ¿Cuántas viviendas se planifican construir según la licencia?
+R: Se planifican construir 362 viviendas.
+
+P: ¿Cuál es el número de pisos que tendrá la construcción según la licencia?
+R: La construcción tendrá 3 pisos.
+
+P: ¿Cuántos metros cuadrados tiene el área de la construcción según la licencia?
+R: La construcción tiene un área de 175 metros cuadrados.

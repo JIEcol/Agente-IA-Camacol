@@ -9,6 +9,9 @@ import os
 import pickle
 import requests
 import tempfile
+import re
+import json
+from datetime import datetime
 from pathlib import Path
 from typing import List, Tuple, Optional, Dict, Any
 import warnings
@@ -32,6 +35,13 @@ try:
     PANDAS_AVAILABLE = True
 except:
     PANDAS_AVAILABLE = False
+
+try:
+    import camelot
+    CAMELOT_AVAILABLE = True
+except ImportError:
+    CAMELOT_AVAILABLE = False
+    print("⚠️ Camelot no disponible. Instala con: pip install 'camelot-py[cv]'")
 
 try:
     from pptx import Presentation
@@ -61,6 +71,7 @@ class RAGSystem:
         self.vectorstore = None
         self.embeddings = None
         self.documents = []
+        self.manifest = {}
         self.metadata = []
         
         # Prioridad de años (más reciente primero)
@@ -149,18 +160,61 @@ class RAGSystem:
         
         try:
             cache_file = self.cache_folder / "vectorstore.pkl"
+            manifest_file = self.cache_folder / "rag_manifest.json"
             
-            if cache_file.exists() and not force_reload:
-                print("💾 Cargando vector store desde cache...")
-                with open(cache_file, 'rb') as f:
-                    cache_data = pickle.load(f)
-                    self.vectorstore = cache_data['vectorstore']
-                    self.metadata = cache_data['metadata']
-                
+            # 1. Cargar embeddings (necesario para FAISS tanto en carga como en creación)
+            print("🧠 Cargando modelo de embeddings...")
+            self.embeddings = HuggingFaceEmbeddings(
+                model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+            )
+
+            # 2. Intentar cargar cache existente
+            cache_loaded = False
+            if cache_file.exists():
+                try:
+                    print("💾 Cargando vector store desde cache...")
+                    with open(cache_file, 'rb') as f:
+                        cache_data = pickle.load(f)
+                        self.vectorstore = cache_data['vectorstore']
+                        self.metadata = cache_data['metadata']
+                    
+                    if manifest_file.exists():
+                        with open(manifest_file, 'r', encoding='utf-8') as f:
+                            self.manifest = json.load(f)
+                    
+                    cache_loaded = True
+                except Exception as e:
+                    print(f"⚠️ Error cargando cache: {e}. Se reconstruirá desde cero.")
+                    cache_loaded = False
+
+            # 3. Decidir estrategia
+            if cache_loaded and not force_reload:
                 return True, f"✅ Cache cargado: {len(self.metadata)} documentos"
             
-            # Procesar documentos
-            print("📂 Procesando documentos locales...")
+            # Si force_reload es True, pero tenemos cache, hacemos INCREMENTAL
+            if cache_loaded:
+                print("🔄 Actualizando documentos (Incremental)...")
+                # Limpiar lista de documentos nuevos (self.documents se usa para acumular los nuevos)
+                self.documents = [] 
+                
+                # Procesar solo lo nuevo
+                archivos_nuevos = self._procesar_documentos_incremental()
+                
+                if len(self.documents) > 0:
+                    print(f"📊 Agregando {len(self.documents)} nuevos fragmentos al índice...")
+                    self.vectorstore.add_documents(self.documents)
+                    self._guardar_cache()
+                    return True, f"✅ RAG actualizado: {len(archivos_nuevos)} archivos nuevos, {len(self.metadata)} docs totales"
+                else:
+                    return True, "✅ No se encontraron nuevos documentos para indexar."
+
+            # 4. Si no hay cache o falló la carga, reconstrucción total
+            print("📦 Construyendo índice desde cero...")
+            self.documents = []
+            self.metadata = []
+            self.manifest = {}
+            
+            print("� Procesando documentos locales...")
             exito, mensaje = self._procesar_documentos()
             
             if not exito:
@@ -174,12 +228,6 @@ class RAGSystem:
                 if archivos_url > 0:
                     print(f"✅ Procesados {archivos_url} archivos desde URLs")
             
-            # Crear embeddings
-            print("🧠 Creando embeddings...")
-            self.embeddings = HuggingFaceEmbeddings(
-                model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-            )
-            
             # Crear vector store
             print("📊 Creando vector store...")
             if len(self.documents) == 0:
@@ -187,12 +235,7 @@ class RAGSystem:
             
             self.vectorstore = FAISS.from_documents(self.documents, self.embeddings)
             
-            # Guardar cache
-            with open(cache_file, 'wb') as f:
-                pickle.dump({
-                    'vectorstore': self.vectorstore,
-                    'metadata': self.metadata
-                }, f)
+            self._guardar_cache()
             
             return True, f"✅ RAG inicializado: {len(self.metadata)} docs, {len(self.documents)} chunks"
             
@@ -221,6 +264,35 @@ class RAGSystem:
         
         return True, f"✅ Procesados {archivos_procesados} archivos"
     
+    def _procesar_documentos_incremental(self) -> List[str]:
+        """Procesa solo documentos nuevos o modificados."""
+        archivos_a_procesar = []
+        
+        # Escanear todos los archivos actuales
+        archivos_actuales = {str(p) for p in self.rag_folder.glob('**/*') if p.is_file()}
+        
+        for archivo_path_str in archivos_actuales:
+            archivo_path = Path(archivo_path_str)
+            try:
+                mod_time = archivo_path.stat().st_mtime
+                
+                # Verificar si es nuevo o modificado
+                if archivo_path_str not in self.manifest or self.manifest[archivo_path_str] < mod_time:
+                    archivos_a_procesar.append(archivo_path_str)
+            except FileNotFoundError:
+                continue # El archivo fue eliminado mientras se escaneaba
+
+        if archivos_a_procesar:
+            print(f"🔍 Documentos a procesar: {len(archivos_a_procesar)}")
+            for archivo_path_str in archivos_a_procesar:
+                self._procesar_archivo(Path(archivo_path_str))
+        
+        # Actualizar el manifiesto con los nuevos tiempos de modificación
+        for archivo_path_str in archivos_a_procesar:
+            self.manifest[archivo_path_str] = Path(archivo_path_str).stat().st_mtime
+
+        return archivos_a_procesar
+
     def _procesar_carpeta(self, carpeta: Path, solo_raiz: bool = False) -> int:
         """Procesa archivos en una carpeta"""
         archivos_procesados = 0
@@ -228,36 +300,61 @@ class RAGSystem:
         patron = '*' if solo_raiz else '**/*'
         for archivo in carpeta.glob(patron):
             if archivo.is_file():
-                try:
-                    ext = archivo.suffix.lower()
-                    
-                    if ext == '.pdf' and PDF_AVAILABLE:
-                        self._procesar_pdf(archivo)
-                        archivos_procesados += 1
-                    elif ext in ['.docx', '.doc'] and DOCX_AVAILABLE:
-                        self._procesar_word(archivo)
-                        archivos_procesados += 1
-                    elif ext in ['.xlsx', '.xls'] and PANDAS_AVAILABLE:
-                        self._procesar_excel(archivo)
-                        archivos_procesados += 1
-                    elif ext == '.csv' and PANDAS_AVAILABLE:
-                        self._procesar_csv(archivo)
-                        archivos_procesados += 1
-                    elif ext in ['.pptx', '.ppt'] and PPTX_AVAILABLE:
-                        self._procesar_pptx(archivo)
-                        archivos_procesados += 1
-                except Exception as e:
-                    print(f"❌ Error en {archivo.name}: {e}")
+                if self._procesar_archivo(archivo):
+                    archivos_procesados += 1
         
         return archivos_procesados
     
+    def _procesar_archivo(self, archivo: Path) -> bool:
+        """Procesa un único archivo según su extensión."""
+        try:
+            ext = archivo.suffix.lower()
+            if ext == '.pdf' and PDF_AVAILABLE:
+                self._procesar_pdf(archivo)
+            elif ext in ['.docx', '.doc'] and DOCX_AVAILABLE:
+                self._procesar_word(archivo)
+            elif ext in ['.xlsx', '.xls'] and PANDAS_AVAILABLE:
+                self._procesar_excel(archivo)
+            elif ext == '.csv' and PANDAS_AVAILABLE:
+                self._procesar_csv(archivo)
+            elif ext in ['.pptx', '.ppt'] and PPTX_AVAILABLE:
+                self._procesar_pptx(archivo)
+            else:
+                return False # No es un formato soportado
+            return True
+        except Exception as e:
+            if "Permission denied" in str(e) or "being used by another process" in str(e):
+                print(f"⚠️ Archivo bloqueado (posiblemente abierto): {archivo.name}. Saltando.")
+            else:
+                print(f"❌ Error procesando archivo {archivo.name}: {e}")
+            return False
+
     def _procesar_pdf(self, archivo: Path):
         """Procesa PDF"""
-        reader = PdfReader(str(archivo))
-        texto = "\n".join([p.extract_text() for p in reader.pages if p.extract_text()])
+        texto_completo = ""
         
-        if texto.strip():
-            self._agregar_documento(texto, archivo, "PDF")
+        # 1. Extraer texto plano
+        try:
+            reader = PdfReader(str(archivo))
+            texto_plano = "\n".join([p.extract_text() for p in reader.pages if p.extract_text()])
+            if texto_plano:
+                texto_completo += texto_plano + "\n\n"
+        except Exception as e:
+            print(f"⚠️ Error extrayendo texto de {archivo.name}: {e}")
+
+        # 2. Extraer tablas con Camelot
+        if CAMELOT_AVAILABLE:
+            try:
+                tablas = camelot.read_pdf(str(archivo), pages='all', flavor='lattice')
+                if tablas.n > 0:
+                    texto_completo += "\n--- TABLAS DETECTADAS ---\n"
+                    for i, tabla in enumerate(tablas):
+                        texto_completo += f"\n**Tabla {i+1}:**\n{tabla.df.to_markdown(index=False)}\n"
+            except Exception as e:
+                print(f"⚠️ Error extrayendo tablas de {archivo.name}: {e}")
+        
+        if texto_completo.strip():
+            self._agregar_documento(texto_completo, archivo, "PDF")
             print(f"✅ PDF: {archivo.name}")
     
     def _procesar_word(self, archivo: Path):
@@ -315,23 +412,83 @@ class RAGSystem:
                 print(f"✅ PowerPoint: {archivo.name}")
         except Exception as e:
             print(f"❌ Error procesando PPTX {archivo.name}: {e}")
+
+    def _extraer_fecha_del_texto(self, texto: str) -> Optional[datetime]:
+        """Intenta extraer una fecha del contenido del texto, priorizando las primeras líneas."""
+        # Patrones de fecha (de más específico a más general)
+        patrones = [
+            r'\b(\d{1,2})\s+de\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+de\s+(202[0-5])\b',
+            r'\b(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+(202[0-5])\b',
+            r'\b(202[0-5])\b' # Como último recurso, solo el año
+        ]
+        
+        meses_map = {
+            'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6,
+            'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
+        }
+
+        # Buscar en las primeras 20 líneas
+        for linea in texto.lower().split('\n')[:20]:
+            for patron in patrones:
+                match = re.search(patron, linea)
+                if match:
+                    try:
+                        if len(match.groups()) == 3: # dd de mes de yyyy
+                            return datetime(int(match.group(3)), meses_map[match.group(2)], int(match.group(1)))
+                        elif len(match.groups()) == 2: # mes yyyy
+                            return datetime(int(match.group(2)), meses_map[match.group(1)], 1)
+                        elif len(match.groups()) == 1: # yyyy
+                            return datetime(int(match.group(1)), 1, 1)
+                    except (ValueError, KeyError):
+                        continue
+        return None
     
     def _agregar_documento(self, texto: str, archivo: Path, tipo: str):
         """Divide y agrega documento"""
         splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         chunks = splitter.split_text(texto)
         
+        # Extraer fecha del contenido
+        fecha_documento = self._extraer_fecha_del_texto(texto)
+
         for i, chunk in enumerate(chunks):
             metadata = {
                 "source": str(archivo),
+                "title": self._extraer_titulo_del_texto(texto, archivo.name),
                 "filename": archivo.name,
                 "type": tipo,
                 "chunk": i,
-                "folder": archivo.parent.name
+                "folder": archivo.parent.name,
+                "document_date": fecha_documento.isoformat() if fecha_documento else None
             }
             doc = LangchainDocument(page_content=chunk, metadata=metadata)
             self.documents.append(doc)
             self.metadata.append(metadata)
+        
+        # Actualizar manifiesto
+        self.manifest[str(archivo)] = archivo.stat().st_mtime
+
+    def _guardar_cache(self):
+        """Guarda el vectorstore y el manifiesto en el caché."""
+        with open(self.cache_folder / "vectorstore.pkl", 'wb') as f:
+            pickle.dump({
+                'vectorstore': self.vectorstore,
+                'metadata': self.metadata
+            }, f)
+        
+        with open(self.cache_folder / "rag_manifest.json", 'w', encoding='utf-8') as f:
+            json.dump(self.manifest, f, ensure_ascii=False, indent=4)
+
+    def _extraer_titulo_del_texto(self, texto: str, nombre_archivo: str) -> str:
+        """Intenta extraer un título significativo del contenido del texto."""
+        # Buscar la primera línea que parezca un título (corta, sin puntuación final)
+        lineas = texto.strip().split('\n')
+        for linea in lineas:
+            linea_limpia = linea.strip()
+            if 2 < len(linea_limpia) < 100 and not linea_limpia.endswith(('.', ':', ',')):
+                # Eliminar posibles prefijos como '# ' de markdown
+                return re.sub(r'^[#\s*>-]+', '', linea_limpia).strip()
+        return nombre_archivo # Si no encuentra un título, devuelve el nombre del archivo
     
     def buscar(self, query: str, k: int = 5) -> Tuple[bool, List[Dict]]:
         """Búsqueda semántica"""
@@ -339,9 +496,34 @@ class RAGSystem:
             return False, []
         
         try:
-            docs = self.vectorstore.similarity_search(query, k=k)
-            resultados = [{"content": doc.page_content, "metadata": doc.metadata} for doc in docs]
-            return True, resultados
+            # 1. Búsqueda inicial para obtener un conjunto más grande de candidatos
+            docs_con_scores = self.vectorstore.similarity_search_with_score(query, k=k*4)
+            
+            # 2. Re-ranking con prioridad por fecha
+            resultados_reranked = []
+            for doc, score in docs_con_scores:
+                meta = doc.metadata
+                fecha_str = meta.get("document_date")
+                
+                # Calcular bonus de recencia
+                recency_bonus = 0.0
+                if fecha_str:
+                    try:
+                        fecha_doc = datetime.fromisoformat(fecha_str)
+                        if fecha_doc.year == 2025:
+                            recency_bonus = 0.5  # Bonus máximo para 2025
+                        elif fecha_doc.year == 2024:
+                            recency_bonus = 0.25 # Bonus menor para 2024
+                    except ValueError:
+                        pass
+                
+                # Nueva puntuación: score original (distancia, menor es mejor) - bonus de recencia
+                nueva_puntuacion = score - recency_bonus
+                resultados_reranked.append({"content": doc.page_content, "metadata": meta, "score": nueva_puntuacion})
+            
+            # 3. Ordenar por la nueva puntuación y devolver los mejores k
+            resultados_finales = sorted(resultados_reranked, key=lambda x: x['score'])[:k]
+            return True, resultados_finales
         except Exception as e:
             return False, []
     
@@ -497,7 +679,7 @@ class RAGSystem:
         
         for i, res in enumerate(resultados, 1):
             meta = res['metadata']
-            contexto += f"**Doc {i}: {meta['filename']}** ({meta['type']})\n"
+            contexto += f"**Doc {i}: {meta.get('title', meta['filename'])}** (Archivo: {meta['filename']})\n"
             contexto += f"{res['content']}\n\n---\n\n"
         
         return contexto

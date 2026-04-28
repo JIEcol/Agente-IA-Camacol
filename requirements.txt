@@ -9,7 +9,12 @@ pandas>=2.0.0
 openpyxl>=3.1.0
 numpy>=1.24.0
 tabulate>=0.9.0
+
+# Visualization dependencies (for LIVO chart generation)
 matplotlib>=3.7.0
+seaborn>=0.12.0
+pillow>=10.0.0
+plotly>=5.17.0
 
 # AI/LLM dependencies
 langchain>=0.1.0
@@ -30,6 +35,7 @@ sentence-transformers>=2.2.2
 pypdf2>=3.0.0
 python-docx>=1.1.0
 python-pptx>=0.6.21
+camelot-py[cv]>=0.11.0
 unstructured>=0.12.0
 python-magic-bin>=0.4.14
 
@@ -41,3 +47,6 @@ lxml>=4.9.0
 
 # SQL Dependencies
 duckdb>=0.9.0
+
+# Language detection (for LIVO system)
+langdetect>=1.0.9

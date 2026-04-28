@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de referencia para los datos de 'Colombia Construcción en Cifras'?
+R: La fecha de referencia es el 1 de mayo de 2007.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción?
+R: El proyecto de construcción se encuentra ubicado en Córdoba.
+
+P: ¿Cuál es el tipo de construcción según la clasificación dada?
+R: El tipo de construcción es urbana y se trata de una vivienda.
+
+P: ¿Cuántos apartamentos se prevén construir en el proyecto?
+R: Se prevén construir 8 apartamentos.
+
+P: ¿Cuál es el código de identificación del proyecto de construcción?
+R: El código de identificación del proyecto es Cob. 77.
+
+P: ¿Cuál es el número de unidades a construir en el proyecto?
+R: El número de unidades a construir es 681.
+
+P: ¿Cuántos meses tiene el proyecto de construcción según la información proporcionada?
+R: No hay información explícita sobre el número de meses del proyecto, pero se menciona el número 23, que podría estar relacionado con el plazo de construcción.

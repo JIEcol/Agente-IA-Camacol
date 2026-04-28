@@ -1,0 +1,16 @@
+# Datos de Oferta para Boyacá en ene-10
+
+P: ¿Cuál es el sistema de datos que se está analizando?
+R: El sistema de datos es de Oferta.
+
+P: ¿En qué fecha se registraron los datos de CAMACOL?
+R: Los datos fueron registrados en enero de 2010.
+
+P: ¿Cuántas unidades VIP se ofrecieron en Boyacá?
+R: No hubo unidades VIP.
+
+P: ¿Cuántas unidades VIS y No VIS se ofrecieron en total en Boyacá?
+R: Se ofrecieron 227 unidades VIS y 497 unidades No VIS.
+
+P: ¿Cuál es el total de unidades ofrecidas en el departamento de Boyacá?
+R: El total de unidades ofrecidas es de 724.

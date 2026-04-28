@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Antioquia en ene-10
+
+P: ¿Cuál es el sistema de datos que se está analizando?
+R: El sistema de datos es Lanzamientos.
+
+P: ¿En qué departamento se están analizando los datos de lanzamientos?
+R: Los datos de lanzamientos se están analizando en el departamento de Antioquia.
+
+P: ¿Cuántas unidades VIP se lanzaron en enero de 2010?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en el departamento de Antioquia?
+R: La distribución es de 162 unidades VIS y 675 unidades No VIS.
+
+P: ¿Cuál es el total de unidades lanzadas en enero de 2010 en Antioquia?
+R: El total de unidades lanzadas es de 837.

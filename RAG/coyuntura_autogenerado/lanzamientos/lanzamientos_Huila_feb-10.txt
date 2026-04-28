@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Huila en feb-10
+
+P: ¿Cuál es el total de unidades lanzadas en el sistema de CAMACOL?
+R: El total de unidades lanzadas es de 271.
+
+P: ¿En qué departamento se llevaron a cabo estos lanzamientos?
+R: Los lanzamientos se llevaron a cabo en el departamento de Huila.
+
+P: ¿Cuántas unidades VIP se lanzaron en febrero de 2023?
+R: No se lanzaron unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en los lanzamientos?
+R: La distribución es de 206 unidades VIS y 65 unidades No VIS.
+
+P: ¿En qué fecha se llevaron a cabo estos lanzamientos en el departamento de Huila?
+R: Los lanzamientos se llevaron a cabo el 10 de febrero.

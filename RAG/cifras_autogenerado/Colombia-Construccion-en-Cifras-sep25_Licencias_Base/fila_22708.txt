@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+Claro, a continuación te proporciono 7 preguntas y respuestas basadas en el contexto de 'Colombia Construcción en Cifras' que se te ha proporcionado:
+
+P: ¿Cuál es la fecha inicial de los datos en el informe 'Colombia Construcción en Cifras'?
+R: La fecha inicial de los datos es el 1 de julio de 2007.
+
+P: ¿En qué ciudad se encuentra el proyecto de construcción descrito en los datos?
+R: El proyecto de construcción se encuentra en Bogotá, D.C.
+
+P: ¿Cuál es el tipo de proyecto de construcción descrito en los datos?
+R: El proyecto de construcción es de tipo urbano.
+
+P: ¿Cuál es el propósito del proyecto de construcción descrito en los datos?
+R: El propósito del proyecto de construcción es religioso.
+
+P: ¿Cuántas unidades se van a construir o ampliar en el proyecto descrito?
+R: Se van a construir o ampliar 392 unidades.
+
+P: ¿Cuántos metros cuadrados se van a ampliar en el proyecto de construcción?
+R: No hay ampliación de metros cuadrados, el valor es 0.
+
+P: ¿Cuál es el código del proyecto de construcción descrito en los datos?
+R: El código del proyecto de construcción es 001.

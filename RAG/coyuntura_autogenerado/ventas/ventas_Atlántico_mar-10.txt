@@ -1,0 +1,16 @@
+# Datos de Ventas para Atlántico en mar-10
+
+P: ¿Cuál es el total de unidades vendidas en el departamento del Atlántico?
+R: El total de unidades vendidas es 546.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento del Atlántico?
+R: No se vendieron unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el departamento del Atlántico?
+R: Se vendieron 201 unidades VIS.
+
+P: ¿Cuántas unidades no VIS se vendieron en el departamento del Atlántico?
+R: Se vendieron 345 unidades no VIS.
+
+P: ¿En qué fecha se registraron estas ventas en el departamento del Atlántico?
+R: Estas ventas se registraron el 10 de marzo.

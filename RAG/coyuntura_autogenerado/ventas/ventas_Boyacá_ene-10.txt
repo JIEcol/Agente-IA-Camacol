@@ -1,0 +1,16 @@
+# Datos de Ventas para Boyacá en ene-10
+
+P: ¿Cuál fue el total de unidades vendidas en el departamento de Boyacá en enero de 2010?
+R: El total de unidades vendidas fue de 361.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento de Boyacá en enero de 2010?
+R: Se vendió 1 unidad VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento de Boyacá en enero de 2010?
+R: La distribución fue de 133 unidades VIS y 228 unidades No VIS.
+
+P: ¿Cuál fue el porcentaje de unidades VIS con respecto al total de unidades vendidas en el departamento de Boyacá en enero de 2010?
+R: El porcentaje de unidades VIS fue del 36.8% (133/361).
+
+P: ¿Cuál fue el total de unidades No VIS vendidas en el departamento de Boyacá en enero de 2010?
+R: El total de unidades No VIS vendidas fue de 228.

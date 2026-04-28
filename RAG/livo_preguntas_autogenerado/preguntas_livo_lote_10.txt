@@ -1,0 +1,28 @@
+# Preguntas de Ejemplo para LIVO (Lote 10)
+
+¿Cuál es el promedio de precio de venta de las viviendas en el rango de área entre 100 y 200 metros cuadrados en Bogotá durante el último año?
+¿Cuántas unidades de vivienda VIS se han vendido en Antioquia en los últimos doce meses, comparado con el mismo período del año anterior?
+Dame el ranking de los 3 municipios con mayor número de licencias de construcción otorgadas en el departamento del Valle durante 2023.
+¿Cómo ha evolucionado el valor de los proyectos de construcción en Cali en comparación con Medellín durante los últimos 5 años?
+¿Cuál es el total de área construida en el estrato 3 en Bogotá durante el año 2022?
+Quiero saber el promedio de unidades por proyecto para el uso de vivienda VIS en el departamento de Antioquia.
+¿Cuál es la distribución porcentual de las licencias de construcción otorgadas en el rango de decreto pre entre 1 y 5 en Bogotá durante 2024?
+¿Cuánto ha aumentado el precio promedio de la vivienda No VIS en el departamento del Valle en comparación con el año anterior?
+Dame el ranking de las 5 constructoras con mayor área construida en el estrato 4 en Medellín durante el último año.
+¿Cuál es el promedio de unidades vendidas por mes en el rango de área entre 50 y 100 metros cuadrados en Cali durante 2023?
+¿Cuántas licencias de construcción se han otorgado en el departamento de Antioquia en el año 2022, comparado con el año 2021?
+Quiero saber la evolución trimestral del valor de los proyectos de construcción en Bogotá durante los últimos 3 años.
+¿Cuál es el total de unidades de vivienda VIS vendidas en el estrato 2 en Medellín durante el año 2023?
+Dame el ranking de los 3 municipios con mayor número de unidades de vivienda No VIS vendidas en el departamento del Valle durante 2022.
+¿Cómo ha cambiado el promedio de precio de venta de las viviendas en el rango de área entre 200 y 300 metros cuadrados en Bogotá durante los últimos 5 años?
+¿Cuál es el promedio de área construida por proyecto para el uso de vivienda VIS en el departamento de Antioquia durante 2023?
+Quiero saber la comparación de las ventas de vivienda VIS y No VIS en Cali y Medellín durante el último año.
+¿Cuánto ha aumentado el número de licencias de construcción otorgadas en el departamento del Valle en comparación con el año anterior?
+Dame el ranking de las 5 constructoras con mayor número de unidades vendidas en el estrato 3 en Bogotá durante el año 2022.
+¿Cuál es el total de unidades de vivienda No VIS vendidas en el rango de decreto pre entre 1 y 5 en Antioquia durante 2023?
+¿Cuántas unidades de vivienda VIS se han vendido en el departamento de Antioquia en el año 2022, comparado con el mismo período del año 2021?
+Quiero saber la evolución anual del valor de los proyectos de construcción en Medellín durante los últimos 5 años.
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda No VIS en el departamento del Valle durante 2023?
+Dame el ranking de los 3 municipios con mayor área construida en el estrato 4 en el departamento del Valle durante 2022.
+¿Cuánto ha aumentado el precio promedio de la vivienda VIS en Bogotá en comparación con el año anterior?
+Quiero saber la distribución porcentual de las licencias de construcción otorgadas en el rango de área entre 100 y 200 metros cuadrados en Cali durante 2023.

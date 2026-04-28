@@ -1,0 +1,18 @@
+# Datos de Ventas para Valle en oct-25
+
+A continuación, te proporciono 5 preguntas y respuestas basadas en el contexto de datos de CAMACOL:
+
+P: ¿Cuál fue el total de unidades vendidas en el Valle en oct-25?
+R: El total de unidades vendidas fue de 819.
+
+P: ¿Cuántas unidades VIP se vendieron en el Valle durante oct-25?
+R: Se vendieron 403 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el Valle en oct-25?
+R: La cantidad de unidades VIS vendidas fue de 757.
+
+P: ¿Cuántas unidades no VIS se vendieron en el Valle en oct-25?
+R: Se vendieron 62 unidades no VIS.
+
+P: ¿Cuál es la proporción de unidades VIS con respecto al total de unidades vendidas en el Valle en oct-25?
+R: La proporción de unidades VIS es de 757 unidades VIS sobre un total de 819 unidades.

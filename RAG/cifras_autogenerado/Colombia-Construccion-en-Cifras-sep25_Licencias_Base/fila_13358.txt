@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es el 2006-06-01 00:00:00.
+
+P: ¿En qué municipio se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en Sincelejo.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia es 001.
+
+P: ¿Qué tipo de construcción se va a realizar según la licencia?
+R: El tipo de construcción es Nuevo y se encuentra en una zona Urbana.
+
+P: ¿Cuántas unidades se van a construir según la licencia?
+R: Se van a construir 135 unidades.
+
+P: ¿Cuál es el número de empleados registrados para la licencia de construcción?
+R: No hay información disponible sobre el número de empleados, pero se menciona un número "70" sin contexto claro.
+
+P: ¿Cuál es el propósito o uso de la construcción según la licencia?
+R: El propósito de la construcción es para Educación.

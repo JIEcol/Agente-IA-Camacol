@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 22)
+
+¿Cuál es el valor total de los proyectos de construcción en el estado de "En ejecución" en los últimos 12 meses en Bogotá y Medellín?
+¿Dame el ranking de las 3 constructoras con mayor número de proyectos en el departamento de Antioquia, considerando solo los proyectos de uso "Residencial"?
+¿Cuál es el promedio de área construida por proyecto para las constructoras en el estado de "Finalizado" en Cali y Cartagena?
+Compara las ventas de vivienda VIS y No VIS en el departamento del Valle del Cauca para el año 2023.
+¿Cómo ha sido la evolución trimestral del número de proyectos en el departamento de Risaralda para los últimos 2 años?
+¿Cuál es el total de unidades vendidas por la constructora "XYZ" en el departamento de Quindío durante el año 2022?
+Dame el ranking de las 5 ciudades con mayor número de proyectos de construcción en el estado de "En planeación" en los últimos 6 meses.
+¿Cuál es el valor promedio de los proyectos de construcción en el departamento de Nariño para el uso "Comercial"?
+¿Dame la comparación de las ventas de vivienda VIS entre los departamentos de Cundinamarca y Boyacá para el año 2023?
+¿Cuál es el número total de proyectos en el estado de "En ejecución" en la ciudad de Pereira para los últimos 12 meses?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el departamento de Santander para el año 2023?
+Dame el ranking de las 3 constructoras con mayor área construida en el departamento de Caldas para el uso "Industrial".
+¿Cuál es el promedio de unidades por proyecto para las constructoras en el estado de "Finalizado" en la ciudad de Manizales?
+Compara las ventas de vivienda No VIS entre los departamentos de Huila y Tolima para el año 2022.
+¿Cuál es el valor total de los proyectos de construcción en el estado de "En planeación" en la ciudad de Bucaramanga para los últimos 6 meses?
+Dame el ranking de las 5 constructoras con mayor número de proyectos en el departamento de Meta para el uso "Agrícola".
+¿Cuál es el total de unidades vendidas por la constructora "ABC" en el departamento de Casanare durante el año 2023?
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento de Cauca para los últimos 2 años?
+Dame la comparación de las ventas de vivienda VIS entre las ciudades de Bogotá y Medellín para el año 2022.
+¿Cuál es el número total de proyectos en el estado de "En ejecución" en el departamento de Chocó para los últimos 12 meses?
+¿Dame el ranking de las 3 constructoras con mayor área construida en el departamento de North Santander para el uso "Turístico"?
+¿Cuál es el promedio de unidades por proyecto para las constructoras en el estado de "Finalizado" en la ciudad de Villavicencio?
+Compara las ventas de vivienda No VIS entre los departamentos de Arauca y Vichada para el año 2023.
+¿Cuál es el valor total de los proyectos de construcción en el estado de "En planeación" en la ciudad de Armenia para los últimos 6 meses?
+Dame el ranking de las 5 constructoras con mayor número de proyectos en el departamento de Guaviare para el uso "Minero".

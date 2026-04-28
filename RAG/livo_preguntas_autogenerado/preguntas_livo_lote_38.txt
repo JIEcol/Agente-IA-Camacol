@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 38)
+
+¿Cuál es el valor total de las viviendas VIS vendidas en los barrios de Suba y Engativá en Bogotá durante el año 2023?
+¿Cuál es el promedio de precio por metro cuadrado de las viviendas No VIS en el departamento de Antioquia para el año 2022?
+Dame el ranking de los 3 barrios con mayor área construida en Cali para el rango de decreto pre 2020-2022.
+¿Cómo ha evolucionado el número de unidades vendidas en Medellín para el tipo de vivienda VIS en los últimos 5 años?
+Quiero saber el total de unidades vendidas en el estrato 3 para el rango de área entre 50-100 metros cuadrados en Barranquilla.
+¿Cuál es el valor promedio de los proyectos en el departamento del Quindío para el año 2024?
+Compara las ventas de vivienda VIS entre los barrios de La Macarena y El Poblado en Bogotá para el último semestre.
+¿Cuál es el promedio de unidades por proyecto para el tipo de vivienda No VIS en el departamento de Risaralda?
+Dame el ranking de las 5 constructoras con mayor valor de proyectos en el departamento de Valle del Cauca.
+¿Cómo ha sido la evolución trimestral del precio promedio por metro cuadrado de las viviendas VIS en Cartagena?
+Quiero saber el total de unidades vendidas en el barrio de Castilla en Medellín para el rango de decreto pre 2020-2022.
+¿Cuál es el valor total de las viviendas No VIS vendidas en el departamento de Cundinamarca durante el año 2022?
+Dame el ranking de los 3 departamentos con mayor área construida para el tipo de vivienda VIS en el año 2023.
+¿Cuál es el promedio de precio por metro cuadrado de las viviendas VIS en el barrio de La Cabrera en Bogotá para el año 2024?
+Compara las ventas de vivienda No VIS entre los departamentos de Antioquia y Valle del Cauca para el último año.
+¿Cuál es el total de unidades vendidas en el estrato 2 para el rango de área entre 20-50 metros cuadrados en Sincelejo?
+Quiero saber el valor promedio de los proyectos en el barrio de El Poblado en Bogotá para el año 2023.
+¿Cómo ha evolucionado el número de unidades vendidas en Cali para el tipo de vivienda No VIS en los últimos 3 años?
+Dame el ranking de las 5 constructoras con mayor número de unidades vendidas en el departamento de Santander.
+¿Cuál es el promedio de unidades por proyecto para el tipo de vivienda VIS en el departamento de Tolima?
+Compara las ventas de vivienda VIS entre los barrios de Suba y Engativá en Bogotá para el último trimestre.
+¿Cuál es el valor total de las viviendas VIS vendidas en el departamento de Huila durante el año 2022?
+Quiero saber el total de unidades vendidas en el barrio de La Macarena en Bogotá para el rango de decreto pre 2020-2022.
+¿Cuál es el promedio de precio por metro cuadrado de las viviendas No VIS en el departamento de Boyacá para el año 2023?
+Dame el ranking de los 3 departamentos con mayor valor de proyectos para el tipo de vivienda No VIS en el año 2024.

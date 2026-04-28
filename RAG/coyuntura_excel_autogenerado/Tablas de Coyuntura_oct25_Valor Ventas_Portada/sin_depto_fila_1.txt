@@ -1,0 +1,22 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Valor Ventas.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+No hay información disponible para generar una frase descriptiva debido a que todos los campos están vacíos (nan). Si se proporcionaran datos reales, podría generar una frase descriptiva y concisa en lenguaje natural que incluya la entidad geográfica y la fecha, si están presentes. 
+
+Por ejemplo, si se proporcionaran datos como los siguientes:
+- Departamento: Antioquia
+- Fecha: oct-25
+- Ventas: 2083
+- Variación anual: -15.2%
+
+Podría generar una frase como:
+"Para la fecha oct-25 en Antioquia, se registraron ventas de 2,083 unidades, con una variación anual del -15.2%."
+
+Sin embargo, con los datos proporcionados, no es posible generar una frase descriptiva.

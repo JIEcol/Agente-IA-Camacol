@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Bolívar en mar-10
+
+P: ¿En qué fecha se realizaron los lanzamientos en el departamento de Bolívar?
+R: Los lanzamientos se realizaron el 10 de marzo.
+
+P: ¿Cuántas unidades VIP se lanzaron en el departamento de Bolívar?
+R: No se lanzaron unidades VIP.
+
+P: ¿Cuántas unidades VIS se lanzaron en total en el departamento de Bolívar?
+R: Se lanzaron 104 unidades VIS en total.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento de Bolívar?
+R: El total de unidades lanzadas es 242.
+
+P: ¿Cuántas unidades No VIS se lanzaron en el departamento de Bolívar?
+R: Se lanzaron 138 unidades No VIS.

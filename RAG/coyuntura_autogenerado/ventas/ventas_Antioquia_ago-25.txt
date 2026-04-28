@@ -1,0 +1,16 @@
+# Datos de Ventas para Antioquia en ago-25
+
+P: ¿Cuál es el total de unidades vendidas en Antioquia?
+R: El total de unidades vendidas es 2612.
+
+P: ¿Cuántas unidades VIP se vendieron en agosto de 2025?
+R: Se vendieron 24 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en total?
+R: La cantidad de unidades VIS vendidas es 1502.
+
+P: ¿Cuántas unidades No VIS se vendieron en agosto de 2025?
+R: Se vendieron 1110 unidades No VIS.
+
+P: ¿En qué fecha se registraron estas ventas en Antioquia?
+R: Estas ventas se registraron en agosto de 2025.

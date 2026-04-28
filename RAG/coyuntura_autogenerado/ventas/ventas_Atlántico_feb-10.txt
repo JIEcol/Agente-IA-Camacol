@@ -1,0 +1,16 @@
+# Datos de Ventas para Atlántico en feb-10
+
+P: ¿Cuál es el total de unidades vendidas en el departamento del Atlántico?
+R: El total de unidades vendidas es 710.
+
+P: ¿Cuántas unidades VIP se vendieron en febrero?
+R: Se vendió 1 unidad VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en el departamento del Atlántico?
+R: La distribución es de 374 unidades VIS y 336 unidades No VIS.
+
+P: ¿En qué fecha se registraron las ventas en el departamento del Atlántico?
+R: Las ventas se registraron el 10 de febrero.
+
+P: ¿Cuál es el porcentaje de unidades VIS con respecto al total de unidades vendidas?
+R: El porcentaje de unidades VIS es del 52.68% (374/710).

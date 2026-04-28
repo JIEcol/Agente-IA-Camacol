@@ -1,0 +1,16 @@
+# Datos de Oferta para Antioquia en ago-25
+
+P: ¿Cuál es el total de unidades ofrecidas en Antioquia según el sistema de oferta?
+R: El total de unidades ofrecidas es 19915.
+
+P: ¿Cuántas unidades VIP se ofrecen en el sistema de oferta?
+R: Se ofrecen 276 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS en el sistema de oferta?
+R: La cantidad de unidades VIS es 7517.
+
+P: ¿Cuántas unidades no pertenecen al programa VIS en el sistema de oferta?
+R: Hay 12398 unidades que no pertenecen al programa VIS.
+
+P: ¿En qué fecha se registraron estos datos de oferta en Antioquia?
+R: Los datos se registraron en agosto de 2025.

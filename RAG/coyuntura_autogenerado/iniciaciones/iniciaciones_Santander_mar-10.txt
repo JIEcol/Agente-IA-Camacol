@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Santander en mar-10
+
+P: ¿Cuál es el total de unidades iniciadas en el sistema de CAMACOL?
+R: El total de unidades iniciadas es de 402.
+
+P: ¿En qué departamento se llevaron a cabo las iniciaciones?
+R: Las iniciaciones se llevaron a cabo en el departamento de Santander.
+
+P: ¿Cuántas unidades VIP se iniciaron?
+R: Se iniciaron 0 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS?
+R: La distribución es de 160 unidades VIS y 242 unidades No VIS.
+
+P: ¿En qué fecha se registraron las iniciaciones de unidades en el sistema?
+R: Las iniciaciones se registraron el 10 de marzo.

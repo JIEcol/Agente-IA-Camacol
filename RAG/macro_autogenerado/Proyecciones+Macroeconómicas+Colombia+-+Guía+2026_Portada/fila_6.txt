@@ -1,0 +1,22 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+P: ¿Cuándo se actualizaron las proyecciones macroeconómicas para Colombia?
+R: Las proyecciones macroeconómicas para Colombia se actualizaron el 15 de septiembre de 2025.
+
+P: ¿Dónde puedo encontrar la información detallada sobre las proyecciones macroeconómicas?
+R: La información detallada sobre las proyecciones macroeconómicas se encuentra en la Guía 2026.
+
+P: ¿Qué tipo de documento contiene la información sobre las proyecciones macroeconómicas?
+R: La información sobre las proyecciones macroeconómicas se encuentra en un archivo de Excel llamado "Proyecciones Macroeconómicas - Colombia - Guía 2026.xlsx".
+
+P: ¿En qué hoja del documento se encuentran las proyecciones macroeconómicas?
+R: Las proyecciones macroeconómicas se encuentran en la hoja "Portada" del documento.
+
+P: ¿Qué información adicional se proporciona junto con la fecha de actualización?
+R: No se proporciona información adicional junto con la fecha de actualización.
+
+P: ¿Dónde se puede encontrar la fecha de actualización de las proyecciones macroeconómicas?
+R: La fecha de actualización de las proyecciones macroeconómicas se encuentra en la segunda fila del documento, en la columna "Unnamed: 1".
+
+P: ¿Qué columna contiene la fecha de actualización de las proyecciones macroeconómicas?
+R: La fecha de actualización de las proyecciones macroeconómicas se encuentra en la columna "Unnamed: 2".

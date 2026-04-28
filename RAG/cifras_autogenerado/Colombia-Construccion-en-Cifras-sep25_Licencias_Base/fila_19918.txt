@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción?
+R: La información se registró el 2007-03-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se otorgó la licencia de construcción?
+R: La licencia de construcción se otorgó en el departamento de Huila.
+
+P: ¿Cuál es el tipo de proyecto de construcción según la licencia?
+R: El proyecto de construcción es de tipo "Nuevo" y se encuentra en un área "Urbana".
+
+P: ¿Qué tipo de vivienda se construirá según la licencia?
+R: La licencia es para la construcción de "Casas" de "Vivienda" tipo "VIS" (Vivienda de Interés Social).
+
+P: ¿Cuál es el estrato socioeconómico de la vivienda que se construirá?
+R: La vivienda que se construirá es de estrato "Bajo".
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene un área de 60 metros cuadrados.
+
+P: ¿Cuántos dormitorios y baños tiene la vivienda que se construirá?
+R: La vivienda que se construirá tiene 2 dormitorios y 2 baños.

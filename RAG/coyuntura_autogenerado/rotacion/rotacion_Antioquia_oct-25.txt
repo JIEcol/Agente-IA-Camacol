@@ -1,0 +1,16 @@
+# Datos de Rotacion para Antioquia en oct-25
+
+P: ¿Cuál es el sistema utilizado para el contexto proporcionado?
+R: El sistema utilizado es Rotacion.
+
+P: ¿En qué fecha se registraron los datos proporcionados?
+R: Los datos se registraron el 25 de octubre.
+
+P: ¿Cuántas unidades VIP se registraron en el contexto?
+R: Se registraron 23 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en el contexto?
+R: La distribución fue de 328 unidades VIS y 433 unidades No VIS.
+
+P: ¿Cuál es el total de unidades registradas en el contexto?
+R: El total de unidades registradas es de 761 unidades.

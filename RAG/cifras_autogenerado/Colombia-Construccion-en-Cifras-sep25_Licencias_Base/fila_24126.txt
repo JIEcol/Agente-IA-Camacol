@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2007-09-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción?
+R: El proyecto de construcción se encuentra ubicado en Antioquia.
+
+P: ¿Cuál es el tipo de proyecto de construcción?
+R: El proyecto de construcción es de vivienda, específicamente casas.
+
+P: ¿Cuál es el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción es de tipo Nuevo.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es Cob. 77.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: No se proporciona información sobre los metros cuadrados del proyecto de construcción, pero se menciona que tiene 841 unidades, 4 pisos y 3 apartamentos por piso.
+
+P: ¿Cuál es el valor del proyecto de construcción?
+R: No se proporciona información directa sobre el valor del proyecto de construcción, pero se menciona un código "05" y un valor "266", aunque no se especifica a qué se refieren estos valores.

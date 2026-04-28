@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 17)
+
+¿Cuál es el total de unidades vendidas en el rango de área entre 100 y 200 metros cuadrados en Bogotá durante el último año?
+¿Dame el promedio de unidades por proyecto para las constructoras en Medellín que trabajan en el rango de área de 50 a 100 metros cuadrados?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en Cali en el último semestre?
+¿Cómo ha evolucionado el número de unidades vendidas en el estado de "en construcción" en el departamento de Antioquia durante los últimos 6 meses?
+¿Cuál es el ranking de los 5 departamentos con mayor área construida en proyectos de vivienda VIS durante el año 2023?
+¿Dame la comparación entre las ventas de vivienda VIS y No VIS en Bogotá y Medellín para el primer trimestre de 2024?
+¿Cuál es el total de unidades vendidas por la constructora "X" en el rango de área de 200 a 300 metros cuadrados en el departamento del Valle durante el año 2023?
+¿Cuál es el promedio de unidades por proyecto para el estrato 3 en las ciudades de Cali y Medellín?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el departamento de Risaralda durante el último año?
+¿Dame el ranking de las 3 constructoras con mayor área construida en proyectos de vivienda No VIS en el departamento de Quindío durante el año 2023?
+¿Cuál es el total de unidades vendidas en el estado de "entregado" en el rango de área de 50 a 100 metros cuadrados en la ciudad de Pereira durante el último semestre?
+¿Cuál es el promedio de unidades por proyecto para las constructoras que trabajan en el rango de área de 100 a 200 metros cuadrados en el departamento de Tolima?
+¿Dame la comparación entre las ventas de vivienda VIS y No VIS en las ciudades de Bogotá y Cali para el último trimestre de 2023?
+¿Cuál es el ranking de los 5 departamentos con mayor número de unidades vendidas en proyectos de vivienda VIS durante el año 2023?
+¿Cómo ha evolucionado el número de unidades vendidas en el rango de área de 200 a 300 metros cuadrados en el departamento de Antioquia durante los últimos 3 meses?
+¿Cuál es el total de unidades vendidas por la constructora "Y" en el rango de área de 50 a 100 metros cuadrados en la ciudad de Medellín durante el año 2023?
+¿Cuál es el promedio de unidades por proyecto para el estrato 2 en las ciudades de Bogotá y Medellín?
+¿Dame el ranking de las 5 constructoras con mayor área construida en proyectos de vivienda No VIS en el departamento del Valle durante el año 2023?
+¿Cuál es el total de unidades vendidas en el estado de "en construcción" en el rango de área de 100 a 200 metros cuadrados en la ciudad de Cali durante el último semestre?
+¿Cuál es el promedio de unidades por proyecto para las constructoras que trabajan en el rango de área de 200 a 300 metros cuadrados en el departamento de Quindío?
+¿Dame la comparación entre las ventas de vivienda VIS y No VIS en las ciudades de Pereira y Manizales para el primer trimestre de 2024?
+¿Cuál es el ranking de los 3 departamentos con mayor área construida en proyectos de vivienda VIS durante el año 2023?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el rango de área de 50 a 100 metros cuadrados en el departamento de Risaralda durante el último año?
+¿Cuál es el total de unidades vendidas por la constructora "Z" en el rango de área de 100 a 200 metros cuadrados en la ciudad de Bogotá durante el año 2023?

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la construcción en el contexto proporcionado?
+R: La información se registró el 2006-01-01 00:00:00.
+
+P: ¿Cuál es el nombre del departamento donde se encuentra la construcción mencionada?
+R: La construcción se encuentra en el departamento de Santander.
+
+P: ¿Cuál es el nombre de la ciudad donde se desarrolla la construcción?
+R: La construcción se desarrolla en la ciudad de Bucaramanga.
+
+P: ¿Cuál es el tipo de construcción que se está realizando según el contexto?
+R: La construcción es de tipo urbana y se trata de una vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo según el contexto?
+R: La vivienda que se está construyendo es una casa.
+
+P: ¿Cuántos metros cuadrados tiene la construcción mencionada?
+R: La construcción tiene 154 metros cuadrados.
+
+P: ¿Cuál es el código de la construcción según el contexto proporcionado?
+R: El código de la construcción es 001.

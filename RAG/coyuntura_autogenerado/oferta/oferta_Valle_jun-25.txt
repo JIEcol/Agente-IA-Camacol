@@ -1,0 +1,16 @@
+# Datos de Oferta para Valle en jun-25
+
+P: ¿Cuál es el total de unidades ofrecidas en el Valle el 25 de junio?
+R: El total de unidades ofrecidas es de 17391.
+
+P: ¿Cuántas unidades VIP se ofrecen en el sistema?
+R: Se ofrecen 2909 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS en el sistema?
+R: La cantidad de unidades VIS es de 13292.
+
+P: ¿Cuántas unidades no son VIS en el sistema?
+R: Hay 4099 unidades que no son VIS.
+
+P: ¿Cuál es la fecha en la que se registraron los datos de oferta en el Valle?
+R: La fecha de registro es el 25 de junio.

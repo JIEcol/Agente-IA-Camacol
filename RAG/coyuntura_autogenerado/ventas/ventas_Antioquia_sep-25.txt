@@ -1,0 +1,16 @@
+# Datos de Ventas para Antioquia en sep-25
+
+P: ¿Cuál es el total de unidades vendidas en Antioquia según los datos de CAMACOL?
+R: El total de unidades vendidas es de 2010.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento de Antioquia?
+R: Se vendieron 7 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en las ventas de Antioquia?
+R: La distribución es de 855 unidades VIS y 1155 unidades No VIS.
+
+P: ¿En qué fecha se registraron los datos de ventas en Antioquia?
+R: Los datos de ventas se registraron en sep-25.
+
+P: ¿Cuál es el sistema que maneja los datos de ventas en Antioquia?
+R: El sistema que maneja los datos de ventas es el Sistema de Ventas.

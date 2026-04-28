@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 2)
+
+¿Cuál es el total de área construida en Colombia por las constructoras que trabajan con modalidad VIS?
+¿Cómo se distribuyen las unidades vendidas entre las diferentes compañías constructoras en el estado de "En construcción" en Bogotá?
+¿Cuál es el promedio de precio por metro cuadrado en proyectos de vivienda No VIS en Cali y Medellín durante el último año?
+¿Qué constructoras tienen el mayor número de unidades vendidas en Antioquia en el rango de área "Pequeña"?
+¿Cuál es la evolución trimestral del área construida en el departamento del Valle durante los últimos 2 años?
+¿Cuál es el ranking de los 3 estados con mayor área construida en proyectos de vivienda VIS en Colombia?
+¿Cómo ha cambiado el número de unidades vendidas en Bogotá entre los proyectos de "Nuevorango_pre" alto y bajo en el último semestre?
+¿Cuál es el promedio de área por proyecto para las constructoras que trabajan con modalidad No VIS en el estrato 3?
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento de Cundinamarca en el último año?
+¿Cuál es el total de unidades vendidas en Colombia por las constructoras que trabajan con modalidad VIS y tienen un "rango_area" mediano?
+¿Cuál es la comparación entre el área construida en proyectos de vivienda VIS y No VIS en el departamento de Antioquia durante el último trimestre?
+¿Cuáles son las tendencias en la evolución mensual del precio promedio por metro cuadrado en proyectos de vivienda VIS en Bogotá?
+¿Cuál es el ranking de las constructoras con mayor número de unidades vendidas en el estado de "Entregado" en Cali y Medellín?
+¿Cuál es el promedio de precio por unidad en proyectos de vivienda No VIS en el departamento del Valle durante el último año?
+¿Cuáles son las constructoras que tienen el mayor número de proyectos en el estado de "En construcción" en Colombia?
+¿Cuál es la evolución anual del área construida en proyectos de vivienda VIS en el departamento de Cundinamarca durante los últimos 5 años?
+¿Cuál es el total de unidades vendidas en proyectos de vivienda VIS en Bogotá durante el último semestre?
+¿Cuáles son las 3 constructoras con mayor área construida en proyectos de vivienda No VIS en el departamento de Antioquia?
+¿Cuál es la comparación entre el número de unidades vendidas en proyectos de vivienda VIS y No VIS en el departamento del Valle durante el último año?
+¿Cuál es el promedio de área por proyecto para las constructoras que trabajan con modalidad VIS en el estrato 5?
+¿Cuáles son las tendencias en la evolución trimestral del precio promedio por metro cuadrado en proyectos de vivienda No VIS en Cali y Medellín?
+¿Cuál es el ranking de las constructoras con mayor número de unidades vendidas en el estado de "En venta" en Bogotá y Cali?
+¿Cuál es el total de unidades vendidas en proyectos de vivienda No VIS en el departamento de Cundinamarca durante el último año?
+¿Cuáles son las constructoras que tienen el mayor número de proyectos en el estado de "Entregado" en Colombia?
+¿Cuál es la evolución mensual del área construida en proyectos de vivienda VIS en el departamento de Antioquia durante el último año?

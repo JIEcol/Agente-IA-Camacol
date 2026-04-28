@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se inició el registro de datos en el informe 'Colombia Construcción en Cifras'?
+R: El registro de datos se inició el 2008-01-01 00:00:00.
+
+P: ¿Cuál es la ubicación geográfica de los datos registrados en el informe?
+R: Los datos se refieren a Bogotá, D.C.
+
+P: ¿Cuál es el tipo de proyecto registrado en el informe?
+R: El proyecto es de tipo urbano y se refiere a vivienda.
+
+P: ¿Cuál es el tipo de vivienda que se está construyendo según el informe?
+R: La vivienda que se está construyendo son apartamentos.
+
+P: ¿Cuál es el nivel de riesgo asociado al proyecto de construcción según el informe?
+R: El nivel de riesgo asociado al proyecto es alto.
+
+P: ¿Cuántas unidades se están construyendo según el informe?
+R: Se están construyendo 25832 unidades.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción según el informe?
+R: El proyecto tiene 139 metros cuadrados.

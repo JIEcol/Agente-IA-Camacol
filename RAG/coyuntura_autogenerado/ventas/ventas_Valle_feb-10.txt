@@ -1,0 +1,16 @@
+# Datos de Ventas para Valle en feb-10
+
+P: ¿Cuál fue el total de unidades vendidas en el Valle el 10 de febrero?
+R: El total de unidades vendidas fue de 1354.
+
+P: ¿Cuántas unidades VIP se vendieron en el Valle en la fecha mencionada?
+R: Se vendieron 354 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el Valle el 10 de febrero?
+R: La cantidad de unidades VIS vendidas fue de 912.
+
+P: ¿Cuántas unidades No VIS se vendieron en el Valle en esa fecha?
+R: Se vendieron 442 unidades No VIS.
+
+P: ¿Cuál fue la proporción de unidades VIS en relación con el total de unidades vendidas en el Valle?
+R: La proporción de unidades VIS fue de 912 unidades VIS sobre un total de 1354 unidades.

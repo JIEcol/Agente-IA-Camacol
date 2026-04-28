@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de inicio del proyecto de construcción en el contexto proporcionado?
+R: La fecha de inicio del proyecto de construcción es el 1 de abril de 2006.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción?
+R: El proyecto de construcción se encuentra ubicado en el departamento de Bolívar.
+
+P: ¿Cuál es el tipo de construcción que se está realizando en el proyecto?
+R: El tipo de construcción es urbana y se trata de una vivienda, específicamente casas.
+
+P: ¿Cuál es el estrato socioeconómico de las viviendas que se están construyendo?
+R: Las viviendas que se están construyendo son de estrato medio-alto.
+
+P: ¿Cuántas viviendas se están construyendo en el proyecto?
+R: Se están construyendo 419 viviendas en el proyecto.
+
+P: ¿Cuál es el código de la licencia de construcción del proyecto?
+R: El código de la licencia de construcción es 001.
+
+P: ¿Cuántos niveles tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 1 nivel.

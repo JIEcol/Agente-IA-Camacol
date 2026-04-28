@@ -1,0 +1,16 @@
+# Datos de Ventas para Atlántico en sep-25
+
+P: ¿Cuál es el total de unidades vendidas en el departamento del Atlántico en septiembre de 2025?
+R: El total de unidades vendidas es de 1281.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento del Atlántico en septiembre de 2025?
+R: Se vendieron 294 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en el departamento del Atlántico en septiembre de 2025?
+R: La distribución es de 1036 unidades VIS y 245 unidades No VIS.
+
+P: ¿Cuál es el porcentaje de unidades VIS con respecto al total de unidades vendidas en el departamento del Atlántico en septiembre de 2025?
+R: El porcentaje es de (1036/1281)*100, aproximadamente 80.87%.
+
+P: ¿Cuántas unidades No VIS se vendieron en el departamento del Atlántico en septiembre de 2025?
+R: Se vendieron 245 unidades No VIS.

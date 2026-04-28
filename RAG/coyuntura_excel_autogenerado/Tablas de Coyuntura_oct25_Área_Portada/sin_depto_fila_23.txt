@@ -1,0 +1,19 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+Basándome en los datos proporcionados, puedo generar una frase descriptiva de la siguiente manera:
+
+"El proceso de inicio de recolección se lleva a cabo a nivel regional, abarcando varios municipios."
+
+Sin embargo, dado que los datos proporcionados no incluyen una fecha específica ni una entidad geográfica concreta (como un departamento o región), no puedo proporcionar una frase más detallada que incluya esos elementos. 
+
+Si se proporcionaran más detalles, como la fecha y la región específica, podría generar una frase más precisa, similar a este ejemplo:
+
+"Para la fecha [fecha] en [Departamento/Región], se inició el proceso de recolección a nivel regional, abarcando varios municipios."

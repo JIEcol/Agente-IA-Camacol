@@ -1,0 +1,9 @@
+
+# METADATA
+source_type: "structured_data_summary"
+file_name: "Tablas de Coyuntura_oct25_Valor Ventas.xlsx"
+sheet_name: "Portada"
+# END METADATA
+
+## Resumen de la Tabla de Datos: Portada
+El propósito de esta tabla es proporcionar información sobre la coyuntura de la construcción de vivienda en Colombia, aunque en este momento, las primeras 5 filas no contienen datos relevantes. La tabla parece estar vacía, con valores "NaN" (no disponible) en todas las columnas, lo que sugiere que aún no se han cargado o actualizado los datos. En resumen, la tabla tiene como objetivo presentar información sobre la coyuntura de la construcción de vivienda, pero actualmente carece de contenido.

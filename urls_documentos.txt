@@ -616,3 +616,6 @@ https://camacol.co/sites/default/files/descargables/Agenda_27_a_31.pdf
 https://camacol.co/sites/default/files/descargables/Agenda_6_10_Marzo%20%28Corregido%29.pdf
 https://camacol.co/sites/default/files/descargables/Agenda_Legislativa_28_03_2022%20%282%29.pdf
 https://camacol.co/sites/default/files/descargables/Bolet%C3%ADn%20legislativo_10_07_2023%20%282%29_0.pdf
+
+# Informes Jurídicos (extraídas automáticamente el 2025-11-27 11:23:43)
+https://camacol.co/sites/default/files/descargables/INFORME%20JURIDICO%201009.pdf

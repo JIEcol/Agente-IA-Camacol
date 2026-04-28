@@ -1,0 +1,18 @@
+# Datos de Oferta para Antioquia en dic-22
+
+A continuación, te proporciono 5 preguntas y respuestas basadas en el contexto de datos de CAMACOL:
+
+P: ¿Cuál es el sistema de datos que se está analizando?
+R: El sistema de datos es Oferta.
+
+P: ¿En qué fecha se recolectaron los datos?
+R: Los datos se recolectaron en diciembre de 2022.
+
+P: ¿Cuántas unidades VIP se ofrecen en Antioquia?
+R: Hay 421 unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en Antioquia?
+R: La distribución es de 11,428 unidades VIS y 14,126 unidades No VIS.
+
+P: ¿Cuál es el total de unidades ofrecidas en Antioquia?
+R: El total de unidades ofrecidas es de 25,554.

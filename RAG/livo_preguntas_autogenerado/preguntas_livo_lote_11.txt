@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 11)
+
+¿Cuál es el total de área construida en proyectos de vivienda VIS en Bogotá y Medellín durante el año 2023?
+¿Cuál es el promedio de valor de los proyectos de construcción en el departamento de Antioquia para el año 2022?
+¿Qué son las 3 constructoras con mayor área construida en el departamento del Valle durante el último semestre?
+Compara el total de unidades vendidas en proyectos de vivienda No VIS entre Cali y Cartagena para el año 2024.
+¿Cómo ha evolucionado el valor de los proyectos de construcción en Bogotá durante los últimos 5 años?
+¿Cuál es el ranking de los 5 proyectos de vivienda VIS con mayor área construida en Medellín durante el año 2023?
+Dame el total de unidades vendidas en proyectos de vivienda VIS en el departamento de Cundinamarca durante el año 2022.
+¿Cuál es el promedio de área por proyecto para el uso de vivienda No VIS en el departamento del Quindío?
+Compara el total de área construida en proyectos de vivienda VIS y No VIS en Bogotá y Medellín durante el año 2023.
+¿Cuál es la evolución mensual del valor de los proyectos de construcción en el departamento de Risaralda durante el año 2024?
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento de Santander durante el último año?
+Dame el total de unidades vendidas en proyectos de vivienda VIS en el departamento de Boyacá durante el año 2023.
+¿Cuál es el promedio de valor de los proyectos de construcción en el departamento de Caldas para el año 2022?
+Compara el total de unidades vendidas en proyectos de vivienda No VIS entre Pereira y Manizales para el año 2024.
+¿Cómo ha evolucionado el área construida en proyectos de vivienda VIS en el departamento del Tolima durante los últimos 3 años?
+¿Cuál es el ranking de los 3 proyectos de vivienda No VIS con mayor área construida en Cartagena durante el año 2023?
+Dame el total de área construida en proyectos de vivienda VIS en el departamento de Nariño durante el año 2022.
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda VIS en el departamento de Huila?
+Compara el total de área construida en proyectos de vivienda VIS y No VIS en Medellín y Cali durante el año 2023.
+¿Cuál es la evolución trimestral del valor de los proyectos de construcción en el departamento de Meta durante el año 2024?
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento de Córdoba durante el último semestre?
+Dame el total de unidades vendidas en proyectos de vivienda No VIS en el departamento de Sucre durante el año 2023.
+¿Cuál es el promedio de área por proyecto para el uso de vivienda No VIS en el departamento de La Guajira?
+Compara el total de unidades vendidas en proyectos de vivienda VIS entre Bogotá y Barranquilla para el año 2024.
+¿Cómo ha evolucionado el valor de los proyectos de construcción en el departamento de Magdalena durante los últimos 2 años?

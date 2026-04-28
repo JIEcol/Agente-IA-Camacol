@@ -1,0 +1,16 @@
+# Datos de Ventas para Antioquia en mar-10
+
+P: ¿Cuál es el total de unidades vendidas en Antioquia el 10 de marzo?
+R: El total de unidades vendidas es 1570.
+
+P: ¿Cuántas unidades VIP se vendieron en Antioquia el 10 de marzo?
+R: Se vendieron 7 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en Antioquia el 10 de marzo?
+R: Se vendieron 718 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se vendieron en Antioquia el 10 de marzo?
+R: Se vendieron 852 unidades No VIS.
+
+P: ¿Cuál es la relación entre unidades VIS y No VIS vendidas en Antioquia el 10 de marzo?
+R: La relación es de 718 unidades VIS y 852 unidades No VIS.

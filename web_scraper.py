@@ -396,6 +396,10 @@ def procesar_paginas_camacol():
         # Fuentes Externas - Investigaciones Económicas
         "https://www.camacol.co/investigaciones-economicas/participacion-en-revistas-indexadas",
         "https://www.banrep.gov.co/es/publicaciones-investigaciones",
+        
+        # URLs adicionales solicitadas
+        "https://www.bancolombia.com/empresas/capital-inteligente/actualidad-economica-sectorial/perspectivas-sector-vivienda-colombia",
+        "https://vivienda.com.co/sector-vivienda-mercado-colombia-2025-construccion/",
     ]
     
     scraper_docs = CamacolAgendaScraper()

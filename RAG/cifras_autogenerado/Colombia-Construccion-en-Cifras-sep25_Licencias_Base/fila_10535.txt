@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué departamento se otorgó la licencia de construcción?
+R: La licencia de construcción se otorgó en Antioquia.
+
+P: ¿Cuál fue el tipo de licencia de construcción otorgada?
+R: La licencia de construcción otorgada fue para una Modificación.
+
+P: ¿Cuál fue el uso del suelo para la licencia de construcción?
+R: El uso del suelo para la licencia de construcción fue Urbana.
+
+P: ¿Qué tipo de proyecto de construcción se aprobó?
+R: El proyecto de construcción aprobado fue para una Ampliación de Vivienda.
+
+P: ¿Cuál fue el tipo de vivienda que se construyó?
+R: La vivienda que se construyó fueron Apartamentos.
+
+P: ¿Cuál fue el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción tuvo un nivel de complejidad Medio.
+
+P: ¿Cuántos metros cuadrados tuvo el proyecto de construcción?
+R: El proyecto de construcción tuvo 241 metros cuadrados.

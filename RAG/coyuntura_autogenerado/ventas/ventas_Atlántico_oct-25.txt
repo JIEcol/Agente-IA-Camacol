@@ -1,0 +1,16 @@
+# Datos de Ventas para Atlántico en oct-25
+
+P: ¿Cuál es el total de unidades vendidas en el departamento del Atlántico?
+R: El total de unidades vendidas es 1148.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento del Atlántico?
+R: Se vendieron 193 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el departamento del Atlántico?
+R: La cantidad de unidades VIS vendidas es 904.
+
+P: ¿Cuántas unidades no VIS se vendieron en el departamento del Atlántico?
+R: Se vendieron 244 unidades no VIS.
+
+P: ¿En qué fecha se registraron estos datos de ventas en el departamento del Atlántico?
+R: Los datos de ventas se registraron en oct-25.

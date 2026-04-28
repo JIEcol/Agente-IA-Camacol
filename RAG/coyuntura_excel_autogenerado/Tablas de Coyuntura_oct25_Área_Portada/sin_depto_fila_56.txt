@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+"El Decreto 1607 del 5 de agosto de 2022 aplica a las aglomeraciones en distintas regiones, sin especificar un departamento o región en particular."

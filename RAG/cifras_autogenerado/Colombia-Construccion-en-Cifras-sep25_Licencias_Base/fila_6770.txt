@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de inicio del proyecto de construcción en el contexto proporcionado?
+R: La fecha de inicio del proyecto de construcción es el 1 de octubre de 2005.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción?
+R: El proyecto de construcción se encuentra ubicado en Antioquia.
+
+P: ¿Cuál es el tipo de construcción que se está realizando según el contexto?
+R: El tipo de construcción es urbana y se trata de una vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo?
+R: Se está construyendo una casa.
+
+P: ¿Cuál es el nivel socioeconómico de la vivienda que se está construyendo?
+R: La vivienda que se está construyendo es de estrato bajo (VIS).
+
+P: ¿Cuántas viviendas se están construyendo en el proyecto?
+R: Se están construyendo 132 viviendas.
+
+P: ¿Cuál es el código de la licencia de construcción del proyecto?
+R: El código de la licencia de construcción es Cob. 77.

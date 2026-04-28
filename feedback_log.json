@@ -1,0 +1,69 @@
+[
+    {
+        "timestamp": "2025-12-01T09:28:14.744519",
+        "user_id": "731373145",
+        "question": "Qué es galería inmobiliaria",
+        "answer": "La información proporcionada no define qué es una galería inmobiliaria. Sin embargo, puedo proporcionarte una definición general basada en el conocimiento disponible.\n\nUna galería inmobiliaria se refiere comúnmente a un espacio físico o virtual donde se exhiben y promocionan proyectos inmobiliarios, propiedades en venta o en arrendamiento, y servicios relacionados con el sector inmobiliario. Estos espacios pueden ofrecer una variedad de servicios, como asesoría en la compra o venta de propiedades, gestión de proyectos de construcción, y consultoría en inversión inmobiliaria, entre otros.\n\nEn el contexto de CAMACOL, una entidad que representa los intereses del sector de la construcción en Colombia, una galería inmobiliaria podría ser un lugar donde los profesionales del sector, como constructores, promotores inmobiliarios y agentes de bienes raíces, se reúnen para exhibir sus proyectos y ofrecer sus servicios a posibles clientes. Sin embargo, sin información específica de CAMACOL sobre \"galería inmobiliaria\", esta definición se basa en el uso común del término en el sector inmobiliario.",
+        "is_useful": false,
+        "feedback_response": "no",
+        "details": "No tengo comentarios para agregar"
+    },
+    {
+        "timestamp": "2026-01-13T10:06:29.435598",
+        "user_id": "731373145",
+        "question": "necesito conocer la oferta de unidades de vivienda en atlantico para septiembre del 2025",
+        "answer": "⚠️ No se encontró un registro que coincida con los filtros (tipo_fuente=unidades, hoja=Oferta, departamento=Atlántico, caracteristica=TOTAL, periodo_clave=None).",
+        "is_useful": true,
+        "feedback_response": "necesito conocer la oferta de unidades de vivienda en atlantico para septiembre del 2025"
+    },
+    {
+        "timestamp": "2026-01-13T16:22:37.978348",
+        "user_id": "731373145",
+        "question": "necesito conocer la oferta de unidades de vivienda en atlantico para septiembre del 2025",
+        "answer": "📊 Oferta en Atlántico (TOTAL) para sep-25: 10,643 unidades",
+        "is_useful": true,
+        "feedback_response": "si"
+    },
+    {
+        "timestamp": "2026-01-13T16:50:29.760080",
+        "user_id": "731373145",
+        "question": "cual es la oferta de unidades de vivienda vis en antioquia para junio 2025, tambien quiero conocer las unidades de vivienda en antioquia para julio 2025.",
+        "answer": "📊 Oferta en Antioquia (VIS) para jun-25: 7,875 unidades\n📊 Oferta en Antioquia (VIS) para jul-25: 8,578 unidades",
+        "is_useful": false,
+        "feedback_response": "quiero profundizar mas en el contexto de vivienda en el año 2025"
+    },
+    {
+        "timestamp": "2026-01-14T10:09:51.183707",
+        "user_id": "731373145",
+        "question": "quiero conocer la oferta de unidades en atlantico para agosto 2025",
+        "answer": "📊 Oferta en Atlántico (TOTAL) para ago-25: 11,306 unidades",
+        "is_useful": true,
+        "feedback_response": "si"
+    },
+    {
+        "timestamp": "2026-01-14T16:48:33.752383",
+        "user_id": "8393356306",
+        "question": "@coordenada_urbana_bot de cuánto fueron las ventas el último mes?",
+        "answer": "⚡ **Respuesta rápida (Reglas)**\n\n**unidades filtradas:** 926,793\n\n🔍 *Fuente: Base de datos LIVO (Cálculo directo)*\n\n_Fuente: conocimientos y documentos de CAMACOL procesados por el asistente._",
+        "is_useful": false,
+        "feedback_response": "no",
+        "details": "qué me estás mostrando?"
+    },
+    {
+        "timestamp": "2026-01-14T16:49:59.769159",
+        "user_id": "8393356306",
+        "question": "si",
+        "answer": "Bienvenido, gracias por su consulta. Como analista de CAMACOL, he revisado la información disponible en los documentos proporcionados, específicamente la \"RESOLUCIÓN MINTRABAJO NACIONAL 3687 DE SEPTIEMBRE DE 2025\". Aunque la información proporcionada es repetitiva y no incluye detalles específicos sobre el contenido de la resolución, puedo ofrecer una guía general sobre cómo abordar la pregunta basada en la estructura típica de este tipo de documentos.\n\nLas resoluciones del Ministerio de Trabajo suelen abordar una amplia gama de temas relacionados con el empleo, la seguridad laboral, y las condiciones de trabajo. Si la resolución 3687 de septiembre de 2025 sigue este patrón, podría incluir temas como:\n\n1. **Regulaciones Laborales**: Actualizaciones o cambios en las leyes laborales, incluyendo aspectos como la jornada laboral, el salario mínimo, y los beneficios para los trabajadores.\n2. **Seguridad y Salud en el Trabajo**: Directrices para mejorar las condiciones de seguridad y salud en los lugares de trabajo, incluyendo la prevención de accidentes y la gestión de riesgos.\n3. **Derechos Laborales**: Información sobre los derechos de los trabajadores, incluyendo el derecho a la negociación colectiva, a la huelga, y a la protección contra la discriminación.\n4. **Inspecciones y Sanciones**: Procedimientos para las inspecciones de trabajo y las sanciones aplicables en caso de incumplimiento de las normas laborales.\n\nSin embargo, sin acceso a los detalles específicos de la resolución 3687, es difícil proporcionar una respuesta más detallada. Si la pregunta se refiere a un aspecto específico de la resolución, como sus implicaciones para los empleadores, los trabajadores, o cómo afecta a ciertos sectores de la economía, necesitaría más información para ofrecer una respuesta precisa.\n\nEn resumen, aunque puedo ofrecer una visión general de los temas que podría abordar una resolución del Ministerio de Trabajo, la falta de detalles específicos en la información proporcionada limita mi capacidad para proporcionar una respuesta más completa y detallada. Si tiene más información o puede especificar la naturaleza de su pregunta, estaré encantado de tratar de ayudarle de manera más efectiva.\n\n_Fuente: conocimientos y documentos de CAMACOL procesados por el asistente._",
+        "is_useful": false,
+        "feedback_response": "no",
+        "details": "me estás mostrando algo que no pedí"
+    },
+    {
+        "timestamp": "2026-01-14T16:52:36.715752",
+        "user_id": "8393356306",
+        "question": "de cuánto fueron las ventas vis en todo el 2024?",
+        "answer": "⚡ **Respuesta rápida (Reglas)**\n\ntipo vivienda | unidades filtradas\n------------- | ------------------\nVIS | 86684\nVIP | 19087\n\n🔍 *Fuente: Base de datos LIVO (Cálculo directo)*\n\n_Fuente: conocimientos y documentos de CAMACOL procesados por el asistente._",
+        "is_useful": true,
+        "feedback_response": "sí"
+    }
+]

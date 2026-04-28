@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, te proporciono las 7 preguntas y respuestas basadas en el contexto de datos del informe 'Colombia Construcción en Cifras' que se me ha proporcionado:
+
+P: ¿Cuál es el departamento donde se encuentra el proyecto de construcción?
+R: El departamento es Norte de Santander.
+
+P: ¿Cuál es el nombre del municipio donde se lleva a cabo el proyecto?
+R: El municipio es Los Patios.
+
+P: ¿Cuál es el tipo de cobertura del proyecto de construcción?
+R: La cobertura es de 77.
+
+P: ¿Cuál es el estado del proyecto de construcción?
+R: El proyecto es Nuevo.
+
+P: ¿Cuál es el tipo de zona donde se encuentra el proyecto de construcción?
+R: La zona es Urbana.
+
+P: ¿Cuántas unidades tiene el proyecto de construcción?
+R: El proyecto tiene 216 unidades.
+
+P: ¿Cuál es el área total del proyecto de construcción?
+R: El área total es de 405.

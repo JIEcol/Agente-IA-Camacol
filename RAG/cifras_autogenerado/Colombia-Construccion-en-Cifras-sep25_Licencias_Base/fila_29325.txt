@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la construcción en el informe 'Colombia Construcción en Cifras'?
+R: La información se registró el 2008-04-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se llevó a cabo la construcción mencionada en el informe?
+R: La construcción se llevó a cabo en Antioquia.
+
+P: ¿Cuál es el tipo de proyecto de construcción mencionado en el informe?
+R: El proyecto de construcción es de vivienda, específicamente casas.
+
+P: ¿Cuál es el código de cobertura de la construcción mencionada en el informe?
+R: El código de cobertura es Cob. 77.
+
+P: ¿Cuántos metros cuadrados tiene la construcción mencionada en el informe?
+R: La construcción tiene 128 metros cuadrados.
+
+P: ¿Cuál es el nivel de riesgo de la construcción mencionada en el informe?
+R: La construcción tiene un nivel de riesgo bajo.
+
+P: ¿Cuál es el número de identificación de la licencia de construcción mencionada en el informe?
+R: El número de identificación de la licencia es 615.

@@ -1,0 +1,13 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Riesgo.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+Desafortunadamente, no hay datos suficientes en la fila proporcionada para generar una frase descriptiva y concisa. Todos los campos están vacíos (nan), lo que indica que no hay información disponible para describir.
+
+Si tuviera acceso a datos más completos, estaría encantado de ayudarte a crear una frase descriptiva que incluya la entidad geográfica y la fecha, si están presentes. Por favor, proporciona más información para que pueda asistirte de manera efectiva.

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha del registro de la licencia de construcción?
+R: La fecha del registro es el 1 de junio de 2007.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en el departamento de Quindío.
+
+P: ¿Cuál es el tipo de proyecto de construcción?
+R: El tipo de proyecto es de Ampliación.
+
+P: ¿Cuál es el destino de la construcción?
+R: La construcción es para Vivienda, específicamente Casas.
+
+P: ¿Cuál es el nivel de complejidad de la construcción?
+R: La construcción es de Bajo nivel de complejidad.
+
+P: ¿Cuántas unidades habitacionales se van a construir?
+R: No se encuentra información sobre el número de unidades habitacionales en el contexto proporcionado.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia es 001.

@@ -1,0 +1,31 @@
+# Coyuntura: Portada - N/A - N/A
+
+P: ¿Cuál es el salario mínimo legal vigente (SMMLV) que se utiliza como referencia para clasificar los inmuebles por rangos de precio?
+R: No se especifica en los datos proporcionados.
+
+P: ¿Cómo se clasifican los inmuebles en el segmento VIP a partir de mayo de 2019?
+R: A partir de mayo de 2019, los inmuebles con precio menor o igual a 90 SMMLV se clasifican en el segmento VIP.
+
+P: ¿Cuál es el tope de precio para clasificar inmuebles en el segmento VIS en municipios dentro de aglomeraciones a partir de agosto de 2019?
+R: A partir de agosto de 2019, el tope de precio para clasificar inmuebles en el segmento VIS en municipios dentro de aglomeraciones es de 150 SMMLV.
+
+P: ¿Qué porcentaje de cobertura del censo de Coordenada Urbana se alcanzó al tercer trimestre de 2025?
+R: Al tercer trimestre de 2025, la cobertura del censo de Coordenada Urbana fue del 94% de la actividad edificadora a nivel nacional.
+
+P: ¿Qué metodología se utiliza para realizar la revisión trimestral de la cobertura del censo de Coordenada Urbana?
+R: Se utilizan metodologías similares y otras comparaciones para realizar la revisión trimestral de la cobertura del censo de Coordenada Urbana.
+
+P: ¿Cuándo se inició la clasificación de inmuebles con precio menor o igual a 90 SMMLV en el segmento VIP?
+R: A partir de mayo de 2019.
+
+P: ¿Qué Decreto establece el tope de precio para clasificar inmuebles en el segmento VIS en municipios dentro de aglomeraciones?
+R: El Decreto 1467 del 13 de agosto de 2019.
+
+P: ¿Qué año se utilizó como referencia para cambiar el tope de precio para clasificar inmuebles en el segmento VIP?
+R: 2019.
+
+P: ¿Qué tipo de ajustes se pueden ver en la información del censo mensual de Coordenada Urbana debido a rezagos naturales del levantamiento de la información?
+R: Ajustes incrementales entre publicaciones del censo.
+
+P: ¿Qué ley establece la clasificación de inmuebles en el segmento VIP con precio menor o igual a 90 SMMLV?
+R: La Ley 1955 de 2019.

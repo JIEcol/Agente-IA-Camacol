@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Bogotá & Cundinamarca en mar-10
+
+P: ¿Cuál fue la fecha de las iniciaciones en el sistema de CAMACOL?
+R: La fecha fue el 10 de marzo.
+
+P: ¿Cuántas unidades VIP se iniciaron en el sistema?
+R: Se iniciaron 201 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS y No VIS en el sistema?
+R: El total es 4602 unidades, donde 2375 son VIS y 2227 son No VIS.
+
+P: ¿En qué departamento se llevaron a cabo las iniciaciones del sistema CAMACOL?
+R: Las iniciaciones se llevaron a cabo en Bogotá y Cundinamarca.
+
+P: ¿Cuál es el total de unidades iniciadas en el sistema de CAMACOL?
+R: El total de unidades iniciadas es de 4602 unidades.

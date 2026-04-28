@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción?
+R: La información se registró el 2006-08-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en Norte de Santander.
+
+P: ¿Cuál es el tipo de proyecto de construcción según la licencia?
+R: El tipo de proyecto de construcción es Vivienda, específicamente Casas.
+
+P: ¿Cuál es el estado de la licencia de construcción?
+R: La licencia de construcción es Nuevo.
+
+P: ¿Cuántas unidades habitacionales se planifican construir según la licencia?
+R: Se planifican construir 54 unidades habitacionales.
+
+P: ¿Cuál es el código de cobertura de la licencia de construcción?
+R: El código de cobertura es Cob. 77.
+
+P: ¿Cuál es el área total de la construcción según la licencia?
+R: El área total de la construcción es de 874 metros.

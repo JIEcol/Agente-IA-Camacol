@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha del registro en el informe 'Colombia Construcción en Cifras'?
+R: La fecha del registro es 2007-02-01 00:00:00.
+
+P: ¿En qué departamento se encuentra el proyecto de construcción?
+R: El proyecto de construcción se encuentra en el departamento de Tolima.
+
+P: ¿Cuál es el tipo de construcción que se está realizando?
+R: El tipo de construcción es una ampliación de vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo?
+R: Se están construyendo casas.
+
+P: ¿Cuál es el nivel de complejidad de la construcción?
+R: El nivel de complejidad es bajo.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 318 metros cuadrados.
+
+P: ¿Cuál es el código del proyecto de construcción?
+R: El código del proyecto de construcción es 001.

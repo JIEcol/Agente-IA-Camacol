@@ -1,0 +1,22 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+P: ¿Cuál es la fuente de las proyecciones macroeconómicas para Colombia?
+R: La fuente de las proyecciones macroeconómicas para Colombia es el DANE.
+
+P: ¿Qué tipo de datos se encuentran en la hoja "Portada" del archivo de proyecciones macroeconómicas?
+R: En la hoja "Portada" del archivo de proyecciones macroeconómicas se encuentran datos sobre el PIB, Producción, Empleo y Cuentas Fiscales.
+
+P: ¿Qué información específica se proporciona sobre el PIB en el contexto de proyecciones macroeconómicas?
+R: En el contexto de proyecciones macroeconómicas, se menciona que el PIB se expresa en variación porcentual anual y nominal.
+
+P: ¿Qué institución es responsable de proporcionar los datos sobre proyecciones macroeconómicas en Colombia?
+R: La institución responsable de proporcionar los datos sobre proyecciones macroeconómicas en Colombia es el DANE.
+
+P: ¿Qué otros temas se abordan en el contexto de proyecciones macroeconómicas aparte del PIB?
+R: Aparte del PIB, se abordan temas como la Producción, Empleo y Cuentas Fiscales en el contexto de proyecciones macroeconómicas.
+
+P: ¿Cuál es el título del archivo que contiene las proyecciones macroeconómicas para Colombia?
+R: El título del archivo que contiene las proyecciones macroeconómicas para Colombia es "Proyecciones Macroeconómicas - Colombia - Guía 2026.xlsx".
+
+P: ¿En qué hoja del archivo se encuentran los datos de proyecciones macroeconómicas mencionados?
+R: Los datos de proyecciones macroeconómicas se encuentran en la hoja "Portada" del archivo.

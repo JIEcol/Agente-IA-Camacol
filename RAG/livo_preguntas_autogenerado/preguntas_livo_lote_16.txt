@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 16)
+
+¿Cuál es el total de unidades vendidas en el barrio de La Macarena en Bogotá durante el año 2023?
+¿Cómo ha sido la evolución anual de la cantidad de unidades VIS vendidas en los departamentos de Antioquia y Caldas?
+¿Cuál es el promedio de unidades por proyecto en el estrato 3 para la ciudad de Medellín?
+¿Dame el ranking de los 3 barrios con mayor cantidad de unidades No VIS vendidas en Bogotá durante el último semestre?
+¿Cuál es el total de divipola para los proyectos de vivienda en el departamento del Quindío durante el año 2022?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en la ciudad de Cali para el primer trimestre del año?
+¿Cómo ha sido la evolución mensual de las unidades vendidas en el barrio de El Poblado en Medellín durante el año 2024?
+¿Cuál es el promedio de unidades por proyecto para la política de vivienda "Mi Casa Ya" en el departamento de Risaralda?
+¿Dame el ranking de las 5 constructoras con mayor cantidad de unidades vendidas en el departamento de Valle del Cauca?
+¿Cuál es el total de unidades vendidas en la ciudad de Pereira durante el año 2023 para la política de vivienda "Vivienda Free"?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en los departamentos de Antioquia y Caldas para el año 2022?
+¿Cómo ha sido la evolución anual de la cantidad de unidades vendidas en el barrio de La Castellana en Bogotá?
+¿Cuál es el promedio de divipola para los proyectos de vivienda en el departamento del Tolima durante el año 2023?
+¿Dame el ranking de los 3 departamentos con mayor cantidad de unidades vendidas en el país durante el año 2024?
+¿Cuál es el total de unidades vendidas en la ciudad de Cartagena durante el año 2022 para la política de vivienda "Mi Casa Ya"?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en la ciudad de Medellín para el último trimestre del año?
+¿Cómo ha sido la evolución mensual de las unidades vendidas en el departamento de Nariño durante el año 2023?
+¿Cuál es el promedio de unidades por proyecto para la política de vivienda "Vivienda Free" en el departamento de Antioquia?
+¿Dame el ranking de las 5 constructoras con mayor cantidad de unidades vendidas en la ciudad de Bogotá durante el año 2023?
+¿Cuál es el total de divipola para los proyectos de vivienda en el departamento de Caldas durante el año 2022?
+¿Cuál es la comparación entre las ventas de vivienda VIS y No VIS en los departamentos de Risaralda y Quindío para el año 2023?
+¿Cómo ha sido la evolución anual de la cantidad de unidades vendidas en la ciudad de Cali durante el año 2024?
+¿Cuál es el promedio de unidades por proyecto para la política de vivienda "Mi Casa Ya" en el departamento de Valle del Cauca?
+¿Dame el ranking de los 3 barrios con mayor cantidad de unidades vendidas en la ciudad de Medellín durante el año 2023?
+¿Cuál es el total de unidades vendidas en el departamento de Antioquia durante el año 2022 para la política de vivienda "Vivienda Free"?

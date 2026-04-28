@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2006-11-01 00:00:00.
+
+P: ¿En qué departamento se encuentra el proyecto de construcción?
+R: El proyecto de construcción se encuentra en Antioquia.
+
+P: ¿Cuál es el nombre del municipio donde se encuentra el proyecto de construcción?
+R: El proyecto de construcción se encuentra en Envigado.
+
+P: ¿Cuál es el tipo de zona donde se encuentra el proyecto de construcción?
+R: El proyecto de construcción se encuentra en una zona rural.
+
+P: ¿Cuál es el tipo de construcción que se va a realizar?
+R: El tipo de construcción que se va a realizar es una vivienda.
+
+P: ¿Cuál es el tipo específico de vivienda que se va a construir?
+R: El tipo específico de vivienda que se va a construir es una casa.
+
+P: ¿Cuál es el código o identificador del proyecto de construcción?
+R: El código o identificador del proyecto de construcción es Cob. 77.

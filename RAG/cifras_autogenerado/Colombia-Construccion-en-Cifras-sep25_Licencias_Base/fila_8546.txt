@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, se presentan 7 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿En qué año y mes se registraron los datos de la construcción en Cifras?
+R: Los datos se registraron en diciembre de 2005.
+
+P: ¿En qué departamento se encuentra el municipio de Chía?
+R: El municipio de Chía se encuentra en Cundinamarca.
+
+P: ¿Cuál es el tipo de cobertura del proyecto de construcción?
+R: El tipo de cobertura es Cob. 77.
+
+P: ¿Cuál es el tipo de proyecto de construcción?
+R: El proyecto de construcción es de tipo Nuevo.
+
+P: ¿Cuántas viviendas se planifican construir en el proyecto?
+R: Se planifican construir 258 viviendas.
+
+P: ¿Cuál es el número de casas en el proyecto de construcción de vivienda?
+R: El número de casas es 175.
+
+P: ¿Cuántos niveles tiene el proyecto de construcción de vivienda?
+R: El proyecto de construcción tiene 3 niveles.

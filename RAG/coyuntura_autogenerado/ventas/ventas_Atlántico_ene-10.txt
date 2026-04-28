@@ -1,0 +1,16 @@
+# Datos de Ventas para Atlántico en ene-10
+
+P: ¿Cuál fue el total de unidades vendidas en el Departamento del Atlántico en enero de 2010?
+R: El total de unidades vendidas fue de 306.
+
+P: ¿Cuántas unidades VIP se vendieron en el Departamento del Atlántico en enero de 2010?
+R: No se vendieron unidades VIP.
+
+P: ¿Cuál fue la cantidad de unidades VIS vendidas en el Departamento del Atlántico en enero de 2010?
+R: Se vendieron 117 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se vendieron en el Departamento del Atlántico en enero de 2010?
+R: Se vendieron 189 unidades No VIS.
+
+P: ¿En qué departamento se realizaron las ventas de 306 unidades en enero de 2010?
+R: Las ventas se realizaron en el Departamento del Atlántico.

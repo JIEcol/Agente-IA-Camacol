@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 9)
+
+¿Cuál es el precio promedio de las viviendas en el barrio de La Macarena en Bogotá durante el año 2022?
+¿Cuáles son las 3 constructoras con mayor número de proyectos en el segmento de vivienda VIS en Medellín?
+¿Cómo ha cambiado el número de unidades vendidas en el departamento de Antioquia entre 2020 y 2023?
+¿Cuál es el total de área construida en el barrio de Poblado en Medellín durante el último año?
+¿Qué constructora tiene el mayor promedio de unidades por proyecto en el segmento de vivienda No VIS en Cali?
+¿Cuál es la evolución trimestral del precio de las viviendas en el departamento del Valle del Cauca durante 2024?
+¿Cuáles son los 5 barrios con mayor número de proyectos de vivienda VIS en Bogotá durante 2023?
+¿Cuál es el promedio de unidades vendidas por constructora en el segmento de vivienda VIS en el departamento de Risaralda?
+¿Cómo se compara el número de unidades vendidas en el segmento de vivienda No VIS entre los departamentos de Cali y Medellín durante 2022?
+¿Cuál es el total de unidades vendidas en el barrio de La Llanura en Bogotá durante el último semestre?
+¿Qué constructora tiene el mayor número de proyectos en el segmento de vivienda VIS en el departamento de Quindío?
+¿Cuál es la evolución anual del precio promedio de las viviendas en el departamento de Antioquia durante los últimos 5 años?
+¿Cuáles son las 3 constructoras con mayor área construida en el segmento de vivienda No VIS en Medellín durante 2023?
+¿Cuál es el promedio de unidades por proyecto en el segmento de vivienda VIS en el departamento del Valle del Cauca?
+¿Cómo ha cambiado el número de proyectos de vivienda No VIS en el departamento de Cali entre 2020 y 2023?
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el barrio de El Poblado en Medellín durante 2022?
+¿Qué constructora tiene el mayor promedio de unidades vendidas en el segmento de vivienda VIS en el departamento de Risaralda?
+¿Cuál es la evolución mensual del número de unidades vendidas en el departamento de Antioquia durante 2024?
+¿Cuáles son los 5 barrios con mayor número de unidades vendidas en el segmento de vivienda No VIS en Bogotá durante 2023?
+¿Cuál es el total de área construida en el segmento de vivienda VIS en el departamento del Valle del Cauca durante el último año?
+¿Cómo se compara el precio promedio de las viviendas en el segmento de vivienda VIS entre los departamentos de Medellín y Cali durante 2022?
+¿Cuál es el promedio de unidades por proyecto en el segmento de vivienda No VIS en el departamento de Quindío?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en el segmento de vivienda VIS en el departamento de Antioquia durante 2023?
+¿Cuál es la evolución anual del número de proyectos de vivienda No VIS en el departamento de Cali durante los últimos 5 años?
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el barrio de La Llanura en Bogotá durante el último trimestre?

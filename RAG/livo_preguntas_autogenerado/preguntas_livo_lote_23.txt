@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 23)
+
+¿Cuál es el total de unidades vendidas en Cartagena para el año 2023, considerando solo viviendas VIS y No VIS en la etapa de construcción?
+¿Cuál es el promedio de precio por metro cuadrado en las ciudades de Cali y Medellín durante el último semestre?
+Dame el ranking de las 3 ciudades con mayor aumento en la venta de viviendas No VIS en el último año.
+¿Cómo se ha comportado la venta de viviendas VIS en Bogotá en comparación con el promedio nacional durante los últimos 6 meses?
+Quiero saber la evolución trimestral de la cantidad de proyectos en construcción en el departamento de Antioquia desde el 2022.
+¿Cuál es el total de metros cuadrados vendidos en el Valle del Cauca durante el 2023, considerando solo viviendas en la etapa de entrega?
+Compara el precio promedio por metro cuadrado en viviendas VIS y No VIS en las ciudades de Barranquilla y Cartagena.
+¿Cuál es el ranking de los 5 barrios con mayor número de unidades vendidas en Bogotá durante el último año?
+Dame el promedio de unidades vendidas por proyecto en el estrato 3 en las ciudades de Medellín y Cali.
+¿Cuál es la tendencia mensual en la venta de viviendas No VIS en el departamento del Quindío durante el 2023?
+Quiero saber la cantidad total de viviendas VIS vendidas en el área metropolitana de Bucaramanga durante el 2022.
+Compara la venta de viviendas VIS y No VIS en las ciudades de Pereira y Manizales durante el último semestre.
+¿Cuál es el promedio de precio de venta por unidad en los proyectos de vivienda VIS en el departamento de Risaralda?
+Dame el ranking de las 3 constructoras con mayor área construida en el departamento de Santander.
+¿Cuál es el total de unidades vendidas en la ciudad de Cúcuta durante el 2023, considerando solo viviendas en la etapa de construcción?
+Quiero saber la evolución anual de la venta de viviendas No VIS en el departamento de Nariño desde el 2020.
+Compara el promedio de unidades por proyecto en viviendas VIS y No VIS en las ciudades de Ibagué y Armenia.
+¿Cuál es el ranking de los 5 proyectos con mayor número de unidades vendidas en el departamento del Tolima durante el último año?
+Dame el promedio de metros cuadrados vendidos por proyecto en el estrato 5 en las ciudades de Cali y Medellín.
+¿Cuál es la tendencia trimestral en la venta de viviendas VIS en el departamento de Huila durante el 2023?
+Quiero saber el total de viviendas No VIS vendidas en la ciudad de Neiva durante el 2022.
+Compara la venta de viviendas VIS y No VIS en las ciudades de Pasto y Popayán durante el último año.
+¿Cuál es el promedio de precio por metro cuadrado en los proyectos de vivienda VIS en el departamento de Caldas?
+Dame el ranking de las 3 ciudades con mayor disminución en la venta de viviendas No VIS en el último semestre.
+¿Cuál es el total de unidades vendidas en el área metropolitana de Cartagena durante el 2023, considerando solo viviendas en la etapa de entrega?

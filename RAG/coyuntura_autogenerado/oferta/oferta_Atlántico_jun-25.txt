@@ -1,0 +1,16 @@
+# Datos de Oferta para Atlántico en jun-25
+
+P: ¿Cuál es el total de unidades ofrecidas en el departamento del Atlántico?
+R: El total de unidades ofrecidas es 11318.
+
+P: ¿Cuántas unidades VIP se ofrecen en el departamento del Atlántico?
+R: Se ofrecen 2409 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS en el departamento del Atlántico?
+R: La cantidad de unidades VIS es 8361.
+
+P: ¿Cuántas unidades no son VIS en el departamento del Atlántico?
+R: Hay 2957 unidades que no son VIS.
+
+P: ¿En qué fecha se registraron estos datos de oferta en el departamento del Atlántico?
+R: Estos datos se registraron el 25 de junio.

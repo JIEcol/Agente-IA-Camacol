@@ -1,0 +1,16 @@
+# Datos de Ventas para Bogotá & Cundinamarca en ene-10
+
+P: ¿Cuántas unidades se vendieron en total en el Departamento de Bogotá & Cundinamarca en enero de 2010?
+R: Se vendieron 4601 unidades en total.
+
+P: ¿Cuántas unidades VIP se vendieron en el mes de enero de 2010?
+R: Se vendieron 55 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el Departamento de Bogotá & Cundinamarca en enero de 2010?
+R: Se vendieron 2548 unidades VIS.
+
+P: ¿Cuántas unidades No VIS se vendieron en el Departamento de Bogotá & Cundinamarca en enero de 2010?
+R: Se vendieron 2053 unidades No VIS.
+
+P: ¿Cuál fue la proporción de unidades VIS con respecto al total de unidades vendidas en enero de 2010?
+R: La proporción de unidades VIS fue del 55.4% del total de unidades vendidas.

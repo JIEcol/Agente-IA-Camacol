@@ -1,0 +1,37 @@
+# Coyuntura: Portada - N/A - N/A
+
+Lo siento, pero el contexto proporcionado no incluye datos específicos que puedan ser utilizados para generar preguntas y respuestas significativas. Las columnas "Unnamed: 0", "Unnamed: 1", "Unnamed: 2", y "Unnamed: 3" con valores "nan" indican que no hay datos disponibles en el contexto proporcionado.
+
+Sin embargo, puedo ofrecerte un ejemplo de cómo podrían ser las preguntas y respuestas si el contexto proporcionara datos reales sobre ventas, distribución geográfica, tipos de viviendas (VIS, No VIS, VIP), etc. Aquí te dejo un ejemplo basado en el formato que solicitaste, pero ten en cuenta que los datos son ficticios:
+
+P: ¿Cuál fue el total de ventas en Antioquia para oct-25?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cómo se distribuyeron las ventas VIS y No VIS en Bogotá?
+R: No hay datos disponibles en el contexto.
+
+P: Dame las ventas VIP en el Valle.
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cuál fue el total de unidades vendidas en Colombia durante oct-25?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cómo estuvieron las ventas en Medellín para oct-25?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cuál es el total de viviendas VIS vendidas en todo el país?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Dónde se registraron las mayores ventas de viviendas No VIS?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cuál es el porcentaje de ventas VIP en relación con el total de ventas en el país?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cómo se comparan las ventas de viviendas VIS y No VIS en Cali?
+R: No hay datos disponibles en el contexto.
+
+P: ¿Cuál fue la región con mayor crecimiento en ventas de viviendas durante oct-25?
+R: No hay datos disponibles en el contexto.
+
+Por favor, proporciona un contexto con datos reales para poder generar preguntas y respuestas basadas en información concreta.

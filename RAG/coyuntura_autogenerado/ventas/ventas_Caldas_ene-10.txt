@@ -1,0 +1,16 @@
+# Datos de Ventas para Caldas en ene-10
+
+P: ¿En qué fecha se registraron las ventas en el departamento de Caldas?
+R: Enero de 2010.
+
+P: ¿Cuántas unidades VIP se vendieron en Caldas en enero de 2010?
+R: 0 unidades.
+
+P: ¿Cuántas unidades VIS se vendieron en total en el departamento de Caldas en enero de 2010?
+R: 43 unidades.
+
+P: ¿Cuál fue la cantidad total de unidades vendidas en el departamento de Caldas en enero de 2010?
+R: 103 unidades.
+
+P: ¿Cuántas unidades No VIS se vendieron en el departamento de Caldas en enero de 2010?
+R: 60 unidades.

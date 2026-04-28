@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 5)
+
+¿Cuál es el total de unidades vendidas por la constructora XY en Bogotá durante el año 2023?
+¿Cuál es el promedio de precio por metro cuadrado de las viviendas VIS en Medellín para el rango de área entre 50 y 100 metros cuadrados?
+Dame el ranking de las 3 constructoras con mayor número de unidades vendidas en Cali durante el último año.
+Compara las ventas de vivienda VIS entre Bogotá y Medellín para el período de enero a junio de 2024.
+¿Cómo ha sido la evolución trimestral del número de unidades vendidas por la constructora AZ en el departamento del Valle durante los últimos 2 años?
+Quiero saber el total de unidades vendidas en el estrato 3 en Bogotá durante el año 2022.
+¿Cuál es el promedio de área construida por proyecto para la constructora BC en Antioquia?
+Dame el ranking de las 5 constructoras con mayor valor de proyectos en el departamento del Quindío.
+Compara el número de unidades vendidas entre las constructoras XY y AZ en el departamento de Risaralda durante el último trimestre.
+¿Cuál es el total de unidades vendidas en el rango de área entre 100 y 200 metros cuadrados en Cali durante el año 2023?
+Dame el ranking de las 3 constructoras con mayor número de unidades vendidas en el estrato 4 en Bogotá durante el último año.
+¿Cómo ha sido la evolución mensual del precio promedio de las viviendas No VIS en Medellín durante los últimos 12 meses?
+Quiero saber el total de unidades vendidas por la constructora CD en el departamento del Tolima durante el año 2022.
+Compara las ventas de vivienda VIS entre el estrato 3 y el estrato 4 en Bogotá durante el período de enero a junio de 2024.
+¿Cuál es el promedio de unidades por proyecto para la constructora EF en el departamento del Huila?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento del Cauca.
+Compara el número de unidades vendidas entre las constructoras GH y IJ en el departamento de Nariño durante el último trimestre.
+¿Cuál es el total de unidades vendidas en el rango de precio entre $200 y $500 millones en Medellín durante el año 2023?
+Dame el ranking de las 3 constructoras con mayor número de unidades vendidas en el estrato 2 en Cali durante el último año.
+¿Cómo ha sido la evolución trimestral del valor de los proyectos en el departamento del Chocó durante los últimos 2 años?
+Quiero saber el total de unidades vendidas por la constructora KL en el departamento del Magdalena durante el año 2022.
+Compara las ventas de vivienda No VIS entre el estrato 3 y el estrato 4 en Medellín durante el período de enero a junio de 2024.
+¿Cuál es el promedio de área construida por proyecto para la constructora MN en el departamento del Cesar?
+Dame el ranking de las 5 constructoras con mayor número de unidades vendidas en el departamento del Meta.
+Compara el número de unidades vendidas entre las constructoras OP y QR en el departamento de La Guajira durante el último trimestre.

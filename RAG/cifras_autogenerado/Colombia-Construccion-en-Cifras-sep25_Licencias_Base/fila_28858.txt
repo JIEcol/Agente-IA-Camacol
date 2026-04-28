@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la información en el contexto de 'Colombia Construcción en Cifras'?
+R: La fecha de registro es 2008-03-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicado el proyecto de construcción descrito en el contexto?
+R: El proyecto se encuentra ubicado en Cundinamarca.
+
+P: ¿Cuál es el tipo de proyecto de construcción según el contexto?
+R: El tipo de proyecto es una Ampliación.
+
+P: ¿Cuál es el uso del proyecto de construcción descrito en el contexto?
+R: El uso del proyecto es Vivienda, específicamente Casas.
+
+P: ¿Cuál es el nivel de complejidad del proyecto de construcción según el contexto?
+R: El nivel de complejidad es Bajo.
+
+P: ¿Cuántas unidades se van a construir en el proyecto según el contexto?
+R: Se van a construir 25 unidades.
+
+P: ¿Cuál es el código de cobertura del proyecto de construcción descrito en el contexto?
+R: El código de cobertura es Cob. 77.

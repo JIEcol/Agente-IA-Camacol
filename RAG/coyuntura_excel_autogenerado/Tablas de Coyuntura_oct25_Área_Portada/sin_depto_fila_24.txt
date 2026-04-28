@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+En el año 2008, en el departamento de Antioquia, se encuentran las siguientes municipios: Amagá, Andes, Apartadó, Barbosa, Bello, Caldas, Carepa, Chigorodó, Copacabana, El Carmen De Viboral, El Santuario, Envigado, Girardota, Guarne, Guatapé, Itagüí, Jardín, La Ceja, La Estrella, La Unión, Marinilla, Medellín, Peñol, Retiro, Rionegro, Sabaneta, San Jerónimo, San Juan De Urabá, Santa Fé De Antioquia, Sopetrán, Támesis y Turbo.

@@ -4,6 +4,8 @@
 Informe semanal para comunicar sobre la normativa nacional y regional contenida en proyectos de ley, actos administrativos, conceptos y decisiones judiciales que inciden en el sector de la construcción y su cadena de valor.
 
 
+### Informe Jurídico 1009
+
 ### Informe Jurídico 1008
 
 ### Informe Jurídico 1007
@@ -25,5 +27,3 @@ Informe semanal para comunicar sobre la normativa nacional y regional contenida 
 ### Informe Jurídico 999
 
 ### Informe Jurídico 998
-
-### Informe Jurídico 997

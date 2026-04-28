@@ -1,0 +1,22 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+P: ¿Cuál es la variable que se encuentra en la columna "Unnamed: 1" del contexto de proyecciones macroeconómicas?
+R: La variable que se encuentra en la columna "Unnamed: 1" es el PIB, con una variación porcentual anual y precios constantes de 2015, con ajuste estacional (SA).
+
+P: ¿Qué área temática se analiza en la columna "Unnamed: 2"?
+R: En la columna "Unnamed: 2" se analiza la Producción, el Empleo y las Cuentas Fiscales.
+
+P: ¿Quién es el ente responsable de proporcionar los datos en el contexto de proyecciones macroeconómicas?
+R: El ente responsable es el DANE (Departamento Administrativo Nacional de Estadística).
+
+P: ¿Cuál es el nombre del archivo que contiene las proyecciones macroeconómicas para Colombia?
+R: El nombre del archivo es "Proyecciones Macroeconómicas - Colombia - Guía 2026.xlsx".
+
+P: ¿En qué hoja del archivo se encuentran las proyecciones macroeconómicas?
+R: Las proyecciones macroeconómicas se encuentran en la hoja "Portada".
+
+P: ¿Qué tipo de ajuste se aplica a los precios en la medición del PIB?
+R: Se aplica un ajuste de precios constantes de 2015, con ajuste estacional (SA).
+
+P: ¿Cuál es el propósito del archivo "Proyecciones Macroeconómicas - Colombia - Guía 2026.xlsx"?
+R: El propósito del archivo es proporcionar una guía de proyecciones macroeconómicas para Colombia, específicamente para el año 2026.

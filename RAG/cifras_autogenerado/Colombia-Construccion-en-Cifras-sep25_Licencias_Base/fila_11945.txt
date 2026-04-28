@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+A continuación, te proporciono 7 preguntas y respuestas basadas en el contexto de datos del informe 'Colombia Construcción en Cifras':
+
+P: ¿En qué departamento se otorgó la licencia de construcción?
+R: La licencia de construcción se otorgó en el Valle del Cauca.
+
+P: ¿Cuál es el nombre del municipio donde se llevó a cabo la construcción?
+R: La construcción se llevó a cabo en Yumbo.
+
+P: ¿Cuál es el tipo de cobertura de la licencia de construcción?
+R: La cobertura de la licencia de construcción es Cob. 77.
+
+P: ¿Cuál es el estado de la licencia de construcción?
+R: La licencia de construcción es Nuevo.
+
+P: ¿Cuál es el tipo de zona donde se llevó a cabo la construcción?
+R: La construcción se llevó a cabo en una zona Urbana.
+
+P: ¿Cuántas viviendas se planifican construir?
+R: Se planifican construir 1069 viviendas.
+
+P: ¿Cuántos días tiene el plazo para la construcción?
+R: El plazo para la construcción es de 12 días.

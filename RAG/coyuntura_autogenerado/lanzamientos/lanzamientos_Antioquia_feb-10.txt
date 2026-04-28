@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Antioquia en feb-10
+
+P: ¿Cuál es el sistema de lanzamientos utilizado en el contexto proporcionado?
+R: El sistema de lanzamientos utilizado es Lanzamientos.
+
+P: ¿En qué fecha se registraron los datos de lanzamientos en Antioquia?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿Cuántas unidades VIP se lanzaron en Antioquia según los datos proporcionados?
+R: No se lanzaron unidades VIP, el total es 0.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en el lanzamiento?
+R: La distribución es de 643 unidades VIS y 1403 unidades No VIS.
+
+P: ¿Cuál es el total de unidades lanzadas en Antioquia según los datos proporcionados?
+R: El total de unidades lanzadas es 2046.

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción?
+R: La información se registró el 1 de julio de 2005.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra ubicada en el departamento de Atlántico.
+
+P: ¿Cuál es el tipo de obra para la que se otorgó la licencia de construcción?
+R: La licencia de construcción es para una vivienda.
+
+P: ¿Cuál es el tipo de vivienda para la que se otorgó la licencia de construcción?
+R: La licencia de construcción es para casas.
+
+P: ¿Cuál es el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción es de bajo nivel de complejidad.
+
+P: ¿Cuántos metros cuadrados tiene la licencia de construcción?
+R: La licencia de construcción tiene 758 metros cuadrados.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: La licencia de construcción tiene el código Cob. 77.

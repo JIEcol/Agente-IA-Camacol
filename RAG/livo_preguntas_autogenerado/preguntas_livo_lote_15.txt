@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 15)
+
+¿Cuál es el promedio de precio por metro cuadrado en proyectos de vivienda VIS en el barrio La Macarena de Bogotá?
+¿Cuántas unidades de vivienda No VIS se han construido en el departamento de Antioquia durante el año 2023?
+Dame el ranking de los 3 barrios con mayor área construida en el municipio de Cali para el último semestre.
+¿Cómo ha cambiado el total de unidades VIS vendidas en Medellín entre los años 2022 y 2023?
+¿Cuál es el promedio de área por proyecto en el estrato 3 para el uso de vivienda en el departamento del Quindío?
+Quiero saber la evolución anual del precio promedio por metro cuadrado en proyectos de vivienda VIS en Bogotá.
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento de Risaralda para el año 2024?
+Compara el total de unidades de vivienda VIS vendidas en Cartagena y Barranquilla para el último trimestre.
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda No VIS en el barrio El Poblado de Medellín?
+Dame el ranking de los 5 municipios con mayor área construida en el departamento de Cundinamarca para el año 2023.
+¿Cómo ha sido la evolución mensual del área construida en proyectos de vivienda VIS en el departamento del Valle del Cauca?
+Quiero saber el total de unidades de vivienda VIS vendidas en el barrio La Candela de Bogotá durante el año 2022.
+¿Cuál es el promedio de precio por metro cuadrado en proyectos de vivienda No VIS en el departamento de Nariño?
+Dame el ranking de las 3 constructoras con mayor área construida en el departamento de Santander para el último semestre.
+Compara el promedio de unidades por proyecto para el uso de vivienda VIS y No VIS en el departamento de Antioquia.
+¿Cuál es el total de unidades de vivienda VIS vendidas en el municipio de Soacha durante el año 2024?
+Quiero saber la evolución anual del total de unidades de vivienda No VIS vendidas en el departamento de Caldas.
+¿Cuáles son las 5 zonas con mayor área construida en el departamento de Tolima para el año 2023?
+Dame el ranking de los 5 barrios con mayor área construida en el municipio de Bucaramanga para el último trimestre.
+Compara el promedio de precio por metro cuadrado en proyectos de vivienda VIS y No VIS en el departamento de Huila.
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda en el estrato 2 en el departamento de Boyacá?
+Quiero saber el total de unidades de vivienda VIS vendidas en el barrio El Centro de Medellín durante el año 2022.
+¿Cuál es la evolución mensual del área construida en proyectos de vivienda No VIS en el departamento de Quindío?
+Dame el ranking de las 3 constructoras con mayor área construida en el departamento de Arauca para el último semestre.
+Compara el total de unidades de vivienda VIS y No VIS vendidas en el departamento de Casanare para el año 2024.

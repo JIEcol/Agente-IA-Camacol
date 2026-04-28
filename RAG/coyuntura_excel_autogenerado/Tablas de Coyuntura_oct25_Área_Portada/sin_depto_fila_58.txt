@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+En el departamento de Norte de Santander, específicamente en las ciudades de Cúcuta, Los Patios y Villa Del Rosario, se registraron eventos en la ciudad de Cúcuta.

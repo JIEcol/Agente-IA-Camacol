@@ -1,0 +1,16 @@
+# Datos de Oferta para Bogotá & Cundinamarca en may-25
+
+P: ¿Cuál es el sistema de venta utilizado en el contexto proporcionado?
+R: El sistema de venta utilizado es Oferta.
+
+P: ¿En qué fecha se registraron los datos de venta de unidades?
+R: Los datos se registraron el 25 de mayo.
+
+P: ¿En qué departamento y región se encuentran las unidades ofrecidas?
+R: Las unidades se encuentran en Bogotá y Cundinamarca.
+
+P: ¿Cuántas unidades VIP se ofrecen en total?
+R: Se ofrecen 2235 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el contexto?
+R: La distribución es de 35552 unidades VIS y 21398 unidades No VIS.

@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la información de la licencia de construcción?
+R: La fecha registrada es el 1 de octubre de 2007.
+
+P: ¿Cuál es el nombre del departamento donde se encuentra la licencia de construcción?
+R: El departamento es Bolívar.
+
+P: ¿Cuál es el nombre del municipio donde se encuentra la licencia de construcción?
+R: El municipio es Magangué.
+
+P: ¿Cuál es el tipo de licencia de construcción?
+R: La licencia es de tipo Nuevo.
+
+P: ¿Cuál es el uso del suelo de la licencia de construcción?
+R: El uso del suelo es Urbano.
+
+P: ¿Cuántos empleos se generaron con la licencia de construcción?
+R: Se generaron 58 empleos.
+
+P: ¿Cuál es el valor de la licencia de construcción?
+R: El valor de la licencia es de 430.

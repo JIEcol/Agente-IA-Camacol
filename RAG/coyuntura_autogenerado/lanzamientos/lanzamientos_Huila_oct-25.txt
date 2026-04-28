@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Huila en oct-25
+
+P: ¿En qué fecha se realizaron los lanzamientos en el departamento del Huila?
+R: Los lanzamientos se realizaron en oct-25.
+
+P: ¿Cuántas unidades VIP se lanzaron en el Huila?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento del Huila?
+R: El total de unidades lanzadas fue de 240.
+
+P: ¿Cuántas unidades VIS se lanzaron en el Huila?
+R: No se lanzaron unidades VIS, el total fue de 0.
+
+P: ¿Cuántas unidades No VIS se lanzaron en el departamento del Huila?
+R: Se lanzaron 240 unidades No VIS.

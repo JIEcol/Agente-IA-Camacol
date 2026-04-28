@@ -1,0 +1,22 @@
+# Construcción en Cifras: Métricas ELIC - N/A
+
+P: ¿Cuál fue el área total de construcción en Colombia según el informe 'Colombia Construcción en Cifras'?
+R: No hay datos suficientes para proporcionar el área total de construcción.
+
+P: ¿Cómo se distribuye el área de construcción por sectores en Colombia?
+R: No hay datos suficientes para proporcionar la distribución del área de construcción por sectores.
+
+P: ¿Cuál es el área promedio de construcción por proyecto en Colombia?
+R: No hay datos suficientes para proporcionar el área promedio de construcción por proyecto.
+
+P: ¿Cuál fue el aumento en el área de construcción en el último año según el informe?
+R: No hay datos suficientes para proporcionar el aumento en el área de construcción.
+
+P: ¿Cuál es el tipo de construcción que tiene el área más grande en Colombia?
+R: No hay datos suficientes para proporcionar el tipo de construcción con el área más grande.
+
+P: ¿Cómo se comparó el área de construcción de viviendas unifamiliares con respecto a las multifamiliares?
+R: No hay datos suficientes para proporcionar la comparación del área de construcción entre viviendas unifamiliares y multifamiliares.
+
+P: ¿Cuál fue la tendencia en el crecimiento del área de construcción en los últimos años en Colombia?
+R: No hay datos suficientes para proporcionar la tendencia en el crecimiento del área de construcción.

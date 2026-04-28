@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 27)
+
+¿Cuál es el valor total de los proyectos de construcción en el segmento de vivienda en Bogotá durante el último año?
+¿Qué es el promedio de área construida por proyecto en el estrato 3 para el uso de vivienda en Medellín?
+¿Cuáles son las 3 constructoras con mayor número de unidades vendidas en Cali en el último semestre?
+¿Cómo ha cambiado el número de unidades vendidas en el departamento del Quindío en comparación con el mismo período del año anterior?
+¿Cuál es el total de unidades VIS vendidas en el Eje Cafetero durante el primer trimestre de 2024?
+¿Dame el ranking de los 5 municipios con mayor valor de construcción en el departamento de Antioquia?
+¿Cuál es el promedio de valor por unidad en el segmento de vivienda en Cartagena para el año 2023?
+¿Qué es la evolución mensual del número de unidades vendidas en el departamento de Risaralda durante el último año?
+¿Cuáles son las 2 constructoras con mayor área construida en el estrato 5 para el uso de vivienda en Bogotá?
+¿Cuál es el total de unidades No VIS vendidas en el departamento del Valle durante el último semestre?
+¿Cómo se comparan las ventas de vivienda VIS y No VIS en Medellín y Cali para el último trimestre?
+¿Cuál es el valor total de los proyectos de construcción en el segmento de vivienda en el departamento de Cundinamarca durante el último año?
+¿Qué es el promedio de unidades por proyecto en el estrato 2 para el uso de vivienda en Bucaramanga?
+¿Cuáles son las 4 constructoras con mayor número de unidades vendidas en el departamento del Atlántico en el último año?
+¿Cuál es la evolución anual del valor de los proyectos en el departamento de Santander durante los últimos 5 años?
+¿Dame el ranking de los 3 municipios con mayor número de unidades vendidas en el departamento de Bolívar durante el último semestre?
+¿Cuál es el total de unidades VIS vendidas en el departamento de Nariño durante el primer semestre de 2024?
+¿Qué es el promedio de área construida por proyecto en el estrato 4 para el uso de vivienda en Pereira?
+¿Cuáles son las 2 constructoras con mayor valor de construcción en el estrato 6 para el uso de vivienda en Bogotá?
+¿Cuál es el valor total de los proyectos de construcción en el segmento de vivienda en el departamento de Huila durante el último año?
+¿Cómo se comparan las ventas de vivienda VIS y No VIS en Cartagena y Barranquilla para el último trimestre?
+¿Cuál es el promedio de unidades vendidas por mes en el departamento del Tolima durante el último año?
+¿Dame el ranking de los 5 departamentos con mayor valor de construcción en el país durante el último año?
+¿Cuál es la evolución trimestral del número de unidades vendidas en el departamento de Caldas durante el último año?
+¿Qué es el total de unidades No VIS vendidas en el departamento de Quindío durante el último semestre?

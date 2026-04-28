@@ -4,13 +4,18 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+import uuid
+from typing import Optional
 from config import AI_PROVIDERS, AIModel
 from llm_providers import llamar_api_ia
+from feedback_system import log_feedback
+from advanced_reasoning import analizar_seguridad_pregunta
+from advanced_reasoning import analizar_y_responder
 
 # Importar analizador de datos
 try:
     from data_analyzer import DataAnalyzer
-    EXCEL_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\LIVO_total_oct25_.xlsx"
+    EXCEL_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx"
     DATA_ANALYZER_AVAILABLE = True
 except Exception as e:
     DATA_ANALYZER_AVAILABLE = False
@@ -28,11 +33,91 @@ except Exception as e:
 # Importar sistema LIVO SQL (DuckDB)
 try:
     from livo_sql import LIVOSQLSystem
-    LIVO_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_oct25_.xlsx"
+    LIVO_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx"
     LIVO_SQL_AVAILABLE = True
 except Exception as e:
     LIVO_SQL_AVAILABLE = False
     print(f"⚠️ Sistema LIVO SQL no disponible: {e}")
+
+# Importar sistema SQL Dinámico para otros Excel
+try:
+    from dynamic_excel_sql import DynamicExcelSQLSystem
+    DYNAMIC_SQL_AVAILABLE = True
+except Exception as e:
+    DYNAMIC_SQL_AVAILABLE = False
+    print(f"⚠️ Sistema SQL Dinámico no disponible: {e}")
+
+# Importar sistema de razonamiento
+try:
+    from reasoning_system import ReasoningSystem, analyze_and_respond
+    REASONING_AVAILABLE = True
+except Exception as e:
+    REASONING_AVAILABLE = False
+    print(f"⚠️ Sistema de razonamiento no disponible: {e}")
+
+# Importar sistema de coyuntura de lanzamientos
+try:
+    from lanzamientos_coyuntura import lanzamientos_coyuntura
+    COYUNTURA_LANZAMIENTOS_AVAILABLE = True
+    print("✅ Sistema de coyuntura de lanzamientos cargado correctamente")
+except Exception as e:
+    COYUNTURA_LANZAMIENTOS_AVAILABLE = False
+    print(f"⚠️ Sistema de coyuntura de lanzamientos no disponible: {e}")
+
+# Importar sistema de coyuntura de iniciaciones
+try:
+    from iniciaciones_coyuntura import iniciaciones_coyuntura
+    COYUNTURA_INICIACIONES_AVAILABLE = True
+    print("✅ Sistema de coyuntura de iniciaciones cargado correctamente")
+except Exception as e:
+    COYUNTURA_INICIACIONES_AVAILABLE = False
+    print(f"⚠️ Sistema de coyuntura de iniciaciones no disponible: {e}")
+
+# Importar sistema de coyuntura de ventas
+try:
+    from ventas_coyuntura import ventas_coyuntura
+    COYUNTURA_VENTAS_AVAILABLE = True
+    print("✅ Sistema de coyuntura de ventas cargado correctamente")
+except Exception as e:
+    COYUNTURA_VENTAS_AVAILABLE = False
+    print(f"⚠️ Sistema de coyuntura de ventas no disponible: {e}")
+
+# Importar sistema de coyuntura de oferta
+try:
+    from oferta_coyuntura import oferta_coyuntura
+    COYUNTURA_OFERTA_AVAILABLE = True
+    print("✅ Sistema de coyuntura de oferta cargado correctamente")
+except Exception as e:
+    COYUNTURA_OFERTA_AVAILABLE = False
+    print(f"⚠️ Sistema de coyuntura de oferta no disponible: {e}")
+
+# Importar sistema de comparación cuádruple
+try:
+    from comparacion_coyuntura import comparador_coyuntura
+    COMPARADOR_COYUNTURA_AVAILABLE = True
+    print("✅ Sistema de comparación cuádruple cargado correctamente")
+except Exception as e:
+    COMPARADOR_COYUNTURA_AVAILABLE = False
+    print(f"⚠️ Sistema de comparación cuádruple no disponible: {e}")
+
+# Importar sistema de coyuntura de UTV (Unidades Terminadas sin Vender)
+try:
+    from utv_coyuntura import utv_coyuntura
+    COYUNTURA_UTV_AVAILABLE = True
+    print("✅ Sistema de coyuntura de UTV cargado correctamente")
+except Exception as e:
+    COYUNTURA_UTV_AVAILABLE = False
+    print(f"⚠️ Sistema de coyuntura de UTV no disponible: {e}")
+
+# Importar sistema de coyuntura de Rotación de Inventarios
+try:
+    from rotacion_coyuntura import rotacion_coyuntura
+    COYUNTURA_ROTACION_AVAILABLE = True
+    print("✅ Sistema de coyuntura de Rotación de Inventarios cargado correctamente")
+except Exception as e:
+    COYUNTURA_ROTACION_AVAILABLE = False
+    print(f"⚠️ Sistema de coyuntura de Rotación de Inventarios no disponible: {e}")
+
 
 # Importar pandas para procesamiento de datos
 try:
@@ -311,6 +396,9 @@ if "authenticated" not in st.session_state:
 if "tema" not in st.session_state:
     st.session_state.tema = "Claro"
 
+if "user_id" not in st.session_state:
+    st.session_state.user_id = str(uuid.uuid4())
+
 # Inicializar sistema RAG
 if "rag_system" not in st.session_state and RAG_AVAILABLE:
     try:
@@ -362,28 +450,105 @@ if "livo_sql" not in st.session_state:
     st.session_state.livo_sql = livo_system
     st.session_state.livo_sql_initialized = livo_ok
 
+# Inicializar sistema de razonamiento
+if "reasoning_system" not in st.session_state and REASONING_AVAILABLE:
+    try:
+        st.session_state.reasoning_system = ReasoningSystem()
+        st.session_state.reasoning_initialized = True
+        print("✅ Sistema de razonamiento inicializado")
+    except Exception as e:
+        st.session_state.reasoning_system = None
+        st.session_state.reasoning_initialized = False
+        print(f"❌ Error inicializando sistema de razonamiento: {e}")
+
 # Función para detectar consultas de datos
 # Funciones para detectar tipo de consulta
 def es_consulta_livo(pregunta: str) -> bool:
     """Detecta si la pregunta es específicamente sobre análisis de datos LIVO"""
     palabras_livo = ['livo', 'licencia', 'licencias']
-    operaciones = ['suma', 'sumar', 'promedio', 'total', 'cantidad', 'cuántos', 'cuántas',
-                   'filtrar', 'agrupar', 'contar', 'calcular']
+    
+    # Términos específicos de LIVO
+    terminos_livo = [
+        'vis', 'no vis', 'vip', 'oferta', 'unidades', 'área', 'estrato',
+        'constructora', 'construcción', 'edificación', 'proyecto',
+        'vivienda', 'viviendas', 'inmueble', 'inmuebles',
+        'disponible', 'inventario', 'stock', 'vendidas', 'comercializadas', 'negocios',
+        'desistimientos', 'cancelaciones', 'inicios de obra', 'arranques',
+        'terminadas', 'finalizadas', 'nuevos proyectos', 'preventa',
+        'obras detenidas', 'suspendidas', 'obra terminada'
+    ]
+    
+    operaciones = [
+        'suma', 'sumar', 'promedio', 'total', 'cantidad', 'cuántos', 'cuántas',
+        'filtrar', 'agrupar', 'contar', 'calcular', 'dime', 'muestra', 'dame',
+        'cuál es', 'cuáles son', 'cómo', 'tendencia', 'evolución', 'comparar',
+        'ranking', 'top', 'mayor', 'menor', 'distribución'
+    ]
+    
+    ubicaciones = [
+        'ciudad', 'municipio', 'departamento', 'bogotá', 'medellín', 'cali',
+        'barranquilla', 'cartagena', 'bucaramanga', 'pereira', 'manizales',
+        'antioquia', 'cundinamarca', 'valle', 'atlántico', 'santander'
+    ]
+    
+    periodos = [
+        'octubre', 'septiembre', 'agosto', 'julio', 'junio', 'mayo', 'abril',
+        'marzo', 'febrero', 'enero', '2025', '2024', 'trimestre', 'mes',
+        'año', 'mensual', 'anual', 'corte'
+    ]
     
     pregunta_lower = pregunta.lower()
     
-    # Si menciona LIVO explícitamente
+    # 1. Si menciona LIVO explícitamente
     if any(palabra in pregunta_lower for palabra in palabras_livo):
         return True
     
-    # Si menciona operaciones + ciudad/municipio/proyecto (típico de LIVO)
-    tiene_operacion = any(op in pregunta_lower for op in operaciones)
-    tiene_geo = any(geo in pregunta_lower for geo in ['ciudad', 'municipio', 'departamento', 'bogotá', 'medellín', 'cali'])
+    # 2. Si menciona VIS/NO VIS (muy específico de LIVO)
+    if 'vis' in pregunta_lower or 'vip' in pregunta_lower:
+        return True
     
-    if tiene_operacion and tiene_geo:
+    # 3. Si menciona términos LIVO + operaciones
+    tiene_termino_livo = any(termino in pregunta_lower for termino in terminos_livo)
+    tiene_operacion = any(op in pregunta_lower for op in operaciones)
+    
+    if tiene_termino_livo and tiene_operacion:
+        return True
+    
+    # 4. Si menciona ubicación + periodo + operación (típico de consultas LIVO)
+    tiene_ubicacion = any(ub in pregunta_lower for ub in ubicaciones)
+    tiene_periodo = any(per in pregunta_lower for per in periodos)
+    
+    if tiene_ubicacion and tiene_periodo and tiene_operacion:
+        return True
+    
+    # 5. Si menciona oferta + periodo (muy común en LIVO)
+    if 'oferta' in pregunta_lower and tiene_periodo:
         return True
     
     return False
+
+def normalize_text(text: str) -> str:
+    """Convierte texto a minúsculas y remueve tildes (función de utilidad)."""
+    import unicodedata
+    return ''.join(c for c in unicodedata.normalize('NFD', text)
+                   if unicodedata.category(c) != 'Mn').lower()
+
+def es_consulta_coyuntura(pregunta: str) -> bool:
+    """Detecta si la pregunta es sobre los sistemas de coyuntura."""
+    palabras_coyuntura = ['lanzamientos', 'iniciaciones', 'ventas', 'oferta', 'utv', 'unidades terminadas sin vender', 'riesgo', 'rotacion', 'inventario']
+    
+    # Palabras que indican una solicitud de datos o análisis
+    palabras_analisis = [
+        'comportamiento', 'evolución', 'tendencia', 'histórico', 'datos', 
+        'cifras', 'comparar', 'coyuntura', 'mercado', 'unidades', 'valor',
+        'vis', 'no vis', 'vip', 'departamento', 'ciudad', 'region'
+    ]
+    
+    pregunta_normalizada = normalize_text(pregunta)
+    menciona_coyuntura = any(palabra in pregunta_normalizada for palabra in palabras_coyuntura)
+    menciona_analisis = any(palabra in pregunta_normalizada for palabra in palabras_analisis)
+    
+    return menciona_coyuntura and menciona_analisis
 
 def es_consulta_rag(pregunta: str) -> bool:
     """Detecta si la pregunta es sobre documentos del RAG"""
@@ -397,8 +562,8 @@ def es_consulta_rag(pregunta: str) -> bool:
         'pobreza multidimensional', 'marco fiscal'
     ]
     
-    pregunta_lower = pregunta.lower()
-    return any(palabra in pregunta_lower for palabra in palabras_rag)
+    pregunta_normalizada = normalize_text(pregunta)
+    return any(palabra in pregunta_normalizada for palabra in palabras_rag)
 def procesar_consulta_datos(pregunta: str) -> tuple:
     """Procesa una consulta sobre datos usando el analizador"""
     if not DATA_ANALYZER_AVAILABLE or not hasattr(st.session_state, 'data_analyzer') or st.session_state.data_analyzer is None:
@@ -460,7 +625,7 @@ def procesar_con_prioridad_livo(pregunta: str) -> tuple:
         
         # PASO 1: Si necesita análisis Y hay archivos de datos, intentar LIVO PRIMERO
         if resultado["needs_analysis"] and resultado["data_files"]:
-            livo_path = Path(r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_oct25_.xlsx")
+            livo_path = Path(r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx")
             
             # Verificar si LIVO está en la lista de archivos
             if livo_path.exists() and livo_path in resultado["data_files"]:
@@ -490,7 +655,7 @@ def procesar_con_prioridad_livo(pregunta: str) -> tuple:
                         df_livo = pd.read_excel(livo_path)
                         
                         # Crear prompt específico para LIVO
-                        prompt_livo = f"""Usando el archivo LIVO (Licencias de Construcción) de octubre 2025:
+                        prompt_livo = f"""Usando el archivo LIVO (Licencias de Construcción) de noviembre 2025:
 
 Datos disponibles:
 - Filas: {len(df_livo)}
@@ -513,8 +678,8 @@ Analiza los datos y responde de forma precisa. Si no puedes responder con estos 
                             
                             if not any(palabra in respuesta_lower for palabra in palabras_fallo):
                                 print("✅ LIVO (Pandas) respondió exitosamente!")
-                                resultado_final = f"📊 **FUENTE: LIVO (Licencias de Construcción - Octubre 2025)**\n\n"
-                                resultado_final += f"**Archivo:** LIVO_total_oct25_.xlsx\n"
+                                resultado_final = f"📊 **FUENTE: LIVO (Licencias de Construcción - Noviembre 2025)**\n\n"
+                                resultado_final += f"**Archivo:** LIVO_total_nov25_.xlsx\n"
                                 resultado_final += f"**Registros:** {len(df_livo)} licencias\n\n"
                                 resultado_final += f"**Respuesta:**\n{respuesta_livo}\n\n"
                                 resultado_final += f"_Generado por: {proveedor}_"
@@ -604,6 +769,26 @@ def procesar_consulta_hibrida(pregunta: str) -> tuple:
                     except Exception as e:
                         respuesta_final += f"- Error al procesar: {str(e)}\n"
                 
+                # NUEVO: Intentar consulta SQL Dinámica si es un Excel
+                if DYNAMIC_SQL_AVAILABLE:
+                    for archivo in resultado["data_files"][:1]: # Probar con el primer archivo relevante
+                        if archivo.suffix.lower() in ['.xlsx', '.xls'] and "livo" not in archivo.name.lower() and "coyuntura" not in archivo.name.lower():
+                            try:
+                                print(f"🚀 Iniciando SQL Dinámico para: {archivo.name}")
+                                dyn_system = DynamicExcelSQLSystem(str(archivo))
+                                ok_init, msg_init = dyn_system.inicializar()
+                                
+                                if ok_init:
+                                    ok_query, resp_query = dyn_system.consultar(pregunta, obtener_respuesta_ia)
+                                    if ok_query:
+                                        respuesta_final += f"\n\n🤖 **CONSULTA DIRECTA AL ARCHIVO {archivo.name}:**\n"
+                                        respuesta_final += resp_query + "\n"
+                                        # Añadir al contexto para el LLM final
+                                        analisis_datos += f"\nConsulta SQL directa a {archivo.name}:\n{resp_query}\n"
+                            except Exception as e:
+                                print(f"⚠️ Error en SQL Dinámico: {e}")
+
+                
                 respuesta_final += "\n"
         
         # 3. Generar respuesta con LLM combinando RAG + Análisis
@@ -644,7 +829,183 @@ RESPUESTA:"""
     except Exception as e:
         return False, f"❌ Error al procesar consulta híbrida: {str(e)}"
 
-def procesar_consulta_rag(pregunta: str) -> tuple:
+def procesar_consulta_coyuntura(pregunta: str, livo_sql=None, rag_system=None) -> tuple:
+    """
+    Procesa una consulta con prioridad en los sistemas de coyuntura,
+    con fallback a LIVO, RAG y finalmente LLM general.
+    """
+    print("✨ PROCESANDO CON PRIORIDAD DE COYUNTURA...")
+    
+    # 1. Intentar responder con Sistemas de Coyuntura
+    contexto_coyuntura = ""
+    sistemas_usados = []
+    
+    if "lanzamientos" in pregunta.lower() and COYUNTURA_LANZAMIENTOS_AVAILABLE:
+        contexto_coyuntura += lanzamientos_coyuntura.generar_contexto_consulta(pregunta) + "\n"
+        sistemas_usados.append("Lanzamientos")
+    if "iniciaciones" in pregunta.lower() and COYUNTURA_INICIACIONES_AVAILABLE:
+        contexto_coyuntura += iniciaciones_coyuntura.generar_contexto_consulta(pregunta) + "\n"
+        sistemas_usados.append("Iniciaciones")
+    if "ventas" in pregunta.lower() and COYUNTURA_VENTAS_AVAILABLE:
+        contexto_coyuntura += ventas_coyuntura.generar_contexto_consulta(pregunta) + "\n"
+        sistemas_usados.append("Ventas")
+    if "oferta" in pregunta.lower() and COYUNTURA_OFERTA_AVAILABLE:
+        contexto_coyuntura += oferta_coyuntura.generar_contexto_consulta(pregunta) + "\n"
+        sistemas_usados.append("Oferta")
+    if ("utv" in pregunta.lower() or "unidades terminadas sin vender" in pregunta.lower() or "riesgo" in pregunta.lower()) and COYUNTURA_UTV_AVAILABLE:
+        contexto_coyuntura += utv_coyuntura.generar_contexto_consulta(pregunta) + "\n"
+        sistemas_usados.append("UTV (Riesgo)")
+    if ("rotacion" in pregunta.lower() or "inventario" in pregunta.lower()) and COYUNTURA_ROTACION_AVAILABLE:
+        contexto_coyuntura += rotacion_coyuntura.generar_contexto_consulta(pregunta) + "\n"
+        sistemas_usados.append("Rotación de Inventarios")
+    
+    if contexto_coyuntura.strip():
+        print(f"✅ Contexto de Coyuntura generado desde: {', '.join(sistemas_usados)}")
+        prompt_coyuntura = f"""Eres un asistente experto de CAMACOL. Responde la pregunta usando el siguiente contexto de coyuntura del mercado de vivienda.
+
+CONTEXTO DE COYUNTURA:
+{contexto_coyuntura}
+
+PREGUNTA: {pregunta}
+
+RESPUESTA:"""
+        respuesta_llm, proveedor = obtener_respuesta_ia(prompt_coyuntura)
+        
+        # Verificar si la respuesta es útil antes de devolverla
+        if respuesta_llm and "no tengo información" not in respuesta_llm.lower():
+            resultado_final = f"📈 **FUENTE: Datos de Coyuntura ({', '.join(sistemas_usados)})**\n\n{respuesta_llm}\n\n_Generado por: {proveedor}_"
+            return True, resultado_final
+        
+        # MEJORA: Análisis de Causa-Raíz Simplificado
+        causa_raiz_contexto = _analizar_causa_raiz_simplificado(pregunta)
+        if causa_raiz_contexto:
+            print("🔗 Añadiendo análisis de causa-raíz...")
+            prompt_causa_raiz = f"""Eres un asistente experto de CAMACOL. Responde la pregunta del usuario. Adicionalmente, he encontrado una posible correlación en los datos históricos que podría explicar la tendencia. Incluye este análisis en tu respuesta final de forma natural.
+
+CONTEXTO ADICIONAL (POSIBLE CAUSA-RAÍZ):
+{causa_raiz_contexto}
+
+PREGUNTA ORIGINAL: {pregunta}
+
+RESPUESTA MEJORADA:"""
+            respuesta_mejorada, proveedor_mejorado = obtener_respuesta_ia(prompt_causa_raiz)
+            if respuesta_mejorada:
+                resultado_final = f"🔗 **FUENTE: Análisis de Correlación de Coyuntura**\n\n{respuesta_mejorada}\n\n_Generado por: {proveedor_mejorado}_"
+                return True, resultado_final
+
+
+        
+        # MEJORA: Informar al usuario que Coyuntura no pudo responder antes de pasar a LIVO.
+        print("⚠️ Coyuntura no pudo responder, pasando a LIVO SQL...")
+
+    # 2. Fallback a LIVO SQL
+    if LIVO_SQL_AVAILABLE and livo_sql:
+        print("🚀 Fallback a LIVO SQL (DuckDB)...")
+        exito_sql, respuesta_sql, _ = livo_sql.consultar(pregunta, obtener_respuesta_ia)
+        if exito_sql:
+            resultado_final = f"🚀 **FUENTE: LIVO SQL (DuckDB)**\n\n{respuesta_sql}"
+            return True, resultado_final
+        print("⚠️ LIVO SQL falló, pasando a RAG...")
+
+    # 3. Fallback a RAG
+    if RAG_AVAILABLE and rag_system:
+        print("📚 Fallback a RAG...")
+        exito_rag, respuesta_rag = procesar_consulta_rag(pregunta)
+        if exito_rag:
+            return True, respuesta_rag
+        print("⚠️ RAG falló, pasando a LLM general...")
+
+    # 4. Fallback a LLM General
+    print("🤖 Fallback a LLM General...")
+    prompt_general = f"CONTEXTO: {CAMACOL_CONTEXT}\n\nPREGUNTA: {pregunta}\n\nRESPUESTA:"
+    respuesta_general, proveedor = obtener_respuesta_ia(prompt_general)
+    if respuesta_general:
+        return True, f"🤖 **FUENTE: Conocimiento General**\n\n{respuesta_general}\n\n_Generado por: {proveedor}_"
+
+    return False, "❌ No se pudo obtener una respuesta de ninguna fuente."
+
+def _analizar_causa_raiz_simplificado(pregunta: str) -> Optional[str]:
+    """Si la pregunta es sobre una caída en ventas, busca caídas previas en lanzamientos/iniciaciones."""
+    pregunta_norm = normalize_text(pregunta)
+    palabras_caida = ['caída', 'disminución', 'bajaron', 'por qué cayó']
+    
+    # Solo se activa si se pregunta por una caída en las ventas
+    if 'ventas' in pregunta_norm and any(p in pregunta_norm for p in palabras_caida):
+        try:
+            # Verificar si hubo una caída en lanzamientos hace 3-6 meses
+            tendencia_lanzamientos = lanzamientos_coyuntura.obtener_tendencia_reciente(6)
+            var_lanzamientos = tendencia_lanzamientos.get('variacion_mensual', {}).get('total', 0)
+
+            # Verificar si hubo una caída en iniciaciones hace 1-3 meses
+            tendencia_iniciaciones = iniciaciones_coyuntura.obtener_tendencia_reciente(3)
+            var_iniciaciones = tendencia_iniciaciones.get('variacion_mensual', {}).get('total', 0)
+
+            if var_lanzamientos < -5 or var_iniciaciones < -5:
+                return f"Se ha detectado una caída previa en otros indicadores. Hace unos meses, los lanzamientos cayeron un {var_lanzamientos}% y las iniciaciones un {var_iniciaciones}%. Esto podría estar relacionado con la disminución actual de las ventas."
+        except Exception as e:
+            print(f"⚠️ Error en análisis de causa-raíz: {e}")
+    return None
+
+def obtener_contexto_macroeconomico(pregunta_original: str = "") -> Optional[str]:
+    """
+    Obtiene dinámicamente el contexto macroeconómico relevante para el sector constructor,
+    priorizando RAG y luego LLM general. Considera el contexto temporal de la pregunta original.
+    """
+    # Extraer año de la pregunta original si existe
+    import re
+    años_mencionados = re.findall(r'20\d{2}', pregunta_original)
+    año_contexto = años_mencionados[0] if años_mencionados else "2025"
+    
+    print(f"🔗 Obteniendo contexto macroeconómico para el año {año_contexto}...")
+    
+    # Hacer pregunta específica al año mencionado
+    pregunta_macro = f"Resume en 4 puntos clave los principales indicadores macroeconómicos de Colombia para el año {año_contexto} que afectan al sector de la construcción (tasas de interés, inflación, desempleo, confianza del consumidor). Enfócate en datos del {año_contexto} o proyecciones para ese año. Cita las fuentes si es posible (ej: BanRep, DANE)."
+
+    # 1. Intentar con RAG primero - buscar información específica del año
+    if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
+        try:
+            # Buscar específicamente información del año mencionado
+            pregunta_rag_especifica = f"información macroeconómica Colombia {año_contexto} construcción tasas interés inflación desempleo"
+            contexto_rag = st.session_state.rag_system.obtener_contexto(pregunta_rag_especifica, k=5)
+            
+            if contexto_rag and "No se encontró información" not in contexto_rag:
+                # Verificar si el contexto RAG contiene información del año específico
+                if año_contexto in contexto_rag:
+                    prompt_resumen = f"Basado en la siguiente información de documentos, resume los 4 puntos clave del contexto macroeconómico para la construcción en Colombia en el año {año_contexto}. ENFÓCATE EXCLUSIVAMENTE en datos del {año_contexto}:\n\n{contexto_rag}\n\nResumen para {año_contexto}:"
+                    respuesta_resumida, _ = obtener_respuesta_ia(prompt_resumen)
+                    if respuesta_resumida and año_contexto in respuesta_resumida:
+                        print(f"✅ Contexto macroeconómico {año_contexto} obtenido desde RAG.")
+                        return f"🔗 **Contexto Macroeconómico {año_contexto} (Fuentes Documentales):**\n{respuesta_resumida}"
+                
+                print(f"⚠️ RAG no tiene información específica del {año_contexto}, pasando a LLM...")
+            else:
+                print(f"⚠️ RAG no encontró información macroeconómica, pasando a LLM...")
+        except Exception as e:
+            print(f"⚠️ Error al obtener contexto macro desde RAG: {e}")
+
+    # 2. Fallback a LLM general - SIEMPRE con el año específico
+    print(f"🔄 Usando LLM general para contexto macroeconómico {año_contexto}...")
+    respuesta_llm, _ = obtener_respuesta_ia(pregunta_macro)
+    if respuesta_llm:
+        print(f"✅ Contexto macroeconómico {año_contexto} obtenido desde LLM.")
+        return f"🔗 **Contexto Macroeconómico {año_contexto} (Conocimiento General):**\n{respuesta_llm}"
+
+    # 3. Fallback final - contexto genérico si todo falla
+    pregunta_generica = f"Resume en 3 puntos los principales factores macroeconómicos que afectan al sector constructor en Colombia."
+    respuesta_generica, _ = obtener_respuesta_ia(pregunta_generica)
+    if respuesta_generica:
+        print("✅ Contexto macroeconómico genérico obtenido.")
+        return f"🔗 **Contexto Macroeconómico General:**\n{respuesta_generica}"
+    
+    return None
+
+def enriquecer_respuesta_con_contexto(respuesta: str, contexto_externo: str) -> str:
+    """Añade el contexto macroeconómico a la respuesta final."""
+    if contexto_externo:
+        return f"{respuesta}\n\n---\n{contexto_externo}"
+    return respuesta
+
+def procesar_consulta_rag(pregunta: str, deseo_profundo: Optional[str], tono_emocional: str, perfil_usuario: str) -> tuple:
     """Procesa una consulta sobre documentos RAG"""
     if not RAG_AVAILABLE or not hasattr(st.session_state, 'rag_system') or st.session_state.rag_system is None:
         return False, "❌ El sistema RAG no está disponible en este momento."
@@ -678,8 +1039,24 @@ def procesar_consulta_rag(pregunta: str) -> tuple:
         contexto += "\n---\n\n"
         
         # Crear prompt para el LLM con el contexto de los documentos
-        prompt_rag = f"""Eres un asistente experto de CAMACOL. Tienes acceso a los siguientes documentos relevantes:
+        # --- MEJORA: Adaptar la "personalidad" del prompt según el perfil del usuario ---
+        if perfil_usuario == "Estudiante":
+            personalidad = "Eres un profesor paciente y claro. Explica los conceptos de forma sencilla, usando analogías si es posible."
+        elif perfil_usuario == "Economista/Investigador":
+            personalidad = "Eres un analista de datos senior. Responde de forma técnica y precisa, citando las fuentes y métricas exactas. Si es posible, menciona correlaciones o causalidades."
+        elif perfil_usuario == "Directivo/Gerencial":
+            personalidad = "Eres un consultor estratégico. Proporciona un resumen ejecutivo (bottom line up front). Enfócate en KPIs, riesgos, oportunidades y conclusiones clave. Sé breve y directo."
+        else: # General
+            personalidad = "Eres un asistente experto de CAMACOL."
 
+        base_prompt = f"""{personalidad} Tienes acceso a los siguientes documentos relevantes:
+
+"""
+        # --- MEJORA: Adaptar prompt por emoción ---
+        prompt_rag = adaptar_prompt_por_emocion(base_prompt, tono_emocional)
+        prompt_rag += f"""
+El objetivo final del usuario (su 'deseo profundo') es: {deseo_profundo if deseo_profundo else 'No determinado'}. Usa esta información para dar una respuesta más útil y contextualizada.
+El perfil del usuario es: **{perfil_usuario}**. Adapta la profundidad y el tono de tu respuesta a este perfil.
 """
         
         for filename, info in documentos_unicos.items():
@@ -1010,6 +1387,183 @@ with st.sidebar:
     st.markdown("### ℹ️ Información")
     st.info("Chatbot inteligente con acceso a documentos CAMACOL y análisis de datos del sector constructor.")
     
+    # Mostrar sistemas disponibles
+    sistemas_disponibles = []
+    if RAG_AVAILABLE:
+        sistemas_disponibles.append("📚 RAG")
+    if LIVO_SQL_AVAILABLE:
+        sistemas_disponibles.append("🏗️ LIVO SQL")
+    if DATA_ANALYZER_AVAILABLE:
+        sistemas_disponibles.append("📊 Análisis Excel")
+    if REASONING_AVAILABLE:
+        sistemas_disponibles.append("🧠 Razonamiento")
+    if COYUNTURA_LANZAMIENTOS_AVAILABLE:
+        sistemas_disponibles.append("📈 Coyuntura Lanzamientos")
+    if COYUNTURA_INICIACIONES_AVAILABLE:
+        sistemas_disponibles.append("🏗️ Coyuntura Iniciaciones")
+    if COYUNTURA_VENTAS_AVAILABLE:
+        sistemas_disponibles.append("💰 Coyuntura Ventas")
+    if COYUNTURA_OFERTA_AVAILABLE:
+        sistemas_disponibles.append("🏢 Coyuntura Oferta")
+    if COMPARADOR_COYUNTURA_AVAILABLE:
+        sistemas_disponibles.append("🔄 Comparación Cuádruple")
+    if COYUNTURA_UTV_AVAILABLE:
+        sistemas_disponibles.append("📉 Coyuntura UTV (Riesgo)")
+    if COYUNTURA_ROTACION_AVAILABLE:
+        sistemas_disponibles.append("🔄 Coyuntura Rotación Inventarios")
+    
+    if sistemas_disponibles:
+        st.success(f"Sistemas activos: {', '.join(sistemas_disponibles)}")
+    
+    # Información específica de los sistemas de coyuntura
+    if COYUNTURA_LANZAMIENTOS_AVAILABLE or COYUNTURA_INICIACIONES_AVAILABLE or COYUNTURA_VENTAS_AVAILABLE or COYUNTURA_OFERTA_AVAILABLE:
+        if st.button("📊 Info Coyuntura", use_container_width=True):
+            
+            # Sistema de Lanzamientos
+            if COYUNTURA_LANZAMIENTOS_AVAILABLE:
+                with st.expander("📈 Sistema de Coyuntura de Lanzamientos", expanded=True):
+                    stats_lan = lanzamientos_coyuntura.obtener_estadisticas_generales()
+                    st.markdown(f"""
+                    **📊 Datos Históricos de Lanzamientos:**
+                    - **Período:** {stats_lan['periodo_cobertura']['desde']} a {stats_lan['periodo_cobertura']['hasta']}
+                    - **Total registros:** {stats_lan['total_registros']:,}
+                    - **Departamentos:** {stats_lan['departamentos_cubiertos']}
+                    - **Total lanzamientos:** {stats_lan['total_lanzamientos_historicos']:,}
+                    
+                    **🏠 Clasificaciones:**
+                    - VIP (≤ 90 SMMLV)
+                    - VIS (90-135/150 SMMLV según municipio)
+                    - No VIS (> 135/150 SMMLV)
+                    
+                    **🗺️ Agregaciones Regionales:**
+                    - {', '.join(stats_lan['agregaciones_disponibles'])}
+                    
+                    **✨ Funcionalidades:**
+                    - Contexto automático por departamento
+                    - Análisis de tendencias recientes
+                    - Comparaciones departamentales
+                    - Distribución VIS/VIP/No VIS
+                    """)
+            
+            # Sistema de Iniciaciones
+            if COYUNTURA_INICIACIONES_AVAILABLE:
+                with st.expander("🏗️ Sistema de Coyuntura de Iniciaciones", expanded=True):
+                    stats_ini = iniciaciones_coyuntura.obtener_estadisticas_generales()
+                    st.markdown(f"""
+                    **🏗️ Datos Históricos de Iniciaciones:**
+                    - **Período:** {stats_ini['periodo_cobertura']['desde']} a {stats_ini['periodo_cobertura']['hasta']}
+                    - **Total registros:** {stats_ini['total_registros']:,}
+                    - **Departamentos:** {stats_ini['departamentos_cubiertos']}
+                    - **Total iniciaciones:** {stats_ini['total_iniciaciones_historicas']:,}
+                    
+                    **🏠 Clasificaciones:**
+                    - VIP (≤ 90 SMMLV)
+                    - VIS (90-135/150 SMMLV según municipio)
+                    - No VIS (> 135/150 SMMLV)
+                    
+                    **🗺️ Agregaciones Regionales:**
+                    - {', '.join(stats_ini['agregaciones_disponibles'])}
+                    
+                    **✨ Funcionalidades:**
+                    - Contexto automático por departamento
+                    - Análisis de tendencias recientes
+                    - Comparaciones departamentales
+                    - Distribución VIS/VIP/No VIS
+                    - Comparación con lanzamientos
+                    """)
+            
+            # Sistema de Ventas
+            if COYUNTURA_VENTAS_AVAILABLE:
+                with st.expander("💰 Sistema de Coyuntura de Ventas", expanded=True):
+                    stats_ventas = ventas_coyuntura.obtener_estadisticas_generales()
+                    st.markdown(f"""
+                    **💰 Datos Históricos de Ventas:**
+                    - **Período:** {stats_ventas['periodo_cobertura']['desde']} a {stats_ventas['periodo_cobertura']['hasta']}
+                    - **Total registros:** {stats_ventas['total_registros']:,}
+                    - **Departamentos:** {stats_ventas['departamentos_cubiertos']}
+                    - **Total ventas:** {stats_ventas['total_ventas_historicas']:,}
+                    
+                    **🏠 Clasificaciones:**
+                    - VIP (≤ 90 SMMLV)
+                    - VIS (90-135/150 SMMLV según municipio)
+                    - No VIS (> 135/150 SMMLV)
+                    
+                    **🗺️ Agregaciones Regionales:**
+                    - {', '.join(stats_ventas['agregaciones_disponibles'])}
+                    
+                    **✨ Funcionalidades:**
+                    - Contexto automático por departamento
+                    - Análisis de tendencias recientes
+                    - Comparaciones departamentales
+                    - Distribución VIS/VIP/No VIS
+                    - Comparación con lanzamientos e iniciaciones
+                    """)
+            
+            # Sistema de Oferta
+            if COYUNTURA_OFERTA_AVAILABLE:
+                with st.expander("🏢 Sistema de Coyuntura de Oferta", expanded=True):
+                    stats_oferta = oferta_coyuntura.obtener_estadisticas_generales()
+                    st.markdown(f"""
+                    **🏢 Datos Históricos de Oferta:**
+                    - **Período:** {stats_oferta['periodo_cobertura']['desde']} a {stats_oferta['periodo_cobertura']['hasta']}
+                    - **Total registros:** {stats_oferta['total_registros']:,}
+                    - **Departamentos:** {stats_oferta['departamentos_cubiertos']}
+                    - **Total oferta:** {stats_oferta['total_oferta_historica']:,}
+                    
+                    **🏠 Clasificaciones:**
+                    - VIP (≤ 90 SMMLV)
+                    - VIS (90-135/150 SMMLV según municipio)
+                    - No VIS (> 135/150 SMMLV)
+                    
+                    **🗺️ Agregaciones Regionales:**
+                    - {', '.join(stats_oferta['agregaciones_disponibles'])}
+                    
+                    **✨ Funcionalidades:**
+                    - Contexto automático por departamento
+                    - Análisis de tendencias recientes
+                    - Comparaciones departamentales
+                    - Distribución VIS/VIP/No VIS
+                    - Comparación con lanzamientos, iniciaciones y ventas
+                    """)
+            
+            # Comparación entre sistemas si ambos están disponibles
+            if COYUNTURA_LANZAMIENTOS_AVAILABLE and COYUNTURA_INICIACIONES_AVAILABLE:
+                with st.expander("📊 Comparación Lanzamientos vs Iniciaciones", expanded=False):
+                    comparacion = iniciaciones_coyuntura.comparar_con_lanzamientos(lanzamientos_coyuntura)
+                    st.markdown(f"""
+                    **📈 Totales Históricos:**
+                    - **Lanzamientos:** {comparacion['totales']['lanzamientos']:,} unidades
+                    - **Iniciaciones:** {comparacion['totales']['iniciaciones']:,} unidades
+                    - **Ratio Ini/Lan:** {comparacion['totales']['ratio_ini_lan']}
+                    
+                    **🏠 Distribución Comparada:**
+                    
+                    | Tipo | Lanzamientos | Iniciaciones | Diferencia |
+                    |------|-------------|-------------|-----------|
+                    | VIP | {comparacion['distribucion_comparada']['lanzamientos']['vip']}% | {comparacion['distribucion_comparada']['iniciaciones']['vip']}% | {comparacion['diferencias']['vip']:+.1f}% |
+                    | VIS | {comparacion['distribucion_comparada']['lanzamientos']['vis']}% | {comparacion['distribucion_comparada']['iniciaciones']['vis']}% | {comparacion['diferencias']['vis']:+.1f}% |
+                    | No VIS | {comparacion['distribucion_comparada']['lanzamientos']['no_vis']}% | {comparacion['distribucion_comparada']['iniciaciones']['no_vis']}% | {comparacion['diferencias']['no_vis']:+.1f}% |
+                    
+                    **💡 Interpretación:**
+                    - Lanzamientos = Proyectos que inician comercialización
+                    - Iniciaciones = Proyectos que inician construcción
+                    - Diferencias revelan dinámicas del mercado
+                    """)
+    
+    # Comparación Cuádruple (solo reporte ejecutivo)
+    if COMPARADOR_COYUNTURA_AVAILABLE:
+        st.markdown("---")
+        if st.button("🔄 Reporte Ejecutivo Cuádruple", use_container_width=True):
+            with st.expander("📋 Reporte Ejecutivo - Análisis Integral", expanded=True):
+                try:
+                    reporte = comparador_coyuntura.generar_reporte_ejecutivo()
+                    st.code(reporte, language=None)
+                    
+                    # Información adicional
+                    st.info("💡 **Nota**: Este reporte se genera automáticamente en las respuestas del chatbot cuando se consulta sobre comparaciones entre sistemas de coyuntura.")
+                except Exception as e:
+                    st.error(f"Error generando reporte: {e}")
+    
     # Gestión RAG
     if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
         st.markdown("---")
@@ -1085,7 +1639,7 @@ with st.expander("📊 Información del Sistema", expanded=False):
     
     with tab1:
         st.markdown("### 📋 Diccionario de Datos LIVO")
-        st.markdown("**LIVO (Licencias de Construcción)** - Base de datos de octubre 2025")
+        st.markdown("**LIVO (Licencias de Construcción)** - Base de datos de noviembre 2025")
         
         if PANDAS_AVAILABLE:
             livo_dict = pd.DataFrame({
@@ -1295,148 +1849,211 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # Input del usuario
+# Mostrar historial de mensajes
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        # Soporte para código y fórmulas
+        st.markdown(message["content"])
+
+# Input del usuario
 if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constructor..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     
+    # --- LÓGICA DE FEEDBACK CONVERSACIONAL ---
+    # Si estamos esperando feedback, procesarlo primero.
+    if st.session_state.get("waiting_for_feedback"):
+        feedback_response = prompt.lower().strip()
+        feedback_context = st.session_state.get("feedback_context", {})
+        
+        # Registrar el feedback
+        log_feedback(
+            user_id=st.session_state.user_id,
+            question=feedback_context.get("question"),
+            answer=feedback_context.get("answer"),
+            feedback=feedback_response
+        )
+        
+        # Agradecer y resetear el estado
+        st.session_state["waiting_for_feedback"] = False
+        with st.chat_message("assistant"):
+            st.markdown("✅ ¡Feedback guardado! Muchas gracias por tu comentario, nos ayuda a mejorar.")
+        st.session_state["feedback_context"] = {}
+        # No se hace rerun aquí para que el usuario vea el mensaje de confirmación antes de poder escribir de nuevo.
+
     with st.chat_message("user"):
         st.markdown(prompt)
     
     # Generar respuesta
     with st.chat_message("assistant"):
         with st.spinner("🤔 Analizando tu pregunta..."):
+            # --- MEJORA: Escudo de Confianza y Seguridad ---
+            clasificacion_seguridad = analizar_seguridad_pregunta(prompt)
+            if clasificacion_seguridad == "MALICIOSA":
+                respuesta_seguridad = "Lo siento, no puedo procesar esa solicitud ya que va en contra de mis principios de uso ético de la información."
+                st.error(respuesta_seguridad)
+                st.session_state.messages.append({"role": "assistant", "content": respuesta_seguridad})
+                st.stop()
+            elif clasificacion_seguridad == "DUDOSA":
+                respuesta_seguridad = "Entiendo tu pregunta. Para mantener la precisión y la veracidad, solo puedo proporcionar información basada en los datos verificables de CAMACOL. ¿Cómo puedo ayudarte dentro de ese marco?"
+                st.warning(respuesta_seguridad)
+                st.session_state.messages.append({"role": "assistant", "content": respuesta_seguridad})
+                st.stop()
+            
+            print(f"🛡️ Nivel de Seguridad de la Pregunta: {clasificacion_seguridad}")
+
+            # --- INTEGRACIÓN DE RAZONAMIENTO CAUSAL ---
             try:
-                # PASO 1: Procesamiento con PRIORIDAD LIVO (PRIORIDAD MÁXIMA)
-                if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
-                    with st.spinner("🔍 Analizando (Prioridad: LIVO → Sistema Híbrido)..."):
-                        exito, respuesta = procesar_con_prioridad_livo(prompt)
-                        
+                # Obtener el contexto de la conversación reciente
+                contexto_adicional = "\n".join(
+                    [msg["content"] for msg in st.session_state.messages[-3:]]
+                )
+                
+                # Obtener perfil del usuario para personalizar la respuesta
+                historial_preguntas = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
+                perfil_usuario = user_profile_manager.inferir_perfil(st.session_state.user_id, historial_preguntas)
+                
+                # Generar respuesta con razonamiento causal
+                resultado = analizar_y_responder(
+                    pregunta=prompt,
+                    contexto=contexto_adicional,
+                    perfiles_expertos=["Economista", "Analista de Datos", "Experto en Políticas Públicas"]
+                )
+                
+                # Mostrar la respuesta
+                st.markdown(resultado['respuesta'])
+                st.session_state.messages.append({
+                    "role": "assistant", 
+                    "content": resultado['respuesta']
+                })
+                
+                # Preparar para posible feedback
+                st.session_state["feedback_context"] = {
+                    "question": prompt,
+                    "answer": resultado['respuesta']
+                }
+                
+                # Preguntar por feedback
+                st.markdown("---")
+                st.markdown("_¿Te fue útil esta respuesta? (Sí/No)_")
+                
+            except Exception as e:
+                st.error(f"Ocurrió un error al procesar tu pregunta: {str(e)}")
+                st.session_state.messages.append({
+                    "role": "assistant", 
+                    "content": f"Lo siento, hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde. Error: {str(e)}"
+                })
+                st.stop()
+            # --- MEJORA: Inferencia de Perfil, Deseo y Emoción ---
+            historial_preguntas = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
+            perfil_usuario = user_profile_manager.inferir_perfil(st.session_state.user_id, historial_preguntas)
+            deseo_profundo = inferir_deseo_profundo(prompt)
+            tono_emocional = analizar_tono_emocional(prompt)
+            
+            print(f"👤 Perfil Inferido: {perfil_usuario}")
+            print(f"🧠 Deseo Profundo Inferido: {deseo_profundo}")
+            print(f"🎭 Tono Emocional Detectado: {tono_emocional}")
+            
+            # El `deseo_profundo` y `tono_emocional` ahora se pueden pasar a las funciones
+            # de procesamiento (ej. procesar_consulta_rag) para enriquecer los prompts
+            # y generar respuestas más inteligentes y empáticas.
+
+            try:
+                preguntas_simples = [
+                    "qué es camacol", "que es camacol",
+                    "hola", "gracias", "adiós", "chao",
+                    "quiénes son", "quienes son",
+                    "qué hacen", "que hacen",
+                    "cuál es su función", "cual es su funcion",
+                    "qué es coordenada urbana", "que es coordenada urbana",
+                    "información de contacto", "informacion de contacto",
+                    "dónde están ubicados", "donde estan ubicados",
+                    "servicios", "qué servicios ofrecen"
+                ]
+                
+                # 2. Para el resto, usar el sistema de razonamiento
+                if prompt.lower().strip() not in preguntas_simples and REASONING_AVAILABLE and hasattr(st.session_state, 'reasoning_system') and st.session_state.reasoning_system:
+                    history = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
+                    analysis_result = analyze_and_respond(
+                        question=prompt, 
+                        user_id=st.session_state.user_id,
+                        reasoning_system=st.session_state.reasoning_system, 
+                        conversation_history=history
+                    )
+                    needs_clarification = analysis_result[0]
+                    clarification_response = analysis_result[1]
+                    
+                    if needs_clarification:
+                        print(f"🤔 Pregunta necesita clarificación: {prompt}")
+                        st.markdown(clarification_response)
+                        st.session_state.messages.append({"role": "assistant", "content": clarification_response})
+                        guardar_historial()
+                        st.stop()
+                
+                # --- LÓGICA SIMPLIFICADA: La coyuntura ahora es manejada por RAG ---
+                
+                # PASO 2: Intentar con LIVO SQL si es una consulta de datos estructurados
+                if LIVO_SQL_AVAILABLE and hasattr(st.session_state, 'livo_sql') and st.session_state.livo_sql and tipo_pregunta == "datos":
+                    with st.spinner("🚀 Consultando base de datos LIVO con SQL..."):
+                        exito, respuesta, _ = st.session_state.livo_sql.consultar(prompt, obtener_respuesta_ia)
+                        if exito:
+                            st.markdown(f"🚀 **FUENTE: LIVO SQL (DuckDB)**\n\n{respuesta}")
+                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                            guardar_historial()
+                        else:
+                            # Fallback a RAG si LIVO falla
+                            print("⚠️ LIVO SQL falló, intentando con RAG...")
+                            if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
+                                with st.spinner("� Buscando en documentos..."):
+                                    exito_rag, respuesta_rag = procesar_consulta_rag(prompt)
+                                    if exito_rag:
+                                        st.markdown(respuesta_rag)
+                                        st.session_state.messages.append({"role": "assistant", "content": respuesta_rag})
+                                        guardar_historial()
+                                    else:
+                                        st.error("❌ No se pudo procesar la consulta con ningún sistema.")
+                            else:
+                                st.error("❌ No se pudo procesar la consulta LIVO.")
+
+                # PASO 3: Usar RAG para todo lo demás (incluyendo las nuevas preguntas de coyuntura)
+                else:
+                    print(f"\n📚 CONSULTA NO-LIVO, usando sistema híbrido: {prompt}")
+                    with st.spinner("🔍 Buscando en documentos..."):
+                        exito, respuesta = procesar_consulta_rag(prompt, deseo_profundo, tono_emocional, perfil_usuario)
                         if exito:
                             st.markdown(respuesta)
                             st.session_state.messages.append({"role": "assistant", "content": respuesta})
                             guardar_historial()
                         else:
-                            # Si falla híbrido, usar contexto general con RAG
-                            st.info("ℹ️ No se encontró información específica. Usando conocimiento general...")
-                            
-                            # Intentar obtener contexto RAG
-                            contexto_rag = ""
-                            try:
-                                contexto_rag = st.session_state.rag_system.obtener_contexto(prompt, k=2)
-                            except:
-                                pass
-                            
-                            full_prompt = f"""Eres un asistente virtual experto de CAMACOL.
-
-CONTEXTO: {CAMACOL_CONTEXT}
-"""
-                            if contexto_rag and contexto_rag != "No se encontró información relevante.":
-                                full_prompt += f"\n{contexto_rag}\n"
-                            
-                            full_prompt += f"""\nPREGUNTA: {prompt}
-
-RESPUESTA:"""
-                            
-                            respuesta, proveedor = obtener_respuesta_ia(full_prompt)
-                            
-                            if respuesta:
-                                st.markdown(f"🤖 **FUENTE: Conocimiento General + Contexto CAMACOL**\n\n{respuesta}")
-                                st.caption(f"Generado por: {proveedor}")
-                                st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                                guardar_historial()
-                            else:
-                                error_msg = f"Lo siento, ocurrió un error: {proveedor}"
-                                st.error(error_msg)
-                                st.session_state.messages.append({"role": "assistant", "content": error_msg})
-                
-                # PASO 2: Fallback a LIVO si RAG no está disponible
-                elif es_consulta_livo(prompt):
-                    with st.spinner("📊 Analizando base de datos LIVO..."):
-                        exito, respuesta = procesar_consulta_datos(prompt)
-                        
-                        if exito:
-                            st.markdown(f"📊 **FUENTE: Base de Datos LIVO**\n\n{respuesta}")
-                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                            guardar_historial()
-                        else:
-                            st.warning("⚠️ No pude analizar los datos LIVO. Usando respuesta general...")
-                            full_prompt = f"""Eres un asistente virtual experto de CAMACOL.
-
-CONTEXTO: {CAMACOL_CONTEXT}
-
-PREGUNTA: {prompt}
-
-RESPUESTA:"""
-                            respuesta, proveedor = obtener_respuesta_ia(full_prompt)
-                            
-                            if respuesta:
-                                st.markdown(f"🤖 **FUENTE: Conocimiento General**\n\n{respuesta}")
-                                st.caption(f"Generado por: {proveedor}")
-                                st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                                guardar_historial()
-                            else:
-                                error_msg = f"Lo siento, ocurrió un error: {proveedor}"
-                                st.error(error_msg)
-                                st.session_state.messages.append({"role": "assistant", "content": error_msg})
-                
-                # PASO 3: Consulta general sobre CAMACOL
-                else:
-                    # Obtener contexto del RAG si está disponible
-                    contexto_rag = ""
-                    if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
-                        try:
-                            contexto_rag = st.session_state.rag_system.obtener_contexto(prompt, k=3)
-                            if contexto_rag and contexto_rag != "No se encontró información relevante.":
-                                st.caption("📚 Usando información de documentos CAMACOL")
-                        except Exception as e:
-                            print(f"⚠️ Error al obtener contexto RAG: {e}")
-                    
-                    # Construir prompt con contexto RAG si existe
-                    full_prompt = f"""Eres un asistente virtual experto de CAMACOL (Cámara Colombiana de la Construcción). 
-Tu objetivo es ayudar a los usuarios con información precisa y útil sobre CAMACOL y el sector constructor en Colombia.
-
-CONTEXTO DE CAMACOL:
-{CAMACOL_CONTEXT}
-"""
-                    
-                    # Agregar contexto RAG si existe
-                    if contexto_rag and contexto_rag != "No se encontró información relevante.":
-                        full_prompt += f"\n{contexto_rag}\n"
-                    
-                    full_prompt += f"""\nINSTRUCCIONES:
-- Responde de manera amigable y profesional
-- Si tienes información de los documentos CAMACOL, úsala para dar respuestas más precisas
-- Si te preguntan sobre información específica que no tienes, dirígeles al sitio web oficial: www.camacol.co
-- Proporciona información clara y concisa
-- Responde en español colombiano
-- Mantén un tono profesional pero cercano
-
-PREGUNTA DEL USUARIO: {prompt}
-
-RESPUESTA:"""
-                    
-                    respuesta, proveedor = obtener_respuesta_ia(full_prompt)
-                    
-                    if respuesta:
-                        # Indicar fuente según si usó RAG o no
-                        if contexto_rag and contexto_rag != "No se encontró información relevante.":
-                            fuente_msg = f"📚 **FUENTE: Conocimiento General + Documentos CAMACOL (RAG)**\n\n{respuesta}"
-                        else:
-                            fuente_msg = f"🤖 **FUENTE: Conocimiento General CAMACOL**\n\n{respuesta}"
-                        
-                        st.markdown(fuente_msg)
-                        st.caption(f"Generado por: {proveedor}")
-                        st.session_state.messages.append({"role": "assistant", "content": fuente_msg})
-                        guardar_historial()
-                    else:
-                        error_msg = f"Lo siento, ocurrió un error: {proveedor}"
-                        st.error(error_msg)
-                        st.session_state.messages.append({"role": "assistant", "content": error_msg})
+                            st.error("No se encontró información relevante en los documentos.")
                     
             except Exception as e:
                 error_msg = f"Lo siento, ocurrió un error al procesar tu solicitud: {str(e)}"
                 st.error(error_msg)
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
-
+            finally:
+                # Enriquecer SIEMPRE con contexto macroeconómico, excepto para clarificaciones o errores
+                if (st.session_state.messages and 
+                    st.session_state.messages[-1]["role"] == "assistant" and 
+                    not st.session_state.messages[-1]["content"].startswith("🤔") and
+                    not st.session_state.messages[-1]["content"].startswith("❌") and
+                    not "error" in st.session_state.messages[-1]["content"].lower()):
+                    
+                    print(f"🔗 Agregando contexto macroeconómico para la pregunta: {prompt}")
+                    contexto_macro = obtener_contexto_macroeconomico(prompt)
+                    if contexto_macro:
+                        st.session_state.messages[-1]["content"] = enriquecer_respuesta_con_contexto(st.session_state.messages[-1]["content"], contexto_macro)
+                        print("✅ Contexto macroeconómico agregado exitosamente")
+                    else:
+                        print("⚠️ No se pudo obtener contexto macroeconómico")
+                
+                # --- PREGUNTAR POR FEEDBACK ---
+                # Guardar el contexto para el feedback y activar el modo de espera
+                last_answer = st.session_state.messages[-1]["content"]
+                if not last_answer.startswith("🤔"): # No pedir feedback para preguntas de clarificación
+                    st.session_state["feedback_context"] = {"question": prompt, "answer": last_answer}
+                    st.session_state["waiting_for_feedback"] = True
+                    st.markdown("---")
+                    st.markdown("_¿Te fue útil esta respuesta? (Sí/No)_")
 
 # Footer
 st.markdown("---")

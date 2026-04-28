@@ -1,0 +1,9 @@
+
+# METADATA
+source_type: "structured_data_summary"
+file_name: "Tablas de Coyuntura_oct25_Riesgo.xlsx"
+sheet_name: "Portada"
+# END METADATA
+
+## Resumen de la Tabla de Datos: Portada
+El archivo "Tablas de Coyuntura_oct25_Riesgo.xlsx" contiene una hoja llamada "Portada" con una tabla de datos que parece estar vacía, con todas las celdas de las primeras 5 filas mostrando valores nulos (NaN). Esta tabla parece no contener información útil sobre la coyuntura de la construcción de vivienda en Colombia. Es posible que la tabla esté en proceso de actualización o que haya un error en la carga de los datos.

@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+En el departamento de Boyacá, específicamente en las ciudades de Duitama, Paipa, Sogamoso y Tunja, durante el año 2008, se registraron ciertos eventos o datos, aunque no se proporcionan detalles adicionales sobre la naturaleza de estos registros.

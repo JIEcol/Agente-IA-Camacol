@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+Aquí te dejo 7 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es 2007-07-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en el Valle del Cauca.
+
+P: ¿Cuál es el tipo de licencia de construcción emitida?
+R: La licencia de construcción es de tipo "Nuevo".
+
+P: ¿Cuál es el uso del suelo para la licencia de construcción?
+R: El uso del suelo es "Urbana".
+
+P: ¿Cuál es el número de la licencia de construcción?
+R: El número de la licencia de construcción es 001.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 12627 metros cuadrados.
+
+P: ¿Cuántos niveles tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 67 niveles.

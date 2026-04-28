@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha inicial del registro de licencias de construcción en el informe?
+R: La fecha inicial del registro de licencias de construcción es el 1 de noviembre de 2005.
+
+P: ¿En qué departamento se encuentra el municipio con licencia de construcción?
+R: El departamento es Boyacá.
+
+P: ¿Cuál es el tipo de licencia de construcción otorgada?
+R: El tipo de licencia de construcción es Nuevo.
+
+P: ¿Cuál es el uso del suelo para la licencia de construcción?
+R: El uso del suelo es Urbana.
+
+P: ¿Cuántos metros cuadrados tiene la licencia de construcción?
+R: La licencia de construcción tiene 18 metros cuadrados.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es 001.
+
+P: ¿Cuál es el número de viviendas que se van a construir según la licencia?
+R: No hay información sobre el número de viviendas, pero se menciona que el uso es Comercio.

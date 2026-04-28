@@ -1,24 +1,71 @@
+# ===================================================================
+#        GUÍA DE COMANDOS PARA EL AGENTE INTELIGENTE CAMACOL
+# ===================================================================
+
+# -------------------------------------------------------------------
+# WORKFLOW 1: ACTUALIZACIÓN DE CONOCIMIENTO Y EJECUCIÓN LOCAL
+# -------------------------------------------------------------------
+# Sigue estos pasos para actualizar la base de conocimiento del bot y ejecutarlo en tu máquina.
+
+# Paso 1: Descargar nuevo contenido de la web
+# (Ejecuta el scraper para bajar los últimos documentos y páginas de CAMACOL)
 python web_scraper.py
-python inicializar_rag.py    
 
-git add .
-git commit -m "Actualizar web scraper: agregar 41 páginas de CAMACOL y fuentes externas"
-git push origin main
-
-streamlit run app.py
-python bot_telegram.py               
-                                                     
-# 1. Descargar contenido web
-python web_scraper.py
-
-# 2. Organizar automáticamente por año (SIMULACIÓN)
-python organizar_por_anio.py --dry-run
-
-# 3. Si todo se ve bien, organizar REALMENTE
+# Paso 2: Organizar los archivos descargados por año
+# (Mueve los archivos de 'scraped_content' a las carpetas RAG/YYYY/web_scraped)
 python organizar_por_anio.py
 
-# 4. Reindexar RAG con los documentos organizados
+# Paso 3: Re-indexar la base de conocimiento RAG
+# (Procesa TODOS los documentos, incluyendo los nuevos, y crea el caché)
 python inicializar_rag.py
 
-# 5. Ejecutar chatbot
+# Paso 4: Ejecutar los bots (elige uno o ambos en terminales separadas)
+# Para ejecutar la interfaz web de Streamlit:
 streamlit run app.py
+
+# Para ejecutar el bot de Telegram:
+python bot_telegram.py
+
+# -------------------------------------------------------------------
+# WORKFLOW 2: RE-ENTRENAMIENTO DEL AGENTE (FINE-TUNING)
+# -------------------------------------------------------------------
+# Este es un proceso avanzado para mejorar el modelo de IA con el feedback de los usuarios.
+
+# Paso 1: Instalar las dependencias necesarias para el re-entrenamiento (solo la primera vez)
+pip install torch transformers datasets peft trl bitsandbytes accelerate
+
+# Paso 2: Ejecutar el script de re-entrenamiento
+# (Lee feedback_log.json y crea un nuevo modelo especializado en ./models/camacol-expert-v1)
+python reentrenar_agente.py
+
+# -------------------------------------------------------------------
+# WORKFLOW 3: GESTIÓN DE VERSIONES CON GIT
+# -------------------------------------------------------------------
+# Comandos para guardar y subir los cambios en el código al repositorio.
+
+# Paso 1: Añadir todos los cambios al área de preparación
+git add .
+
+# Paso 2: Crear un commit (una "foto" de los cambios) con un mensaje descriptivo
+git commit -m "Tu mensaje descriptivo aquí. Ej: Mejorar lógica de feedback"
+
+# Paso 3: Subir los cambios al repositorio remoto (GitHub)
+git push origin main
+
+# -------------------------------------------------------------------
+# WORKFLOW 4: EJECUCIÓN CON DOCKER (RECOMENDADO PARA PRODUCCIÓN)
+# -------------------------------------------------------------------
+# Usa estos comandos para ejecutar el agente en un entorno aislado y reproducible.
+
+# Paso 1: Construir las imágenes de Docker (solo la primera vez o si cambias dependencias)
+docker-compose build
+
+# Paso 2: Ejecutar los scripts de inicialización dentro de los contenedores
+docker-compose run --rm scraper
+docker-compose run --rm organizer
+docker-compose run --rm rag-initializer
+
+# Paso 3: Iniciar la aplicación principal (Streamlit)
+docker-compose up app
+
+# Para detener todos los servicios de Docker, presiona Ctrl+C en la terminal.

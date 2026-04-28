@@ -1,0 +1,28 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+Lo siento, pero el contexto proporcionado no contiene datos suficientes para generar preguntas y respuestas significativas sobre proyecciones macroeconómicas para Colombia. El contexto solo muestra encabezados de columnas con valores "nan" (no disponible), lo que indica la ausencia de datos.
+
+Sin embargo, puedo ofrecerte un ejemplo hipotético de cómo podrían ser las preguntas y respuestas si tuviéramos datos reales:
+
+P: ¿Cuál es la proyección del crecimiento del PIB para Colombia en 2026?
+R: La proyección de crecimiento del PIB para 2026 es de 3.2%.
+
+P: ¿Qué se espera para la tasa de desempleo en Colombia a finales de 2026?
+R: Se espera que la tasa de desempleo se ubique en 8.5% para el cierre de 2026.
+
+P: ¿Cómo estará la inflación al final del año 2026?
+R: La inflación al cierre de 2026 se proyecta en 3.8%.
+
+P: ¿Cuál es la proyección para la tasa de interés del Banco de la República?
+R: Se espera que la tasa de interés del Banco de la República se ubique en 6.2% para el cierre de 2026.
+
+P: ¿Qué se espera para el crecimiento del sector servicios en 2026?
+R: El sector servicios se proyecta crecer un 4.1% en 2026.
+
+P: ¿Cuál es la proyección para la inversión extranjera directa en Colombia para 2026?
+R: La inversión extranjera directa se proyecta en $10.5 mil millones para 2026.
+
+P: ¿Cómo se espera que evolucione el tipo de cambio en 2026?
+R: Se espera que el tipo de cambio promedio se ubique en $4,200 por dólar estadounidense para el cierre de 2026.
+
+Recuerda que estas son solo respuestas hipotéticas y no se basan en datos reales debido a la naturaleza del contexto proporcionado.

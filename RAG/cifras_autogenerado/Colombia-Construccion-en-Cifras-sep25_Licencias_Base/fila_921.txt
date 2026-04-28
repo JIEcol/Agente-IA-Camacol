@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se registró la licencia de construcción en el departamento de Boyacá?
+R: La licencia de construcción se registró el 2005-02-01 00:00:00.
+
+P: ¿Cuál es el nombre del municipio donde se otorgó la licencia de construcción?
+R: El municipio donde se otorgó la licencia de construcción es Chiquinquirá.
+
+P: ¿Cuál es el tipo de cobertura de la licencia de construcción?
+R: La licencia de construcción tiene una cobertura de 77 (Cob. 77).
+
+P: ¿Cuál es el estado de la licencia de construcción?
+R: La licencia de construcción es nueva.
+
+P: ¿Cuál es el tipo de construcción autorizada por la licencia?
+R: La licencia autoriza la construcción de vivienda, específicamente casas.
+
+P: ¿Cuántas unidades habitacionales se autorizaron en la licencia de construcción?
+R: Se autorizaron 1197 unidades habitacionales.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es 14.

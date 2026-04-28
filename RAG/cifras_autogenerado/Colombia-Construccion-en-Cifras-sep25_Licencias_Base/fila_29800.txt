@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2008-04-01 00:00:00.
+
+P: ¿En qué departamentos se encuentra ubicada la construcción?
+R: La construcción se encuentra ubicada en Santander.
+
+P: ¿Cuál es el nombre del municipio donde se encuentra la construcción?
+R: La construcción se encuentra en el municipio de Piedecuesta.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es Cob. 77.
+
+P: ¿Qué tipo de construcción se está realizando?
+R: La construcción es de tipo vivienda, específicamente casas.
+
+P: ¿Cuántas viviendas se están construyendo?
+R: Se están construyendo 68 viviendas.
+
+P: ¿Cuál es el valor de la construcción en términos de metros cuadrados o unidades?
+R: La construcción tiene un valor de 547 unidades o metros cuadrados.

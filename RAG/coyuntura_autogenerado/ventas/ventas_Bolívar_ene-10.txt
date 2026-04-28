@@ -1,0 +1,16 @@
+# Datos de Ventas para Bolívar en ene-10
+
+P: ¿Cuál es el total de unidades vendidas en el departamento de Bolívar en enero de 2010?
+R: El total de unidades vendidas en el departamento de Bolívar en enero de 2010 fue de 80 unidades.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento de Bolívar en enero de 2010?
+R: No se vendieron unidades VIP en el departamento de Bolívar en enero de 2010.
+
+P: ¿Cuántas unidades VIS se vendieron en el departamento de Bolívar en enero de 2010?
+R: No se vendieron unidades VIS en el departamento de Bolívar en enero de 2010.
+
+P: ¿Cuál es el número de unidades No VIS vendidas en el departamento de Bolívar en enero de 2010?
+R: Se vendieron 80 unidades No VIS en el departamento de Bolívar en enero de 2010.
+
+P: ¿En qué sistema se basan los datos de ventas del departamento de Bolívar en enero de 2010?
+R: Los datos de ventas del departamento de Bolívar en enero de 2010 se basan en el sistema de Ventas.

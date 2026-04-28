@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 25)
+
+¿Cuál es el valor total de las licencias de construcción emitidas en el barrio de La Macarena en Bogotá durante el año 2023?
+¿Cuántas unidades de vivienda VIS se han construido en el departamento de Antioquia en los últimos 5 años?
+Dame el ranking de los 3 barrios con mayor área construida en la ciudad de Cali durante el año 2022.
+¿Cómo ha evolucionado el área promedio de los proyectos de vivienda No VIS en el departamento del Valle del Cauca entre 2020 y 2022?
+¿Cuál es el promedio de unidades por proyecto en el estrato 3 para la ciudad de Medellín?
+¿Cuánto valen en total las licencias de construcción emitidas en el barrio de El Poblado en Medellín durante el año 2024?
+Compara el valor de las ventas de vivienda VIS y No VIS en Bogotá y Cali para el año 2023.
+¿Cuál es el total de unidades de vivienda VIS vendidas en el departamento de Risaralda durante el año 2022?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento de Antioquia durante el año 2023.
+¿Cuánto ha aumentado el valor de los proyectos de vivienda No VIS en el barrio de La Castellana en Bogotá entre 2022 y 2023?
+¿Cuál es el promedio de unidades por proyecto en el estrato 2 para la ciudad de Cartagena?
+¿Cuántas unidades de vivienda VIS se han construido en el barrio de El Centro en Bogotá durante el año 2023?
+Compara el área promedio de los proyectos de vivienda VIS y No VIS en el departamento del Quindío durante el año 2022.
+¿Cuál es el valor total de las licencias de construcción emitidas en la ciudad de Pereira durante el año 2023?
+Dame el ranking de los 3 departamentos con mayor valor de ventas de vivienda VIS durante el año 2023.
+¿Cómo ha evolucionado el número de unidades de vivienda VIS vendidas en el barrio de La Comuna 13 en Medellín entre 2020 y 2022?
+¿Cuánto valen en total las licencias de construcción emitidas en el barrio de San Fernando en Cali durante el año 2024?
+Compara el valor de las ventas de vivienda VIS y No VIS en Medellín y Cali para el año 2022.
+¿Cuál es el total de unidades de vivienda No VIS vendidas en el departamento de Tolima durante el año 2023?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento del Valle del Cauca durante el año 2022.
+¿Cuánto ha aumentado el área de los proyectos de vivienda VIS en el barrio de La Tebaida en Quindío entre 2022 y 2023?
+¿Cuál es el promedio de unidades por proyecto en el estrato 1 para la ciudad de Barranquilla?
+Compara el área promedio de los proyectos de vivienda VIS y No VIS en el departamento de Antioquia durante el año 2023.
+¿Cuántas unidades de vivienda VIS se han construido en el departamento de Cundinamarca durante el año 2024?
+Dame el ranking de los 3 barrios con mayor valor de ventas de vivienda VIS en Bogotá durante el año 2023.

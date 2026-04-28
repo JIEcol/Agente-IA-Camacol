@@ -1,0 +1,16 @@
+# Datos de Ventas para Antioquia en feb-10
+
+P: ¿Cuántas unidades se vendieron en total en Antioquia el 10 de febrero?
+R: Se vendieron 1601 unidades en total en Antioquia el 10 de febrero.
+
+P: ¿Cuál es la cantidad de unidades VIP vendidas en Antioquia el 10 de febrero?
+R: No se vendieron unidades VIP en Antioquia el 10 de febrero, el total es 0.
+
+P: ¿Cuántas unidades VIS se vendieron en Antioquia el 10 de febrero?
+R: Se vendieron 723 unidades VIS en Antioquia el 10 de febrero.
+
+P: ¿Cuál es la proporción de unidades No VIS respecto al total de unidades vendidas en Antioquia el 10 de febrero?
+R: Se vendieron 878 unidades No VIS en Antioquia el 10 de febrero.
+
+P: ¿Cuál fue la fecha en que se registraron estas ventas en Antioquia?
+R: La fecha de registro de estas ventas en Antioquia fue el 10 de febrero.

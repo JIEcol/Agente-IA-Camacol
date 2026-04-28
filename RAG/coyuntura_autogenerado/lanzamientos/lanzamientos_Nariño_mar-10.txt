@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Nariño en mar-10
+
+P: ¿Cuál es el total de unidades lanzadas en Nariño?
+R: El total de unidades lanzadas en Nariño es de 30.
+
+P: ¿Cuántas unidades VIP se lanzaron en Nariño el mar-10?
+R: No se lanzaron unidades VIP en Nariño el mar-10, el total es 0.
+
+P: ¿Cuál es la cantidad de unidades VIS lanzadas en Nariño?
+R: La cantidad de unidades VIS lanzadas en Nariño es de 24.
+
+P: ¿Cuántas unidades No VIS se lanzaron en Nariño?
+R: Se lanzaron 6 unidades No VIS en Nariño.
+
+P: ¿En qué fecha se llevaron a cabo los lanzamientos en Nariño?
+R: Los lanzamientos en Nariño se llevaron a cabo el mar-10.

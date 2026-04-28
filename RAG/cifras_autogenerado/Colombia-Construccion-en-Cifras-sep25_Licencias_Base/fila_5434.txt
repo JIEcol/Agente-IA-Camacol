@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se emitió la licencia de construcción?
+R: La licencia de construcción se emitió el 2005-08-01 00:00:00.
+
+P: ¿Cuál es el departamento donde se encuentra la licencia de construcción?
+R: La licencia de construcción se encuentra en Cundinamarca.
+
+P: ¿Cuál es el municipio donde se encuentra la licencia de construcción?
+R: La licencia de construcción se encuentra en Chía.
+
+P: ¿Cuál es el tipo de cobertura de la licencia de construcción?
+R: La licencia de construcción tiene una cobertura de 77 (Cob. 77).
+
+P: ¿Cuál es el tipo de proyecto de la licencia de construcción?
+R: La licencia de construcción es para un proyecto nuevo.
+
+P: ¿Cuál es el número de viviendas que se van a construir según la licencia?
+R: Se van a construir 312 viviendas.
+
+P: ¿Cuántas casas se van a construir según la licencia de construcción?
+R: Se van a construir 3 casas.

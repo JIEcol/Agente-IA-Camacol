@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Portada"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+"En el área metropolitana de Medellín, que incluye municipios como Girardota, Caldas, Itagüí, Sabaneta, La Estrella, Envigado, Copacabana, Bello y Medellín, no se dispone de información específica sobre eventos o métricas concretas para una fecha determinada."

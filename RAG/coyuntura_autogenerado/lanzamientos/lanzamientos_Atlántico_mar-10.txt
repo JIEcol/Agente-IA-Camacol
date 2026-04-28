@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Atlántico en mar-10
+
+P: ¿Cuál es el sistema utilizado para los lanzamientos en el contexto proporcionado?
+R: El sistema utilizado es Lanzamientos.
+
+P: ¿En qué fecha se registraron los datos de lanzamientos en el departamento del Atlántico?
+R: La fecha registrada es el 10 de marzo.
+
+P: ¿Cuántas unidades VIP se lanzaron en el departamento del Atlántico?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y unidades No VIS en los lanzamientos del departamento del Atlántico?
+R: La distribución es de 222 unidades VIS y 229 unidades No VIS.
+
+P: ¿Cuál es el total de unidades lanzadas en el departamento del Atlántico según los datos proporcionados?
+R: El total de unidades lanzadas es de 451 unidades.

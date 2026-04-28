@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 40)
+
+¿Cuál es el total de unidades vendidas en el departamento de Antioquia durante el año 2023 para proyectos de vivienda VIS y No VIS?
+¿Cuál es el promedio de precio por metro cuadrado en Bogotá para proyectos de uso residencial en el año 2022?
+¿Qué constructoras han desarrollado más proyectos en Medellín en los últimos 5 años y cuál es su participación de mercado?
+¿Cómo ha evolucionado el número de unidades vendidas en Cali entre 2020 y 2022 para proyectos de vivienda VIS?
+¿Cuál es el ranking de los 3 municipios con mayor área construida en el departamento del Valle del Cauca en 2023?
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda No VIS en el estrato 5?
+¿Cuál es la comparación de las ventas de vivienda VIS entre Bogotá y Medellín durante el segundo semestre de 2023?
+¿Cuál es el total de unidades vendidas en el departamento de Cundinamarca durante el año 2022 para proyectos de uso comercial?
+¿Cuál es el promedio de precio por metro cuadrado en Cartagena para proyectos de uso turístico en el año 2021?
+¿Qué es la evolución mensual del valor de los proyectos en el departamento de Antioquia durante el año 2023?
+¿Cuál es el ranking de las 5 constructoras con mayor área construida en Bogotá en los últimos 3 años?
+¿Cuál es la comparación de las ventas de vivienda No VIS entre Cali y Barranquilla en el último trimestre de 2022?
+¿Cuál es el total de unidades vendidas en el departamento de Nariño durante el año 2021 para proyectos de vivienda VIS?
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda VIS en el estrato 3?
+¿Cuál es el ranking de los 3 departamentos con mayor área construida en Colombia en 2022 para proyectos de uso industrial?
+¿Cuál es la evolución anual del número de unidades vendidas en Medellín entre 2019 y 2022 para proyectos de vivienda No VIS?
+¿Cuál es el total de unidades vendidas en el departamento de Tolima durante el año 2020 para proyectos de uso comercial?
+¿Cuál es el promedio de precio por metro cuadrado en Pereira para proyectos de uso residencial en el año 2020?
+¿Cuál es la comparación de las ventas de vivienda VIS entre Bogotá y Cali durante el primer semestre de 2023?
+¿Cuál es el ranking de las 5 constructoras con mayor participación de mercado en el departamento del Valle del Cauca en los últimos 2 años?
+¿Cuál es el promedio de unidades por proyecto para el uso de vivienda No VIS en el estrato 6?
+¿Cuál es la evolución trimestral del valor de los proyectos en el departamento de Cundinamarca durante el año 2022?
+¿Cuál es el total de unidades vendidas en el departamento de Risaralda durante el año 2021 para proyectos de vivienda VIS y No VIS?
+¿Cuál es el ranking de los 3 municipios con mayor área construida en el departamento de Antioquia en 2022 para proyectos de uso turístico?

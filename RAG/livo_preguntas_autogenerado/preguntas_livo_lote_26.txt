@@ -1,0 +1,26 @@
+# Preguntas de Ejemplo para LIVO (Lote 26)
+
+¿Cuál es el total de área construida para viviendas VIS en el rango de decreto pre 500-1000 metros cuadrados en Bogotá durante 2023?
+¿Quiénes son las 3 constructoras con mayor número de unidades vendidas en Antioquia para el tipo de vivienda unifamiliar?
+¿Cuál es el promedio de precio por metro cuadrado para viviendas No VIS en Cali y Medellín durante el segundo semestre de 2022?
+¿Cómo ha cambiado el número de unidades vendidas en el departamento del Valle entre 2022 y 2023 para el rango de área entre 100-500 metros cuadrados?
+¿Cuál es el ranking de los 5 usos más comunes para los proyectos con área superior a 1000 metros cuadrados en Bogotá?
+¿Cuál es el total de unidades vendidas para el tipo de vivienda multifamiliar en el estrato 3 durante el último año en Colombia?
+¿Quién es la constructora con mayor área construida en el departamento de Risaralda para el rango de decreto pre 1000-2000 metros cuadrados?
+¿Cuál es la evolución trimestral del precio promedio por metro cuadrado para viviendas VIS en Medellín durante 2022 y 2023?
+¿Cuál es el promedio de área por proyecto para el tipo de vivienda unifamiliar en el rango de decreto pre 500-1000 metros cuadrados en Cali?
+¿Cuáles son las 3 constructoras con mayor número de proyectos en el departamento del Quindío para el tipo de vivienda No VIS?
+¿Cuál es el total de unidades vendidas para el rango de área entre 500-1000 metros cuadrados en el estrato 4 durante el último semestre en Colombia?
+¿Cómo ha cambiado el número de unidades vendidas en Bogotá entre el primer y el segundo semestre de 2023 para el tipo de vivienda multifamiliar?
+¿Cuál es el ranking de los 5 usos más comunes para los proyectos con área inferior a 500 metros cuadrados en Antioquia?
+¿Cuál es el promedio de precio por metro cuadrado para viviendas VIS en el departamento del Valle durante el último año?
+¿Cuál es el total de área construida para el tipo de vivienda unifamiliar en el rango de decreto pre 1000-2000 metros cuadrados en Medellín durante 2022?
+¿Quién es la constructora con mayor número de unidades vendidas en el departamento de Santander para el tipo de vivienda No VIS?
+¿Cuál es la evolución anual del número de proyectos en el departamento del Cauca para el rango de área entre 100-500 metros cuadrados durante los últimos 5 años?
+¿Cuál es el promedio de unidades por proyecto para el tipo de vivienda multifamiliar en el estrato 3 durante el último semestre en Colombia?
+¿Cuáles son las 3 constructoras con mayor área construida en el departamento de Nariño para el tipo de vivienda VIS?
+¿Cuál es el total de unidades vendidas para el rango de decreto pre 2000-5000 metros cuadrados en el estrato 4 durante el último año en Colombia?
+¿Cómo ha cambiado el número de unidades vendidas en Cali entre el primer y el segundo semestre de 2023 para el tipo de vivienda unifamiliar?
+¿Cuál es el ranking de los 5 usos más comunes para los proyectos con área superior a 2000 metros cuadrados en el departamento del Valle?
+¿Cuál es el promedio de precio por metro cuadrado para viviendas No VIS en Antioquia durante el último semestre?
+¿Cuál es el total de área construida para el tipo de vivienda multifamiliar en el rango de decreto pre 500-1000 metros cuadrados en Bogotá durante 2022?

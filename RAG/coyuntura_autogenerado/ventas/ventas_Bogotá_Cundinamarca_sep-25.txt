@@ -1,0 +1,16 @@
+# Datos de Ventas para Bogotá & Cundinamarca en sep-25
+
+P: ¿Cuál fue el total de unidades vendidas en el departamento de Bogotá y Cundinamarca en septiembre de 2025?
+R: El total de unidades vendidas fue de 5734.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento de Bogotá y Cundinamarca en septiembre de 2025?
+R: Se vendieron 233 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en el departamento de Bogotá y Cundinamarca en septiembre de 2025?
+R: La distribución fue de 4382 unidades VIS y 1352 unidades No VIS.
+
+P: ¿Cuál fue el porcentaje de unidades VIS con respecto al total de unidades vendidas en septiembre de 2025?
+R: El porcentaje de unidades VIS fue de aproximadamente 76.4% (4382/5734).
+
+P: ¿Cuántas unidades No VIS se vendieron en el departamento de Bogotá y Cundinamarca en septiembre de 2025?
+R: Se vendieron 1352 unidades No VIS.

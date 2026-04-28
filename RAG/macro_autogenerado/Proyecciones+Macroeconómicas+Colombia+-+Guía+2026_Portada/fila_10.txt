@@ -1,0 +1,24 @@
+# Proyecciones Macroeconómicas: Portada - N/A
+
+Basado en el contexto proporcionado, genero las siguientes 7 preguntas y respuestas:
+
+P: ¿Cuál es la frecuencia de las proyecciones macroeconómicas para Colombia?
+R: La frecuencia de las proyecciones macroeconómicas para Colombia no se especifica en el contexto proporcionado.
+
+P: ¿Qué tema abordan las proyecciones macroeconómicas para Colombia?
+R: Las proyecciones macroeconómicas para Colombia abordan el tema de "Proyecciones Macroeconómicas".
+
+P: ¿Dónde se puede encontrar la fuente de información histórica para las proyecciones macroeconómicas?
+R: La fuente de información histórica para las proyecciones macroeconómicas se encuentra en la columna "Unnamed: 6" de la hoja "Portada".
+
+P: ¿Cuál es la variable que se está proyectando en las proyecciones macroeconómicas para Colombia?
+R: La variable que se está proyectando en las proyecciones macroeconómicas para Colombia se encuentra en la columna "Unnamed: 1" con el título "Variable".
+
+P: ¿Qué información se encuentra en la columna "Unnamed: 0" de la hoja "Portada"?
+R: La columna "Unnamed: 0" de la hoja "Portada" contiene un valor "nan", lo que indica que no hay información disponible.
+
+P: ¿Cuál es el propósito de la guía de proyecciones macroeconómicas para Colombia 2026?
+R: El propósito de la guía de proyecciones macroeconómicas para Colombia 2026 no se especifica en el contexto proporcionado.
+
+P: ¿Dónde se puede encontrar la información sobre las proyecciones macroeconómicas para Colombia?
+R: La información sobre las proyecciones macroeconómicas para Colombia se encuentra en el archivo "Guía 2026.xlsx", específicamente en la hoja "Portada".

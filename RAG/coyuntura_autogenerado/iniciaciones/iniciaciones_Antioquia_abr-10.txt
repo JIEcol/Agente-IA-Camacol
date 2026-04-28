@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Antioquia en abr-10
+
+P: ¿Cuál es el total de unidades iniciadas en el departamento de Antioquia en abril de 2010?
+R: El total de unidades iniciadas es de 1744.
+
+P: ¿Cuántas unidades VIP se iniciaron en Antioquia durante abril de 2010?
+R: Se iniciaron 0 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS iniciadas en Antioquia en abril de 2010?
+R: La cantidad de unidades VIS iniciadas es de 1050.
+
+P: ¿Cuántas unidades no son VIS en las iniciaciones de Antioquia en abril de 2010?
+R: Hay 694 unidades no VIS.
+
+P: ¿Cuál es la relación entre unidades VIS y el total de unidades iniciadas en Antioquia en abril de 2010?
+R: Las unidades VIS representan el 60% del total de unidades iniciadas, ya que 1050 unidades VIS sobre 1744 unidades totales.

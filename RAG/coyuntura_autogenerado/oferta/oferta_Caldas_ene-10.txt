@@ -1,0 +1,16 @@
+# Datos de Oferta para Caldas en ene-10
+
+P: ¿Cuál es el sistema que se está utilizando en enero de 2010?
+R: El sistema utilizado es Oferta.
+
+P: ¿En qué departamento se encuentra la oferta de unidades?
+R: La oferta se encuentra en el departamento de Caldas.
+
+P: ¿Cuántas unidades VIP se ofrecen en total?
+R: Se ofrecen 4 unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS?
+R: La distribución es de 221 unidades VIS y 776 unidades No VIS.
+
+P: ¿Cuál es el total de unidades que se ofrecen en enero de 2010?
+R: El total de unidades ofrecidas es de 997.

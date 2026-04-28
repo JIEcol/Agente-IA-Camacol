@@ -1,0 +1,23 @@
+# Entornos virtuales
+venv/
+.venv/
+
+# Archivos de cache de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Archivos de Git
+.git/
+.gitignore
+
+# Archivos de cache generados por la app (se manejarán con volúmenes)
+rag_cache/
+historial_chats/
+scraped_data/
+user_profiles.json

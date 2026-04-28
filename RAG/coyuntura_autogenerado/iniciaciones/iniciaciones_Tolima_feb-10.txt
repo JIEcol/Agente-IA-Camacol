@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Tolima en feb-10
+
+P: ¿Cuál es el sistema que se está describiendo en los datos proporcionados?
+R: El sistema es Iniciaciones.
+
+P: ¿En qué fecha se registraron los datos de CAMACOL?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿En qué departamento se encuentran los datos de ventas?
+R: Los datos de ventas se encuentran en el departamento de Tolima.
+
+P: ¿Cuántas unidades VIP se vendieron según los datos proporcionados?
+R: Se vendieron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades vendidas en el departamento de Tolima según los datos de CAMACOL?
+R: El total de unidades vendidas es 0.

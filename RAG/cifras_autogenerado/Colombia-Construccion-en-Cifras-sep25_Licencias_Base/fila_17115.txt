@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha del registro de la licencia de construcción?
+R: La fecha del registro de la licencia de construcción es el 1 de noviembre de 2006.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra ubicada en el departamento de Santander.
+
+P: ¿Cuál es el nombre de la ciudad donde se encuentra la licencia de construcción?
+R: La licencia de construcción se encuentra en la ciudad de Bucaramanga.
+
+P: ¿Cuál es el código de la cobertura de la licencia de construcción?
+R: El código de la cobertura de la licencia de construcción es Cob. 77.
+
+P: ¿Cuál es el tipo de licencia de construcción otorgada?
+R: La licencia de construcción otorgada es de tipo Nuevo.
+
+P: ¿Cuál es el número de licencia de construcción asignado?
+R: El número de licencia de construcción asignado es 001.
+
+P: ¿Cuántas unidades se van a construir según la licencia de construcción?
+R: Según la licencia de construcción, se van a construir 241 unidades.

@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Nariño en feb-10
+
+P: ¿Cuál es el sistema que se está utilizando en el contexto de los datos proporcionados?
+R: El sistema es Iniciaciones.
+
+P: ¿En qué fecha se registraron los datos sobre las unidades en Nariño?
+R: La fecha es febrero 10.
+
+P: ¿Cuántas unidades VIP se iniciaron en Nariño según los datos?
+R: No hubo unidades VIP.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en Nariño?
+R: La distribución es de 2 unidades VIS y 26 unidades No VIS.
+
+P: ¿Cuál es el total de unidades registradas en Nariño según los datos proporcionados?
+R: El total de unidades es 28.

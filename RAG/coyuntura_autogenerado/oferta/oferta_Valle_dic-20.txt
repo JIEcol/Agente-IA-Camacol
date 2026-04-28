@@ -1,0 +1,18 @@
+# Datos de Oferta para Valle en dic-20
+
+A continuación, se presentan las 5 preguntas y respuestas generadas según el contexto proporcionado:
+
+P: ¿En qué departamento se registraron los datos de oferta en diciembre de 2020?
+R: En el departamento del Valle.
+
+P: ¿Cuál fue el total de unidades ofertadas en el Valle en diciembre de 2020?
+R: El total de unidades ofertadas fue de 82,699.
+
+P: ¿Cuántas unidades VIP se ofertaron en el Valle durante diciembre de 2020?
+R: Se ofertaron 1,705 unidades VIP.
+
+P: ¿Cuál fue la cantidad de unidades VIS y No VIS ofertadas en el Valle en diciembre de 2020?
+R: Se ofertaron 27,432 unidades VIS y 55,267 unidades No VIS.
+
+P: ¿Qué porcentaje del total de unidades ofertadas correspondieron a unidades VIS en el Valle en diciembre de 2020?
+R: Las unidades VIS representaron el 33.1% del total de unidades ofertadas.

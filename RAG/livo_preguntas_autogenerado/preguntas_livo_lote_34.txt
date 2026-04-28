@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 34)
+
+¿Cuál es el total de unidades VIS vendidas en el área metropolitana de Bogotá durante los últimos 6 meses?
+¿Cuál es el promedio de área construida por proyecto en la ciudad de Cartagena para el uso de vivienda No VIS?
+¿Qué posición ocupa la ciudad de Cali en el ranking de ciudades con mayor número de unidades vendidas en el último año?
+Compara las ventas de vivienda VIS y No VIS en el departamento de Antioquia durante el segundo trimestre de 2024.
+¿Cómo ha sido la evolución trimestral del número de unidades vendidas en la ciudad de Medellín durante los últimos 2 años?
+¿Cuál es el total de área construida en el departamento del Valle del Cauca para el uso de vivienda VIS durante 2023?
+¿Cuáles son las 3 constructoras con mayor área construida en la ciudad de Barranquilla durante el último año?
+¿Cuál es el promedio de unidades por proyecto en la ciudad de Pereira para el uso de vivienda No VIS?
+Compara el número de unidades vendidas en la ciudad de Bucaramanga y la ciudad de Manizales durante el último semestre.
+¿Cuál es el total de unidades vendidas en la ciudad de Bogotá para el uso de vivienda VIS durante el primer trimestre de 2024?
+¿Cuál es el ranking de los 5 departamentos con mayor número de unidades vendidas en el último año?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en la ciudad de Cali durante los últimos 12 meses?
+¿Cuál es el total de área construida en la ciudad de Medellín para el uso de vivienda No VIS durante 2022?
+Compara las ventas de vivienda VIS y No VIS en la ciudad de Bogotá durante el tercer trimestre de 2023.
+¿Cuál es el promedio de área construida por proyecto en la ciudad de Cartagena para el uso de vivienda VIS?
+¿Cuáles son las 2 constructoras con mayor número de unidades vendidas en la ciudad de Barranquilla durante el último año?
+¿Cuál es el total de unidades vendidas en el departamento de Antioquia para el uso de vivienda VIS durante 2023?
+Compara el número de unidades vendidas en la ciudad de Pereira y la ciudad deSanta Marta durante el último año.
+¿Cuál es el ranking de las 3 ciudades con mayor área construida en el departamento del Valle del Cauca durante el último año?
+¿Cómo ha sido la evolución trimestral del número de unidades vendidas en la ciudad de Bucaramanga durante los últimos 3 años?
+¿Cuál es el total de área construida en la ciudad de Manizales para el uso de vivienda No VIS durante 2022?
+Compara las ventas de vivienda VIS y No VIS en la ciudad de Cali durante el primer trimestre de 2024.
+¿Cuál es el promedio de unidades por proyecto en la ciudad de Medellín para el uso de vivienda VIS?
+¿Cuáles son las 4 constructoras con mayor área construida en la ciudad de Bogotá durante el último año?
+¿Cuál es el total de unidades vendidas en el departamento de Santander para el uso de vivienda No VIS durante 2023?

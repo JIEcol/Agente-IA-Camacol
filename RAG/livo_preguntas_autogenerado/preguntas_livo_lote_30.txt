@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 30)
+
+¿Cuál es el total de unidades vendidas en el barrio de La Macarena en Bogotá durante el año 2023?
+¿Cuál es el promedio de precio por metro cuadrado en los proyectos de vivienda VIS en Medellín para el año 2022?
+Dame el ranking de los 3 barrios con mayor número de unidades vendidas en Cali durante el último semestre.
+¿Cómo ha evolucionado el número de unidades vendidas en el segmento de vivienda No VIS en el departamento de Antioquia entre 2020 y 2022?
+Quiero saber el total de unidades vendidas por la constructora XY en el barrio de El Poblado en Medellín durante 2021.
+¿Cuál es el promedio de unidades por proyecto en el estrato 3 en Bogotá para el año 2023?
+Compara las ventas de vivienda VIS entre los barrios de La Macarena y El Chicó en Bogotá para el último trimestre.
+Dame el ranking de las 5 constructoras con mayor número de unidades vendidas en el departamento del Valle durante 2022.
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el barrio de Envigado durante 2023?
+¿Cómo ha sido la evolución anual del precio por metro cuadrado en los proyectos de vivienda No VIS en Cali entre 2019 y 2022?
+Quiero saber el promedio de unidades vendidas por mes en el barrio de Sabaneta en Antioquia durante 2022.
+Compara las ventas de vivienda VIS y No VIS en el departamento de Antioquia para el último año.
+Dame el ranking de los 3 barrios con mayor precio por metro cuadrado en Medellín durante 2023.
+¿Cuál es el total de unidades vendidas por la constructora ABC en el departamento del Valle durante 2021?
+¿Cómo ha evolucionado el número de unidades vendidas en el segmento de vivienda VIS en Bogotá entre 2020 y 2023?
+Quiero saber el promedio de unidades por proyecto en el estrato 2 en Cali para el año 2022.
+Compara las ventas de vivienda No VIS entre los barrios de El Poblado y La Llanura en Medellín para el último semestre.
+Dame el ranking de las 5 constructoras con mayor número de unidades vendidas en Bogotá durante 2023.
+¿Cuál es el total de unidades vendidas en el barrio de Itagüí en Antioquia durante 2022?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el departamento de Antioquia durante 2023?
+Quiero saber el promedio de precio por metro cuadrado en los proyectos de vivienda VIS en Bogotá para el año 2023.
+Compara las ventas de vivienda VIS y No VIS en el departamento del Valle para el último año.
+Dame el ranking de los 3 barrios con mayor número de unidades vendidas en Medellín durante 2022.
+¿Cuál es el total de unidades vendidas por la constructora DEF en el barrio de La Macarena en Bogotá durante 2021?
+¿Cómo ha evolucionado el precio por metro cuadrado en los proyectos de vivienda No VIS en Cali entre 2020 y 2022?

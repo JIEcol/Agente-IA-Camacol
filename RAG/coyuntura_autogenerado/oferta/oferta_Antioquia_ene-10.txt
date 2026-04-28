@@ -1,0 +1,16 @@
+# Datos de Oferta para Antioquia en ene-10
+
+P: ¿En qué fecha se registraron los datos de oferta en Antioquia?
+R: Los datos se registraron en enero de 2010.
+
+P: ¿Cuántas unidades VIP se ofrecieron en Antioquia?
+R: Se ofrecieron 6 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS y No VIS en Antioquia?
+R: El total de unidades VIS es 1883 y el total de unidades No VIS es 5869.
+
+P: ¿Cuál es el total de unidades ofertadas en Antioquia?
+R: El total de unidades ofertadas es 7752.
+
+P: ¿Cuál es la proporción de unidades VIS con respecto al total de unidades ofertadas en Antioquia?
+R: La proporción de unidades VIS es de 1883/7752, lo que representa aproximadamente el 24% del total de unidades ofertadas.

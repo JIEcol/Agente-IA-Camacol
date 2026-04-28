@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Norte de Santander en feb-10
+
+P: ¿Cuál es el sistema que se está utilizando para registrar los datos?
+R: El sistema utilizado es Lanzamientos.
+
+P: ¿En qué fecha se registraron los datos?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿En qué departamento se encuentran los datos registrados?
+R: Los datos se encuentran en el departamento de Norte de Santander.
+
+P: ¿Cuántas unidades VIP se lanzaron según los datos proporcionados?
+R: Se lanzaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS y No VIS registradas?
+R: El total de unidades VIS y No VIS es 0.

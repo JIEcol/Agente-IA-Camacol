@@ -1,0 +1,24 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+Aquí te dejo 7 preguntas y respuestas basadas en el contexto proporcionado:
+
+P: ¿Cuál es la fecha de inicio del proyecto de construcción?
+R: La fecha de inicio del proyecto de construcción es el 2007-08-01 00:00:00.
+
+P: ¿En qué departamento se encuentra el proyecto de construcción?
+R: El proyecto de construcción se encuentra en Cundinamarca.
+
+P: ¿Cuál es el tipo de construcción que se está realizando?
+R: El tipo de construcción que se está realizando es una construcción nueva de vivienda.
+
+P: ¿Cuántas casas se van a construir en el proyecto?
+R: Se van a construir 1791 casas en el proyecto.
+
+P: ¿Cuál es el nivel de complejidad del proyecto de construcción?
+R: El nivel de complejidad del proyecto de construcción es bajo.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción?
+R: El proyecto de construcción tiene 290 metros cuadrados.
+
+P: ¿Cuál es el número de licencia del proyecto de construcción?
+R: El número de licencia del proyecto de construcción es Cob. 77.

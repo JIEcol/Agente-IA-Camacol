@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Antioquia en dic-24
+
+P: ¿Cuál es el sistema que se está utilizando para registrar los datos?
+R: El sistema utilizado es Iniciaciones.
+
+P: ¿En qué fecha se registraron los datos de las unidades en Antioquia?
+R: Los datos se registraron el 24 de diciembre.
+
+P: ¿Cuántas unidades VIP se registraron en Antioquia?
+R: No se registraron unidades VIP.
+
+P: ¿Cuál es la distribución de unidades VIS y No VIS en Antioquia?
+R: La distribución fue de 344 unidades VIS y 294 unidades No VIS.
+
+P: ¿Cuál es el total de unidades registradas en Antioquia?
+R: El total de unidades registradas es de 638.

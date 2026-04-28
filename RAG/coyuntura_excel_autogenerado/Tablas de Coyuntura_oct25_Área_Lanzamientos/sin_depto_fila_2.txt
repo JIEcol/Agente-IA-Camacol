@@ -1,0 +1,11 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Lanzamientos"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+"No hay información disponible para generar una frase descriptiva, ya que todos los valores de la fila son 'nan' (no disponibles) y no se proporcionan detalles sobre la entidad geográfica, la fecha o cualquier otro dato relevante."

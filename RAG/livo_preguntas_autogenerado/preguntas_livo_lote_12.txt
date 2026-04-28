@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 12)
+
+¿Cuál es el total de unidades vendidas en Medellín durante el año 2023 para constructoras con más de 10 proyectos?
+¿Dame el ranking de las 3 constructoras con mayor precio promedio de venta en Bogotá para el último semestre?
+Compara las ventas de vivienda VIS y No VIS en Cali para el primer trimestre de 2024.
+¿Cómo ha sido la evolución trimestral del área construida en Antioquia para las constructoras con menos de 5 proyectos?
+Quiero saber el promedio de unidades por proyecto para el estrato 3 en el departamento del Valle.
+¿Cuál es el total de unidades vendidas en Bogotá durante el último año para constructoras que han realizado más de 20 proyectos?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento del Quindío para el año 2022.
+Compara las ventas de vivienda No VIS entre Medellín y Cali para el segundo semestre de 2023.
+¿Cómo ha sido la evolución mensual del precio promedio de venta en Cartagena para el último año?
+Quiero saber el promedio de unidades por proyecto para el estrato 2 en el departamento de Risaralda.
+¿Cuál es el total de unidades vendidas en el departamento del Cauca durante el último trimestre para constructoras con menos de 10 proyectos?
+Dame el ranking de las 3 constructoras con mayor precio promedio de venta en Pereira para el año 2023.
+Compara las ventas de vivienda VIS y No VIS en Bogotá para el tercer trimestre de 2022.
+¿Cómo ha sido la evolución trimestral del área construida en el departamento de Nariño para las constructoras con más de 15 proyectos?
+Quiero saber el promedio de unidades por proyecto para el estrato 5 en el departamento del Tolima.
+¿Cuál es el total de unidades vendidas en Cali durante el año 2022 para constructoras que han realizado entre 5 y 10 proyectos?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento de Santander para el último año.
+Compara las ventas de vivienda No VIS entre Barranquilla y Cartagena para el primer semestre de 2023.
+¿Cómo ha sido la evolución mensual del precio promedio de venta en Medellín para el último semestre?
+Quiero saber el promedio de unidades por proyecto para el estrato 1 en el departamento del Chocó.
+¿Cuál es el total de unidades vendidas en el departamento del Meta durante el último año para constructoras con más de 25 proyectos?
+Dame el ranking de las 3 constructoras con mayor precio promedio de venta en Bucaramanga para el año 2022.
+Compara las ventas de vivienda VIS y No VIS en el departamento del Valle para el segundo semestre de 2023.
+¿Cómo ha sido la evolución trimestral del área construida en el departamento de Antioquia para las constructoras con menos de 3 proyectos?
+Quiero saber el promedio de unidades por proyecto para el estrato 6 en el departamento de Caldas.

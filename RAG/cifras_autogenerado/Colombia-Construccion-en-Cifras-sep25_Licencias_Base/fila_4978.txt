@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué departamento se encuentra el municipio de Espinal?
+R: El municipio de Espinal se encuentra en el departamento de Tolima.
+
+P: ¿Cuál es el tipo de cobertura del proyecto de construcción?
+R: El proyecto de construcción tiene una cobertura de 77.
+
+P: ¿Qué tipo de proyecto de construcción se está llevando a cabo en Espinal?
+R: El proyecto de construcción en Espinal es de tipo urbano y se trata de una vivienda nueva.
+
+P: ¿Qué tipo de vivienda se está construyendo en Espinal?
+R: La vivienda que se está construyendo en Espinal es de tipo casas y pertenece al estrato socioeconómico bajo (VIS).
+
+P: ¿Cuántas viviendas se están construyendo en el proyecto de Espinal?
+R: Se están construyendo 177 viviendas en el proyecto de Espinal.
+
+P: ¿Cuántos niveles tiene el proyecto de construcción de Espinal?
+R: El proyecto de construcción de Espinal tiene 3 niveles.
+
+P: ¿Cuál es el total de metros cuadrados del proyecto de construcción de Espinal?
+R: El total de metros cuadrados del proyecto de construcción de Espinal es 268.

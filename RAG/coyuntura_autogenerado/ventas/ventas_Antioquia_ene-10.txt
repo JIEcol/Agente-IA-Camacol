@@ -1,0 +1,16 @@
+# Datos de Ventas para Antioquia en ene-10
+
+P: ¿Cuál fue el total de unidades vendidas en Antioquia en enero de 2010?
+R: El total de unidades vendidas en Antioquia en enero de 2010 fue de 1115 unidades.
+
+P: ¿Cuántas unidades VIP se vendieron en enero de 2010?
+R: Se vendieron 2 unidades VIP en enero de 2010.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS vendidas en enero de 2010?
+R: La distribución fue de 436 unidades VIS y 679 unidades No VIS.
+
+P: ¿Cuál fue el porcentaje de unidades VIS con respecto al total de unidades vendidas en enero de 2010?
+R: El porcentaje de unidades VIS fue del 39.1% (436/1115).
+
+P: ¿Cuál fue la cantidad de unidades No VIS vendidas en enero de 2010 en comparación con las unidades VIS?
+R: Se vendieron 679 unidades No VIS, lo que es 243 unidades más que las unidades VIS.

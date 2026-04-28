@@ -1,0 +1,31 @@
+# Coyuntura: Portada - N/A - N/A
+
+P: ¿Cuál es la ciudad mencionada en el contexto de datos de CAMACOL?
+R: La ciudad mencionada es Cali.
+
+P: ¿Qué municipios se mencionan además de Cali en el contexto?
+R: Los municipios mencionados son Puerto Tejada, Candelaria, Yumbo y Jamundí.
+
+P: ¿Cuál es el total de ciudades mencionadas en el contexto?
+R: Solo se menciona una ciudad, que es Cali.
+
+P: ¿Dónde se encuentran los municipios mencionados?
+R: Los municipios Puerto Tejada, Candelaria, Yumbo y Jamundí se encuentran en el área de Cali.
+
+P: ¿Cuántos municipios se mencionan en el contexto además de Cali?
+R: Se mencionan 4 municipios además de Cali.
+
+P: ¿Qué tipo de información se espera encontrar en la hoja "Portada" de la tabla de Coyuntura_oct25_Área.xlsx?
+R: La hoja "Portada" contiene información general sobre el contexto de datos de CAMACOL.
+
+P: ¿Cuál es el nombre de la hoja en la que se encuentra el contexto de datos?
+R: La hoja se llama "Portada".
+
+P: ¿Qué organización proporciona el contexto de datos?
+R: El contexto de datos es proporcionado por CAMACOL.
+
+P: ¿Cuál es el propósito del contexto de datos de CAMACOL?
+R: No se especifica el propósito en el contexto proporcionado, solo se menciona la ubicación geográfica.
+
+P: ¿Dónde se encuentra geográficamente el área descrita en el contexto de datos?
+R: El área descrita se encuentra en el Valle, específicamente en Cali y sus alrededores, incluyendo los municipios de Puerto Tejada, Candelaria, Yumbo y Jamundí.

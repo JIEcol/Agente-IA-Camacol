@@ -1,0 +1,28 @@
+# Preguntas de Ejemplo para LIVO (Lote 8)
+
+¿Cuál es el área total construida en Bogotá por las constructoras con más de 100 proyectos en los últimos 5 años?
+¿Cómo ha cambiado el precio promedio de la vivienda VIS en Medellín en comparación con el año anterior?
+Dame el ranking de los 3 departamentos con mayor área construida para viviendas No VIS en el último año.
+¿Cuál es el promedio de unidades vendidas por constructora en Cali para el tipo de vivienda VIS?
+¿Cuál es la evolución trimestral del área construida en el departamento del Valle para el tipo de vivienda No VIS?
+¿Cuál es el total de unidades vendidas en Antioquia por las constructoras con menos de 50 proyectos en los últimos 2 años?
+Compara el área construida en Bogotá y Medellín para el tipo de vivienda VIS en el último semestre.
+¿Cuál es el promedio de precio por metro cuadrado para las viviendas No VIS en Cali en los últimos 6 meses?
+Dame el ranking de las 5 constructoras con mayor área construida en el departamento del Quindío en los últimos 3 años.
+¿Cuál es el total de unidades vendidas en el estrato 4 en Bogotá en el último año?
+¿Cómo ha cambiado el número de unidades vendidas en el departamento del Valle en comparación con el año anterior?
+Dame el promedio de unidades por proyecto para el tipo de vivienda VIS en Antioquia en los últimos 2 años.
+¿Cuál es el área total construida en Medellín por las constructoras con más de 200 proyectos en los últimos 10 años?
+Compara el precio promedio de la vivienda VIS en Cali y Bogotá para el último trimestre.
+¿Cuál es el total de unidades vendidas en el departamento del Cauca para el tipo de vivienda No VIS en los últimos 5 años?
+Dame el ranking de los 3 departamentos con mayor área construida para viviendas VIS en el último año.
+¿Cuál es el promedio de unidades vendidas por constructora en Medellín para el tipo de vivienda No VIS?
+¿Cuál es la evolución mensual del área construida en Bogotá para el tipo de vivienda VIS en los últimos 6 meses?
+Compara el área construida en Antioquia y el Valle para el tipo de vivienda No VIS en el último año.
+¿Cuál es el total de unidades vendidas en el estrato 5 en Cali en los últimos 2 años?
+Dame el ranking de las 5 constructoras con mayor área construida en Bogotá en los últimos 5 años.
+¿Cuál es el promedio de precio por metro cuadrado para las viviendas VIS en Medellín en los últimos 3 años?
+Compara el número de unidades vendidas en el departamento del Quindío y el Risaralda en los últimos 3 años.
+¿Cuál es el área total construida en el departamento del Chocó para el tipo de vivienda No VIS en los últimos 10 años?
+Dame el promedio de unidades por proyecto para el tipo de vivienda No VIS en el departamento del Valle en los últimos 5 años.
+¿Cuál es el total de unidades vendidas en Bogotá para el tipo de vivienda VIS en los últimos 6 meses?

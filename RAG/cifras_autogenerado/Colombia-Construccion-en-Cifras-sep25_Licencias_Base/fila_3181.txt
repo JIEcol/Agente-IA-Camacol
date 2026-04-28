@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de referencia para los datos de construcción en Cifras?
+R: La fecha de referencia es el 1 de mayo de 2005.
+
+P: ¿En qué departamento se encuentra el proyecto de construcción descrito?
+R: El proyecto de construcción se encuentra en el departamento de Cauca.
+
+P: ¿Cuál es el tipo de proyecto de construcción descrito?
+R: El proyecto de construcción es de tipo urbano y se enfoca en vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo en el proyecto descrito?
+R: El proyecto de construcción se enfoca en la construcción de casas.
+
+P: ¿Cuál es el nivel de complejidad del proyecto de construcción descrito?
+R: El proyecto de construcción tiene un nivel de complejidad bajo.
+
+P: ¿Cuántos metros cuadrados tiene el proyecto de construcción descrito?
+R: El proyecto de construcción tiene 309 metros cuadrados.
+
+P: ¿Cuál es el código del proyecto de construcción descrito?
+R: El código del proyecto de construcción es 001.

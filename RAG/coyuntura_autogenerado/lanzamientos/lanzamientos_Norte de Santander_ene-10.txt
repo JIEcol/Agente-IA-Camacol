@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Norte de Santander en ene-10
+
+P: ¿En qué fecha se registraron los lanzamientos en el sistema?
+R: Los lanzamientos se registraron en ene-10.
+
+P: ¿Cuál es el departamento donde se llevaron a cabo los lanzamientos?
+R: Los lanzamientos se llevaron a cabo en el departamento de Norte de Santander.
+
+P: ¿Cuántas unidades en total se lanzaron en el sistema?
+R: Se lanzaron un total de 120 unidades.
+
+P: ¿Cuántas unidades VIP se lanzaron en el sistema?
+R: No se lanzaron unidades VIP, el total es 0.
+
+P: ¿Cuál es la distribución entre unidades VIS y No VIS en los lanzamientos?
+R: La distribución es de 0 unidades VIS y 120 unidades No VIS.

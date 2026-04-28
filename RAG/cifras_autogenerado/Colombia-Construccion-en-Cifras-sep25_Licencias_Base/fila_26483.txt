@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿En qué fecha se realizó el registro de la licencia de construcción?
+R: El registro se realizó el 2007-12-01 00:00:00.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra ubicada en Antioquia.
+
+P: ¿Cuál es el tipo de proyecto de construcción según la licencia?
+R: El tipo de proyecto de construcción es Vivienda.
+
+P: ¿Qué tipo de vivienda se está construyendo según la licencia?
+R: Se está construyendo una casa.
+
+P: ¿Cuál es el nivel de complejidad de la licencia de construcción?
+R: La licencia de construcción tiene un nivel de complejidad bajo.
+
+P: ¿Cuántos niveles tiene el proyecto de construcción según la licencia?
+R: El proyecto de construcción tiene 2 niveles.
+
+P: ¿Cuál es el código de la licencia de construcción?
+R: El código de la licencia de construcción es Cob. 77.

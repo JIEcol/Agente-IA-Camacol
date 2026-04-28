@@ -1,0 +1,16 @@
+# Datos de Iniciaciones para Bolívar en feb-10
+
+P: ¿En qué fecha se registraron los datos de iniciaciones en Bolívar?
+R: Los datos se registraron el 10 de febrero.
+
+P: ¿Cuántas unidades VIP se iniciaron en Bolívar según los datos?
+R: Se iniciaron 0 unidades VIP.
+
+P: ¿Cuál es el total de unidades iniciadas en Bolívar según el sistema de CAMACOL?
+R: El total de unidades iniciadas es 0.
+
+P: ¿Cuántas unidades VIS se iniciaron en Bolívar según los datos proporcionados?
+R: Se iniciaron 0 unidades VIS en total.
+
+P: ¿Hubo unidades No VIS iniciadas en Bolívar de acuerdo con los datos de febrero?
+R: No, no hubo unidades No VIS iniciadas, el total es 0.

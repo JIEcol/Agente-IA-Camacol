@@ -1,0 +1,16 @@
+# Datos de Oferta para Valle en dic-23
+
+P: ¿En qué departamento se registró la oferta de unidades en diciembre de 2023?
+R: En el departamento del Valle.
+
+P: ¿Cuántas unidades VIP se ofrecieron en el Valle en diciembre de 2023?
+R: Se ofrecieron 1181 unidades VIP.
+
+P: ¿Cuál es el total de unidades ofrecidas en el Valle durante diciembre de 2023?
+R: El total de unidades ofrecidas fue de 13928.
+
+P: ¿Cuántas unidades No VIS se ofrecieron en el Valle en diciembre de 2023?
+R: Se ofrecieron 3804 unidades No VIS.
+
+P: ¿Cuántas unidades VIS se ofrecieron en total en el Valle durante diciembre de 2023?
+R: Se ofrecieron 10124 unidades VIS.

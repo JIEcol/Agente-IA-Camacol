@@ -1,0 +1,16 @@
+# Datos de Rotacion para Antioquia en may-10
+
+P: ¿Cuál es el sistema utilizado en el contexto de datos de CAMACOL?
+R: El sistema utilizado es Rotación.
+
+P: ¿En qué fecha se registraron los datos de unidades en Antioquia?
+R: Los datos se registraron en mayo-10.
+
+P: ¿Cuántas unidades VIP se encuentran en el departamento de Antioquia?
+R: Hay 1.5 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS en Antioquia?
+R: El total de unidades VIS es 2.7.
+
+P: ¿Cuántas unidades No VIS hay en comparación con las unidades totales en Antioquia?
+R: Hay 9.9 unidades No VIS, lo que supera el total de unidades que es 6.0.

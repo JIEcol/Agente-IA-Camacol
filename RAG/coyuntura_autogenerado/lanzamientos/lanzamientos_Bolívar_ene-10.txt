@@ -1,0 +1,16 @@
+# Datos de Lanzamientos para Bolívar en ene-10
+
+P: ¿En qué departamento se realizaron los lanzamientos en enero de 2010?
+R: Los lanzamientos se realizaron en el departamento de Bolívar.
+
+P: ¿Cuántas unidades VIP se lanzaron en enero de 2010?
+R: Se lanzaron 12 unidades VIP.
+
+P: ¿Cuál es el total de unidades VIS lanzadas en enero de 2010?
+R: El total de unidades VIS lanzadas fue de 12.
+
+P: ¿Cuántas unidades no VIS se lanzaron en enero de 2010?
+R: Se lanzaron 24 unidades no VIS.
+
+P: ¿Cuál es el total de unidades lanzadas en enero de 2010 en el departamento de Bolívar?
+R: El total de unidades lanzadas fue de 36.

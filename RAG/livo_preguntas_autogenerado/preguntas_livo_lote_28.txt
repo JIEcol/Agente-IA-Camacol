@@ -1,0 +1,49 @@
+# Preguntas de Ejemplo para LIVO (Lote 28)
+
+¿Cuál es el total de área construida en viviendas VIS en Bogotá y Medellín durante el año 2023?
+
+¿Dame el promedio de valor de las viviendas No VIS en Cali y Cartagena para el año 2022?
+
+¿Cuáles son las 3 ciudades con mayor área construida en viviendas VIS en el último año?
+
+¿Cómo ha evolucionado el número de proyectos de vivienda No VIS en el departamento del Valle entre 2020 y 2022?
+
+¿Cuál es el total de unidades vendidas en viviendas VIS en Antioquia durante el primer semestre de 2024?
+
+¿Dame el ranking de las 5 constructoras con mayor área construida en viviendas No VIS en Bogotá durante 2023?
+
+¿Cuál es el promedio de área por proyecto de vivienda VIS en el estrato 3 para el año 2022?
+
+¿Compara las ventas de vivienda VIS entre Medellín y Cali para el último trimestre de 2023?
+
+¿Cuáles son los 2 departamentos con mayor valor de proyectos de vivienda No VIS en el año 2022?
+
+¿Cómo ha sido la evolución anual del número de unidades vendidas en viviendas VIS en el departamento del Quindío?
+
+¿Dame el total de área construida en viviendas No VIS en Bogotá y Medellín durante el año 2021?
+
+¿Cuál es el promedio de valor de las viviendas VIS en Cartagena y Barranquilla para el año 2023?
+
+¿Cuáles son las 3 ciudades con mayor número de proyectos de vivienda VIS en el último año?
+
+¿Cómo ha evolucionado el área construida en viviendas No VIS en el departamento de Antioquia entre 2020 y 2022?
+
+¿Cuál es el total de unidades vendidas en viviendas No VIS en Cali durante el segundo semestre de 2023?
+
+¿Dame el ranking de las 5 constructoras con mayor valor de proyectos de vivienda VIS en Medellín durante 2023?
+
+¿Cuál es el promedio de unidades por proyecto de vivienda No VIS en el estrato 2 para el año 2022?
+
+¿Compara las ventas de vivienda VIS entre Bogotá y Medellín para el primer trimestre de 2024?
+
+¿Cuáles son los 2 departamentos con mayor área construida en proyectos de vivienda VIS en el año 2022?
+
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en viviendas No VIS en el departamento del Valle?
+
+¿Dame el total de valor de proyectos de vivienda VIS en Bogotá y Medellín durante el año 2021?
+
+¿Cuál es el promedio de área por proyecto de vivienda No VIS en el estrato 1 para el año 2023?
+
+¿Cuáles son las 3 ciudades con mayor valor de proyectos de vivienda No VIS en el último año?
+
+¿Cómo ha evolucionado el área construida en viviendas VIS en el departamento de Cali entre 2020 y 2022?

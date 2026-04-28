@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 13)
+
+¿Cuál es el precio promedio de las viviendas VIS en Bogotá y Medellín durante los últimos 6 meses?
+¿Cuántas unidades de vivienda No VIS se han vendido en Cali y Cartagena en el año 2023?
+Dame el ranking de las 3 constructoras con mayor número de proyectos en Antioquia y el Valle.
+¿Cómo ha cambiado el área promedio de las viviendas en el estrato 5 en los últimos 2 años en Bogotá?
+¿Cuál es el total de unidades vendidas en el departamento del Quindío durante el primer semestre de 2024?
+Quiero saber la evolución trimestral del precio de las viviendas VIS en el departamento de Risaralda.
+¿Cuáles son las 5 constructoras con mayor área construida en el departamento de Santander en el año 2022?
+¿Cuál es el promedio de unidades por proyecto en el estrato 3 en los departamentos de Caldas y Quindío?
+Dame la comparación de las ventas de viviendas No VIS entre los departamentos de Antioquia y Valle del Cauca en el último año.
+¿Cuál es el total de proyectos de vivienda VIS en el departamento de Tolima durante el año 2023?
+Quiero saber el ranking de los 5 departamentos con mayor número de unidades vendidas en el año 2024.
+¿Cuál es la evolución mensual del área promedio de las viviendas en el estrato 4 en los departamentos de Bogotá y Medellín?
+Dame la comparación de las ventas de viviendas VIS entre los departamentos de Cali y Cartagena en el último trimestre.
+¿Cuáles son las constructoras con mayor número de proyectos en el departamento de Huila en el año 2022?
+Quiero saber el promedio de precio de las viviendas No VIS en el estrato 5 en los departamentos de Antioquia y el Valle.
+¿Cuál es el total de unidades vendidas en el departamento de Nariño durante el segundo semestre de 2023?
+Dame el ranking de las 3 constructoras con mayor área construida en el departamento de Cundinamarca en el año 2023.
+¿Cuál es la evolución trimestral del número de proyectos de vivienda VIS en el departamento de Boyacá?
+Quiero saber la comparación de las ventas de viviendas No VIS entre los departamentos de Santander y Tolima en el último año.
+¿Cuáles son las 5 constructoras con mayor número de unidades vendidas en el departamento de Valle del Cauca en el año 2024?
+Dame la evolución mensual del precio promedio de las viviendas VIS en el departamento de Quindío.
+¿Cuál es el total de proyectos de vivienda No VIS en el departamento de Caldas durante el año 2022?
+Quiero saber el ranking de los 5 departamentos con mayor área construida en el año 2023.
+¿Cuál es el promedio de unidades por proyecto en el estrato 2 en los departamentos de Cartagena y Barranquilla?
+Dame la comparación de las ventas de viviendas VIS entre los departamentos de Antioquia y Risaralda en el último trimestre.

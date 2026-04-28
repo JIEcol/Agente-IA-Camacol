@@ -1,0 +1,22 @@
+# Construcción en Cifras: Licencias Base - N/A
+
+P: ¿Cuál es la fecha de registro de la licencia de construcción?
+R: La fecha de registro es el 1 de diciembre de 2006.
+
+P: ¿En qué departamento se encuentra ubicada la licencia de construcción?
+R: La licencia de construcción se encuentra en el Valle del Cauca.
+
+P: ¿Cuál es el nombre del municipio donde se encuentra la licencia de construcción?
+R: El municipio donde se encuentra la licencia de construcción es Palmira.
+
+P: ¿Cuál es el tipo de cobertura de la licencia de construcción?
+R: La cobertura de la licencia de construcción es Cob. 77.
+
+P: ¿Cuál es el tipo de construcción que se va a realizar?
+R: La construcción que se va a realizar es una construcción nueva.
+
+P: ¿Cuál es el tipo de vivienda que se va a construir?
+R: La vivienda que se va a construir es una casa.
+
+P: ¿Cuántos metros cuadrados tiene la construcción?
+R: La construcción tiene 520 metros cuadrados.

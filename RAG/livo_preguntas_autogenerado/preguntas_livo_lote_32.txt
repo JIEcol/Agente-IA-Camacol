@@ -1,0 +1,27 @@
+# Preguntas de Ejemplo para LIVO (Lote 32)
+
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en los barrios de Bogotá durante el año 2023?
+¿Cuál es el promedio de área construida por proyecto en el departamento de Antioquia para el año 2022?
+¿Qué constructoras tienen el mayor área construida en el departamento del Valle del Cauca durante el último año?
+¿Cómo ha evolucionado el número de unidades vendidas en el segmento de vivienda No VIS en Cali durante los últimos 5 años?
+¿Cuál es el ranking de los 3 barrios con mayor número de unidades vendidas en Medellín durante el año 2024?
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el estrato 3 durante el último trimestre?
+¿Cuál es el promedio de área construida por proyecto en el departamento de Cundinamarca para el año 2021?
+¿Qué es el total de área construida en el segmento de vivienda No VIS en Bogotá durante el año 2023?
+¿Cómo ha sido la evolución anual del número de proyectos en el departamento de Risaralda durante los últimos 10 años?
+¿Cuál es el ranking de las 5 constructoras con mayor número de unidades vendidas en el departamento del Quindío durante el último año?
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el barrio de La Macarena en Bogotá durante el año 2022?
+¿Cuál es el promedio de unidades por proyecto en el segmento de vivienda No VIS en el departamento de Tolima durante el año 2021?
+¿Qué constructoras tienen el mayor número de unidades vendidas en el departamento de Huila durante el último año?
+¿Cómo ha evolucionado el valor de los proyectos en el departamento de Caldas durante los últimos 5 años?
+¿Cuál es el total de área construida en el segmento de vivienda VIS en el estrato 4 durante el último trimestre?
+¿Cuál es el ranking de los 3 departamentos con mayor área construida en el segmento de vivienda No VIS durante el año 2023?
+¿Cuál es el promedio de área construida por proyecto en el departamento de Santander para el año 2022?
+¿Qué es el total de unidades vendidas en el segmento de vivienda VIS en el departamento de Norte de Santander durante el año 2024?
+¿Cómo ha sido la evolución mensual del número de unidades vendidas en el segmento de vivienda No VIS en Bogotá durante el último año?
+¿Cuál es el ranking de las 5 constructoras con mayor área construida en el departamento de Boyacá durante el último año?
+¿Cuál es el total de unidades vendidas en el segmento de vivienda VIS en el barrio de El Poblado en Medellín durante el año 2023?
+¿Cuál es el promedio de unidades por proyecto en el segmento de vivienda No VIS en el departamento de Meta durante el año 2021?
+¿Qué constructoras tienen el mayor número de unidades vendidas en el departamento de Casanare durante el último año?
+¿Cómo ha evolucionado el número de proyectos en el departamento de Arauca durante los últimos 10 años?
+¿Cuál es el total de área construida en el segmento de vivienda VIS en el estrato 5 durante el último trimestre?

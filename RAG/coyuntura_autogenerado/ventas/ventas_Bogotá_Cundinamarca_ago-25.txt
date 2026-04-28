@@ -1,0 +1,16 @@
+# Datos de Ventas para Bogotá & Cundinamarca en ago-25
+
+P: ¿Cuál es el total de unidades vendidas en el sistema de ventas en agosto de 2025?
+R: El total de unidades vendidas es 6235.
+
+P: ¿Cuántas unidades VIP se vendieron en el departamento de Bogotá y Cundinamarca?
+R: Se vendieron 362 unidades VIP.
+
+P: ¿Cuál es la cantidad de unidades VIS vendidas en el departamento de Bogotá y Cundinamarca?
+R: La cantidad de unidades VIS vendidas es 4583.
+
+P: ¿Cuántas unidades no VIS se vendieron en el sistema de ventas en agosto de 2025?
+R: Se vendieron 1652 unidades no VIS.
+
+P: ¿Cuál es la proporción de unidades VIS respecto al total de unidades vendidas en el departamento de Bogotá y Cundinamarca?
+R: La proporción de unidades VIS es de 4583 unidades VIS sobre un total de 6235 unidades.

@@ -1,0 +1,15 @@
+
+# METADATA
+source_type: "structured_data_row"
+file_name: "Tablas de Coyuntura_oct25_Área.xlsx"
+sheet_name: "Lanzamientos"
+department: "N/A"
+date: "N/A"
+# END METADATA
+
+## Descripción de Datos de Coyuntura
+Lo siento, pero no puedo generar una frase descriptiva con los datos proporcionados. La fila de datos que has compartido no contiene información útil o significativa, ya que todos los campos están marcados como "nan" (no disponible o nulo), excepto el campo "Metros cuadrados de vivienda" que está vacío y solo menciona la fuente "Coordenada Urbana" sin proporcionar ningún dato numérico o descriptivo.
+
+Para generar una frase descriptiva, necesitaría información relevante como fechas, cantidades, porcentajes, departamentos o regiones geográficas, entre otros. Con los datos actuales, no es posible crear una frase que sea informativa y útil.
+
+Si pudieras proporcionar una fila de datos con información real y significativa, estaré encantado de ayudarte a generar una frase descriptiva y concisa en lenguaje natural.
