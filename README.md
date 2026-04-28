@@ -1,21 +1,21 @@
-# 🏗️ Chatbot CAMACOL
+#  Chatbot CAMACOL
 
 Chatbot personalizado para la Cámara Colombiana de la Construcción (CAMACOL) utilizando Streamlit Cloud y Google AI (Gemini).
 
-## 📋 Descripción
+##  Descripción
 
 Este proyecto es un chatbot inteligente diseñado para proporcionar información sobre CAMACOL y el sector constructor en Colombia. Utiliza Google AI (Gemini) como modelo de lenguaje grande (LLM) para responder preguntas de manera contextualizada y precisa.
 
-## ✨ Características
+##  Características
 
-- 🤖 Chatbot inteligente con Google AI (Gemini)
-- 🏗️ Información real sobre CAMACOL
-- 💬 Interfaz conversacional intuitiva
-- 📊 Estadísticas del sector constructor colombiano
-- 🌐 Desplegado en Streamlit Cloud
-- 🔒 Gestión segura de API keys
+- Chatbot inteligente con Google AI (Gemini)
+-  Información real sobre CAMACOL
+-  Interfaz conversacional intuitiva
+-  Estadísticas del sector constructor colombiano
+-  Desplegado en Streamlit Cloud
+- Gestión segura de API keys
 
-## 🚀 Instalación Local
+##  Instalación Local
 
 ### Requisitos
 
@@ -52,14 +52,14 @@ Este proyecto es un chatbot inteligente diseñado para proporcionar información
    streamlit run app.py
    ```
 
-## 🌐 Despliegue en Streamlit Cloud
+## Despliegue en Streamlit Cloud
 
 ### Repositorio en GitHub
 - **URL**: [https://github.com/JulianTorrest/Chatbot-Camacol](https://github.com/JulianTorrest/Chatbot-Camacol)
 
 ### Pasos para desplegar
 
-1. **El código ya está en GitHub** ✅
+1. **El código ya está en GitHub** 
    - Repositorio: https://github.com/JulianTorrest/Chatbot-Camacol
    - Branch: main
 
@@ -82,7 +82,7 @@ Este proyecto es un chatbot inteligente diseñado para proporcionar información
    - Guarda los cambios
    - La aplicación se reiniciará automáticamente
 
-## 📚 Información Incluida en el Chatbot
+##  Información Incluida en el Chatbot
 
 El chatbot tiene acceso a información real sobre:
 
@@ -92,7 +92,7 @@ El chatbot tiene acceso a información real sobre:
 - **Eventos**: Ferias, seminarios, certificaciones
 - **Normatividad**: Regulaciones del sector construcción
 
-## 🎯 Uso del Chatbot
+##  Uso del Chatbot
 
 El chatbot puede responder preguntas sobre:
 
@@ -104,13 +104,13 @@ El chatbot puede responder preguntas sobre:
 - Estadísticas del sector
 - Normatividad de construcción
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 - **Streamlit**: Framework para aplicaciones web
 - **Google AI (Gemini)**: Modelo de lenguaje grande
 - **Python**: Lenguaje de programación
 
-## 📝 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 .
@@ -121,27 +121,5 @@ El chatbot puede responder preguntas sobre:
     └── secrets.toml.example    # Ejemplo de configuración
 ```
 
-## 🔐 Seguridad
-
-- ⚠️ **NUNCA** subas tu API key a GitHub
-- Usa `.gitignore` para excluir archivos sensibles
-- Configura los secrets solo en Streamlit Cloud
-- No compartas tu API key públicamente
-
-## 🤝 Contribuciones
-
-Este proyecto fue desarrollado específicamente para CAMACOL. Para sugerencias o mejoras, por favor contacta al equipo de desarrollo.
-
-## 📞 Contacto
-
-- **Sitio web CAMACOL**: [camacol.co](https://camacol.co)
-- **Email**: contacto@camacol.co
-
-## 📄 Licencia
-
-Este proyecto es propiedad de CAMACOL - Cámara Colombiana de la Construcción.
-
----
-
-Desarrollado con ❤️ para CAMACOL
+L
 
