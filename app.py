@@ -3,19 +3,29 @@ import requests
 import json
 import os
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path # Mantener Path para uso general
 import uuid
 from typing import Optional
 from config import AI_PROVIDERS, AIModel
-from llm_providers import llamar_api_ia
+from llm_providers import llamar_api_ia, obtener_respuesta_ia # Importar obtener_respuesta_ia
 from feedback_system import log_feedback
 from advanced_reasoning import analizar_seguridad_pregunta
-from advanced_reasoning import analizar_y_responder
+# from advanced_reasoning import analizar_y_responder # Eliminar esta importación conflictiva por ahora
+
+# Importar módulos para inferencia de perfil, deseo y emoción (asumiendo que existen)
+try:
+    from user_profile_manager import inferir_perfil
+    from emotional_tone_analyzer import analizar_tono_emocional
+    from deep_desire_analyzer import inferir_deseo_profundo
+    PROFILE_DESIRE_EMOTION_AVAILABLE = True
+except ImportError:
+    PROFILE_DESIRE_EMOTION_AVAILABLE = False
+    print("⚠️ Módulos de perfil, deseo o emoción no disponibles.")
 
 # Importar analizador de datos
 try:
-    from data_analyzer import DataAnalyzer
-    EXCEL_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx"
+    from data_analyzer import DataAnalyzer # Mantener esta importación
+    EXCEL_PATH = "RAG/2025/Coordenada Urbana/LIVO_total_nov25_.xlsx" # Ruta relativa
     DATA_ANALYZER_AVAILABLE = True
 except Exception as e:
     DATA_ANALYZER_AVAILABLE = False
@@ -24,7 +34,7 @@ except Exception as e:
 # Importar sistema RAG
 try:
     from rag_system import RAGSystem
-    RAG_FOLDER = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG"
+    RAG_FOLDER = "RAG" # Ruta relativa
     RAG_AVAILABLE = True
 except Exception as e:
     RAG_AVAILABLE = False
@@ -33,7 +43,7 @@ except Exception as e:
 # Importar sistema LIVO SQL (DuckDB)
 try:
     from livo_sql import LIVOSQLSystem
-    LIVO_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx"
+    LIVO_PATH = "RAG/2025/Coordenada Urbana/LIVO_total_nov25_.xlsx" # Ruta relativa
     LIVO_SQL_AVAILABLE = True
 except Exception as e:
     LIVO_SQL_AVAILABLE = False
@@ -48,8 +58,8 @@ except Exception as e:
     print(f"⚠️ Sistema SQL Dinámico no disponible: {e}")
 
 # Importar sistema de razonamiento
-try:
-    from reasoning_system import ReasoningSystem, analyze_and_respond
+try: # Mantener esta importación para clarificación
+    from reasoning_system import ReasoningSystem, analyze_and_respond as reasoning_analyze_and_respond # Renombrar para evitar conflicto
     REASONING_AVAILABLE = True
 except Exception as e:
     REASONING_AVAILABLE = False
@@ -425,7 +435,7 @@ def inicializar_livo_sql():
         return None, False
     
     try:
-        print(f"\n� Inicializando LIVO SQL...")
+        print(f"\n🚀 Inicializando LIVO SQL...")
         print(f"LIVO_PATH: {LIVO_PATH}")
         
         livo_system = LIVOSQLSystem(LIVO_PATH)
@@ -615,7 +625,7 @@ def procesar_con_prioridad_livo(pregunta: str) -> tuple:
         print(f"Resultado buscar_con_analisis: exito={exito}")
         if not exito:
             print("❌ buscar_con_analisis falló")
-            return False, "❌ No se pudo procesar la consulta."
+            return False, "❌ No se pudo procesar la consulta LIVO con análisis inicial."
         
         print(f"\n=== RESULTADO ANÁLISIS ===")
         print(f"Needs analysis: {resultado['needs_analysis']}")
@@ -625,7 +635,7 @@ def procesar_con_prioridad_livo(pregunta: str) -> tuple:
         
         # PASO 1: Si necesita análisis Y hay archivos de datos, intentar LIVO PRIMERO
         if resultado["needs_analysis"] and resultado["data_files"]:
-            livo_path = Path(r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx")
+            livo_path = Path(LIVO_PATH) # Usar la ruta relativa
             
             # Verificar si LIVO está en la lista de archivos
             if livo_path.exists() and livo_path in resultado["data_files"]:
@@ -1885,77 +1895,39 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
     
     # Generar respuesta
     with st.chat_message("assistant"):
-        with st.spinner("🤔 Analizando tu pregunta..."):
+        with st.spinner("🤔 Analizando tu pregunta y buscando la mejor respuesta..."):
             # --- MEJORA: Escudo de Confianza y Seguridad ---
             clasificacion_seguridad = analizar_seguridad_pregunta(prompt)
             if clasificacion_seguridad == "MALICIOSA":
                 respuesta_seguridad = "Lo siento, no puedo procesar esa solicitud ya que va en contra de mis principios de uso ético de la información."
                 st.error(respuesta_seguridad)
                 st.session_state.messages.append({"role": "assistant", "content": respuesta_seguridad})
-                st.stop()
+                guardar_historial()
+                st.stop() # Detener procesamiento adicional
             elif clasificacion_seguridad == "DUDOSA":
                 respuesta_seguridad = "Entiendo tu pregunta. Para mantener la precisión y la veracidad, solo puedo proporcionar información basada en los datos verificables de CAMACOL. ¿Cómo puedo ayudarte dentro de ese marco?"
                 st.warning(respuesta_seguridad)
                 st.session_state.messages.append({"role": "assistant", "content": respuesta_seguridad})
-                st.stop()
+                guardar_historial()
+                st.stop() # Detener procesamiento adicional
             
             print(f"🛡️ Nivel de Seguridad de la Pregunta: {clasificacion_seguridad}")
 
-            # --- INTEGRACIÓN DE RAZONAMIENTO CAUSAL ---
-            try:
-                # Obtener el contexto de la conversación reciente
-                contexto_adicional = "\n".join(
-                    [msg["content"] for msg in st.session_state.messages[-3:]]
-                )
-                
+            # --- Inferencia de Perfil, Deseo y Emoción ---
+            if PROFILE_DESIRE_EMOTION_AVAILABLE:
                 # Obtener perfil del usuario para personalizar la respuesta
                 historial_preguntas = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
                 perfil_usuario = user_profile_manager.inferir_perfil(st.session_state.user_id, historial_preguntas)
-                
-                # Generar respuesta con razonamiento causal
-                resultado = analizar_y_responder(
-                    pregunta=prompt,
-                    contexto=contexto_adicional,
-                    perfiles_expertos=["Economista", "Analista de Datos", "Experto en Políticas Públicas"]
-                )
-                
-                # Mostrar la respuesta
-                st.markdown(resultado['respuesta'])
-                st.session_state.messages.append({
-                    "role": "assistant", 
-                    "content": resultado['respuesta']
-                })
-                
-                # Preparar para posible feedback
-                st.session_state["feedback_context"] = {
-                    "question": prompt,
-                    "answer": resultado['respuesta']
-                }
-                
-                # Preguntar por feedback
-                st.markdown("---")
-                st.markdown("_¿Te fue útil esta respuesta? (Sí/No)_")
-                
-            except Exception as e:
-                st.error(f"Ocurrió un error al procesar tu pregunta: {str(e)}")
-                st.session_state.messages.append({
-                    "role": "assistant", 
-                    "content": f"Lo siento, hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde. Error: {str(e)}"
-                })
-                st.stop()
-            # --- MEJORA: Inferencia de Perfil, Deseo y Emoción ---
-            historial_preguntas = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
-            perfil_usuario = user_profile_manager.inferir_perfil(st.session_state.user_id, historial_preguntas)
-            deseo_profundo = inferir_deseo_profundo(prompt)
-            tono_emocional = analizar_tono_emocional(prompt)
-            
-            print(f"👤 Perfil Inferido: {perfil_usuario}")
-            print(f"🧠 Deseo Profundo Inferido: {deseo_profundo}")
-            print(f"🎭 Tono Emocional Detectado: {tono_emocional}")
-            
-            # El `deseo_profundo` y `tono_emocional` ahora se pueden pasar a las funciones
-            # de procesamiento (ej. procesar_consulta_rag) para enriquecer los prompts
-            # y generar respuestas más inteligentes y empáticas.
+                deseo_profundo = inferir_deseo_profundo(prompt)
+                tono_emocional = analizar_tono_emocional(prompt)
+                print(f"👤 Perfil Inferido: {perfil_usuario}")
+                print(f"🧠 Deseo Profundo Inferido: {deseo_profundo}")
+                print(f"🎭 Tono Emocional Detectado: {tono_emocional}")
+            else:
+                perfil_usuario = "General"
+                deseo_profundo = None
+                tono_emocional = "Neutral"
+                print("⚠️ Módulos de perfil, deseo o emoción no disponibles. Usando valores por defecto.")
 
             try:
                 preguntas_simples = [
@@ -1970,74 +1942,88 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
                     "servicios", "qué servicios ofrecen"
                 ]
                 
-                # 2. Para el resto, usar el sistema de razonamiento
-                if prompt.lower().strip() not in preguntas_simples and REASONING_AVAILABLE and hasattr(st.session_state, 'reasoning_system') and st.session_state.reasoning_system:
+                respuesta_final = ""
+                fuente_usada = "LLM General"
+                
+                # PASO 1: Clarificación con ReasoningSystem (Gatekeeper)
+                # Esto se ejecuta antes del enrutamiento principal para asegurar que la pregunta sea clara.
+                if REASONING_AVAILABLE and hasattr(st.session_state, 'reasoning_system') and st.session_state.reasoning_system:
                     history = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
-                    analysis_result = analyze_and_respond(
+                    # Usar analyze_question de reasoning_system para análisis crudo
+                    analysis_result_obj = st.session_state.reasoning_system.analyze_question(
                         question=prompt, 
                         user_id=st.session_state.user_id,
-                        reasoning_system=st.session_state.reasoning_system, 
                         conversation_history=history
                     )
-                    needs_clarification = analysis_result[0]
-                    clarification_response = analysis_result[1]
                     
-                    if needs_clarification:
+                    if analysis_result_obj.needs_clarification:
                         print(f"🤔 Pregunta necesita clarificación: {prompt}")
-                        st.markdown(clarification_response)
-                        st.session_state.messages.append({"role": "assistant", "content": clarification_response})
+                        clarification_response_text = f"🤔 {analysis_result_obj.counter_questions[0]}" if analysis_result_obj.counter_questions else "Necesito más detalles para responder."
+                        st.markdown(clarification_response_text)
+                        st.session_state.messages.append({"role": "assistant", "content": clarification_response_text})
                         guardar_historial()
                         st.stop()
                 
-                # --- LÓGICA SIMPLIFICADA: La coyuntura ahora es manejada por RAG ---
-                
-                # PASO 2: Intentar con LIVO SQL si es una consulta de datos estructurados
-                if LIVO_SQL_AVAILABLE and hasattr(st.session_state, 'livo_sql') and st.session_state.livo_sql and tipo_pregunta == "datos":
-                    with st.spinner("🚀 Consultando base de datos LIVO con SQL..."):
-                        exito, respuesta, _ = st.session_state.livo_sql.consultar(prompt, obtener_respuesta_ia)
-                        if exito:
-                            st.markdown(f"🚀 **FUENTE: LIVO SQL (DuckDB)**\n\n{respuesta}")
-                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                            guardar_historial()
-                        else:
-                            # Fallback a RAG si LIVO falla
-                            print("⚠️ LIVO SQL falló, intentando con RAG...")
-                            if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
-                                with st.spinner("� Buscando en documentos..."):
-                                    exito_rag, respuesta_rag = procesar_consulta_rag(prompt)
-                                    if exito_rag:
-                                        st.markdown(respuesta_rag)
-                                        st.session_state.messages.append({"role": "assistant", "content": respuesta_rag})
-                                        guardar_historial()
-                                    else:
-                                        st.error("❌ No se pudo procesar la consulta con ningún sistema.")
-                            else:
-                                st.error("❌ No se pudo procesar la consulta LIVO.")
+                # PASO 2: Enrutamiento de Intenciones
+                intencion = razonar_intencion(prompt)
+                print(f"🎯 Intención detectada: {intencion}")
 
-                # PASO 3: Usar RAG para todo lo demás (incluyendo las nuevas preguntas de coyuntura)
-                else:
-                    print(f"\n📚 CONSULTA NO-LIVO, usando sistema híbrido: {prompt}")
-                    with st.spinner("🔍 Buscando en documentos..."):
-                        exito, respuesta = procesar_consulta_rag(prompt, deseo_profundo, tono_emocional, perfil_usuario)
+                if intencion == "DATOS_LIVO" and LIVO_SQL_AVAILABLE and st.session_state.livo_sql:
+                    with st.spinner("🚀 Consultando base de datos LIVO con SQL..."):
+                        exito, respuesta_final = procesar_con_prioridad_livo(prompt)
+                        fuente_usada = "LIVO SQL (DuckDB)" if exito else "LIVO Fallback"
+                
+                elif intencion == "COYUNTURA":
+                    with st.spinner("📈 Analizando datos de coyuntura..."):
+                        # procesar_consulta_coyuntura ya tiene su propia lógica de fallback
+                        exito, respuesta_final = procesar_consulta_coyuntura(
+                            prompt,
+                            livo_sql=st.session_state.livo_sql if LIVO_SQL_AVAILABLE else None,
+                            rag_system=st.session_state.rag_system if RAG_AVAILABLE else None
+                        )
+                        fuente_usada = "Sistemas de Coyuntura" if exito else "Coyuntura Fallback"
+
+                elif intencion in ["DOCUMENTAL_RAG", "GENERAL"]:
+                    with st.spinner("📚 Buscando en documentos RAG o usando conocimiento general..."):
+                        exito, respuesta_rag = procesar_consulta_rag(prompt, deseo_profundo, tono_emocional, perfil_usuario)
                         if exito:
-                            st.markdown(respuesta)
-                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                            guardar_historial()
+                            respuesta_final = respuesta_rag
+                            fuente_usada = "RAG System" if intencion == "DOCUMENTAL_RAG" else "RAG/LLM General"
                         else:
-                            st.error("No se encontró información relevante en los documentos.")
+                            # Fallback a LLM general si RAG no encuentra nada
+                            print("⚠️ RAG no encontró información relevante. Usando LLM general.")
+                            respuesta_llm, proveedor_llm = obtener_respuesta_ia(f"CONTEXTO: {CAMACOL_CONTEXT}\n\nPREGUNTA: {prompt}\n\nRESPUESTA:")
+                            if respuesta_llm:
+                                respuesta_final = f"🤖 **FUENTE: Conocimiento General ({proveedor_llm})**\n\n{respuesta_llm}"
+                                fuente_usada = "LLM General"
+                            else:
+                                respuesta_final = "❌ No se pudo obtener una respuesta de ninguna fuente."
+                    
+                else: # Catch-all para cualquier intención no manejada o si los sistemas no están disponibles
+                    print("⚠️ Intención no manejada o sistemas no disponibles. Usando LLM general.")
+                    respuesta_llm, proveedor_llm = obtener_respuesta_ia(f"CONTEXTO: {CAMACOL_CONTEXT}\n\nPREGUNTA: {prompt}\n\nRESPUESTA:")
+                    if respuesta_llm:
+                        respuesta_final = f"🤖 **FUENTE: Conocimiento General ({proveedor_llm})**\n\n{respuesta_llm}"
+                        fuente_usada = "LLM General"
+                    else:
+                        respuesta_final = "❌ No se pudo obtener una respuesta de ninguna fuente."
+
+                # Mostrar la respuesta final
+                if respuesta_final:
+                    st.markdown(respuesta_final)
+                    st.session_state.messages.append({"role": "assistant", "content": respuesta_final})
+                    guardar_historial()
+                else:
+                    st.error("❌ No se pudo obtener una respuesta de ninguna fuente.")
                     
             except Exception as e:
                 error_msg = f"Lo siento, ocurrió un error al procesar tu solicitud: {str(e)}"
                 st.error(error_msg)
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
             finally:
-                # Enriquecer SIEMPRE con contexto macroeconómico, excepto para clarificaciones o errores
-                if (st.session_state.messages and 
-                    st.session_state.messages[-1]["role"] == "assistant" and 
-                    not st.session_state.messages[-1]["content"].startswith("🤔") and
-                    not st.session_state.messages[-1]["content"].startswith("❌") and
-                    not "error" in st.session_state.messages[-1]["content"].lower()):
-                    
+                # Post-procesamiento y Feedback (solo si se generó una respuesta útil)
+                if respuesta_final and not respuesta_final.startswith("❌") and not respuesta_final.startswith("🤔"):
+                    # Enriquecer con contexto macroeconómico
                     print(f"🔗 Agregando contexto macroeconómico para la pregunta: {prompt}")
                     contexto_macro = obtener_contexto_macroeconomico(prompt)
                     if contexto_macro:
@@ -2045,12 +2031,9 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
                         print("✅ Contexto macroeconómico agregado exitosamente")
                     else:
                         print("⚠️ No se pudo obtener contexto macroeconómico")
-                
-                # --- PREGUNTAR POR FEEDBACK ---
-                # Guardar el contexto para el feedback y activar el modo de espera
-                last_answer = st.session_state.messages[-1]["content"]
-                if not last_answer.startswith("🤔"): # No pedir feedback para preguntas de clarificación
-                    st.session_state["feedback_context"] = {"question": prompt, "answer": last_answer}
+                    
+                    # Preguntar por feedback
+                    st.session_state["feedback_context"] = {"question": prompt, "answer": st.session_state.messages[-1]["content"]}
                     st.session_state["waiting_for_feedback"] = True
                     st.markdown("---")
                     st.markdown("_¿Te fue útil esta respuesta? (Sí/No)_")
