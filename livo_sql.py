@@ -867,6 +867,92 @@ RECOMENDACIÓN CRÍTICA:
         except Exception:
             pass
 
+        # Limpieza de frases de métricas/nombres para evitar falsos positivos en detección de operaciones
+        temp_text_for_avg = texto.replace("precio_mc_promedio", "").replace("precio promedio m2", "").replace("precio promedio", "")
+        
+        temp_text_for_sum = texto
+        for phrase in ['numero de unidades', 'número de unidades', 'total de unidades', 'total de viviendas', 'unidades totales']:
+            temp_text_for_sum = temp_text_for_sum.replace(phrase, "")
+
+        # --- DETECCIÓN DE MÉTRICA Y OPERACIÓN (COMÚN PARA TODAS LAS REGLAS) ---
+        # Detección de operación PRIMERO para evitar que "valor máximo" detecte "valor" como métrica
+        op_funcion = "SUM"
+        
+        if any(x in texto for x in ['ranking', 'top', 'principales']):
+            op_funcion = "RANKING"
+        elif any(x in texto for x in ['agrupado por', 'agrupar por', 'agrupación por', 'agrupacion por']):
+            op_funcion = "GROUP_BY"
+        elif any(x in texto for x in ['promedio ponderado', 'promedio_ponderado']):
+            op_funcion = "PROMEDIO_PONDERADO"
+        elif any(x in texto for x in ['conteo de valores unicos', 'conteo de valores únicos', 'distinct_count']):
+            op_funcion = "DISTINCT_COUNT"
+        elif any(x in texto for x in ['moda', 'mode', 'más frecuente', 'valor mas frecuente', 'valor más frecuente', 'frecuente']):
+            op_funcion = "MODE"
+        elif any(x in texto for x in ['desviacion', 'desviación', 'stddev']):
+            op_funcion = "STDDEV"
+        elif any(x in texto for x in ['varianza', 'variance']):
+            op_funcion = "VAR_POP"
+        elif any(x in texto for x in ['mediana', 'median']):
+            op_funcion = "MEDIAN"
+        elif any(re.search(r'\b' + re.escape(x) + r'\b', texto) if len(x) <= 3 else x in texto for x in ['maximo', 'máximo', 'max', 'más alto', 'mayor']):
+            op_funcion = "MAX"
+        elif any(re.search(r'\b' + re.escape(x) + r'\b', texto) if len(x) <= 3 else x in texto for x in ['minimo', 'mínimo', 'min', 'más bajo', 'menor']):
+            op_funcion = "MIN"
+        elif re.search(r'\b(promedio|media|avg|average)\b', temp_text_for_avg):
+            op_funcion = "AVG"
+        elif any(x in temp_text_for_sum for x in ['totalidad', 'total', 'suma', 'sumatoria', 'numero', 'número']):
+            op_funcion = "SUM"
+        elif any(x in texto for x in ['conteo', 'conteo de', 'cantidad']):
+            op_funcion = "COUNT"
+        
+        # Detección de métrica DESPUÉS de operación
+        # Reglas claras: cantidad→unidades, tamaño→area, precio→valor
+        col_metrica = "unidades"  # Por defecto
+        
+        if 'precio_mc_promedio' in texto:
+            col_metrica = "precio_mc_promedio"
+        elif any(x in texto for x in ['metro cuadrado', 'm2', 'precio promedio m2']):
+            col_metrica = "precio_mc_promedio"
+        elif any(x in texto for x in ['superficie', 'area', 'área', 'area', 'tamaño', 'tamano', 'metros cuadrados', 'dimension', 'dimension', 'dimensión', 'dimension']):
+            col_metrica = "area"
+        elif any(x in texto for x in ['numero de unidades', 'número de unidades', 'numero de unidades', 'cantidad de unidades', 'total de unidades', 'total de viviendas', 'viviendas', 'cantidad']):
+            col_metrica = "unidades"
+        elif any(x in texto for x in ['valor', 'precio', 'pesos', 'monetario', 'costo', 'dinero', 'plata', 'monto']):
+            col_metrica = "valor"
+        elif "proyecto" in texto:
+            col_metrica = "identificador"
+        
+        # Validación de preguntas no realistas: COUNT sobre variables numéricas
+        # Esta validación debe estar ANTES de las reglas independientes
+        if op_funcion == "COUNT" and col_metrica in ["unidades", "valor", "area", "precio_mc_promedio"]:
+            # Retornar None para indicar pregunta mal formulada
+            return None
+        
+        if op_funcion == "COUNT":
+            metrica_sql = "COUNT(*)"
+            alias_sql = "total_registros"
+        elif op_funcion == "PROMEDIO_PONDERADO":
+            metrica_sql = "SUM(valor * unidades) / SUM(unidades)"
+            alias_sql = "promedio_ponderado"
+        elif op_funcion == "DISTINCT_COUNT":
+            metrica_sql = f"COUNT(DISTINCT {col_metrica})"
+            alias_sql = "valores_unicos"
+        elif op_funcion == "GROUP_BY":
+            metrica_sql = f"SUM({col_metrica})"
+            alias_sql = "total"
+        elif op_funcion == "RANKING":
+            metrica_sql = f"SUM({col_metrica})"
+            alias_sql = "total"
+        elif col_metrica == "identificador":
+            metrica_sql = "COUNT(DISTINCT identificador)"
+            alias_sql = "total_proyectos"
+        elif op_funcion in ["SUM", "AVG"]:
+            metrica_sql = f"COALESCE({op_funcion}({col_metrica}), 0)"
+            alias_sql = f"{col_metrica}_{op_funcion.lower()}"
+        else:
+            metrica_sql = f"{op_funcion}({col_metrica})"
+            alias_sql = f"{col_metrica}_{op_funcion.lower()}"
+
         # --- VALIDACIÓN DE RELEVANCIA (Evitar falsos positivos) ---
         # Si la pregunta menciona temas ajenos a LIVO (Macro, Normativa), rechazar para que pasen a otros motores.
         terminos_excluyentes = [
@@ -881,21 +967,6 @@ RECOMENDACIÓN CRÍTICA:
         if any(t in texto for t in terminos_excluyentes):
             return None
 
-        # --- DETECCIÓN DE MÉTRICA ---
-        # Por defecto unidades, pero cambia si piden valor o precio m2
-        metrica_sql = "COALESCE(SUM(unidades), 0)"
-        alias_sql = "unidades_filtradas"
-        
-        if any(x in texto for x in ['metro cuadrado', 'm2', 'precio promedio m2']):
-            metrica_sql = "AVG(precio_mc_promedio)"
-            alias_sql = "precio_m2_promedio"
-        elif any(x in texto for x in ['valor', 'precio', 'pesos', 'monetario', 'costo', 'dinero', 'plata']):
-            metrica_sql = "COALESCE(SUM(valor), 0)"
-            alias_sql = "valor_total"
-        elif "proyecto" in texto: # Detectar conteo de proyectos
-            metrica_sql = "COUNT(DISTINCT identificador)"
-            alias_sql = "total_proyectos"
-        
         # Detección de intención temporal general (para saber si filtrar por último periodo o no)
         temporal_keywords = [
             '201', '202', # Años 201x, 202x
@@ -911,6 +982,8 @@ RECOMENDACIÓN CRÍTICA:
 
         # Detección de mes explícito
         mes_filtro = ""
+        mes_nombre_detectado = None  # Guardar nombre del mes para conversión a rango
+        filtro_temporal = ""  # Inicializar filtro temporal
         meses_map_regex = {
             'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6,
             'julio': 7, 'agosto': 8, 'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
@@ -918,19 +991,46 @@ RECOMENDACIÓN CRÍTICA:
         for mes_nombre, mes_num in meses_map_regex.items():
             if mes_nombre in texto:
                 mes_filtro = f" AND CAST(SUBSTR(CAST(fecha AS VARCHAR), 5, 2) AS INTEGER) = {mes_num}"
+                mes_nombre_detectado = mes_nombre
                 break
+        
+        # Detección de formato mes-año (ej: "ene-26", "feb-26")
+        periodo_match = re.search(r"(ene|feb|mar|abr|may|jun|jul|ago|sep|oct|nov|dic)-(\d{2})", texto)
+        if periodo_match:
+            mes_abr = periodo_match.group(1)
+            anio_abr = periodo_match.group(2)
+            mes_map_abr = {'ene': '01', 'feb': '02', 'mar': '03', 'abr': '04', 'may': '05', 'jun': '06',
+                          'jul': '07', 'ago': '08', 'sep': '09', 'oct': '10', 'nov': '11', 'dic': '12'}
+            mes_num = mes_map_abr.get(mes_abr, '01')
+            anio_num = f"20{anio_abr}"
+            fecha_inicio = f"{anio_num}{mes_num}01"
+            fecha_fin = f"{anio_num}{mes_num}32"
+            filtro_temporal = f" AND fecha >= {fecha_inicio} AND fecha < {fecha_fin}"
+            anio_filtro = ""  # Limpiar para no duplicar
+            mes_filtro = ""  # Limpiar para no duplicar
+        
+        # Si hay año y mes, convertir directamente a rango de fechas
+        if anio_match and mes_nombre_detectado:
+            mes_map = {'ene': '01', 'feb': '02', 'mar': '03', 'abr': '04', 'may': '05', 'jun': '06',
+                      'jul': '07', 'ago': '08', 'sep': '09', 'oct': '10', 'nov': '11', 'dic': '12',
+                      'enero': '01', 'febrero': '02', 'marzo': '03', 'abril': '04', 'mayo': '05', 'junio': '06',
+                      'julio': '07', 'agosto': '08', 'septiembre': '09', 'octubre': '10', 'noviembre': '11', 'diciembre': '12'}
+            mes_num = mes_map.get(mes_nombre_detectado, '01')
+            anio_num = anio_match.group(1)
+            fecha_inicio = f"{anio_num}{mes_num}01"
+            fecha_fin = f"{anio_num}{mes_num}32"
+            filtro_temporal = f" AND fecha >= {fecha_inicio} AND fecha < {fecha_fin}"
+            anio_filtro = ""  # Limpiar para no duplicar
+            mes_filtro = ""  # Limpiar para no duplicar
 
         # Decidir el filtro final
-        filtro_temporal = ""
-        if anio_filtro and mes_filtro:
-            filtro_temporal = f"{anio_filtro} {mes_filtro}"
-        elif anio_filtro or mes_filtro:
-            filtro_temporal = anio_filtro or mes_filtro
+        if not filtro_temporal:  # Solo si no se convirtió a rango arriba
+            if anio_filtro and mes_filtro:
+                # Guardar información para conversión posterior
+                filtro_temporal = f"{anio_filtro} {mes_filtro}"
+            elif anio_filtro or mes_filtro:
+                filtro_temporal = anio_filtro or mes_filtro
         
-        # Si no hay filtro explícito y no se menciona tiempo, usar el último periodo disponible
-        if not filtro_temporal and not tiene_tiempo:
-            filtro_temporal = " AND fecha = (SELECT MAX(fecha) FROM livo)"
-            
         # Manejo explícito de "último año" o "últimos 12 meses"
         if "ultimo ano" in texto or "ultimo año" in texto or "ultimos 12 meses" in texto:
             filtro_temporal = " AND doce_meses = (SELECT MAX(doce_meses) FROM livo)"
@@ -963,12 +1063,6 @@ RECOMENDACIÓN CRÍTICA:
                      filtro_temporal = f" AND fecha = (SELECT MAX(fecha) FROM livo WHERE cuenta = '{cuenta_detectada}')"
                  else:
                      filtro_temporal = " AND fecha = (SELECT MAX(fecha) FROM livo)"
-
-        elif not filtro_temporal: # Si no hay filtro de año o mes, y no es "ultimo año", usar el de fecha máxima
-            # Evitar usar MAX(fecha) si hay cualquier otra palabra temporal
-            temporal_keywords_genericas = ['año', 'mes', 'trimestre', 'semestre', 'periodo', 'fecha', 'cuándo', 'reciente', 'actual']
-            if not any(k in texto for k in temporal_keywords_genericas):
-                filtro_temporal = " AND fecha = (SELECT MAX(fecha) FROM livo)"
 
         # Helper: obtener año de la pregunta (por ejemplo "2025")
         def _extraer_anio(texto_local: str) -> int:
@@ -1276,7 +1370,9 @@ RECOMENDACIÓN CRÍTICA:
                     pass
 
         # 8) Lanzamientos de vivienda (VIP, VIS, No VIS o Total)
-        if "lanzamientos" in texto or "lanzadas" in texto:
+        # Saltar si es operación especial (no SUM simple)
+        operaciones_especiales = ["GROUP_BY", "RANKING", "MAX", "MIN", "AVG", "MEDIAN", "MODE", "STDDEV", "VAR_POP", "COUNT", "PROMEDIO_PONDERADO", "DISTINCT_COUNT"]
+        if ("lanzamientos" in texto or "lanzadas" in texto) and op_funcion not in operaciones_especiales:
             region = self._extraer_region_general(texto)
             region_cond = self._condicion_region_general(region) if region else "1=1"
             
@@ -1309,7 +1405,8 @@ RECOMENDACIÓN CRÍTICA:
                 pass
 
         # 9) Iniciaciones de vivienda (VIP, VIS, No VIS o Total)
-        if "iniciaciones" in texto or "iniciadas" in texto:
+        # Saltar si es operación especial (no SUM simple)
+        if ("iniciaciones" in texto or "iniciadas" in texto) and op_funcion not in operaciones_especiales:
             region = self._extraer_region_general(texto)
             region_cond = self._condicion_region_general(region) if region else "1=1"
             
@@ -1706,6 +1803,39 @@ RECOMENDACIÓN CRÍTICA:
             estrato_val = int(estrato_match.group(1))
             filtros.append(f"estrato = {estrato_val}")
 
+        # 11. Detección de columnas de agrupación (para GROUP_BY y RANKING)
+        if op_funcion in ["GROUP_BY", "RANKING"]:
+            # Mapeo de términos de agrupación a columnas
+            agrupacion_map = {
+                'modalidad': 'modalidad',
+                'sector': 'zona',
+                'zona': 'zona',
+                'distrito': 'zona',
+                'situación': 'estado',
+                'situacion': 'estado',
+                'clasificación': 'tipo_vivienda',
+                'clasificacion': 'tipo_vivienda',
+                'clase social': 'estrato',
+                'clase_social': 'estrato',
+                'nivel socioeconomico': 'estrato',
+                'nivel socioeconómico': 'estrato',
+                'estatus': 'estado',
+                'estado': 'estado',
+                'fase': 'fase',
+                'regional': 'regional',
+                'departamento': 'departamento',
+                'ciudad': 'ciudad',
+                'distrito': 'zona',
+                'estrato': 'estrato',
+                'tipo': 'tipo_vivienda',
+                'segmento': 'segmento_pre'
+            }
+            
+            for key, col in agrupacion_map.items():
+                if key in texto:
+                    if col not in group_by_cols:
+                        group_by_cols.append(col)
+
         # --- CONSTRUCCIÓN FINAL DEL SQL ---
         # Solo construir si se detectó al menos un filtro
         if filtros:
@@ -1714,7 +1844,8 @@ RECOMENDACIÓN CRÍTICA:
             housing_sale_keywords = [
                 'vis', 'vip', 'no vis', 'vivienda de interes', 
             'precio entre', 'precio mayor', 'unidades totales de vivienda',
-            'ventas', 'lanzamientos', 'lanzadas', 'iniciaciones', 'iniciadas', 'oferta'
+            'ventas', 'lanzamientos', 'lanzadas', 'iniciaciones', 'iniciadas', 'oferta',
+            'paralizado', 'culminadas', 'entregadas', 'renuncias', 'saldo que inicia'
             ]
             is_housing_sale_query = any(k in texto for k in housing_sale_keywords)
             
@@ -1735,8 +1866,10 @@ RECOMENDACIÓN CRÍTICA:
             where_clause = " AND ".join(filtros)
             
             # --- PROTECCIÓN OFERTA: NO SUMAR ENTRE PERIODOS ---
-            # Si se consulta 'Oferta', forzar que sea solo del último periodo disponible dentro del rango filtrado.
-            if any("cuenta = 'Oferta'" in f for f in filtros):
+            # Si se consulta 'Oferta' y NO hay filtro temporal específico (rango de fechas), forzar que sea solo del último periodo disponible.
+            # Si hay filtro temporal específico (ej: "fecha >= 20260101"), respetar el rango de fechas.
+            tiene_rango_fechas = any("fecha >=" in f for f in filtros)
+            if any("cuenta = 'Oferta'" in f for f in filtros) and not tiene_rango_fechas:
                 # Subconsulta para encontrar la fecha máxima que cumple con los filtros actuales
                 subquery_max_fecha = f"(SELECT MAX(fecha) FROM livo WHERE {where_clause})"
                 where_clause += f" AND fecha = {subquery_max_fecha}"
@@ -1749,11 +1882,26 @@ RECOMENDACIÓN CRÍTICA:
                 cols_select = group_by_cols + cols_select
                 group_by_clause = f" GROUP BY {', '.join(group_by_cols)} ORDER BY {alias_sql} DESC"
 
+            # Extraer top_n si es una consulta de RANKING
+            limit_clause = ""
+            if op_funcion == "RANKING":
+                top_n = 5  # Valor por defecto
+                # Buscar números en el texto (ej: "los 5 principales", "top 10")
+                match_n = re.search(r'\b(top|los)?\s*(\d+)\s*(principales)?\b', texto)
+                if match_n:
+                    top_n = int(match_n.group(2))
+                else:
+                    match_any_num = re.search(r'\b(\d{1,2})\b', texto)
+                    if match_any_num:
+                        top_n = int(match_any_num.group(1))
+                limit_clause = f" LIMIT {top_n}"
+
             sql = (
                 f"SELECT {', '.join(cols_select)} "
                 "FROM livo "
                 f"WHERE {where_clause}"
                 f"{group_by_clause}"
+                f"{limit_clause}"
             )
             try:
                 print(f"[DEBUG LIVO reglas] SQL Combinatorio (con lógica de negocio) generado: {sql}")
@@ -2382,6 +2530,90 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
         
         return schema_text
     
+    def es_pregunta_livo(self, pregunta: str) -> bool:
+        """
+        Determina si una pregunta está relacionada con el universo de datos de LIVO
+        (licencias de construcción, vivienda, constructoras, etc.) utilizando
+        el diccionario de datos y los campos/valores del esquema de LIVO.
+        """
+        texto = normalize_text(pregunta)
+        
+        # EXCEPCIÓN CONCEPTUAL: Si la pregunta es teórica, legal o conceptual (e.g., "¿Qué es...?", "¿Cómo funciona...?")
+        # se debe responder con el LLM (Groq) directamente en lugar de intentar generar SQL para DuckDB.
+        conceptos_keywords = [
+            'que es', 'que son', 'cómo funciona', 'como funciona', 'requisito', 'requisitos',
+            'diferencia', 'cual es la funcion', 'cual es la función', 'para que sirve', 'para qué sirve',
+            'como solicitar', 'cómo solicitar', 'como postularse', 'cómo postularse', 'explicar', 'explicame',
+            'camacol', 'coordenada urbana', 'mi casa ya', 'subsidio', 'casa', 'vivienda de interes',
+            'vivienda de interes social', 'vivienda de interes prioritario', 'vis', 'vip',
+            'ministerio de vivienda', 'ley de vivienda', 'programa', 'fondo nacional del ahorro'
+        ]
+        if any(kw in texto for kw in conceptos_keywords):
+            return False
+
+        # 1. Palabras clave de ALTA CONFIANZA (específicas de LIVO/Construcción)
+        alta_confianza = [
+            'unidades', 'vis', 'vip', 'no vis', 'constructora', 'constructoras',
+            'lanzamientos', 'lanzadas', 'iniciaciones', 'iniciadas', 'vivienda', 'viviendas',
+            'desistimientos', 'paralizado', 'paralizada', 'paralizando', 'culminadas', 'culminada',
+            'entregadas', 'entregas', 'saldo que inicia', 'saldo inicial', 'precio_mc_promedio',
+            'compania_constructora', 'compañia_constructora', 'obras detenidas', 'suspendidas',
+            'desistido', 'desistimiento', 'apartamento', 'apartamentos', 'casa', 'casas'
+        ]
+        
+        for kw in alta_confianza:
+            if re.search(r'\b' + re.escape(kw) + r'\b', texto):
+                return True
+                
+        # 2. Palabras clave de MEDIA CONFIANZA (compartidas con lenguaje general)
+        # Solo se consideran LIVO si vienen acompañadas de un contexto relevante (operaciones, periodos, cuentas)
+        media_confianza = [
+            'fecha', 'año_corrido', 'doce_meses', 'regional', 'departamento', 'divipola', 'ciudad', 'zona', 'barrio', 
+            'estrato', 'destino_etapa', 'uso_etapa', 'modalidad', 'fase', 'last_estado', 'identificador', 
+            'nuevorango_pre', 'rangos_decreto_pre', 'rango_minviv', 'rango_ppm2', 'rango_area', 'am_capital', 
+            'segmento_pre', 'usos', 'politica_vivienda', 'area', 'área', 'valor', 'cuenta', 'fecha_date', 'mes', 'año',
+            'dia', 'momento', 'cuando', 'calendario', 'fecha de registro', 'momento de corte', 'trimestre',
+            'periodo anual', 'ejercicio', 'año fiscal', 'por año', 'anualmente', 'por ano', 'anualmente',
+            'ultimos 12 meses', 'ttm', 'ltm', 'año movil', 'periodo reciente', 'acumulado 12m', 'ano movil',
+            'region', 'zona grande', 'area geografica', 'macrozona', 'donde (macro)',
+            'provincia', 'division administrativa', 'de que departamento', 'jurisdiccion',
+            'codigo divipola', 'codigo municipal', 'identificador geografico', 'codigo dane',
+            'municipio', 'localidad', 'poblacion', 'urbe', 'en que ciudad', 'capital',
+            'sector', 'distrito', 'subzona', 'sector geografico', 'microzona',
+            'vecindario', 'comuna', 'urbanizacion', 'localidad', 'sector',
+            'nivel socioeconomico', 'clase social', 'estrato social', 'nivel', 'clasificacion',
+            'destino o finalidad', 'uso', 'tipo de vivienda', 'empresa constructora',
+            'licencia', 'tipo de licencia', 'por valor', 'fase constructiva', 'ultimo estado', 
+            'area metropolitana', 'segmento de precio', 'uso del proyecto', 'unidades de vivienda',
+            'metros cuadrados', 'm2', 'metro cuadrado', 'area construida', 'valor en miles', 
+            'precio promedio por metro', 'estado contable', 'estado de cuenta', 'tipo de saldo'
+        ]
+        
+        # Opciones categóricas de LIVO
+        regionales = ['antioquia', 'atlantico', 'bogota & cundinamarca', 'bogota', 'bolivar', 'boyaca_casanare', 
+                     'caldas', 'cauca', 'cesar', 'cordoba & sucre', 'cucuta_nororiente', 'huila', 'magdalena', 
+                     'meta', 'narino', 'quindio', 'risaralda', 'santander', 'tolima', 'valle', 'cundinamarca']
+        
+        # Contexto: operaciones o periodos típicos de LIVO
+        operaciones = ['suma', 'promedio', 'total', 'cantidad', 'cuantos', 'cuantas', 'ranking', 'top', 'mayor', 'menor', 'distribucion', 'conteo', 'maximo', 'minimo', 'mediana', 'moda']
+        periodos = ['ene-26', 'feb-26', 'mar-26', 'abr-26', '2026', '2025', '2024', '2023']
+        cuentas = ['culminadas', 'entregadas', 'iniciaciones', 'lanzamientos', 'oferta', 'paralizado', 'renuncias', 'saldo que inicia', 'ventas', 'construccion', 'preventa', 'proyectado']
+        
+        tiene_media_confianza = any(re.search(r'\b' + re.escape(kw) + r'\b', texto) for kw in media_confianza)
+        tiene_regional = any(re.search(r'\b' + re.escape(reg) + r'\b', texto) for reg in regionales)
+        tiene_operacion = any(re.search(r'\b' + re.escape(op) + r'\b', texto) for op in operaciones)
+        tiene_periodo = any(re.search(r'\b' + re.escape(per) + r'\b', texto) for per in periodos)
+        tiene_cuenta = any(re.search(r'\b' + re.escape(cta) + r'\b', texto) for cta in cuentas)
+        
+        if tiene_media_confianza and tiene_operacion and (tiene_regional or tiene_periodo or tiene_cuenta):
+            return True
+        if tiene_regional and tiene_cuenta:
+            return True
+        if tiene_regional and tiene_periodo and tiene_operacion:
+            return True
+            
+        return False
+    
     def consultar(self, pregunta: str, llm_function, usuario: str = "default", 
                  generate_chart: bool = False, channel: str = "streamlit") -> Tuple[bool, str, Optional[Dict]]:
         """Consulta usando Text-to-SQL con LLM (con mejoras integradas)"""
@@ -2394,6 +2626,21 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
         if fue_traducida:
             print(f"🌍 Pregunta traducida: {pregunta}")
         
+        # Clasificar si la pregunta es sobre LIVO o no (si no, responder con LLM directamente)
+        if not self.es_pregunta_livo(pregunta):
+            print(f"🔮 Pregunta no relacionada con LIVO detectada, respondiendo con LLM directamente...")
+            prompt_general = f"""Responde a la siguiente consulta general en español, de forma clara, concisa e informativa.
+Pregunta del usuario: {pregunta}
+
+Respuesta:"""
+            respuesta_general, _ = llm_function(prompt_general)
+            if respuesta_general:
+                respuesta_formateada = f"🤖 **Respuesta General (IA Assistant)**\n\n{respuesta_general.strip()}"
+                return True, respuesta_formateada, None
+            else:
+                # Si llm_function retorna vacío o es un dummy, podemos retornar False o un fallback amigable
+                return False, "❌ Pregunta no relacionada con LIVO. Por favor, realiza una consulta sobre licencias de construcción, vivienda, ventas, oferta, lanzamientos o constructoras en Colombia.", None
+
         # MEJORA 2: Detección de ambigüedades
         tiene_ambiguedades, ambiguedades = self.detectar_ambiguedades(pregunta)
         if tiene_ambiguedades:
