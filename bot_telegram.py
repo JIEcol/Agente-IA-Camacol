@@ -41,6 +41,9 @@ from llm_providers import llamar_api_ia
 from feedback_system import log_feedback
 from advanced_reasoning import analizar_seguridad_pregunta
 from advanced_reasoning import analizar_y_responder
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # Cargar variables de entorno desde .env
 load_dotenv()
@@ -71,7 +74,7 @@ logger = logging.getLogger(__name__)
 # Importar sistema RAG
 try:
     from rag_system import RAGSystem
-    RAG_FOLDER = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG"
+    RAG_FOLDER = str(BASE_DIR / 'RAG')
     RAG_AVAILABLE = True
     # Inicializar RAG globalmente
     rag_system = RAGSystem(RAG_FOLDER)
@@ -99,7 +102,7 @@ except Exception as e:
 # Importar sistema LIVO SQL (DuckDB)
 try:
     from livo_sql import LIVOSQLSystem
-    LIVO_PATH = r"C:\Users\jytorres\OneDrive - CAMACOL\Documentos\Coordinación de Información Estrategica\Chatbot-Camacol-main\RAG\2025\Coordenada Urbana\LIVO_total_nov25_.xlsx"
+    LIVO_PATH = str(BASE_DIR / 'RAG' / '2025' / 'Coordenada Urbana' / 'LIVO_total_nov25_.xlsx')
     LIVO_SQL_AVAILABLE = True
     logger.info("🚀 Inicializando LIVO SQL (DuckDB)...")
     livo_sql_system = LIVOSQLSystem(LIVO_PATH)
@@ -1386,7 +1389,7 @@ def es_consulta_livo(pregunta: str) -> bool:
         'unidades', 'proyectos', 'vis', 'vip', 'no vis',
         'constructora', 'área', 'valor', 'ranking', 'top', 'evolución',
         'comparar', 'cuántas', 'cuántos', 'total',
-        'saldo que inicia', 'oferta', 'ventas', 'renuncias', 'iniciaciones', 'desistimientos',
+        'saldo que inicia', 'saldos de vivienda', 'saldo inicial', 'oferta', 'ventas', 'renuncias', 'iniciaciones', 'desistimientos',
         'entregadas', 'lanzamientos', 'paralizado', 'culminadas', 'cuenta',
         'disponible', 'inventario', 'stock', 'comercializadas', 'negocios',
         'cancelaciones', 'inicios de obra', 'arranques', 'terminadas', 'finalizadas',
