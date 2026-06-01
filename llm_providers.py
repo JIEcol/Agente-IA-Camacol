@@ -24,8 +24,12 @@ def llamar_api_ia(prompt, provider_config):
     
     # Para el resto, obtener API key
     import os
-    from dotenv import load_dotenv
-    load_dotenv()
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ModuleNotFoundError:
+        pass
+
     # Usamos os.getenv para que funcione en cualquier entorno (Streamlit, Telegram, etc.)
     api_key = os.getenv(provider_config["api_key_env"])
     
@@ -178,7 +182,7 @@ def llamar_ollama(prompt, config):
     }
     
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=120)
+        response = requests.post(url, headers=headers, json=payload, timeout=(3.0, 120.0))
         
         if response.status_code == 200:
             data = response.json()
