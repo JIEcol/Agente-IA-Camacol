@@ -2077,7 +2077,28 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
                     "servicios", "qué servicios ofrecen"
                 ]
                 
-                # 2. Para el resto, usar el sistema de razonamiento
+                # --- LÓGICA SIMPLIFICADA: Intentar LIVO SQL PRIMERO ---
+                
+                # PASO 1: Intentar con LIVO SQL primero (prioridad máxima)
+                print(f"[DEBUG app.py] LIVO_SQL_AVAILABLE: {LIVO_SQL_AVAILABLE}")
+                print(f"[DEBUG app.py] hasattr(st.session_state, 'livo_sql'): {hasattr(st.session_state, 'livo_sql')}")
+                if hasattr(st.session_state, 'livo_sql'):
+                    print(f"[DEBUG app.py] st.session_state.livo_sql: {st.session_state.livo_sql}")
+                print(f"[DEBUG app.py] st.session_state.livo_sql_initialized: {st.session_state.get('livo_sql_initialized', False)}")
+                
+                if LIVO_SQL_AVAILABLE and hasattr(st.session_state, 'livo_sql') and st.session_state.livo_sql:
+                    with st.spinner("🚀 Consultando base de datos LIVO con SQL..."):
+                        exito, respuesta, _ = st.session_state.livo_sql.consultar(prompt, obtener_respuesta_ia)
+                        if exito:
+                            st.markdown(f"🚀 **FUENTE: LIVO SQL (DuckDB)**\n\n{respuesta}")
+                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                            guardar_historial()
+                            st.stop()  # Detener flujo aquí si LIVO respondió exitosamente
+                        else:
+                            # Si LIVO falló por no ser pregunta LIVO, continuar con razonamiento
+                            print(f"⚠️ LIVO SQL falló (posiblemente no es pregunta LIVO): {respuesta}")
+                
+                # PASO 2: Si LIVO no respondió, intentar sistema de razonamiento
                 if prompt.lower().strip() not in preguntas_simples and REASONING_AVAILABLE and hasattr(st.session_state, 'reasoning_system') and st.session_state.reasoning_system:
                     history = [msg['content'] for msg in st.session_state.messages if msg['role'] == 'user']
                     analysis_result = analyze_and_respond(
@@ -2096,48 +2117,17 @@ if prompt := st.chat_input("Escribe tu pregunta sobre CAMACOL o el sector constr
                         guardar_historial()
                         st.stop()
                 
-                # --- LÓGICA SIMPLIFICADA: Intentar LIVO SQL primero, luego RAG ---
-                
-                # PASO 2: Intentar con LIVO SQL primero
-                print(f"[DEBUG app.py] LIVO_SQL_AVAILABLE: {LIVO_SQL_AVAILABLE}")
-                print(f"[DEBUG app.py] hasattr(st.session_state, 'livo_sql'): {hasattr(st.session_state, 'livo_sql')}")
-                if hasattr(st.session_state, 'livo_sql'):
-                    print(f"[DEBUG app.py] st.session_state.livo_sql: {st.session_state.livo_sql}")
-                print(f"[DEBUG app.py] st.session_state.livo_sql_initialized: {st.session_state.get('livo_sql_initialized', False)}")
-                
-                if LIVO_SQL_AVAILABLE and hasattr(st.session_state, 'livo_sql') and st.session_state.livo_sql:
-                    with st.spinner("🚀 Consultando base de datos LIVO con SQL..."):
-                        exito, respuesta, _ = st.session_state.livo_sql.consultar(prompt, obtener_respuesta_ia)
-                        if exito:
-                            st.markdown(f"🚀 **FUENTE: LIVO SQL (DuckDB)**\n\n{respuesta}")
-                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
-                            guardar_historial()
-                        else:
-                            # Fallback a RAG si LIVO falla
-                            print("⚠️ LIVO SQL falló, intentando con RAG...")
-                            if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
-                                with st.spinner("🔍 Buscando en documentos..."):
-                                    exito_rag, respuesta_rag = procesar_consulta_rag(prompt)
-                                    if exito_rag:
-                                        st.markdown(respuesta_rag)
-                                        st.session_state.messages.append({"role": "assistant", "content": respuesta_rag})
-                                        guardar_historial()
-                                    else:
-                                        st.error("❌ No se pudo procesar la consulta con ningún sistema.")
-                            else:
-                                st.error("❌ No se pudo procesar la consulta LIVO.")
-
-                # PASO 3: Usar RAG si LIVO no está disponible
-                elif RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
-                    print(f"\n📚 CONSULTA NO-LIVO, usando sistema híbrido: {prompt}")
+                # PASO 3: Fallback a RAG si LIVO falló
+                if RAG_AVAILABLE and hasattr(st.session_state, 'rag_system') and st.session_state.rag_system:
+                    print("⚠️ LIVO SQL falló, intentando con RAG...")
                     with st.spinner("🔍 Buscando en documentos..."):
-                        exito, respuesta = procesar_consulta_rag(prompt)
-                        if exito:
-                            st.markdown(respuesta)
-                            st.session_state.messages.append({"role": "assistant", "content": respuesta})
+                        exito_rag, respuesta_rag = procesar_consulta_rag(prompt)
+                        if exito_rag:
+                            st.markdown(respuesta_rag)
+                            st.session_state.messages.append({"role": "assistant", "content": respuesta_rag})
                             guardar_historial()
                         else:
-                            st.error("No se encontró información relevante en los documentos.")
+                            st.error("❌ No se pudo procesar la consulta con ningún sistema.")
                 else:
                     st.error("❌ No hay sistemas de datos disponibles (LIVO SQL o RAG).")
                     
