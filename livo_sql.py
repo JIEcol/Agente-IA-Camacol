@@ -544,8 +544,11 @@ RECOMENDACIÓN CRÍTICA:
         # 2. Inicializar caché semántico (si está disponible)
         self.semantic_cache_embeddings = None
         if SEMANTIC_CACHE_AVAILABLE:
-            self.semantic_cache_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-            self.semantic_cache_embeddings = self._build_semantic_cache_embeddings()
+            try:
+                self.semantic_cache_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+                self.semantic_cache_embeddings = self._build_semantic_cache_embeddings()
+            except Exception as e:
+                print(f"⚠️ Error inicializando caché semántico: {e}. Continuando sin él.")
         
         # 3. Cargar historial de consultas
         self.historial = []
@@ -809,23 +812,63 @@ RECOMENDACIÓN CRÍTICA:
 
         Esta versión es sencilla pero suficiente para la validación automática:
         - Si no hay filas: indica que no se encontraron resultados.
-        - Si hay una sola celda numérica: devuelve directamente ese valor en texto.
-        - En otros casos: construye una tabla básica texto con encabezados.
+        - Si hay una sola celda numérica: devuelve directamente ese valor en texto con aclaraciones de escala monetaria.
+        - En otros casos: construye una tabla básica texto con encabezados y notas de escala si aplica.
         """
         # Sin filas
         if not result:
             return f"No se encontraron resultados para la consulta. SQL: {sql}"
 
+        # Verificar si todos los valores de la fila única son None (ej: SUM o AVG sobre consultas sin filas coincidentes)
+        if len(result) == 1 and all(v is None or str(v).strip().lower() in ['none', 'null', 'nan'] for v in result[0]):
+            return (
+                "**Sin registros disponibles:** No se encontraron transacciones en la base de datos para esta combinación de filtros (región, mes y cuenta de obra).\n\n"
+                "**Nota metodológica:** Es muy común que para ciertos departamentos con menor volumen de actividad edificadora "
+                "(como el Meta, Boyacá, Sucre, Córdoba, etc.) en un mes específico (ej: abril 2026), no se hayan registrado movimientos "
+                "de una cuenta de obra en particular (como **Lanzamientos** o **Iniciaciones**). Intenta consultar con un acumulado "
+                "más amplio (ej: *'en los últimos 12 meses'*) o en un departamento de mayor volumen."
+            )
+
         # Una fila, una o dos columnas (caso típico de SUM o AVG, o comparación anual)
         if len(result) == 1 and len(columns) in [1, 2]:
-            valor = result[0][0]
             # Formatear la respuesta de una o dos columnas
             respuesta_formateada = []
             for i, col_name in enumerate(columns):
                 valor_celda = result[0][i]
                 nombre_columna_limpio = col_name.replace('_', ' ')
-                if isinstance(valor_celda, (int, float)):
-                    respuesta_formateada.append(f"**{nombre_columna_limpio}:** {valor_celda:,.0f}")
+                
+                # Identificar si es una columna de tipo valor/precio monetario general o por m2
+                is_m2_monetary = ("m2" in col_name.lower() or "mc" in col_name.lower()) and ("precio" in col_name.lower() or "valor" in col_name.lower() or "costo" in col_name.lower())
+                is_monetary = ("valor" in col_name.lower() or "precio" in col_name.lower() or "costo" in col_name.lower()) and not is_m2_monetary
+                
+                if valor_celda is None or str(valor_celda).strip().lower() in ['none', 'null', 'nan']:
+                    if is_monetary or is_m2_monetary:
+                        respuesta_formateada.append(
+                            f"**{nombre_columna_limpio}:** No se registran montos económicos (el valor es nulo o no existen registros para esta combinación de filtros).\n\n"
+                            f"**Nota metodológica:** Algunas cuentas como **Entregadas**, **Culminadas** o **Iniciaciones** "
+                            f"registran principalmente volúmenes físicos de viviendas (**unidades**). Te sugerimos consultar por el **número de unidades** para esta misma selección (ej: *'Calcula la cantidad de unidades para Entregadas en Risaralda...'*)."
+                        )
+                    else:
+                        respuesta_formateada.append(f"**{nombre_columna_limpio}:** None")
+                elif isinstance(valor_celda, (int, float)):
+                    if is_m2_monetary:
+                        pesos_enteros = valor_celda * 1000
+                        millones_pesos = valor_celda / 1000.0
+                        respuesta_formateada.append(
+                            f"**{nombre_columna_limpio}:** {valor_celda:,.2f} miles de pesos por m²\n"
+                            f"  - Equivalente a: **${pesos_enteros:,.0f} COP por m²**\n"
+                            f"  - Expresado en millones: **${millones_pesos:,.2f} millones de pesos por m²**"
+                        )
+                    elif is_monetary:
+                        pesos_enteros = valor_celda * 1000
+                        millones_pesos = valor_celda / 1000.0
+                        respuesta_formateada.append(
+                            f"**{nombre_columna_limpio}:** {valor_celda:,.2f} miles de pesos\n"
+                            f"  - Equivalente a: **${pesos_enteros:,.0f} COP**\n"
+                            f"  - Expresado en millones: **${millones_pesos:,.2f} millones de pesos**"
+                        )
+                    else:
+                        respuesta_formateada.append(f"**{nombre_columna_limpio}:** {valor_celda:,.0f}")
                 else:
                     respuesta_formateada.append(f"**{nombre_columna_limpio}:** {valor_celda}")
             return "\n".join(respuesta_formateada)
@@ -841,6 +884,30 @@ RECOMENDACIÓN CRÍTICA:
         # Filas
         for fila in result:
             lineas.append(" | ".join(str(v) for v in fila))
+
+        # Agregar aclaración de escala al final si hay columnas de valor o m2
+        tiene_monetario = False
+        tiene_m2_monetario = False
+        for col_name in columns:
+            is_m2 = ("m2" in col_name.lower() or "mc" in col_name.lower()) and ("precio" in col_name.lower() or "valor" in col_name.lower() or "costo" in col_name.lower())
+            is_gen = ("valor" in col_name.lower() or "precio" in col_name.lower() or "costo" in col_name.lower()) and not is_m2
+            if is_m2:
+                tiene_m2_monetario = True
+            if is_gen:
+                tiene_monetario = True
+        
+        if tiene_monetario or tiene_m2_monetario:
+            lineas.append("\n💡 **Nota sobre escala monetaria (en miles de pesos):**")
+            
+            if tiene_monetario:
+                lineas.append("- **Campos de valor general** (ej: valor total, suma valor):")
+                lineas.append("  - Multiplicar por 1,000 para pesos enteros (ej: `776,700` miles = `$776,700,000 COP`).")
+                lineas.append("  - Dividir por 1,000 para millones de pesos (ej: `776,700` miles = `$776.70` millones de pesos).")
+            
+            if tiene_m2_monetario:
+                lineas.append("- **Campos de precio por metro cuadrado (m²)** (ej: precio_mc_promedio):")
+                lineas.append("  - Multiplicar por 1,000 para pesos enteros por m² (ej: `4,500` miles = `$4,500,000 COP por m²`).")
+                lineas.append("  - Dividir por 1,000 para millones de pesos por m² (ej: `4,500` miles = `$4.50` millones de pesos por m²).")
 
         return "\n".join(lineas)
 
@@ -900,13 +967,13 @@ RECOMENDACIÓN CRÍTICA:
             op_funcion = "MIN"
         elif re.search(r'\b(promedio|media|avg|average)\b', temp_text_for_avg):
             op_funcion = "AVG"
-        elif any(x in temp_text_for_sum for x in ['totalidad', 'total', 'suma', 'sumatoria', 'numero', 'número']):
+        elif any(x in temp_text_for_sum for x in ['totalidad', 'total', 'suma', 'sumatoria', 'numero', 'número', 'cantidad']):
             op_funcion = "SUM"
-        elif any(x in texto for x in ['conteo', 'conteo de', 'cantidad']):
+        elif any(x in texto for x in ['conteo', 'conteo de']):
             op_funcion = "COUNT"
         
         # Detección de métrica DESPUÉS de operación
-        # Reglas claras: cantidad→unidades, tamaño→area, precio→valor
+        # Reglas claras: cantidad→unidades, tamaño→area, precio/costo/valor→valor
         col_metrica = "unidades"  # Por defecto
         
         if 'precio_mc_promedio' in texto:
@@ -917,7 +984,7 @@ RECOMENDACIÓN CRÍTICA:
             col_metrica = "area"
         elif any(x in texto for x in ['numero de unidades', 'número de unidades', 'numero de unidades', 'cantidad de unidades', 'total de unidades', 'total de viviendas', 'viviendas', 'cantidad']):
             col_metrica = "unidades"
-        elif any(x in texto for x in ['valor', 'precio', 'pesos', 'monetario', 'costo', 'dinero', 'plata', 'monto']):
+        elif any(x in texto for x in ['valor', 'precio', 'costo', 'pesos', 'monetario', 'dinero', 'plata', 'monto']):
             col_metrica = "valor"
         elif "proyecto" in texto:
             col_metrica = "identificador"
@@ -1175,14 +1242,72 @@ RECOMENDACIÓN CRÍTICA:
             except Exception:
                 pass
 
-        # 0b) Top Constructoras (Ranking) - PRIORIDAD ALTA
+        # 0b) Precio/Costo/Valor Promedio de Vivienda (PRIORIDAD ALTA)
+        # Fórmula según especificación: (Suma de valor / 1000) / Suma de unidades = millones de pesos
+        # Donde Suma de valor está expresado en miles
+        # Tamaño promedio: Suma de área / Suma de unidades = m²
+        # Detecta: precio promedio, costo promedio, valor promedio, precio medio, costo medio, valor medio, tamaño promedio, área promedio, etc.
+        if ("precio promedio" in texto or "precio medio" in texto or 
+            "costo promedio" in texto or "costo medio" in texto or
+            "valor promedio" in texto or "valor medio" in texto or
+            "tamaño promedio" in texto or "tamano promedio" in texto or
+            "área promedio" in texto or "area promedio" in texto or
+            "superficie promedio" in texto or "m2 promedio" in texto):
+            region = self._extraer_region_general(texto)
+            region_cond = self._condicion_region_general(region) if region else "1=1"
+            
+            # Detectar fecha específica (ej: abril 2026 -> 20260401)
+            fecha_filtro = ""
+            if anio_match and mes_nombre_detectado:
+                mes_map = {'ene': '01', 'feb': '02', 'mar': '03', 'abr': '04', 'may': '05', 'jun': '06',
+                          'jul': '07', 'ago': '08', 'sep': '09', 'oct': '10', 'nov': '11', 'dic': '12',
+                          'enero': '01', 'febrero': '02', 'marzo': '03', 'abril': '04', 'mayo': '05', 'junio': '06',
+                          'julio': '07', 'agosto': '08', 'septiembre': '09', 'octubre': '10', 'noviembre': '11', 'diciembre': '12'}
+                mes_num = mes_map.get(mes_nombre_detectado, '01')
+                anio_num = anio_match.group(1)
+                fecha_especifica = f"{anio_num}{mes_num}01"
+                fecha_filtro = f" AND fecha = {fecha_especifica}"
+            elif filtro_temporal:
+                # Usar el filtro temporal existente si no hay fecha específica
+                fecha_filtro = filtro_temporal
+            
+            # SQL para calcular precio promedio y tamaño promedio
+            # Fórmula: (suma_valor / 1000) / suma_unidades = millones de pesos por unidad
+            # Nota: valor en LIVO está en miles, por lo que (valor / 1000) = valor en millones
+            sql = f"""
+            WITH datos_ventas AS (
+                SELECT 
+                    COALESCE(SUM(valor), 0) as suma_valor,
+                    COALESCE(SUM(unidades), 0) as suma_unidades,
+                    COALESCE(SUM(area), 0) as suma_area
+                FROM livo
+                WHERE cuenta = 'Ventas'
+                  AND destino_etapa = 'Venta'
+                  AND {region_cond}
+                  {fecha_filtro}
+            )
+            SELECT 
+                ROUND((suma_valor / 1000.0) / NULLIF(suma_unidades, 0), 2) as "Precio Promedio (millones de pesos)",
+                ROUND(suma_area / NULLIF(suma_unidades, 0), 2) as "Tamaño Promedio (m²)",
+                suma_valor as "Suma de Valor (en miles)",
+                suma_unidades as "Suma de Unidades",
+                suma_area as "Suma de Área"
+            FROM datos_ventas
+            """
+            try:
+                print(f"[DEBUG LIVO reglas] SQL INDEPENDIENTE (Precio Promedio Vivienda): {sql}")
+                return sql
+            except Exception:
+                pass
+
+        # 0c) Top Constructoras (Ranking) - PRIORIDAD ALTA
         if ("top" in texto or "ranking" in texto or "mejores" in texto) and ("constructora" in texto or "empresa" in texto):
             region = self._extraer_region_general(texto)
             region_cond = self._condicion_region_general(region) if region else "1=1"
             
-            # Intentar detectar número (top 5, top 10)
+            # Intentar detectar número de forma flexible (top 10, ranking de las 10, las 10 mejores, etc.)
             limit = 5
-            match_num = re.search(r"top\s+(\d+)", texto)
+            match_num = re.search(r"\b(\d{1,2})\b", texto)
             if match_num:
                 limit = int(match_num.group(1))
             
@@ -2059,9 +2184,9 @@ RECOMENDACIÓN CRÍTICA:
             contexto_livo.extend(avanzado)
             
             if contexto_livo:
-                respuesta += "\n\n📝 **Contexto LIVO:**\n" + "\n".join(contexto_livo)
+                respuesta += "\n\n**Contexto LIVO:**\n" + "\n".join(contexto_livo)
             
-            respuesta += f"\n\n🛠️ **Query:** `{sql}`"
+            respuesta += f"\n\n**Query:** `{sql}`"
             return respuesta
         except Exception as e:
             return f"Error al ejecutar SQL sin LLM: {e}"
@@ -2185,7 +2310,7 @@ RECOMENDACIÓN CRÍTICA:
                     MAX(fecha) AS fecha_max
                 FROM livo
                 WHERE cuenta = 'Oferta'
-                  AND LEFT(fecha, 4) = ?
+                  AND LEFT(CAST(fecha AS VARCHAR), 4) = ?
             """
             fecha_max = self.conn.execute(query, [str(anio)]).fetchone()[0]
 
@@ -2227,7 +2352,7 @@ WITH ultimo_periodo AS (
   SELECT MAX(fecha) AS fecha_max
   FROM livo
   WHERE cuenta = 'Oferta'
-    AND LEFT(fecha, 4) = '{anio_str}'
+    AND LEFT(CAST(fecha AS VARCHAR), 4) = '{anio_str}'
 ),
 oferta_filtrada AS (
   SELECT *
@@ -2265,7 +2390,7 @@ FROM oferta_filtrada
 🔹 ÚLTIMO AÑO:
    - Definición: Toda la información del año actual (año calendario completo)
    - Ejemplo: Si estamos en 2025, último año = todo el año 2025 (enero a diciembre)
-   - Uso: WHERE LEFT(fecha, 4) = '2025' para obtener todo el año 2025
+   - Uso: WHERE LEFT(CAST(fecha AS VARCHAR), 4) = '2025' para obtener todo el año 2025
    - Diferencia: No es lo mismo que año corrido
 
 🔹 DOCE_MESES:
@@ -2278,8 +2403,8 @@ FROM oferta_filtrada
    - Formato numérico: 20251031
    - Para extraer año: CAST(LEFT(CAST(fecha AS VARCHAR), 4) AS INTEGER)
    - Para extraer mes: CAST(SUBSTR(CAST(fecha AS VARCHAR), 5, 2) AS INTEGER)
-   - Para filtrar por año: WHERE LEFT(fecha, 4) = '2024'
-   - Para filtrar por mes: WHERE SUBSTRING(fecha, 5, 2) = '10'
+   - Para filtrar por año: WHERE LEFT(CAST(fecha AS VARCHAR), 4) = '2024'
+   - Para filtrar por mes: WHERE SUBSTRING(CAST(fecha AS VARCHAR), 5, 2) = '10'
 
 🔹 ÚLTIMOS N MESES:
    - Proceso: 1) Identificar mes más reciente con MAX(fecha)
@@ -2289,7 +2414,7 @@ FROM oferta_filtrada
      * Septiembre 2025 (202509xx) 
      * Agosto 2025 (202508xx)
      * Julio 2025 (202507xx)
-   - SQL: WHERE LEFT(fecha, 6) IN ('202510', '202509', '202508', '202507')
+   - SQL: WHERE LEFT(CAST(fecha AS VARCHAR), 6) IN ('202510', '202509', '202508', '202507')
 
 🔹 OFERTA (cuenta = 'Oferta') - REGLA CRÍTICA:
    - Las ofertas NO se suman entre meses.
@@ -2300,7 +2425,7 @@ FROM oferta_filtrada
      {ejemplo_oferta_2025}
    - SQL típico para elegir el último período de oferta de un año:
      SELECT MAX(fecha) FROM livo
-     WHERE cuenta = 'Oferta' AND LEFT(fecha, 4) = '2025';
+     WHERE cuenta = 'Oferta' AND LEFT(CAST(fecha AS VARCHAR), 4) = '2025';
      -- Luego filtrar SOLO por ese código de fecha en la consulta principal.
 
 ═══ EJEMPLOS DE CONSULTAS TEMPORALES CORRECTAS ═══
@@ -2310,13 +2435,13 @@ FROM oferta_filtrada
 
 ✅ CORRECTO:
    WHERE año_corrido = 1                    -- Para año corrido (oct 2024 - oct 2025)
-   WHERE LEFT(fecha, 4) = '2025'           -- Para último año (todo 2025)
+   WHERE LEFT(CAST(fecha AS VARCHAR), 4) = '2025'           -- Para último año (todo 2025)
    WHERE doce_meses = (SELECT MAX(doce_meses) FROM livo) -- Para últimos 12 meses móviles
-   WHERE LEFT(fecha, 6) IN ('202510', '202509', '202508', '202507')  -- Últimos 4 meses
+   WHERE LEFT(CAST(fecha AS VARCHAR), 6) IN ('202510', '202509', '202508', '202507')  -- Últimos 4 meses
 
 ═══ DETECCIÓN AUTOMÁTICA DE PERÍODOS ═══
 - "año corrido" → Usar año_corrido = 1 (período de 12 meses desde mismo mes año anterior)
-- "último año" → Usar LEFT(fecha, 4) = '2025' (año calendario completo actual)
+- "último año" → Usar LEFT(CAST(fecha AS VARCHAR), 4) = '2025' (año calendario completo actual)
 - "últimos 12 meses" → Usar doce_meses = 1 (12 meses móviles)
 - "últimos N meses" → Calcular desde MAX(fecha) hacia atrás N meses
 - "2024", "2025" → Extraer año específico de fecha
@@ -2445,10 +2570,10 @@ Fórmula: **Oferta Final = Oferta Inicial + Lanzamientos - Ventas**
 --- REGLA 3: EL CICLO DE VIDA (LIVO) ---
 El flujo de la actividad edificadora sigue estas etapas secuenciales:
 
-1. 🚀 **LANZAMIENTO (Preventa):** Salida al mercado sobre planos. Aumenta la oferta.
-2. 💰 **VENTA (Cierre de Negocio):** Cierre de promesas de compraventa. Reduce la oferta.
-3. 🏗️ **INICIACIÓN (Inicio de Obra):** Comienzo de la construcción física. Es un INDICADOR REZAGADO. Las iniciaciones de hoy reflejan las ventas de hace 6 a 12 meses. No afecta directamente la oferta comercial disponible (se puede vender algo no iniciado).
-4. 🏢 **OFERTA (Inventario):** Unidades remanentes que no se han vendido. Es el resultado final del ciclo.
+1. **LANZAMIENTO (Preventa):** Salida al mercado sobre planos. Aumenta la oferta.
+2. **VENTA (Cierre de Negocio):** Cierre de promesas de compraventa. Reduce la oferta.
+3. **INICIACIÓN (Inicio de Obra):** Comienzo de la construcción física. Es un INDICADOR REZAGADO. Las iniciaciones de hoy reflejan las ventas de hace 6 a 12 meses. No afecta directamente la oferta comercial disponible (se puede vender algo no iniciado).
+4. **OFERTA (Inventario):** Unidades remanentes que no se han vendido. Es el resultado final del ciclo.
 """
 
     def _generar_schema_inteligente(self) -> str:
@@ -2541,24 +2666,31 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
         # EXCEPCIÓN CONCEPTUAL: Si la pregunta es teórica, legal o conceptual (e.g., "¿Qué es...?", "¿Cómo funciona...?")
         # se debe responder con el LLM (Groq) directamente en lugar de intentar generar SQL para DuckDB.
         conceptos_keywords = [
-            'que es', 'que son', 'cómo funciona', 'como funciona', 'requisito', 'requisitos',
+            'que es', 'que son', 'cómo funciona', 'como funciona',
             'diferencia', 'cual es la funcion', 'cual es la función', 'para que sirve', 'para qué sirve',
             'como solicitar', 'cómo solicitar', 'como postularse', 'cómo postularse', 'explicar', 'explicame',
             'camacol', 'coordenada urbana', 'mi casa ya', 'subsidio', 'casa', 'vivienda de interes',
-            'vivienda de interes social', 'vivienda de interes prioritario', 'vis', 'vip',
+            'vivienda de interes social', 'vivienda de interes prioritario',
             'ministerio de vivienda', 'ley de vivienda', 'programa', 'fondo nacional del ahorro'
         ]
-        if any(kw in texto for kw in conceptos_keywords):
-            return False
+        # Evitar coincidencias de subcadena falsas (ej: "casa" en "Casanare" o "Boyacá_Casanare", "vis" en "division")
+        for kw in conceptos_keywords:
+            if len(kw) <= 5 or kw in ['subsidio', 'programa', 'explicar', 'diferencia']:
+                if re.search(r'\b' + re.escape(kw) + r'\b', texto):
+                    return False
+            else:
+                if kw in texto:
+                    return False
 
         # 1. Palabras clave de ALTA CONFIANZA (específicas de LIVO/Construcción)
         alta_confianza = [
-            'unidades', 'vis', 'vip', 'no vis', 'constructora', 'constructoras',
+            'unidades', 'vis', 'vip', 'no vis', 'constructora', 'constructoras', 'licencia', 'licencias',
             'lanzamientos', 'lanzadas', 'iniciaciones', 'iniciadas', 'vivienda', 'viviendas',
             'desistimientos', 'paralizado', 'paralizada', 'paralizando', 'culminadas', 'culminada',
             'entregadas', 'entregas', 'saldo que inicia', 'saldo inicial', 'precio_mc_promedio',
             'compania_constructora', 'compañia_constructora', 'obras detenidas', 'suspendidas',
-            'desistido', 'desistimiento', 'apartamento', 'apartamentos', 'casa', 'casas'
+            'desistido', 'desistimiento', 'apartamento', 'apartamentos', 'casa', 'casas',
+            'costo', 'precio', 'valor'  # Sinónimos para métricas monetarias
         ]
         
         for kw in alta_confianza:
@@ -2567,7 +2699,7 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
                 
         # 2. Palabras clave de MEDIA CONFIANZA (compartidas con lenguaje general)
         # Solo se consideran LIVO si vienen acompañadas de un contexto relevante (operaciones, periodos, cuentas)
-        media_confianza = [
+        media_confianza_contextual = [
             'fecha', 'año_corrido', 'doce_meses', 'regional', 'departamento', 'divipola', 'ciudad', 'zona', 'barrio', 
             'estrato', 'destino_etapa', 'uso_etapa', 'modalidad', 'fase', 'last_estado', 'identificador', 
             'nuevorango_pre', 'rangos_decreto_pre', 'rango_minviv', 'rango_ppm2', 'rango_area', 'am_capital', 
@@ -2575,15 +2707,14 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
             'dia', 'momento', 'cuando', 'calendario', 'fecha de registro', 'momento de corte', 'trimestre',
             'periodo anual', 'ejercicio', 'año fiscal', 'por año', 'anualmente', 'por ano', 'anualmente',
             'ultimos 12 meses', 'ttm', 'ltm', 'año movil', 'periodo reciente', 'acumulado 12m', 'ano movil',
-            'region', 'zona grande', 'area geografica', 'macrozona', 'donde (macro)',
+            'region', 'zona grande', 'area geografica', 'macrozona', 'donde (macro)', 'ubicacion', 'ubicación',
             'provincia', 'division administrativa', 'de que departamento', 'jurisdiccion',
             'codigo divipola', 'codigo municipal', 'identificador geografico', 'codigo dane',
             'municipio', 'localidad', 'poblacion', 'urbe', 'en que ciudad', 'capital',
             'sector', 'distrito', 'subzona', 'sector geografico', 'microzona',
             'vecindario', 'comuna', 'urbanizacion', 'localidad', 'sector',
             'nivel socioeconomico', 'clase social', 'estrato social', 'nivel', 'clasificacion',
-            'destino o finalidad', 'uso', 'tipo de vivienda', 'empresa constructora',
-            'licencia', 'tipo de licencia', 'por valor', 'fase constructiva', 'ultimo estado', 
+            'destino o finalidad', 'uso', 'tipo de vivienda', 'empresa constructora', 'tipo de licencia', 'por valor', 'fase constructiva', 'ultimo estado', 
             'area metropolitana', 'segmento de precio', 'uso del proyecto', 'unidades de vivienda',
             'metros cuadrados', 'm2', 'metro cuadrado', 'area construida', 'valor en miles', 
             'precio promedio por metro', 'estado contable', 'estado de cuenta', 'tipo de saldo'
@@ -2596,23 +2727,49 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
         
         # Contexto: operaciones o periodos típicos de LIVO
         operaciones = ['suma', 'promedio', 'total', 'cantidad', 'cuantos', 'cuantas', 'ranking', 'top', 'mayor', 'menor', 'distribucion', 'conteo', 'maximo', 'minimo', 'mediana', 'moda']
-        periodos = ['ene-26', 'feb-26', 'mar-26', 'abr-26', '2026', '2025', '2024', '2023']
+        periodos = ['ene-26', 'feb-26', 'mar-26', 'abr-26', '2026', '2025', '2024', '2023', 'trimestre', 'mes', 'año']
         cuentas = ['culminadas', 'entregadas', 'iniciaciones', 'lanzamientos', 'oferta', 'paralizado', 'renuncias', 'saldo que inicia', 'ventas', 'construccion', 'preventa', 'proyectado']
         
-        tiene_media_confianza = any(re.search(r'\b' + re.escape(kw) + r'\b', texto) for kw in media_confianza)
-        tiene_regional = any(re.search(r'\b' + re.escape(reg) + r'\b', texto) for reg in regionales)
-        tiene_operacion = any(re.search(r'\b' + re.escape(op) + r'\b', texto) for op in operaciones)
-        tiene_periodo = any(re.search(r'\b' + re.escape(per) + r'\b', texto) for per in periodos)
-        tiene_cuenta = any(re.search(r'\b' + re.escape(cta) + r'\b', texto) for cta in cuentas)
+        # Check for presence of high-confidence data keywords
+        has_alta_confianza_data = any(re.search(r'\b' + re.escape(kw) + r'\b', texto) for kw in alta_confianza)
+
+        # Check for presence of contextual data keywords
+        has_media_confianza = any(re.search(r'\b' + re.escape(kw) + r'\b', texto) for kw in media_confianza_contextual)
+        has_regional = any(re.search(r'\b' + re.escape(reg) + r'\b', texto) for reg in regionales)
+        has_operacion = any(re.search(r'\b' + re.escape(op) + r'\b', texto) for op in operaciones)
+        has_periodo = any(re.search(r'\b' + re.escape(per) + r'\b', texto) for per in periodos)
+        has_cuenta = any(re.search(r'\b' + re.escape(cta) + r'\b', texto) for cta in cuentas)
         
-        if tiene_media_confianza and tiene_operacion and (tiene_regional or tiene_periodo or tiene_cuenta):
+        # 3. Palabras clave CONCEPTUALES (que deberían ir a LLM general)
+        conceptos_keywords = [
+            'que es', 'que son', 'cómo funciona', 'como funciona', 'requisito', 'requisitos',
+            'diferencia', 'cual es la funcion', 'cual es la función', 'para que sirve', 'para qué sirve',
+            'como solicitar', 'cómo solicitar', 'como postularse', 'cómo postularse', 'explicar', 'explicame',
+            'camacol', 'coordenada urbana', 'mi casa ya', 'subsidio',
+            'ministerio de vivienda', 'ley de vivienda', 'programa', 'fondo nacional del ahorro'
+        ]
+        has_conceptual_keywords = any(kw in texto for kw in conceptos_keywords)
+
+        # Decision logic:
+        # If it has high-confidence data keywords, it's LIVO.
+        if has_alta_confianza_data:
             return True
-        if tiene_regional and tiene_cuenta:
+        
+        # If it has contextual data keywords AND an operation/region/period/account, it's LIVO.
+        if has_media_confianza and has_operacion and (has_regional or has_periodo or has_cuenta):
             return True
-        if tiene_regional and tiene_periodo and tiene_operacion:
+        if has_regional and has_cuenta: # e.g., "ventas en bogota"
+            return True
+        if has_regional and has_periodo and has_operacion: # e.g., "total unidades en bogota en 2025"
             return True
             
-        return False
+        # If it has conceptual keywords AND NO strong data keywords, it's conceptual.
+        if has_conceptual_keywords and not has_alta_confianza_data and not (has_media_confianza and has_operacion):
+            return False
+
+        # Default to LIVO if it's not clearly conceptual and has some data-like terms.
+        # This makes it more likely to try LIVO first.
+        return has_media_confianza or has_regional or has_operacion or has_periodo or has_cuenta
     
     def consultar(self, pregunta: str, llm_function, usuario: str = "default", 
                  generate_chart: bool = False, channel: str = "streamlit") -> Tuple[bool, str, Optional[Dict]]:
@@ -2628,18 +2785,8 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
         
         # Clasificar si la pregunta es sobre LIVO o no (si no, responder con LLM directamente)
         if not self.es_pregunta_livo(pregunta):
-            print(f"🔮 Pregunta no relacionada con LIVO detectada, respondiendo con LLM directamente...")
-            prompt_general = f"""Responde a la siguiente consulta general en español, de forma clara, concisa e informativa.
-Pregunta del usuario: {pregunta}
-
-Respuesta:"""
-            respuesta_general, _ = llm_function(prompt_general)
-            if respuesta_general:
-                respuesta_formateada = f"🤖 **Respuesta General (IA Assistant)**\n\n{respuesta_general.strip()}"
-                return True, respuesta_formateada, None
-            else:
-                # Si llm_function retorna vacío o es un dummy, podemos retornar False o un fallback amigable
-                return False, "❌ Pregunta no relacionada con LIVO. Por favor, realiza una consulta sobre licencias de construcción, vivienda, ventas, oferta, lanzamientos o constructoras en Colombia.", None
+            print(f"🔮 Consulta no clasificada como LIVO. Usando fallback...")
+            return False, "Consulta no clasificada como LIVO. Usando fallback...", None
 
         # MEJORA 2: Detección de ambigüedades
         tiene_ambiguedades, ambiguedades = self.detectar_ambiguedades(pregunta)
@@ -2671,7 +2818,7 @@ Respuesta:"""
                 # Verificar si se usó filtro geográfico en el SQL generado por reglas
                 # Si no hay filtro de departamento/regional, asumimos nacional y agregamos el tip
                 if "departamento" not in sql_reglas.lower() and "regional" not in sql_reglas.lower():
-                    respuesta += "\n\n💡 *Tip:* También puedo darte este dato por departamento o ciudad (ej: 'en Antioquia' o 'en Bogotá')."
+                    respuesta += "\n\n*Tip:* También puedo darte este dato por departamento o ciudad (ej: 'en Antioquia' o 'en Bogotá')."
                 
                 # Agregar badge
                 # Determinar si es contexto de vivienda (Coyuntura) o general (LIVO)
@@ -2683,10 +2830,10 @@ Respuesta:"""
                     es_coyuntura_vivienda = False
 
                 if es_coyuntura_vivienda:
-                    respuesta = f"⚡ **Respuesta rápida (Estimación LIVO)**\n\n{respuesta}\n\n🔍 *Fuente: Base de datos LIVO (Simulando reglas de Coyuntura)*"
+                    respuesta = f"**Respuesta rápida (Estimación LIVO)**\n\n{respuesta}\n\n*Fuente: Base de datos LIVO (Simulando reglas de Coyuntura)*"
                 else:
-                    respuesta = f"⚡ **Respuesta rápida (LIVO)**\n\n{respuesta}\n\n🔍 *Fuente: Base de datos LIVO (Cálculo directo)*"
-                respuesta += f"\n\n🛠️ **Query:** `{sql_reglas}`"
+                    respuesta = f"**Respuesta rápida (LIVO)**\n\n{respuesta}\n\n*Fuente: Base de datos LIVO (Cálculo directo)*"
+                respuesta += f"\n\n**Query:** `{sql_reglas}`"
                 
                 # Generar gráfico si se solicita
                 chart_data = None
@@ -2712,17 +2859,17 @@ Respuesta:"""
                 respuesta = self._formatear_resultados(result, columns, sql_cacheado)
                 
                 # Agregar badge de caché
-                respuesta = f"⚡ **Resultado cacheado (ultra rápido)**\n\n{respuesta}\n\n🔍 *Fuente: Base de datos LIVO (Caché)*"
-                respuesta += f"\n\n🛠️ **Query:** `{sql_cacheado}`"
+                respuesta = f"**Resultado cacheado (ultra rápido)**\n\n{respuesta}\n\n*Fuente: Base de datos LIVO (Caché)*"
+                respuesta += f"\n\n**Query:** `{sql_cacheado}`"
                 
                 # MEJORA 4: Explicación del SQL
                 explicacion = self.explicar_sql(sql_cacheado, llm_function)
-                respuesta += f"\n\n💡 **Qué hice:** {explicacion}"
+                respuesta += f"\n\n**Qué hice:** {explicacion}"
                 
                 # MEJORA 5: Sugerencias de preguntas relacionadas
                 sugerencias = self.generar_preguntas_relacionadas(pregunta, respuesta, llm_function)
                 if sugerencias:
-                    respuesta += "\n\n💭 **Preguntas relacionadas que podrías hacer:**\n"
+                    respuesta += "\n\n**Preguntas relacionadas que podrías hacer:**\n"
                     for i, sug in enumerate(sugerencias, 1):
                         respuesta += f"{i}. {sug}\n"
                 
@@ -2750,12 +2897,20 @@ Respuesta:"""
 {diccionario_sinonimos}
 
 REGLAS CRÍTICAS:
-1. DESAMBIGUACIÓN (REGIONAL vs DEPARTAMENTO):
+1. DESAMBIGUACIÓN (REGIONAL vs DEPARTAMENTO vs CIUDAD):
    - Si el usuario pide "departamento de Antioquia", usa `WHERE departamento = 'Antioquia'`.
    - Si el usuario pide "regional Antioquia", usa `WHERE regional = 'Antioquia'`.
    - Si solo dice "en Antioquia", y la pregunta es sobre datos agregados (oferta, ventas), asume `regional`. Si es sobre detalles (proyectos, constructoras), asume `departamento`.
-   - ¡Recuerda que los nombres pueden variar! 'Bogotá & Cundinamarca' es una regional, mientras que 'Bogotá D.C.' y 'Cundinamarca' son departamentos.
+   - ¡Recuerda que Risaralda, Antioquia, Valle, Atlántico, Cundinamarca, Bolívar, Santander, Tolima, Quindío, Caldas, Magdalena son DEPARTAMENTOS o REGIONALES, NUNCA ciudades!
+   - NUNCA uses `WHERE ciudad = 'Risaralda'` o `WHERE ciudad = 'Antioquia'`. Las ciudades/municipios válidos son nombres como 'Pereira', 'Medellín', 'Cali', 'Barranquilla', 'Bogotá D.C.', etc.
    - Si el usuario escribe "y" para unir regiones (ej: "Bogotá y Cundinamarca"), conviértelo a "&" para que coincida con la base de datos (ej: "Bogotá & Cundinamarca").
+1b. DESAMBIGUACIÓN (CUENTA vs ESTADO vs FASE):
+   - El campo `cuenta` es de importancia crítica y define la métrica transaccional. Sus valores válidos son EXACTAMENTE: 'Ventas', 'Iniciaciones', 'Culminadas', 'Entregadas', 'Oferta', 'Renuncias', 'Lanzamientos', 'Saldo que inicia', 'Paralizado'.
+   - Si el usuario pide "Entregadas", "Ventas", "Iniciaciones", "Culminadas", "Oferta", "Lanzamientos", "Renuncias", "Saldo que inicia" o "Paralizado", utiliza SIEMPRE `cuenta = 'Entregadas'`, `cuenta = 'Ventas'`, etc.
+   - NUNCA filtres por `estado = 'Entregadas'` o `estado = 'Ventas'`. El campo `estado` es para el estado físico de la obra ('Construcción', 'Preventa', 'TVE', 'TE', 'Cancelado', 'Paralizado', 'Proyectado', 'Rediseñado').
+1c. RANKINGS Y AGRUPACIONES (CONSTRUCTORAS / PROYECTOS):
+   - Si la pregunta pide un ranking, top o "principales" de "constructores", "constructoras", "empresas", "firmas", "compañías" o "proyectos", **SIEMPRE** debes seleccionar la columna `compania_constructora` (o `nombre_proyecto` según sea el caso), calcular la agregación correspondiente (ej: `SUM(unidades) AS total`), agrupar utilizando `GROUP BY compania_constructora` (o `GROUP BY nombre_proyecto`), ordenar de forma descendente (`ORDER BY total DESC`), y limitar la cantidad de resultados (`LIMIT N`).
+   - NUNCA devuelvas una agregación global (como un simple `SELECT SUM(unidades) FROM livo...` sin columnas ni cláusula GROUP BY) si el usuario solicita un ranking por constructores o proyectos. Es indispensable incluir la columna y la agrupación.
 2. CAMPOS CATEGÓRICOS: Usa EXACTAMENTE los valores listados (respeta mayúsculas/minúsculas).
 3. FILTROS DE TEXTO: Usa `UPPER(columna) LIKE UPPER('%valor%')` para búsquedas flexibles.
 4. CAMPOS NUMÉRICOS: Usa operadores `=`, `>`, `<`, `>=`, `<=` (NUNCA `LIKE`).
@@ -3985,14 +4140,14 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
         if "cuenta = 'Ventas'" in sql:
             escenario_bajo = valor_actual * 0.9
             escenario_alto = valor_actual * 1.1
-            return f"🔮 **Simulación What-If:** Si la demanda varía un +/- 10%, las ventas se ubicarían entre {escenario_bajo:,.0f} y {escenario_alto:,.0f} unidades."
+            return f" **Simulación What-If:** Si la demanda varía un +/- 10%, las ventas se ubicarían entre {escenario_bajo:,.0f} y {escenario_alto:,.0f} unidades."
         
         if "cuenta = 'Oferta'" in sql:
             # Simular absorción simple
             meses_simulados = 12
             ventas_estimadas = valor_actual * 0.05 * meses_simulados # Asumiendo 5% ventas mensuales
             saldo_final = valor_actual - ventas_estimadas
-            return f"🔮 **Simulación What-If:** Con una velocidad de ventas promedio del 5% mensual, el stock se reduciría a {saldo_final:,.0f} unidades en 12 meses (ceteris paribus)."
+            return f" **Simulación What-If:** Con una velocidad de ventas promedio del 5% mensual, el stock se reduciría a {saldo_final:,.0f} unidades en 12 meses (ceteris paribus)."
             
         return None
 
@@ -4030,10 +4185,10 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                 # Alertar si la desviación es mayor al 25%
                 if abs(desviacion_pct) > 25:
                     tipo_anomalia = "significativamente más alto" if desviacion_pct > 0 else "significativamente más bajo"
-                    return (f"⚠️ **Alerta de Anomalía:** Este valor es un **{abs(desviacion_pct):.1f}% {tipo_anomalia}** "
+                    return (f" **Alerta de Anomalía:** Este valor es un **{abs(desviacion_pct):.1f}% {tipo_anomalia}** "
                             f"que el promedio de los últimos 12 meses (que fue de {promedio_historico:,.0f}).")
         except Exception as e:
-            print(f"⚠️ Error en detección de anomalías: {e}")
+            print(f" Error en detección de anomalías: {e}")
         return None
     
     def _cargar_cache(self):
@@ -4041,9 +4196,9 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             if self.cache_file.exists():
                 with open(self.cache_file, 'r', encoding='utf-8') as f:
                     self.cache_consultas = json.load(f)
-                print(f"✅ Caché cargado: {len(self.cache_consultas)} consultas")
+                print(f" Caché cargado: {len(self.cache_consultas)} consultas")
         except Exception as e:
-            print(f"⚠️ Error cargando caché: {e}")
+            print(f" Error cargando caché: {e}")
             self.cache_consultas = {}
     
     def _guardar_cache(self):
@@ -4153,19 +4308,19 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             ciudades_conocidas = ['bogotá', 'medellín', 'cali', 'barranquilla', 'cartagena', 'bucaramanga']
             if not any(ciudad in pregunta_lower for ciudad in ciudades_conocidas):
                 if 'todas' not in pregunta_lower and 'top' not in pregunta_lower:
-                    ambiguedades.append("🌍 **Ciudad no especificada.** ¿Qué ciudad? (ej: Bogotá, Medellín, Cali) o ¿quieres ver todas?")
+                    ambiguedades.append(" **Ciudad no especificada.** ¿Qué ciudad? (ej: Bogotá, Medellín, Cali) o ¿quieres ver todas?")
         
         # Detectar falta de tipo de vivienda
         if any(palabra in pregunta_lower for palabra in ['vivienda', 'unidades', 'licencias']):
             if not any(tipo in pregunta_lower for tipo in ['vis', 'vip', 'no vis', 'todas']):
                 if 'tipo' not in pregunta_lower:
-                    ambiguedades.append("🏠 **Tipo de vivienda no especificado.** ¿VIS, VIP, No VIS o todas?")
+                    ambiguedades.append(" **Tipo de vivienda no especificado.** ¿VIS, VIP, No VIS o todas?")
         
         return len(ambiguedades) > 0, ambiguedades
     
     def validar_y_corregir_sql(self, sql: str, error: str, pregunta: str, llm_function) -> Optional[str]:
         """Intenta corregir SQL que falló"""
-        print(f"⚠️ Intentando corregir SQL que falló...")
+        print(f" Intentando corregir SQL que falló...")
         
         prompt_correccion = f"""El siguiente SQL falló con error. Corrígelo.
 
@@ -4296,7 +4451,7 @@ Preguntas sugeridas:"""
             
             return True
         except Exception as e:
-            print(f"⚠️ Error exportando a Excel: {e}")
+            print(f" Error exportando a Excel: {e}")
             return False
     
     def obtener_historial(self, usuario: str = "default", limite: int = 10) -> List[Dict[str, Any]]:
@@ -4308,7 +4463,7 @@ Preguntas sugeridas:"""
         """Limpia el caché de consultas"""
         self.cache_consultas = {}
         self._guardar_cache()
-        print("✅ Caché limpiado")
+        print(" Caché limpiado")
     
     def obtener_estadisticas(self) -> Dict[str, Any]:
         """Obtiene estadísticas del sistema"""
@@ -4474,19 +4629,19 @@ Preguntas sugeridas:"""
                 provider_name = FAST_PROVIDER.get("name", "desconocido") if FAST_PROVIDER else "desconocido"
             except Exception:
                 provider_name = "desconocido"
-            print(f"⚠️ Error en LLM FAST_PROVIDER ({provider_name}): {error}")
+            print(f" Error en LLM FAST_PROVIDER ({provider_name}): {error}")
 
             # 2) Si el error es de rate limit, intentar con los modelos locales de Ollama (Llama, Qwen)
             if isinstance(error, str) and "rate_limit_exceeded" in error:
                 for backup in ollama_backups:
                     backup_name = backup.get("name", "Ollama")
-                    print(f"🔁 Intentando fallback con proveedor local: {backup_name}")
+                    print(f" Intentando fallback con proveedor local: {backup_name}")
                     resp_backup, err_backup = llamar_api_ia(prompt_text, backup)
                     if resp_backup and not err_backup:
-                        print(f"✅ Fallback exitoso con {backup_name}")
+                        print(f" Fallback exitoso con {backup_name}")
                         return resp_backup
                     else:
-                        print(f"⚠️ Fallback con {backup_name} falló: {err_backup}")
+                        print(f" Fallback con {backup_name} falló: {err_backup}")
 
             # 3) Si llegamos aquí, no hubo éxito con ningún proveedor
             return None
@@ -4507,11 +4662,10 @@ if __name__ == "__main__":
     # Buscar archivo LIVO
     livo_path = None
     possible_paths = [
-        "RAG/2025/Coordenada Urbana/LIVO_total_nov25_.xlsx",
-        "RAG/2025/LIVO/LIVO_2025_Consolidado.xlsx",
-        "RAG/2025/LIVO/LIVO_2025.xlsx",
-        "LIVO_2025_Consolidado.xlsx",
-        "LIVO_2025.xlsx"
+        "LIVO/LIVO/LIVO_total_abr26_.xlsx",
+        "LIVO/LIVO/LIVO_total_nacional_abr26.xlsx",
+        "LIVO/LIVO/LIVO_total_NR_abr26_.xlsx",
+        "LIVO/LIVO/LIVO_total_abr26_resumen_.xlsx"
     ]
     
     for path in possible_paths:
@@ -4550,16 +4704,16 @@ if __name__ == "__main__":
     }
     
     # Inicializar sistema LIVO
-    print(f"🚀 Inicializando LIVO desde: {livo_path}")
+    print(f" Inicializando LIVO desde: {livo_path}")
     system = LIVOSQLSystem(livo_path)
     ok, msg = system.inicializar()
     
     if not ok:
-        print(f"❌ Error inicializando LIVO: {msg}")
+        print(f" Error inicializando LIVO: {msg}")
         exit(1)
     
-    print("✅ LIVO inicializado correctamente")
-    print("\n📊 Diccionario de datos LIVO:")
+    print(" LIVO inicializado correctamente")
+    print("\n Diccionario de datos LIVO:")
     for campo, descripcion in diccionario_datos.items():
         print(f"  • {campo}: {descripcion}")
     print("💡 Ejemplos de preguntas:")
@@ -4657,10 +4811,10 @@ IMPORTANTE:
                         else:
                             print(f"[DEBUG] Saltando proveedor deshabilitado: {provider_name}")
                     
-                    print("⚠️ No hay proveedores LLM disponibles")
+                    print(" No hay proveedores LLM disponibles")
                     return None, "No hay proveedores LLM disponibles"
                 except Exception as e:
-                    print(f"⚠️ Error con LLM: {e}")
+                    print(f" Error con LLM: {e}")
                     import traceback
                     traceback.print_exc()
                     return None, f"Error con LLM: {e}"
@@ -4672,15 +4826,15 @@ IMPORTANTE:
             if isinstance(resultado, tuple) and len(resultado) == 3:
                 exito, respuesta, sql_usado = resultado
                 if exito:
-                    print("✅ Respuesta:", respuesta)
+                    print(" Respuesta:", respuesta)
                     if sql_usado:
-                        print("📝 SQL usado:", sql_usado)
+                        print(" SQL usado:", sql_usado)
                 else:
-                    print("❌ Error:", respuesta)
+                    print(" Error:", respuesta)
             else:
-                print(f"❌ Resultado inesperado del sistema LIVO: {resultado}")
+                print(f" Resultado inesperado del sistema LIVO: {resultado}")
         except Exception as e:
-            print(f"❌ Error inesperado: {e}")
+            print(f" Error inesperado: {e}")
     
     # system.cerrar()  # Método no existe
     print("👋 ¡Hasta luego!")
