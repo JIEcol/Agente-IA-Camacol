@@ -3567,7 +3567,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
         
         # --- MEJORA: Manejar el caso en que todos los LLM fallen ---
         if not respuesta_llm:
-            return False, "❌ No se pudo generar la consulta SQL porque todos los proveedores de IA fallaron. Por favor, revisa los límites de tu API.", None
+            return False, " No se pudo generar la consulta SQL porque todos los proveedores de IA fallaron. Por favor, revisa los límites de tu API.", None
             
         sql = respuesta_llm.strip().replace('```sql', '').replace('```', '').strip()
         
@@ -3576,10 +3576,10 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
         
         if ';' in sql:
             sql = sql.split(';')[0].strip()
-            print(f"⚠️ Múltiples sentencias detectadas, usando solo la primera")
+            print(f" Múltiples sentencias detectadas, usando solo la primera")
         
         if len(sql) > 500:
-            print(f"⚠️ SQL muy largo ({len(sql)} chars), verificando...")
+            print(f" SQL muy largo ({len(sql)} chars), verificando...")
         
         print(f"\n📊 SQL: {sql}\n")
         
@@ -3590,7 +3590,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             # Formatear la respuesta principal
             respuesta = self._formatear_resultados(result, columns, sql)
             respuesta += "\n\n🔍 *Fuente: Base de datos LIVO (SQL Generado)*"
-            respuesta += f"\n\n🛠️ **Query:** `{sql}`"
+            respuesta += f"\n\n **Query:** `{sql}`"
 
             # --- Generación de Contexto Unificado (Consistente con reglas) ---
             contexto_items = []
@@ -3608,7 +3608,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             if avanzado: contexto_items.extend(avanzado)
 
             if contexto_items:
-                respuesta += "\n\n📝 **Contexto LIVO:**\n" + "\n".join(contexto_items)
+                respuesta += "\n\n **Contexto LIVO:**\n" + "\n".join(contexto_items)
 
             # MEJORA: Visualización Automática y Contextual
             chart_data = None
@@ -3618,7 +3618,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             return True, respuesta, chart_data
             
         except Exception as e:
-            return False, f"❌ Error SQL: {str(e)}", None
+            return False, f" Error SQL: {str(e)}", None
 
     def _realizar_analisis_comparativo(self, sql_original: str, resultado_actual: list, columnas: list) -> Optional[str]:
         """Intenta ejecutar la misma consulta para el año anterior y añade una comparación."""
@@ -3648,7 +3648,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                 valor_anterior = resultado_anterior[0][0]
                 if valor_anterior > 0:
                     cambio_pct = ((valor_actual - valor_anterior) / valor_anterior) * 100
-                    return f"📈 **Análisis Comparativo:** El resultado representa un **{'incremento' if cambio_pct >= 0 else 'decremento'} del {cambio_pct:.2f}%** en comparación con el año {año_anterior} (que fue de {valor_anterior:,.0f})."
+                    return f" **Análisis Comparativo:** El resultado representa un **{'incremento' if cambio_pct >= 0 else 'decremento'} del {cambio_pct:.2f}%** en comparación con el año {año_anterior} (que fue de {valor_anterior:,.0f})."
             
             # 2. Caso Complejo: Tabla / Agrupación (NUEVO - Soporte para resultados complejos)
             # Si hay más de 1 fila o columnas, comparamos el agregado total
@@ -3667,10 +3667,10 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                     
                     if total_anterior > 0:
                         cambio_pct = ((total_actual - total_anterior) / total_anterior) * 100
-                        return f"📈 **Análisis Comparativo (Agregado):** El volumen total analizado para {año_actual} ({total_actual:,.0f}) presenta una variación del **{cambio_pct:.2f}%** frente al año {año_anterior} ({total_anterior:,.0f})."
+                        return f" **Análisis Comparativo (Agregado):** El volumen total analizado para {año_actual} ({total_actual:,.0f}) presenta una variación del **{cambio_pct:.2f}%** frente al año {año_anterior} ({total_anterior:,.0f})."
 
         except Exception as e:
-            print(f"⚠️ Error en análisis comparativo: {e}")
+            print(f" Error en análisis comparativo: {e}")
         return None
     
     def _generar_contexto_avanzado(self, sql: str, result: list, columns: list, pregunta: str) -> List[str]:
@@ -3684,11 +3684,11 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
         # 1. Integración Narrativa de Coyuntura
         if COYUNTURA_AVAILABLE:
             narrativa = self._obtener_narrativa_coyuntura(pregunta)
-            if narrativa: contexto.append(f"📊 **Coyuntura:** {narrativa}")
+            if narrativa: contexto.append(f" **Coyuntura:** {narrativa}")
 
         # 2. Contexto Normativo Proactivo
         normativo = self._obtener_contexto_normativo(pregunta)
-        if normativo: contexto.append(f"⚖️ **Normativa:** {normativo}")
+        if normativo: contexto.append(f" **Normativa:** {normativo}")
 
         if es_dato_unico and valor_actual > 0:
             # 3. Market Share (Participación)
@@ -3794,7 +3794,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                 if res_nac and res_nac[0] and res_nac[0] > 0:
                     total_nacional = res_nac[0]
                     share = (valor_actual / total_nacional) * 100
-                    return f"🌍 **Market Share:** Representa el **{share:.1f}%** del total nacional ({total_nacional:,.0f})."
+                    return f" **Market Share:** Representa el **{share:.1f}%** del total nacional ({total_nacional:,.0f})."
             except:
                 pass
         return None
@@ -3825,7 +3825,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                     if val:
                         pct = (val / valor_total) * 100
                         partes.append(f"{seg}: {pct:.0f}%")
-                return f"🏘️ **Segmentación:** {' | '.join(partes)}."
+                return f" **Segmentación:** {' | '.join(partes)}."
         except:
             pass
         return None
@@ -3847,7 +3847,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                     ventas_prom_mensual = valor_actual / 12
                     if ventas_prom_mensual > 0:
                         rotacion = oferta / ventas_prom_mensual
-                        return f"🔄 **Salud del Mercado:** Con este ritmo de ventas, la oferta disponible ({oferta:,.0f}) se agotaría en **{rotacion:.1f} meses**."
+                        return f" **Salud del Mercado:** Con este ritmo de ventas, la oferta disponible ({oferta:,.0f}) se agotaría en **{rotacion:.1f} meses**."
             except:
                 pass
         return None
@@ -3863,7 +3863,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                 if res_prev and res_prev[0] and res_prev[0] > 0:
                     valor_prev = res_prev[0]
                     var = ((valor_actual - valor_prev) / valor_prev) * 100
-                    return f"🚀 **Momentum:** Variación de **{var:+.1f}%** frente al mes inmediatamente anterior."
+                    return f" **Momentum:** Variación de **{var:+.1f}%** frente al mes inmediatamente anterior."
             except:
                 pass
         return None
@@ -3934,7 +3934,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                     valor_par = res[0]
                     diff_pct = ((valor_actual - valor_par) / valor_par) * 100
                     estado = "por encima" if diff_pct > 0 else "por debajo"
-                    return f"🤼 **Benchmarking:** {ciudad_detectada.title()} está un **{abs(diff_pct):.1f}% {estado}** de su par {par_detectado.title()} ({valor_par:,.0f})."
+                    return f" **Benchmarking:** {ciudad_detectada.title()} está un **{abs(diff_pct):.1f}% {estado}** de su par {par_detectado.title()} ({valor_par:,.0f})."
             except:
                 pass
         return None
@@ -3949,7 +3949,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                 if res and res[0] and res[0] > 0:
                     lanzamientos = res[0]
                     absorcion = (valor_actual / lanzamientos) * 100
-                    return f"🧽 **Absorción:** Las ventas representan el **{absorcion:.1f}%** de los lanzamientos del periodo."
+                    return f" **Absorción:** Las ventas representan el **{absorcion:.1f}%** de los lanzamientos del periodo."
             
             elif "cuenta = 'Lanzamientos'" in sql:
                 # Obtener Ventas
@@ -3958,7 +3958,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
                 if res and res[0]:
                     ventas = res[0]
                     absorcion = (ventas / valor_actual) * 100
-                    return f"🧽 **Absorción:** Se ha vendido el **{absorcion:.1f}%** de lo lanzado en este periodo."
+                    return f" **Absorción:** Se ha vendido el **{absorcion:.1f}%** de lo lanzado en este periodo."
         except:
             pass
         return None
@@ -3989,7 +3989,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             if res and res[0]:
                 hhi = res[0]
                 nivel = "Baja" if hhi < 1500 else "Moderada" if hhi < 2500 else "Alta"
-                return f"🏗️ **Concentración de Mercado:** {nivel} (HHI: {hhi:.0f}). Un HHI mayor a 2500 indica alta concentración."
+                return f" **Concentración de Mercado:** {nivel} (HHI: {hhi:.0f}). Un HHI mayor a 2500 indica alta concentración."
         except:
             pass
         return None
@@ -4030,7 +4030,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             if res and res[0] and res[1]:
                 p_actual, p_ant = res
                 var = ((p_actual - p_ant) / p_ant) * 100
-                return f"💲 **Valorización:** El precio por m² ha variado un **{var:+.1f}%** frente al año anterior."
+                return f" **Valorización:** El precio por m² ha variado un **{var:+.1f}%** frente al año anterior."
         except:
             pass
         return None
@@ -4044,7 +4044,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             if match:
                 meses = float(match.group(1))
                 if meses < 6:
-                    return f"🚨 **Alerta de Agotamiento:** Inventario crítico. Al ritmo actual, la oferta se agotaría en solo {meses} meses (Stockout)."
+                    return f" **Alerta de Agotamiento:** Inventario crítico. Al ritmo actual, la oferta se agotaría en solo {meses} meses (Stockout)."
         return None
 
     def _calcular_distribucion_fina_smmlv(self, sql: str, valor_actual: float) -> Optional[str]:
@@ -4071,7 +4071,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             res = self.conn.execute(sql_dist).fetchone()
             if res:
                 medio, alto, lujo = res
-                return f"📏 **Rangos No VIS:** Medio (135-300 SMMLV): {medio or 0:.0f}% | Alto (300-500 SMMLV): {alto or 0:.0f}% | Lujo (>500 SMMLV): {lujo or 0:.0f}%."
+                return f" **Rangos No VIS:** Medio (135-300 SMMLV): {medio or 0:.0f}% | Alto (300-500 SMMLV): {alto or 0:.0f}% | Lujo (>500 SMMLV): {lujo or 0:.0f}%."
         except:
             pass
         return None
@@ -4109,9 +4109,9 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             promedio_mes = promedios.get(mes_consultado, 0)
             
             if promedio_mes > promedio_general * 1.1:
-                return f"📅 **Estacionalidad:** Históricamente, el mes {mes_consultado} es de **alta actividad** para {cuenta} (superior al promedio anual)."
+                return f" **Estacionalidad:** Históricamente, el mes {mes_consultado} es de **alta actividad** para {cuenta} (superior al promedio anual)."
             elif promedio_mes < promedio_general * 0.9:
-                return f"📅 **Estacionalidad:** Históricamente, el mes {mes_consultado} es de **baja actividad** para {cuenta}."
+                return f" **Estacionalidad:** Históricamente, el mes {mes_consultado} es de **baja actividad** para {cuenta}."
         except:
             pass
         return None
@@ -4119,11 +4119,11 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
     def _analisis_macro_sectorial(self, sql: str) -> Optional[str]:
         """Sugiere correlaciones con variables macroeconómicas (Razonamiento Multi-Fuente)."""
         if "cuenta = 'Ventas'" in sql:
-            return "📉 **Correlación Macro:** Las ventas de vivienda presentan históricamente una correlación inversa con las tasas de interés hipotecarias y el desempleo. Se sugiere cruzar este dato con el reporte de 'Tasas de Interés' y 'Mercado Laboral'."
+            return " **Correlación Macro:** Las ventas de vivienda presentan históricamente una correlación inversa con las tasas de interés hipotecarias y el desempleo. Se sugiere cruzar este dato con el reporte de 'Tasas de Interés' y 'Mercado Laboral'."
         if "cuenta = 'Iniciaciones'" in sql:
-            return "🏗️ **Correlación Macro:** Las iniciaciones suelen seguir el comportamiento del PIB de Edificaciones con un rezago de 1-2 trimestres."
+            return " **Correlación Macro:** Las iniciaciones suelen seguir el comportamiento del PIB de Edificaciones con un rezago de 1-2 trimestres."
         if "precio" in sql.lower() or "valor" in sql.lower():
-            return "💲 **Correlación Macro:** Los precios de vivienda están influenciados por el ICCV (Índice de Costos de Construcción) y la inflación (IPC)."
+            return " **Correlación Macro:** Los precios de vivienda están influenciados por el ICCV (Índice de Costos de Construcción) y la inflación (IPC)."
         return None
 
     def _auditar_calidad_datos(self, sql: str, result: list, columns: list) -> Optional[str]:
@@ -4132,7 +4132,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
         for row in result:
             for val in row:
                 if isinstance(val, (int, float)) and val < 0:
-                    return "🛡️ **Auditoría de Datos:** ⚠️ Se detectaron valores negativos en el resultado, lo cual puede indicar ajustes contables o reversiones masivas en la fuente."
+                    return " **Auditoría de Datos:**  Se detectaron valores negativos en el resultado, lo cual puede indicar ajustes contables o reversiones masivas en la fuente."
         return None
 
     def _simular_escenario_automatico(self, sql: str, valor_actual: float) -> Optional[str]:
@@ -4154,7 +4154,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
     def generar_reporte_ejecutivo(self, pregunta: str, respuesta: str, contexto: str, sql: str) -> str:
         """Genera un reporte ejecutivo en formato Markdown (Generación de Entregables)."""
         fecha_reporte = datetime.now().strftime("%Y-%m-%d")
-        reporte = f"# 📑 REPORTE EJECUTIVO CAMACOL\n**Fecha:** {fecha_reporte}\n**Consulta:** {pregunta}\n\n## 1. Resumen Ejecutivo\n{respuesta}\n\n## 2. Análisis de Contexto y Mercado\n{contexto.replace('📝 **Contexto LIVO:**', '').strip()}\n\n## 3. Detalles Técnicos\n**Fuente de Datos:** Base de Datos LIVO (Coordenada Urbana)\n**Consulta Ejecutada:**\n```sql\n{sql}\n```\n\n---\n*Generado automáticamente por el Agente Inteligente CAMACOL*"
+        reporte = f"#  REPORTE EJECUTIVO CAMACOL\n**Fecha:** {fecha_reporte}\n**Consulta:** {pregunta}\n\n## 1. Resumen Ejecutivo\n{respuesta}\n\n## 2. Análisis de Contexto y Mercado\n{contexto.replace('📝 **Contexto LIVO:**', '').strip()}\n\n## 3. Detalles Técnicos\n**Fuente de Datos:** Base de Datos LIVO (Coordenada Urbana)\n**Consulta Ejecutada:**\n```sql\n{sql}\n```\n\n---\n*Generado automáticamente por el Agente Inteligente CAMACOL*"
         return reporte
 
     def _detectar_anomalias(self, sql: str, resultado_actual: list, columnas: list) -> Optional[str]:
@@ -4207,7 +4207,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             with open(self.cache_file, 'w', encoding='utf-8') as f:
                 json.dump(self.cache_consultas, f, ensure_ascii=False, indent=2)
         except Exception as e:
-            print(f"⚠️ Error guardando caché: {e}")
+            print(f" Error guardando caché: {e}")
     
     def _obtener_hash_pregunta(self, pregunta: str) -> str:
         """Genera hash único de la pregunta para caché"""
@@ -4236,9 +4236,9 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             if self.historial_file.exists():
                 with open(self.historial_file, 'r', encoding='utf-8') as f:
                     self.historial = json.load(f)
-                print(f"✅ Historial cargado: {len(self.historial)} consultas")
+                print(f" Historial cargado: {len(self.historial)} consultas")
         except Exception as e:
-            print(f"⚠️ Error cargando historial: {e}")
+            print(f" Error cargando historial: {e}")
             self.historial = []
     
     def _guardar_historial(self):
@@ -4247,7 +4247,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
             with open(self.historial_file, 'w', encoding='utf-8') as f:
                 json.dump(self.historial, f, ensure_ascii=False, indent=2)
         except Exception as e:
-            print(f"⚠️ Error guardando historial: {e}")
+            print(f" Error guardando historial: {e}")
     
     def _agregar_a_historial(self, pregunta: str, sql: str, exito: bool, error: str = "", usuario: str = "default"):
         """Agrega consulta al historial"""
@@ -4301,7 +4301,7 @@ Genera SOLO el SQL (sin explicaciones, sin markdown, sin comentarios):
         palabras_temporales = ['año', 'mes', '2024', '2023', '2022', 'últimos', 'reciente', 'actual', 'doce_meses', 'trimestre']
         if not any(palabra in pregunta_lower for palabra in palabras_temporales):
             if any(palabra in pregunta_lower for palabra in ['tendencia', 'evolución', 'crecimiento', 'comparación']):
-                ambiguedades.append("📅 **Periodo temporal no especificado.** ¿Qué periodo? (ej: 2024, últimos 12 meses, trimestre actual)")
+                ambiguedades.append(" **Periodo temporal no especificado.** ¿Qué periodo? (ej: 2024, últimos 12 meses, trimestre actual)")
         
         # Detectar falta de ubicación cuando se pregunta por ciudad
         if 'ciudad' in pregunta_lower or 'ciudades' in pregunta_lower:
@@ -4674,7 +4674,7 @@ if __name__ == "__main__":
             break
     
     if not livo_path:
-        print("❌ No se encontró archivo LIVO. Verifica que esté en RAG/2025/LIVO/")
+        print(" No se encontró archivo LIVO. Verifica que esté en RAG/2025/LIVO/")
         exit(1)
     
     # Diccionario de datos LIVO
