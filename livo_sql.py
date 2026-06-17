@@ -1247,24 +1247,10 @@ RECOMENDACIÓN CRÍTICA:
         has_apartamento = 'apartamento' in texto or 'apartamentos' in texto
         has_casa = 'casa' in texto or 'casas' in texto
         
-        # Si es ranking por ciudad/departamento con filtros específicos, delegar al LLM
-        if has_ranking and (has_vis or has_estrato or has_apartamento or has_casa):
-            print(f"[DEBUG LIVO reglas] Detectado ranking por ciudad/departamento con filtros específicos, delegando a LLM")
-            return None
-        
-        # --- DETECCIÓN DE TRIMESTRES (dejar para LLM) ---
-        # Si la pregunta menciona trimestre, delegar al LLM para que filtre por los últimos 3 meses
-        trimestre_keywords = ['trimestre', 'trimestral', 'último trimestre', 'este trimestre']
-        if any(kw in texto for kw in trimestre_keywords):
-            print(f"[DEBUG LIVO reglas] Detectada pregunta de trimestre, delegando a LLM")
-            return None
-        
-        # --- DETECCIÓN DE RANKINGS DE PROYECTOS (dejar para LLM) ---
-        # Si la pregunta menciona proyectos, delegar al LLM para que use el campo identificador
-        proyecto_keywords = ['proyecto', 'proyectos', 'obra', 'desarrollo']
-        if any(kw in texto for kw in proyecto_keywords):
-            print(f"[DEBUG LIVO reglas] Detectada pregunta de proyectos, delegando a LLM")
-            return None
+        # Eliminadas las delegaciones automáticas al LLM para permitir que las reglas específicas procesen:
+        # - Preguntas de trimestre (ahora manejadas por regla TASA DE ABSORCIÓN)
+        # - Preguntas de proyectos (ahora manejadas por regla TOP PROYECTOS)
+        # - Rankings por ciudad con filtros (ahora manejados por regla RANKING PRECIO M²)
         
         # --- DETECCIÓN DE AGRUPACIÓN POR ESTRATO (dejar para LLM) ---
         # Si la pregunta menciona estratos específicos (ej: "estratos 4-6", "estrato 4, 5 y 6"), delegar al LLM
@@ -5622,8 +5608,9 @@ El flujo de la actividad edificadora sigue estas etapas secuenciales:
         sql = re.sub(r'\bWHERE\s+segmento_pre\s*=\s*\'[^\']*\'\s+AND\b', 'WHERE', sql, flags=re.IGNORECASE)
         # 6c. Columnas alucinadas usadas como nombre de métrica → unidades
         # El LLM escribe AVG(iniciaciones), SUM(ventas), SUM(lanzamientos), etc. — no existen, es SUM(unidades)
+        # NOTA: Excluir CTEs (ventas, oferta) que son nombres de tablas temporales, no columnas
         sql = re.sub(
-            r'\b(SUM|AVG|COUNT|MIN|MAX)\s*\(\s*(iniciaciones|ventas|lanzamientos|entregas|entregadas|renuncias|desistimientos|culminadas|paralizado|saldo_que_inicia)\s*\)',
+            r'\b(SUM|AVG|COUNT|MIN|MAX)\s*\(\s*(iniciaciones|lanzamientos|entregas|entregadas|renuncias|desistimientos|culminadas|paralizado|saldo_que_inicia)\s*\)',
             lambda m: f'{m.group(1)}(unidades)',
             sql, flags=re.IGNORECASE
         )
@@ -6833,6 +6820,53 @@ FROM estratos_4_6 e, total_lanzamientos t"""
             
             # Aplicar reglas de negocio específicas (orden crítico para evitar conflictos)
             
+            # REGLA PARA TASA DE ABSORCIÓN (prioridad máxima)
+            if any(palabra in texto_norm for palabra in ['tasa de absorcion', 'tasa de absorción', 'absorcion', 'absorción']) and any(palabra in texto_norm for palabra in ['ventas', 'oferta']):
+                # Detectar regional - usar valores exactos de la base de datos
+                regional_cond = "1=1"
+                if 'bogota' in texto_norm or 'bogotá' in texto_norm:
+                    regional_cond = "regional = 'Bogotá & Cundinamarca'"
+                elif 'antioquia' in texto_norm or 'medellin' in texto_norm or 'medellín' in texto_norm:
+                    regional_cond = "regional = 'Antioquia'"
+                elif 'atlantico' in texto_norm or 'atlántico' in texto_norm or 'barranquilla' in texto_norm:
+                    regional_cond = "regional = 'Atlántico'"
+                elif 'valle' in texto_norm or 'cali' in texto_norm:
+                    regional_cond = "regional = 'Valle'"
+                
+                # Query con CTE para tasa de absorción - usar fecha máxima (no trimestre con agregado en WHERE)
+                query = f"""WITH max_fecha AS (
+    SELECT MAX(fecha) AS fecha_max
+    FROM livo 
+    WHERE cuenta = 'Oferta'
+),
+ventas AS (
+    SELECT SUM(unidades) AS total_ventas
+    FROM livo 
+    WHERE cuenta = 'Ventas'
+      AND fecha = (SELECT fecha_max FROM max_fecha)
+      AND {regional_cond}
+),
+oferta AS (
+    SELECT SUM(unidades) AS total_oferta
+    FROM livo 
+    WHERE cuenta = 'Oferta'
+      AND fecha = (SELECT fecha_max FROM max_fecha)
+      AND {regional_cond}
+)
+SELECT 
+    v.total_ventas,
+    o.total_oferta,
+    (v.total_ventas / NULLIF(v.total_ventas + o.total_oferta, 0)) * 100 AS tasa_absorcion_porcentaje
+FROM ventas v, oferta o"""
+                
+                resultado_depuracion.update({
+                    'regla_aplicada': 'TASA DE ABSORCIÓN',
+                    'proceso': f'Tasa absorción Ventas/(Oferta+Ventas), {regional_cond}',
+                    'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
+                })
+                self._guardar_depuracion_reglas(resultado_depuracion)
+                return query.strip()
+            
             # REGLA PARA RANKING DE CIUDADES POR PRECIO PROMEDIO (prioridad alta)
             if any(palabra in texto_norm for palabra in ['ranking', 'top', 'ciudades']) and any(palabra in texto_norm for palabra in ['precio promedio', 'precio', 'promedio']) and 'vis' in texto_norm and 'estrato 3' in texto_norm:
                 # Query para ranking de ciudades por precio promedio del metro cuadrado
@@ -6858,7 +6892,7 @@ LIMIT 15"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA TASA DE ABSORCIÓN (Ventas / (Oferta + Ventas))
             if any(palabra in texto_norm for palabra in ['tasa de absorcion', 'tasa de absorción', 'absorcion', 'absorción']) and any(palabra in texto_norm for palabra in ['ventas', 'oferta']):
@@ -6905,20 +6939,20 @@ FROM ventas v, oferta o"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA UNIDADES Y PRECIO PROMEDIO POR SEGMENTO VIS/NO VIS (mover antes de reglas VIS generales)
             if any(palabra in texto_norm for palabra in ['vis', 'no vis']) and any(palabra in texto_norm for palabra in ['unidades', 'precio promedio']) and ('lanzaron' in texto_norm or 'lanzamiento' in texto_norm):
-                # Detectar regional
+                # Detectar regional - usar valores exactos de la base de datos
                 regional_cond = "1=1"
                 if 'valle' in texto_norm or 'cauca' in texto_norm or 'cali' in texto_norm:
                     regional_cond = "regional = 'Valle'"
                 elif 'bogota' in texto_norm or 'bogotá' in texto_norm:
-                    regional_cond = "ciudad LIKE '%BOGOT%'"
+                    regional_cond = "regional = 'Bogotá & Cundinamarca'"
                 elif 'antioquia' in texto_norm or 'medellin' in texto_norm or 'medellín' in texto_norm:
-                    regional_cond = "UPPER(regional) LIKE '%ANTIOQUIA%'"
+                    regional_cond = "regional = 'Antioquia'"
                 elif 'atlantico' in texto_norm or 'atlántico' in texto_norm or 'barranquilla' in texto_norm:
-                    regional_cond = "UPPER(regional) LIKE '%ATLANTICO%'"
+                    regional_cond = "regional = 'Atlántico'"
                 
                 # Detectar año
                 año_cond = "CAST(fecha AS VARCHAR) LIKE '2026%'"
@@ -6935,7 +6969,7 @@ FROM ventas v, oferta o"""
         SUM(unidades) AS total_unidades,
         SUM(valor) AS valor_total
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
+    WHERE cuenta = 'Lanzamientos'
       AND {año_cond}
       AND {regional_cond}
     GROUP BY CASE WHEN segmento_pre = 'VIS' THEN 'VIS' ELSE 'NO VIS' END
@@ -6954,7 +6988,7 @@ ORDER BY segmento"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA TOP PROYECTOS POR VALOR/SALDO EN REGIONAL (prioridad alta)
             if any(palabra in texto_norm for palabra in ['top', 'mayor', 'mayores', 'mayor saldo']) and any(palabra in texto_norm for palabra in ['proyectos', 'proyecto', 'identificador']) and any(palabra in texto_norm for palabra in ['valor', 'saldo', 'total']):
@@ -6963,14 +6997,14 @@ ORDER BY segmento"""
                 top_match = re.search(r'top\s+(\d+)', texto_norm)
                 limite = top_match.group(1) if top_match else '10'
                 
-                # Detectar regional
+                # Detectar regional - usar valores exactos de la base de datos
                 regional_cond = "1=1"
                 if 'caribe' in texto_norm or 'atlantico' in texto_norm or 'atlántico' in texto_norm or 'barranquilla' in texto_norm or 'cartagena' in texto_norm:
-                    regional_cond = "UPPER(regional) LIKE '%ATLANTICO%'"
+                    regional_cond = "regional = 'Atlántico'"
                 elif 'bogota' in texto_norm or 'bogotá' in texto_norm:
-                    regional_cond = "ciudad LIKE '%BOGOT%'"
+                    regional_cond = "regional = 'Bogotá & Cundinamarca'"
                 elif 'antioquia' in texto_norm or 'medellin' in texto_norm:
-                    regional_cond = "UPPER(regional) LIKE '%ANTIOQUIA%'"
+                    regional_cond = "regional = 'Antioquia'"
                 elif 'valle' in texto_norm or 'cali' in texto_norm:
                     regional_cond = "regional = 'Valle'"
                 
@@ -6981,18 +7015,16 @@ ORDER BY segmento"""
                 cuenta_filtro = "'Saldo que inicia'" if es_saldo else "'Oferta'"
                 fecha_cond_filtro = f"fecha = (SELECT MAX(fecha) FROM livo WHERE cuenta = {cuenta_filtro})"
                 
-                # Query para top proyectos por valor
+                # Query para top proyectos por valor - SOLO usar identificador (no nombre_proyecto ni compania_constructora)
                 query = f"""SELECT 
     identificador,
-    nombre_proyecto,
-    compania_constructora,
     SUM(unidades) AS total_unidades,
     SUM(valor) AS valor_total
 FROM livo 
 WHERE cuenta = {cuenta_filtro}
     AND {regional_cond}
     AND {fecha_cond_filtro}
-GROUP BY identificador, nombre_proyecto, compania_constructora
+GROUP BY identificador
 ORDER BY valor_total DESC
 LIMIT {limite}"""
                 
@@ -7032,7 +7064,7 @@ LIMIT {limite}"""
         SUM(unidades) AS total_unidades,
         SUM(valor) AS valor_total
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
+    WHERE cuenta = 'Lanzamientos'
       AND {año_cond}
       AND {regional_cond}
     GROUP BY CASE WHEN segmento_pre = 'VIS' THEN 'VIS' ELSE 'NO VIS' END
@@ -7051,7 +7083,7 @@ ORDER BY segmento"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA PORCENTAJE DE ESTRATOS 4-6 EN LANZAMIENTOS (prioridad alta)
             if any(palabra in texto_norm for palabra in ['porcentaje', 'porciento', '%']) and any(palabra in texto_norm for palabra in ['estratos', 'estrato', '4', '5', '6']) and 'lanzamiento' in texto_norm:
@@ -7059,15 +7091,15 @@ ORDER BY segmento"""
                 query = """WITH estratos_4_6 AS (
     SELECT SUM(unidades) AS unidades_estratos_4_6
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
+    WHERE cuenta = 'Lanzamientos'
       AND estrato IN ('4', '5', '6')
-      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamiento')
+      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamientos')
 ),
 total_lanzamientos AS (
     SELECT SUM(unidades) AS total_unidades
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
-      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamiento')
+    WHERE cuenta = 'Lanzamientos'
+      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamientos')
 )
 SELECT 
     e.unidades_estratos_4_6,
@@ -7081,7 +7113,50 @@ FROM estratos_4_6 e, total_lanzamientos t"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
+            
+            # REGLA PARA PRECIO PROMEDIO GENERAL (prioridad alta)
+            if 'precio promedio' in texto_norm and ('unidades' in texto_norm or 'vivienda' in texto_norm or 'apartamento' in texto_norm):
+                # Detectar región
+                regional_cond = "1=1"
+                if 'bogota' in texto_norm or 'bogotá' in texto_norm:
+                    regional_cond = "ciudad LIKE '%BOGOT%'"
+                elif 'antioquia' in texto_norm or 'medellin' in texto_norm or 'medellín' in texto_norm:
+                    regional_cond = "UPPER(regional) LIKE '%ANTIOQUIA%'"
+                elif 'atlantico' in texto_norm or 'atlántico' in texto_norm or 'barranquilla' in texto_norm:
+                    regional_cond = "UPPER(regional) LIKE '%ATLANTICO%'"
+                elif 'valle' in texto_norm or 'cali' in texto_norm:
+                    regional_cond = "regional = 'Valle'"
+                
+                # Detectar filtros adicionales
+                filtros_adicionales = []
+                if 'vis' in texto_norm:
+                    filtros_adicionales.append("segmento_pre = 'VIS'")
+                if 'no vis' in texto_norm:
+                    filtros_adicionales.append("segmento_pre = 'NO VIS'")
+                if 'vip' in texto_norm:
+                    filtros_adicionales.append("rangos_decreto_pre = 'VIP'")
+                
+                where_adicional = " AND " + " AND ".join(filtros_adicionales) if filtros_adicionales else ""
+                
+                # Query para precio promedio ponderado general
+                query = f"""SELECT 
+    ROUND(SUM(valor) / SUM(unidades) / 1000000, 2) AS precio_promedio_millones,
+    SUM(unidades) AS total_unidades,
+    SUM(valor) AS valor_total
+FROM livo 
+WHERE cuenta = 'Oferta'
+    AND fecha = (SELECT MAX(fecha) FROM livo WHERE cuenta = 'Oferta')
+    AND {regional_cond}
+    {where_adicional}"""
+                
+                resultado_depuracion.update({
+                    'regla_aplicada': 'PRECIO PROMEDIO GENERAL',
+                    'proceso': f'Precio promedio general, {regional_cond}',
+                    'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
+                })
+                self._guardar_depuracion_reglas(resultado_depuracion)
+                return query.strip()
             
             # REGLA PARA PRECIO PROMEDIO DE LANZAMIENTOS EN FECHA ESPECÍFICA (prioridad alta)
             if 'precio promedio' in texto_norm and ('lanzamiento' in texto_norm or 'lanzaron' in texto_norm):
@@ -7119,7 +7194,7 @@ WHERE cuenta = 'Lanzamientos'
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             if 'no vis' in texto_norm and 'vis' in texto_norm:
                 # Caso ambiguo: "vis no vis" -> priorizar NO VIS
@@ -7204,7 +7279,7 @@ ORDER BY segmento_pre"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA COMPARACIÓN ENTRE REGIONES CON DESGLOSE POR USO
             elif any(palabra in texto_norm for palabra in ['comparación', 'comparacion', 'versus', 'vs']) and any(palabra in texto_norm for palabra in ['casa', 'apartamento', 'uso', 'tipo de uso']) and any(palabra in texto_norm for palabra in ['bogota', 'bogotá', 'antioquia', 'regionales', 'regional']):
@@ -7245,7 +7320,7 @@ ORDER BY regional, uso_etapa"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA RANKING DE CIUDADES POR PRECIO PROMEDIO (más general)
             elif any(palabra in texto_norm for palabra in ['ranking', 'top', 'ciudades']) and any(palabra in texto_norm for palabra in ['precio promedio', 'precio', 'promedio']) and 'vis' in texto_norm and 'estrato 3' in texto_norm:
@@ -7272,17 +7347,17 @@ LIMIT 15"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
-            # REGLA PARA VARIACIÓN DE PRECIO PROMEDIO ENTRE AÑOS
-            elif any(palabra in texto_norm for palabra in ['variacion', 'variación', 'comparar', 'frente']) and 'precio promedio' in texto_norm and ('lanzamiento' in texto_norm or 'lanzaron' in texto_norm) and any(palabra in texto_norm for palabra in ['2025', '2026']):
+            # REGLA PARA VARIACIÓN DE PRECIO PROMEDIO GENERAL ENTRE AÑOS
+            if any(palabra in texto_norm for palabra in ['variacion', 'variación', 'comparar', 'frente']) and 'precio promedio' in texto_norm and any(palabra in texto_norm for palabra in ['2025', '2026']):
                 # Query con CTE para variación de precio promedio entre 2025 y 2026
                 query = """WITH datos_2025 AS (
     SELECT 
         SUM(valor) AS total_valor_2025,
         SUM(unidades) AS total_unidades_2025
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
+    WHERE cuenta = 'Lanzamientos'
       AND CAST(fecha AS VARCHAR) LIKE '2025%'
 ),
 datos_2026 AS (
@@ -7290,7 +7365,7 @@ datos_2026 AS (
         SUM(valor) AS total_valor_2026,
         SUM(unidades) AS total_unidades_2026
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
+    WHERE cuenta = 'Lanzamientos'
       AND CAST(fecha AS VARCHAR) LIKE '2026%'
 )
 SELECT 
@@ -7307,7 +7382,7 @@ FROM datos_2025 d25, datos_2026 d26"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
                         
             # REGLA PARA RANKING DE CIUDADES POR PRECIO PROMEDIO M² EN APARTAMENTOS VIS, ESTRATO 3 (versión específica con m2)
@@ -7335,7 +7410,7 @@ LIMIT 15"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA TASA DE DESISTIMIENTO POR CONSTRUCTORA
             elif any(palabra in texto_norm for palabra in ['desistimiento', 'renuncia', 'renuncias']) and any(palabra in texto_norm for palabra in ['constructora', 'constructoras', 'compania', 'companias']):
@@ -7370,7 +7445,7 @@ LIMIT 10"""
                     'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
                 })
                 self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
+                return query.strip()
             
             # REGLA PARA PORCENTAJE DE ESTRATOS 4-6 EN LANZAMIENTOS
             elif any(palabra in texto_norm for palabra in ['porcentaje', 'porciento', '%']) and any(palabra in texto_norm for palabra in ['estratos', 'estrato', '4', '5', '6']) and 'lanzamiento' in texto_norm:
@@ -7378,15 +7453,15 @@ LIMIT 10"""
                 query = """WITH estratos_4_6 AS (
     SELECT SUM(unidades) AS unidades_estratos_4_6
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
+    WHERE cuenta = 'Lanzamientos'
       AND estrato IN ('4', '5', '6')
-      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamiento')
+      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamientos')
 ),
 total_lanzamientos AS (
     SELECT SUM(unidades) AS total_unidades
     FROM livo 
-    WHERE cuenta = 'Lanzamiento'
-      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamiento')
+    WHERE cuenta = 'Lanzamientos'
+      AND fecha >= (SELECT MAX(fecha) - 10000 FROM livo WHERE cuenta = 'Lanzamientos')
 )
 SELECT 
     e.unidades_estratos_4_6,
@@ -7402,54 +7477,7 @@ FROM estratos_4_6 e, total_lanzamientos t"""
                 self._guardar_depuracion_reglas(resultado_depuracion)
                 return ' '.join(query.split())
             
-            # REGLA PARA TOP PROYECTOS POR VALOR/SALDO EN REGIONAL (mover antes de reglas VIS generales)
-            elif any(palabra in texto_norm for palabra in ['top', 'mayor', 'mayores', 'mayor saldo']) and any(palabra in texto_norm for palabra in ['proyectos', 'proyecto', 'identificador']) and any(palabra in texto_norm for palabra in ['valor', 'saldo', 'total']):
-                # Detectar número para TOP (default 10)
-                import re
-                top_match = re.search(r'top\s+(\d+)', texto_norm)
-                limite = top_match.group(1) if top_match else '10'
-                
-                # Detectar regional
-                regional_cond = "1=1"
-                if 'caribe' in texto_norm or 'atlantico' in texto_norm or 'atlántico' in texto_norm or 'barranquilla' in texto_norm or 'cartagena' in texto_norm:
-                    regional_cond = "UPPER(regional) LIKE '%ATLANTICO%'"
-                elif 'bogota' in texto_norm or 'bogotá' in texto_norm:
-                    regional_cond = "ciudad LIKE '%BOGOT%'"
-                elif 'antioquia' in texto_norm or 'medellin' in texto_norm:
-                    regional_cond = "UPPER(regional) LIKE '%ANTIOQUIA%'"
-                elif 'valle' in texto_norm or 'cali' in texto_norm:
-                    regional_cond = "regional = 'Valle'"
-                
-                # Detectar si es saldo que inicia
-                es_saldo = any(x in texto_norm for x in ['saldo que inicia', 'saldo', 'inicia', 'inicial', 'fase inicial'])
-                
-                # Usar cuenta correcta según el tipo de consulta
-                cuenta_filtro = "'Saldo que inicia'" if es_saldo else "'Oferta'"
-                fecha_cond_filtro = f"fecha = (SELECT MAX(fecha) FROM livo WHERE cuenta = {cuenta_filtro})"
-                
-                # Query para top proyectos por valor
-                query = f"""SELECT 
-    identificador,
-    nombre_proyecto,
-    compania_constructora,
-    SUM(unidades) AS total_unidades,
-    SUM(valor) AS valor_total
-FROM livo 
-WHERE cuenta = {cuenta_filtro}
-    AND {regional_cond}
-    AND {fecha_cond_filtro}
-GROUP BY identificador, nombre_proyecto, compania_constructora
-ORDER BY valor_total DESC
-LIMIT {limite}"""
-                
-                resultado_depuracion.update({
-                    'regla_aplicada': 'TOP PROYECTOS POR VALOR',
-                    'proceso': f'TOP {limite} proyectos por valor, {regional_cond}, saldo={es_saldo}',
-                    'filtros_detectados': self._extraer_filtros_pregunta(pregunta)
-                })
-                self._guardar_depuracion_reglas(resultado_depuracion)
-                return ' '.join(query.split())
-            
+                        
             # REGLA PARA CRECIMIENTO INTERANUAL - Detectar "crecimiento", "variacion", "comparar" (con o sin años)
             elif any(palabra in texto_norm for palabra in ['crecimiento', 'variacion', 'variación', 'comparar', 'vs', 'frente']) and any(palabra in texto_norm for palabra in ['constructora', 'compania', 'departamento']):
                 # Determinar si es por constructora o departamento
@@ -8191,15 +8219,19 @@ LIMIT {limite}"""
         if respuesta_coyuntura:
             return True, respuesta_coyuntura, None
 
-        # MEJORA: Intentar primero con reglas (sin LLM) para consultas comunes
-        # Esto ahorra tokens y es más rápido para preguntas estándar
-        # debug_sql_msg = f"[DEBUG _generar_sql_sin_llm] Llamando con pregunta: {pregunta}"
-        # if STREAMLIT_AVAILABLE:
-        #     st.text(debug_sql_msg)
-        # else:
-        #     print(debug_sql_msg)
+        # MEJORA: Intentar primero con reglas específicas (sin LLM) para consultas complejas
+        # Luego con reglas simples si las específicas fallan
+        print(f"[DEBUG] Intentando reglas específicas primero...")
         
-        sql_reglas = self._generar_sql_sin_llm(pregunta)
+        # Intentar primero con reglas específicas (con CTEs complejos)
+        sql_reglas = self._generar_sql_desde_reglas(pregunta)
+        es_sql_reglas_especificas = False
+        if sql_reglas:
+            print(f"[DEBUG] SQL generado por reglas específicas: {sql_reglas[:100]}...")
+            es_sql_reglas_especificas = True
+        else:
+            print(f"[DEBUG] Reglas específicas no aplicaron, intentando reglas simples...")
+            sql_reglas = self._generar_sql_sin_llm(pregunta)
         
         # debug_sql_msg2 = f"[DEBUG _generar_sql_sin_llm] SQL generado: {sql_reglas if sql_reglas else 'None'}"
         # if STREAMLIT_AVAILABLE:
@@ -8208,7 +8240,9 @@ LIMIT {limite}"""
         #     print(debug_sql_msg2)
         
         if sql_reglas:
-            sql_reglas = self.corregir_sql_hallucinado(sql_reglas)
+            # Solo aplicar correcciones si NO es de reglas específicas (las reglas específicas ya están correctas)
+            if not es_sql_reglas_especificas:
+                sql_reglas = self.corregir_sql_hallucinado(sql_reglas)
             print(f"Usando SQL generado por reglas (sin LLM): {sql_reglas}")
             try:
                 result = self.conn.execute(sql_reglas).fetchall()
