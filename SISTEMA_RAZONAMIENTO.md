@@ -1,17 +1,17 @@
 # Sistema de Razonamiento para Chatbot CAMACOL
 
-## 📋 Descripción General
+## Descripción General
 
 El Sistema de Razonamiento es una nueva funcionalidad implementada en el Chatbot CAMACOL que permite detectar preguntas incompletas o ambiguas y generar contrapreguntas para clarificar la intención del usuario antes de procesar la consulta.
 
-## 🎯 Objetivos
+## Objetivos
 
 - **Detectar preguntas incompletas**: Identificar cuando una pregunta carece de información esencial
 - **Generar contrapreguntas**: Crear preguntas específicas para obtener la información faltante
 - **Mejorar precisión**: Asegurar respuestas más acertadas al tener consultas bien definidas
 - **Proporcionar razonamiento**: Ofrecer comentarios explicativos sobre por qué se necesita información adicional
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ### Componentes Principales
 
@@ -31,7 +31,7 @@ El sistema identifica la presencia/ausencia de estos elementos clave:
 - **Operación**: Qué hacer (suma, promedio, cantidad, listado)
 - **Tipo de cuenta**: Ventas, entregas, licencias, proceso
 
-## 📊 Ejemplos de Funcionamiento
+## Ejemplos de Funcionamiento
 
 ### Preguntas Incompletas → Contrapreguntas
 
@@ -51,16 +51,16 @@ Basado en los ejemplos proporcionados y experiencia práctica:
 | "¿Cuál es el precio promedio de una unidad con estrato 6 en Bogotá?" | Se debe especificar la cuenta de ventas, así como asegurar los filtros para trabajar con viviendas |
 | "Liste las constructoras y la suma total del área construida para 2024" | Se debe especificar a qué se refiere con área construída, entiendo que es el total de área entregada |
 | "¿Cuál es el valor mínimo y máximo de una unidad NO VIS?" | La base trabaja con agregados, es decir, la columna valor incluye el valor de varias unidades |
-| "¿Cuántos proyectos hay en Bogotá?" | 🚨 CRÍTICO: Usar COUNT(DISTINCT identificador) porque un mismo proyecto puede aparecer varias veces |
-| "¿Cuántas licencias se otorgaron?" | 📋 IMPORTANTE: En LIVO se trabaja con proyectos de construcción, no con licencias |
-| "¿Cuáles son las constructoras con más proyectos?" | 🏢 CRÍTICO: Usar NIT junto con nombre de constructora para identificación única |
-| "Ranking de empresas por área total" | ⚠️ Solo el nombre puede ser ambiguo, el NIT es el identificador único real |
-| "¿Cuántas unidades VIS por política de vivienda?" | 📋 Variable incorrecta: usar segmento_pre o rangos_decreto_pre |
-| "¿Cuál es el estado vendido de proyectos?" | ⚠️ No existe estado 'vendido', usar TVE/TE (Terminado vendido y entregado) |
-| "Muestra casas en fase de entrega" | 📋 No existe fase 'entrega', usar cuenta 'entregadas' |
-| "¿Cuánto valor de mercado en doce meses?" | 💡 Definir qué es valor de mercado + explicar variable doce_meses |
+| "¿Cuántos proyectos hay en Bogotá?" | CRÍTICO: Usar COUNT(DISTINCT identificador) porque un mismo proyecto puede aparecer varias veces |
+| "¿Cuántas licencias se otorgaron?" | IMPORTANTE: En LIVO se trabaja con proyectos de construcción, no con licencias |
+| "¿Cuáles son las constructoras con más proyectos?" | CRÍTICO: Usar NIT junto con nombre de constructora para identificación única |
+| "Ranking de empresas por área total" | Solo el nombre puede ser ambiguo, el NIT es el identificador único real |
+| "¿Cuántas unidades VIS por política de vivienda?" | Variable incorrecta: usar segmento_pre o rangos_decreto_pre |
+| "¿Cuál es el estado vendido de proyectos?" | No existe estado 'vendido', usar TVE/TE (Terminado vendido y entregado) |
+| "Muestra casas en fase de entrega" | No existe fase 'entrega', usar cuenta 'entregadas' |
+| "¿Cuánto valor de mercado en doce meses?" | Definir qué es valor de mercado + explicar variable doce_meses |
 
-## 🔧 Integración en las Interfaces
+## Integración en las Interfaces
 
 ### Streamlit (app.py)
 
@@ -88,7 +88,7 @@ if REASONING_AVAILABLE and reasoning_system:
         return  # Detener procesamiento
 ```
 
-## 📝 Patrones de Detección
+## Patrones de Detección
 
 ### Preguntas Incompletas (Regex)
 - `^(cuánto|cuánta|cuántos|cuántas)\s*\?*$` - Solo "cuánto?"
@@ -102,10 +102,10 @@ if REASONING_AVAILABLE and reasoning_system:
 - **Ambigua**: Falta 1 elemento crítico (métrica u operación)
 - **Completa**: Todos los elementos esenciales presentes
 
-## 🎨 Formato de Respuesta de Clarificación
+## Formato de Respuesta de Clarificación
 
 ```markdown
-🤔 **Necesito más información para ayudarte mejor:**
+**Necesito más información para ayudarte mejor:**
 
 **Preguntas para clarificar:**
 1. ¿En qué ciudad o departamento te interesa consultar la información?
@@ -119,7 +119,7 @@ if REASONING_AVAILABLE and reasoning_system:
 • Ubicación geográfica (ciudad, departamento o región)
 • Métrica a consultar (unidades, valor, área, etc.)
 
-💡 *Una vez que me proporciones esta información, podré darte una respuesta más precisa y útil.*
+*Una vez que me proporciones esta información, podré darte una respuesta más precisa y útil.*
 ```
 
 ## 🧪 Pruebas y Validación
@@ -137,7 +137,7 @@ python test_reasoning.py
 3. **Preguntas más completas pero ambiguas**
 4. **Ejemplos específicos de LIVO con comentarios esperados**
 
-## 🔢 Consideraciones Críticas para COUNT en LIVO
+## Consideraciones Críticas para COUNT en LIVO
 
 ### Uso Obligatorio de COUNT DISTINCT
 El sistema detecta automáticamente operaciones de conteo y advierte sobre:
@@ -150,11 +150,11 @@ El sistema detecta automáticamente operaciones de conteo y advierte sobre:
 
 | Pregunta | Detección | Comentario Generado |
 |----------|-----------|-------------------|
-| "¿Cuántos proyectos hay en Bogotá?" | Operación COUNT | 🚨 CRÍTICO: Usar COUNT(DISTINCT identificador) |
-| "¿Cuántas construcciones VIS?" | Operación COUNT | ⚠️ Un mismo proyecto puede aparecer múltiples veces |
-| "Dame la cantidad de licencias" | COUNT + "licencias" | 📋 En LIVO se trabaja con proyectos de construcción |
+| "¿Cuántos proyectos hay en Bogotá?" | Operación COUNT | CRÍTICO: Usar COUNT(DISTINCT identificador) |
+| "¿Cuántas construcciones VIS?" | Operación COUNT | Un mismo proyecto puede aparecer múltiples veces |
+| "Dame la cantidad de licencias" | COUNT + "licencias" | En LIVO se trabaja con proyectos de construcción |
 
-## 🏢 Consideraciones Críticas para Constructoras y NIT
+## Consideraciones Críticas para Constructoras y NIT
 
 ### Identificación Única de Constructoras
 El sistema detecta automáticamente consultas sobre constructoras y advierte sobre:
@@ -168,9 +168,9 @@ El sistema detecta automáticamente consultas sobre constructoras y advierte sob
 
 | Pregunta | Detección | Comentario Generado |
 |----------|-----------|-------------------|
-| "¿Cuáles son las constructoras con más proyectos?" | Menciona "constructoras" | 🏢 CRÍTICO: Usar NIT junto con nombre de constructora |
-| "Ranking de empresas por área total" | Menciona "empresas" | ⚠️ Solo el nombre puede ser ambiguo, el NIT es el identificador único |
-| "Liste las constructoras y su valor de ventas" | Constructoras + GROUP BY | 💡 RECOMENDACIÓN: GROUP BY NIT_constructora, nombre_constructora |
+| "¿Cuáles son las constructoras con más proyectos?" | Menciona "constructoras" | CRÍTICO: Usar NIT junto con nombre de constructora |
+| "Ranking de empresas por área total" | Menciona "empresas" | Solo el nombre puede ser ambiguo, el NIT es el identificador único |
+| "Liste las constructoras y su valor de ventas" | Constructoras + GROUP BY | RECOMENDACIÓN: GROUP BY NIT_constructora, nombre_constructora |
 
 ### Recomendaciones SQL para Constructoras
 
@@ -306,11 +306,11 @@ Aprobada → Vendido → Entregado → Proceso
 
 | Consulta | Jerarquía Aplicada | Recomendación del Sistema |
 |----------|-------------------|--------------------------|
-| "Unidades en Bogotá" | Geográfica: Ciudad | 🗺️ Si se filtra por ciudad, agrupar por barrio para detalle |
-| "Proyectos por departamento" | Geográfica: Departamento | 🗺️ Si se filtra por departamento, agrupar por ciudad o zona |
-| "Constructoras agrupadas" | Identificador: NIT | 🔑 Usar nit_constructora como clave primaria |
-| "Conteo de proyectos" | Identificador: Proyecto | 🔑 Usar COUNT(DISTINCT identificador) |
-| "Secuencia de fases" | Cronológica: Estados | 📊 Orden: Preventa → Licencia → Vendido |
+| "Unidades en Bogotá" | Geográfica: Ciudad | Si se filtra por ciudad, agrupar por barrio para detalle |
+| "Proyectos por departamento" | Geográfica: Departamento | Si se filtra por departamento, agrupar por ciudad o zona |
+| "Constructoras agrupadas" | Identificador: NIT | Usar nit_constructora como clave primaria |
+| "Conteo de proyectos" | Identificador: Proyecto | Usar COUNT(DISTINCT identificador) |
+| "Secuencia de fases" | Cronológica: Estados | Orden: Preventa → Licencia → Vendido |
 
 ## 📈 Beneficios del Sistema
 
@@ -326,7 +326,7 @@ Aprobada → Vendido → Entregado → Proceso
 - **Mejor calidad de datos**: Asegura que las consultas SQL sean más específicas y útiles
 - **Integridad de datos**: Garantiza conteos únicos y precisos
 
-## 🔄 Flujo de Procesamiento
+## Flujo de Procesamiento
 
 ```mermaid
 graph TD
@@ -340,7 +340,7 @@ graph TD
     D --> H[Respuesta final]
 ```
 
-## 🚀 Implementación Técnica
+## Implementación Técnica
 
 ### Archivos Modificados
 - `reasoning_system.py` - **NUEVO**: Sistema completo de razonamiento
@@ -367,14 +367,14 @@ Los patrones y respuestas pueden personalizarse modificando:
 - `counter_questions_templates`: Plantillas de contrapreguntas
 - `reasoning_comments`: Comentarios específicos de razonamiento
 
-## 🔮 Futuras Mejoras
+## Futuras Mejoras
 
 1. **Aprendizaje adaptativo**: Mejorar patrones basado en interacciones
 2. **Contexto conversacional**: Recordar información de mensajes anteriores
 3. **Integración con ML**: Usar modelos de clasificación más sofisticados
 4. **Métricas de efectividad**: Medir mejora en precisión de respuestas
 
-## 📞 Soporte
+## Soporte
 
 Para dudas o mejoras del sistema de razonamiento:
 - Revisar logs de `print()` en consola para debugging
