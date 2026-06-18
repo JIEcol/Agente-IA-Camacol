@@ -7,9 +7,11 @@ Chatbot inteligente para la Cámara Colombiana de la Construcción (CAMACOL) con
 Este proyecto es un chatbot que responde consultas sobre el sector constructor en Colombia, utilizando:
 - **Base de datos LIVO** (DuckDB) con información de vivienda
 - **RAG (Retrieval Augmented Generation)** para consultas documentales
-- **Múltiples LLMs**: Google AI (Gemini), OpenAI, Groq, Ollama
+- **Múltiples LLMs**: Google AI (Gemini), OpenAI, Groq, **Ollama (local)**
 - **Interfaz web** con Streamlit
 - **Bot de Telegram** para acceso móvil
+
+**Alternativa Open Source:** Puedes ejecutar el chatbot **sin API Keys externas** usando modelos locales con Ollama (DeepSeek, Mistral, Llama, Qwen).
 
 ## Tabla de Contenidos
 
@@ -17,13 +19,14 @@ Este proyecto es un chatbot que responde consultas sobre el sector constructor e
 - [Instalación Local](#-instalación-local)
 - [Ejecución Streamlit Local](#️-ejecución-streamlit-local)
 - [Configuración Telegram Bot](#-configuración-telegram-bot)
+- [Configuración Ollama (Open Source)](#-configuración-ollama-modelos-open-source)
 - [Variables de Entorno](#-variables-de-entorno)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Solución de Problemas](#-solución-de-problemas)
 
 ---
 
-## ✅ Requisitos Previos
+## Requisitos Previos
 
 ### Software Necesario
 
@@ -49,7 +52,7 @@ git --version
 
 ---
 
-## Instalación Local
+## 🚀 Instalación Local
 
 ### Paso 1: Clonar el Repositorio
 
@@ -244,6 +247,120 @@ Ctrl + C
 
 ---
 
+## Configuración Ollama (Modelos Open Source)
+
+Alternativa para ejecutar el chatbot **sin API Keys externas** usando modelos locales.
+
+### Modelos Configurados
+
+| Prioridad | Modelo | Nombre en Ollama |
+|-----------|--------|------------------|
+| 1 | DeepSeek V2 | `deepseek-v2:latest` |
+| 2 | Mistral 7B | `mistral:7b` |
+| 3 | Llama 3.1 | `llama3.1:8b` |
+| 4 | Qwen 2.5 | `qwen2.5:7b` |
+| 5 | DeepSeek R1 | `deepseek-r1:latest` |
+
+### Paso 1: Instalar Ollama
+
+**Windows:**
+```powershell
+# Descargar desde https://ollama.com/download/windows
+# Ejecutar el instalador y seguir las instrucciones
+
+# Verificar instalación
+ollama --version
+```
+
+**Linux/Mac:**
+```bash
+# Instalar con el script oficial
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Verificar instalación
+ollama --version
+```
+
+### Paso 2: Descargar Modelos
+
+Ejecutar estos comandos en terminal:
+
+```bash
+# 1. DeepSeek V2 (Prioridad 1 - Recomendado)
+ollama pull deepseek-v2:latest
+
+# 2. Mistral 7B (Prioridad 2)
+ollama pull mistral:7b
+
+# 3. Llama 3.1 8B (Prioridad 3)
+ollama pull llama3.1:8b
+
+# 4. Qwen 2.5 7B (Prioridad 4)
+ollama pull qwen2.5:7b
+
+# 5. DeepSeek R1 (Prioridad 5)
+ollama pull deepseek-r1:latest
+```
+
+**Comando único (todos los modelos):**
+```bash
+ollama pull deepseek-v2:latest && ollama pull mistral:7b && ollama pull llama3.1:8b && ollama pull qwen2.5:7b && ollama pull deepseek-r1:latest
+```
+
+### Paso 3: Verificar Modelos Instalados
+
+```bash
+# Listar todos los modelos descargados
+ollama list
+```
+
+**Salida esperada:**
+```
+NAME                    ID              SIZE      MODIFIED
+deepseek-v2:latest      xxxxxxxxxx      4.5 GB    2 minutes ago
+mistral:7b              xxxxxxxxxx      4.1 GB    5 minutes ago
+llama3.1:8b             xxxxxxxxxx      4.7 GB    10 minutes ago
+qwen2.5:7b              xxxxxxxxxx      4.4 GB    15 minutes ago
+deepseek-r1:latest      xxxxxxxxxx      4.7 GB    20 minutes ago
+```
+
+### Paso 4: Iniciar Servidor Ollama
+
+```bash
+# Iniciar el servidor (dejar corriendo en una terminal)
+ollama serve
+```
+
+**Salida esperada:**
+```
+Listening on 127.0.0.1:11434 (version x.x.x)
+```
+
+### Paso 5: Configurar Chatbot para usar Ollama
+
+En `config.py`, los modelos Ollama ya están configurados. Para **usar solo Ollama** (sin APIs externas):
+
+1. Comentar los proveedores de pago en `AI_PROVIDERS`
+2. Dejar solo los modelos con `"type": AIModel.OLLAMA`
+
+Los modelos Ollama usan:
+- `base_url`: `http://localhost:11434`
+- No requieren API Key
+
+### Requisitos de Hardware
+
+| Modelo | VRAM GPU | RAM Alternativa |
+|--------|----------|-----------------|
+| DeepSeek V2 | ~8 GB | ~16 GB RAM |
+| Mistral 7B | ~8 GB | ~16 GB RAM |
+| Llama 3.1 8B | ~8 GB | ~16 GB RAM |
+| Qwen 2.5 7B | ~8 GB | ~16 GB RAM |
+| DeepSeek R1 | ~8 GB | ~16 GB RAM |
+
+**Nota:** Ollama puede usar CPU si no hay GPU, pero será más lento.
+
+---
+
 ## Variables de Entorno
 
 ### Lista Completa de Variables
@@ -257,7 +374,7 @@ Ctrl + C
 | `TELEGRAM_WEBHOOK_URL` | Para webhook | URL del servidor | `https://...` |
 | `DUCKDB_PATH` | No | Ruta a la base de datos | `LIVO/LIVO/...` |
 
-*Al menos una API Key de LLM es requerida
+*Al menos una API Key de LLM es requerida **O** tener configurado Ollama con modelos locales
 
 ### Archivos de Configuración
 
@@ -301,7 +418,7 @@ Chatbot-Camacol/
 │
 ├── app.py                          # Aplicación Streamlit principal
 ├── bot_telegram.py                 # Bot de Telegram
-├── livo_sql.py                     # Sistema SQL para consultas LIVO
+├── ivo_sql.py                     # Sistema SQL para consultas LIVO
 ├── livo_sql_optimized.py         # Versión optimizada de consultas
 ├── reasoning_system.py             # Sistema de razonamiento avanzado
 ├── rag_system.py                   # Sistema RAG para documentos
